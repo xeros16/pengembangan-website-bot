@@ -1,0 +1,52 @@
+name: PIR Visuals CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pir-visuals-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Install dependencies and run full test suites
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            portfolio-website/package-lock.json
+
+      - name: Install bot dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Install website dependencies
+        run: npm ci --prefix portfolio-website --no-audit --no-fund
+
+      - name: Check JavaScript syntax
+        run: npm run check
+
+      - name: Check website entry points
+        run: npm run website:check
+
+      - name: Audit release contents
+        run: npm run audit:release
+
+      - name: Run complete bot test suite
+        run: npm test
+
+      - name: Run complete website test suite
+        run: npm run website:test

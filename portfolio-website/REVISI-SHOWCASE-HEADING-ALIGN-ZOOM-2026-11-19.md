@@ -1,0 +1,1 @@
+# Revisi Heading Alignment + Zoom Safety — 19 November 2026\n\nJudul section showcase kini mengukur tepi kiri heading pada copy carousel yang aktif pada semua lebar viewport.\nPergeseran horizontal dibatasi pada batas area showcase dan viewport, sehingga tetap sejajar saat browser window kecil/zoom tanpa keluar layar.\nUkuran font responsif dan layout carousel tidak diubah.\n

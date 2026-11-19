@@ -1,0 +1,45 @@
+PIR Visuals v5.89.0 — UPDATE MANIFEST
+
+APPLICATION
+- package.json
+- package-lock.json
+- features/onboarding.js
+- features/command-suggestions.js
+- features/commands/general-help.js
+- features/command-handler.js
+- features/command-catalog.js
+- features/group-greetings.js
+- content/texts.json
+- content/texts.example.json
+
+TESTS
+- tests/onboarding.test.js
+- tests/command-search.test.js
+- tests/general-help.test.js
+- tests/group-greetings.test.js
+- tests/operational-stability-v587.test.js
+- portfolio-website/tests/contact-support-v5.74.test.js
+- portfolio-website/tests/* release metadata expectation updates
+
+DOCUMENTATION
+- README.md
+- docs/START-HERE.md
+- docs/ROADMAP.md
+- docs/CHANGELOG.md
+- docs/commands.md
+- RELEASE-NOTES-v5.89.0.md
+- QA_REPORT_v5_89_0.md
+- OPERATIONS_RUNBOOK_v5_89_0.md
+- INSTALL_UPDATE_v5_89_0.txt
+- UPDATE_MANIFEST_v5_89_0.txt
+- PARTS-README-v5.89.0.txt
+
+DO NOT INCLUDE / DO NOT REPLACE
+- .env, portfolio-website/.env
+- auth_info, auth_info_baileys
+- backups, database data, data/pinsearch-history.json
+- config/allowed-chats.json, config/command-aliases.json, config/bot-settings.json
+- uploads, temp, logs, node_modules, .git
+- portfolio-website/models.js in an in-place update
+
+No schema migration and no new runtime dependency.

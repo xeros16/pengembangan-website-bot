@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 560" width="560" height="560" aria-hidden="true">
+  <defs>
+    <radialGradient id="disc" cx="45%" cy="42%" r="62%">
+      <stop offset="0%" stop-color="#A5C896" stop-opacity=".21"/>
+      <stop offset="100%" stop-color="#6C946B" stop-opacity=".04"/>
+    </radialGradient>
+  </defs>
+  <!-- All paths stay within the viewBox, including at extreme browser zoom. -->
+  <path d="M282 33 C390 34 509 122 522 246 C542 385 451 502 309 525 C173 547 49 446 37 318 C21 173 133 43 282 33 Z" fill="none" stroke="#C5DEC0" stroke-opacity=".45" stroke-width="2"/>
+  <path d="M270 75 C373 61 476 160 475 273 C476 389 385 471 279 476 C159 485 77 394 80 281 C80 167 158 87 270 75Z" fill="url(#disc)" stroke="#C5DEC0" stroke-opacity=".48" stroke-width="2"/>
+  <circle cx="279" cy="276" r="157" fill="none" stroke="#C5DEC0" stroke-opacity=".32" stroke-width="2"/>
+  <circle cx="279" cy="276" r="122" fill="#A0C497" fill-opacity=".07"/>
+  <g fill="#D7E9CA" font-family="Georgia, 'Times New Roman', serif" font-weight="bold" text-anchor="middle">
+    <text x="280" y="258" font-size="65" letter-spacing="-5">PIR</text>
+    <text x="280" y="324" font-size="53" letter-spacing="-4">VISUALS</text>
+  </g>
+  <path d="M280 347v35 M262 364h36 M266 351l28 27 M294 351l-28 27" fill="none" stroke="#C7DAAF" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="280" cy="365" r="4" fill="#C7DAAF"/>
+  <path d="M125 108l12 8-13 8M412 422l13-8-4 14" fill="none" stroke="#D7E9CA" stroke-opacity=".65" stroke-width="2" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,15 @@
+PIR Visuals Bot v5.93.0 — Split Source Package
+
+IMPORTANT: Part 1 and Part 2 are complementary archives, not separate installations.
+Download BOTH ZIP files and extract them into the SAME destination folder.
+
+After extraction:
+1. Preserve your existing .env, WhatsApp auth/session folders, database, uploads,
+   backups, allowlists, and local configuration.
+2. Run npm ci from the project root.
+3. Follow INSTALL_UPDATE_v5_93_0.md.
+4. Run automated checks and complete the live WhatsApp/MongoDB staging smoke tests.
+
+The clean source archives intentionally exclude .env, .git, node_modules,
+WhatsApp authentication/session state, backups, runtime uploads, logs, and temp files.
+Do not overwrite local secrets or session data with sample files.

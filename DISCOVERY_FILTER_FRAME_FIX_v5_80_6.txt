@@ -1,0 +1,10 @@
+PIR Visuals v5.80.6 — Discovery filter frame cleanup
+
+Changes:
+- Removed the outer card wrapper around the Smart Discovery filter section.
+- Removed the inner search-panel frame, fill and shadow around the filter controls.
+- Kept individual input/select outlines, compact checkboxes, filter spacing and action buttons.
+- Preserved magnetic mouse-following animation and all prior form fixes.
+- Updated public cache to pir-visuals-public-v31 and asset suffix to 5806.
+
+Versions: Platform 5.80.6 | Website 3.34.6

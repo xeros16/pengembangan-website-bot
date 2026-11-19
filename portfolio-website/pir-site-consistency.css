@@ -1,0 +1,205 @@
+/* PIR VISUALS / 2026-11-14p — one visual system for every public page.
+   Final, deliberately small override after the legacy theme layers.
+   No wheel interception or artificial inertial scrolling. */
+:root{--pir-forest:#20372a;--pir-deep:#14291d;--pir-sage:#c7daaf;--pir-ivory:#f0f3eb;--pir-paper:#fcfdf8;--pir-ink:#20372a;--pir-border:#b8cdb5}
+html,body{overflow-x:clip}
+/* The navbar lives INSIDE a padded/max-width .wrap on subpages. Its previous
+   negative-margin formula was overridden, leaving the full-viewport bar shifted
+   48–302 px right. Center it on the viewport from its own containing block. */
+html body #main-content.wrap > header.site-nav,
+html:root[data-theme] body #main-content.wrap > header.site-nav,
+html:root[data-theme] body:not(:has(.pv-home)) #main-content.wrap > header.site-nav {
+  width:100vw!important;max-width:100vw!important;box-sizing:border-box!important;
+  margin:0 0 0 calc(50% - 50vw)!important;
+  inset-inline:auto!important;left:auto!important;right:auto!important;
+  min-height:76px!important;top:0!important;position:sticky!important;
+  padding:12px clamp(16px,3.1vw,54px)!important;
+  background:var(--pir-forest)!important;
+  border:0!important;border-bottom:1px solid #4c6a54!important;
+  border-radius:0!important;box-shadow:0 7px 22px #10291b18!important;
+}
+html body:has(.pv-home) #main-content.wrap > header.site-nav {margin-left:0!important}
+html body #main-content.wrap > header.site-nav .nav-primary > a[aria-current="page"],
+html body #main-content.wrap > header.site-nav .nav-more-menu > a[aria-current="page"]{
+  background:#365b40!important;color:#f6f8ed!important;-webkit-text-fill-color:#f6f8ed!important;
+  border-color:#6a896b!important
+}
+/* Shared canvas; keep main internal content centered, with hero proportions and
+   typography that match the forest-green home masthead and sage section rhythm. */
+html body #main-content.wrap:not(:has(.pv-home)){
+  padding-top:0!important;
+  color:var(--pir-ink);background:var(--pir-ivory)!important;
+}
+html body #main-content.wrap:not(:has(.pv-home)) > :not(.site-nav):not(.foot):not(.pv-command-dialog){max-width:100%}
+html body #main-content.wrap:not(:has(.pv-home)) > .hero:not(.pv-hero){
+  position:relative;isolation:isolate;overflow:hidden;
+  margin:0 0 clamp(24px,3vw,45px)!important;
+  padding:clamp(55px,6.5vw,104px) clamp(26px,5vw,80px)!important;
+  border:0!important;border-radius:0!important;
+  background:linear-gradient(120deg,#152b1e,#263f2e 73%,#304b35)!important;
+  color:#f1f7ed!important;box-shadow:none!important;
+}
+html body #main-content.wrap:not(:has(.pv-home)) > .hero:not(.pv-hero)::before{
+  content:"";position:absolute;z-index:-1;pointer-events:none;
+  inset:0 0 0 auto;width:57%;opacity:.10;
+  background:url('/editorial-art.svg') right center/contain no-repeat;
+}
+html body #main-content.wrap:not(:has(.pv-home)) > .hero:not(.pv-hero) :is(.eyebrow,h1,h1 em,strong){
+  color:#eff6e9!important;-webkit-text-fill-color:#eff6e9!important
+}
+html body #main-content.wrap:not(:has(.pv-home)) > .hero:not(.pv-hero) h1{
+  max-width:1050px!important;font:800 clamp(47px,7vw,102px)/.99 Georgia,'Times New Roman',serif!important;
+  letter-spacing:-.065em!important;margin:18px 0 26px!important;text-wrap:balance
+}
+html body #main-content.wrap:not(:has(.pv-home)) > .hero:not(.pv-hero) :is(p,p.muted,.muted){
+  max-width:750px;color:#deeadb!important;-webkit-text-fill-color:#deeadb!important;
+  font-size:clamp(15px,1.3vw,18px)!important;line-height:1.7!important
+}
+/* Trust stats are rich, stable cards instead of flat white strips on a dark hero. */
+html body #main-content > .hero .stat-grid{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;
+  margin-top:clamp(36px,4.7vw,58px);max-width:1120px
+}
+html body #main-content > .hero .stat-grid .stat{
+  min-height:116px!important;padding:20px 23px!important;border-radius:10px!important;
+  border:1px solid #7991787d!important;background:#34503b9a!important;
+  box-shadow:none!important
+}
+html body #main-content > .hero .stat-grid .stat strong{
+  font:750 clamp(35px,3vw,49px)/1 Georgia,serif!important;
+  color:#eff6e9!important;-webkit-text-fill-color:#eff6e9!important
+}
+html body #main-content > .hero .stat-grid .stat span,
+html body #main-content > .hero .stat-grid .stat .muted{
+  display:block;margin-top:9px;font-size:12px!important;line-height:1.45!important;
+  color:#dbe8d6!important;-webkit-text-fill-color:#dbe8d6!important
+}
+/* Shared editorial titles and content spacing on all interior pages. */
+html body #main-content:not(:has(.pv-home)) :is(.section-head h2,.pv-match-finder-copy h2,.company-editorial h2,.support-info h2,.support-form-card h2,.empty-state h2){
+  font-family:Georgia,'Times New Roman',serif!important;line-height:1.06!important;letter-spacing:-.055em!important
+}
+html body #main-content:not(:has(.pv-home)) .section-head{margin:clamp(36px,5vw,70px) 0 22px!important;gap:20px}
+html body #main-content:not(:has(.pv-home)) .section-head h2{font-size:clamp(35px,4.1vw,60px)!important}
+html body #main-content:not(:has(.pv-home)) .section-head p{font-size:15px;line-height:1.7;max-width:680px}
+html body #main-content:not(:has(.pv-home)) .eyebrow {letter-spacing:.16em!important;font-size:11px!important;font-weight:800}
+/* Form and information blocks share the same paper/sage surfaces as home.
+   Avoid the old generic all-white rectangle and tightly packed tiny fields. */
+html body #main-content:not(:has(.pv-home)) :is(.pv-match-finder,.search-panel.pv-discovery-filters,.support-form-card){
+  background:var(--pir-paper)!important;border:1px solid var(--pir-border)!important;
+  border-radius:14px!important;box-shadow:0 14px 38px #20372a0d!important;
+  padding:clamp(22px,3.5vw,42px)!important
+}
+html body #main-content:not(:has(.pv-home)) .pv-match-finder{
+  grid-template-columns:minmax(220px,.8fr) minmax(0,1.2fr)!important;
+  gap:clamp(24px,4vw,65px)!important;margin:0 0 clamp(52px,6vw,90px)!important;
+  background:linear-gradient(135deg,#e0ead8,#f8faf4 62%)!important;
+}
+html body #main-content:not(:has(.pv-home)) .pv-match-finder-copy h2{
+  font-size:clamp(35px,3.7vw,56px)!important;max-width:11ch;margin:17px 0!important
+}
+html body #main-content:not(:has(.pv-home)) .pv-match-finder-copy p{font-size:15px!important;line-height:1.75!important;max-width:480px}
+html body #main-content:not(:has(.pv-home)) :is(.pv-match-finder-form,.pv-filter-fields){gap:18px!important}
+html body #main-content:not(:has(.pv-home)) :is(.pv-match-finder-form label,.pv-discovery-filters label,.support-form label){
+  font-size:12px!important;font-weight:750!important;color:#2b4833!important
+}
+html body #main-content:not(:has(.pv-home)) :is(.pv-match-finder-form input,.pv-match-finder-form select,.pv-discovery-filters input:not([type=checkbox]),.pv-discovery-filters select,.support-form input,.support-form select,.support-form textarea){
+  min-height:48px!important;background:#fffefa!important;color:#20372a!important;
+  border:1px solid #bacdb5!important;border-radius:8px!important;
+  font-size:14px!important;padding:11px 14px!important
+}
+html body #main-content:not(:has(.pv-home)) :is(.pv-match-finder-note,.pv-match-result-note){font-size:12px!important;line-height:1.7!important}
+html body #main-content:not(:has(.pv-home)) .pv-discovery-shell {margin-bottom:32px!important}
+html body #main-content:not(:has(.pv-home)) .pv-discovery-shell > .section-head {margin-top:0!important}
+html body #main-content:not(:has(.pv-home)) .pv-discovery-filters .pv-filter-toggle{
+  border-radius:8px!important;border:1px solid var(--pir-border)!important;
+  background:#e4ecdb!important;color:var(--pir-forest)!important
+}
+html body #main-content:not(:has(.pv-home)) :is(.pv-discovery-filters .discovery-shortcuts a,.pv-discovery-filters .filter-row label){font-size:12px!important}
+html body #main-content:not(:has(.pv-home)) :is(.designer-card,.company-editorial-card,.card,.support-channel,.support-note){
+  border-radius:12px!important;box-shadow:0 10px 28px #20372a0b!important;
+}
+/* Brand banners are part of the same alternating forest/sage system. */
+html body #main-content:not(:has(.pv-home)) .company-editorial{margin-top:0!important}
+html body #main-content:not(:has(.pv-home)) .company-editorial-hero{
+  gap:clamp(30px,5vw,65px);border-radius:0!important;
+  margin-top:0!important;padding:clamp(50px,6vw,88px)!important;
+  background:#c7daaf!important
+}
+html body #main-content:not(:has(.pv-home)) .company-editorial-hero h1{
+  font-size:clamp(52px,7vw,104px)!important;max-width:11ch;text-wrap:balance
+}
+html body #main-content:not(:has(.pv-home)) .company-editorial-hero-aside{
+  border-radius:12px!important;padding:clamp(24px,3vw,45px)!important;
+  color:#eff7eb!important;background:#20372a!important
+}
+html body #main-content:not(:has(.pv-home)) .company-editorial-hero-aside :is(span,strong){color:#eff7eb!important;-webkit-text-fill-color:#eff7eb!important}
+html body #main-content:not(:has(.pv-home)) .company-editorial-grid{gap:20px!important;margin-top:28px!important}
+html body #main-content:not(:has(.pv-home)) .company-editorial-card{
+  padding:clamp(25px,3vw,42px)!important;min-width:0
+}
+html body #main-content:not(:has(.pv-home)) .company-editorial-card h2{font-size:clamp(29px,2.8vw,41px)!important}
+html body #main-content:not(:has(.pv-home)) .company-editorial-copy{margin-top:25px;padding-block:clamp(46px,6vw,90px)!important}
+/* Category index uses the same generous serif headings and sage background. */
+html body #main-content:not(:has(.pv-home)) .category-intro{margin-top:0!important;padding:clamp(35px,5vw,72px)!important;background:#dfe9d7!important}
+html body #main-content:not(:has(.pv-home)) .category-intro h1{font-size:clamp(48px,7vw,105px)!important}
+/* Contact aside: older rules put dark text on a dark information card. */
+html body #main-content:not(:has(.pv-home)) :is(.support-hero-aside,.support-hero-aside *),
+html body #main-content:not(:has(.pv-home)) .support-hero-aside :is(span,b,li,strong){color:#eff7ed!important;-webkit-text-fill-color:#eff7ed!important}
+html body #main-content:not(:has(.pv-home)) .support-hero{margin-top:0!important;border-radius:0!important}
+html body #main-content:not(:has(.pv-home)) .support-layout{margin-top:clamp(35px,5vw,68px)}
+/* Reveal only below-the-fold editorial groups, never navigation or form controls.
+   A CSS-only inertial wheel effect is deliberately NOT added. */
+html body .pir-reveal-pending{
+  opacity:0;transform:translate3d(0,18px,0);
+  transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1);
+}
+html body .pir-reveal-pending.pir-revealed{opacity:1;transform:none}
+@media(max-width:1100px){
+  html body #main-content:not(:has(.pv-home)) .pv-match-finder{grid-template-columns:1fr!important}
+  html body #main-content:not(:has(.pv-home)) .pv-match-finder-copy h2{max-width:none}
+}
+@media(max-width:850px){
+  html body #main-content.wrap > header.site-nav,
+  html:root[data-theme] body #main-content.wrap > header.site-nav,
+  html:root[data-theme] body:not(:has(.pv-home)) #main-content.wrap > header.site-nav{
+    min-height:68px!important;padding:10px 15px!important;
+  }
+  html body #main-content.wrap:not(:has(.pv-home)) > .hero:not(.pv-hero){padding:48px 25px!important}
+  html body #main-content:not(:has(.pv-home)) .pv-match-finder-form{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  html body #main-content:not(:has(.pv-home)) .company-editorial-hero{grid-template-columns:1fr!important}
+}
+@media(max-width:600px){
+  html body #main-content.wrap:not(:has(.pv-home)) > .hero:not(.pv-hero){padding:42px 22px!important}
+  html body #main-content.wrap:not(:has(.pv-home)) > .hero:not(.pv-hero) h1{font-size:clamp(40px,10.5vw,63px)!important}
+  html body #main-content > .hero .stat-grid{gap:8px;grid-template-columns:repeat(3,minmax(0,1fr))}
+  html body #main-content > .hero .stat-grid .stat{min-height:96px!important;padding:13px 11px!important}
+  html body #main-content > .hero .stat-grid .stat strong{font-size:26px!important}
+  html body #main-content > .hero .stat-grid .stat span{font-size:10px!important}
+  html body #main-content:not(:has(.pv-home)) .pv-match-finder{padding:25px 20px!important}
+  html body #main-content:not(:has(.pv-home)) .pv-match-finder-form{grid-template-columns:1fr!important}
+  html body #main-content:not(:has(.pv-home)) .company-editorial-hero{padding:37px 22px!important}
+  html body #main-content:not(:has(.pv-home)) .company-editorial-hero h1{font-size:clamp(42px,11vw,64px)!important}
+}
+@media(prefers-reduced-motion:reduce){
+  html body .pir-reveal-pending{opacity:1!important;transform:none!important;transition:none!important}
+}
+/* Editorial mastheads are full-bleed like the homepage, while cards/forms below
+   remain constrained to the readable content grid. */
+html body #main-content.wrap:not(:has(.pv-home)) > .hero:not(.pv-hero),
+html body #main-content.wrap:not(:has(.pv-home)) > .support-hero,
+html body #main-content.wrap:not(:has(.pv-home)) > .category-intro,
+html body #main-content.wrap:not(:has(.pv-home)) > .company-editorial > .company-editorial-hero{
+  width:100vw!important;max-width:100vw!important;
+  margin-left:calc(50% - 50vw)!important;
+  margin-right:0!important;box-sizing:border-box!important;
+}
+html body #main-content:not(:has(.pv-home)) > .hero .stat-grid .stat,
+html:root[data-theme] body #main-content.wrap:not(:has(.pv-home)) > .hero .stat-grid .stat{
+  background:#edf3e7!important;border:1px solid #a5c19f!important;
+  color:#20372a!important;box-shadow:none!important;
+}
+html body #main-content:not(:has(.pv-home)) > .hero .stat-grid .stat strong,
+html body #main-content:not(:has(.pv-home)) > .hero .stat-grid .stat :is(span,.muted),
+html:root[data-theme] body #main-content.wrap:not(:has(.pv-home)) > .hero .stat-grid .stat :is(strong,span,.muted){
+  color:#20372a!important;-webkit-text-fill-color:#20372a!important;
+}

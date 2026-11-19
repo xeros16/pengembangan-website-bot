@@ -1,0 +1,8 @@
+PIR Visuals Bot v3.37.0 - Stage 10
+
+1. Download Bagian1.zip dan Bagian2.zip.
+2. Ekstrak KEDUA file ke folder proyek yang SAMA.
+3. Jika diminta menggabungkan folder, pilih Yes.
+4. Jalankan npm install, salin konfigurasi .env, lalu jalankan npm start.
+
+Kedua arsip berisi file yang berbeda (tidak perlu digabung dengan perintah khusus).

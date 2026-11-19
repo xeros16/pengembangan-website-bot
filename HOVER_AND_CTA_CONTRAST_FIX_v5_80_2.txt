@@ -1,0 +1,24 @@
+PIR Visuals v5.80.2 — Perbaikan warna hover kategori dan keterbacaan CTA
+
+PERBAIKAN
+1. Kartu kategori tidak lagi menerima generic spotlight gradient yang sebelumnya menimpa warna asli kartu menjadi putih. Palet warna tiap kategori tetap konsisten saat pointer masuk dan keluar.
+2. Animasi hover kategori yang sudah ada tetap aktif: sedikit lift, shadow, dan gerakan glyph. Efek motion lain di website tidak diubah.
+3. Tombol hero “Temukan desainer” memakai foreground gelap pada latar terang, text-fill dikunci agar tidak diwarisi warna link, ukuran teks 12px, dan tinggi minimum 48px.
+4. Cache aset publik diperbarui ke v5802 dan service worker ke public-v27.
+
+CARA MEMASANG
+1. Buat backup project terlebih dahulu.
+2. Ekstrak ZIP ini ke folder root project PIR Visuals dan pilih Replace/Timpa jika diminta.
+3. Jalankan ulang server website.
+4. Di browser tekan Ctrl + Shift + R untuk memuat CSS/HTML terbaru.
+
+FILE UTAMA YANG BERUBAH
+- portfolio-website/server.js
+- package.json dan package-lock.json
+- portfolio-website/package.json dan portfolio-website/package-lock.json
+- portfolio-website/tests/*.test.js (pembaruan ekspektasi versi dan regression test baru)
+
+VALIDASI
+- node --check portfolio-website/server.js: lulus
+- npm run website:check: lulus
+- npm run website:test: 289/289 tes lulus

@@ -1,0 +1,1218 @@
+/*
+ * PIR Visuals — Reference Blend v3.62.0
+ * Direction informed by BETTR Academy (bold editorial storytelling,
+ * clear audience pathways, proof and testimonials) and The Rewilding Co.
+ * (earthy product/collection presentation, clean filtering and image-led cards).
+ * This is an original PIR treatment; no third-party copy, logos or assets are used.
+ */
+
+:root {
+  --pir-ref-paper: #f7f4ed;
+  --pir-ref-ink: #2c241c;
+  --pir-ref-forest: #20372a;
+  --pir-ref-sage: #dce7d5;
+  --pir-ref-sage-deep: #c5d7bd;
+  --pir-ref-clay: #ead6c4;
+  --pir-ref-ochre: #e8c65d;
+  --pir-ref-line: rgba(32, 55, 42, .18);
+}
+
+/* Shared editorial rhythm: warm paper, strong serif displays, readable sans body. */
+html body #main-content .pv-home {
+  background: var(--pir-ref-paper) !important;
+  color: var(--pir-ref-ink) !important;
+  font-family: Inter, "Helvetica Neue", Arial, sans-serif !important;
+}
+
+html body #main-content .pv-home :is(.pv-section-top h2, .pv-journey-head h2,
+  .pv-showcase-heading h2, .pv-showcase-copy h3, .pv-testimonials-head h2,
+  .pv-manifesto h2, .pv-join h2, .pv-faq h2, .home-category strong) {
+  font-family: Georgia, "Roboto Slab", "Times New Roman", serif !important;
+  font-weight: 600 !important;
+  letter-spacing: -.055em !important;
+  text-wrap: balance;
+}
+
+html body #main-content .pv-home :is(.pv-section-top > p, .pv-journey-head > p,
+  .pv-showcase-heading > p, .pv-showcase-copy > p, .pv-manifesto-copy > p,
+  .pv-join p, .pv-testimonials-head > p, .pv-faq-list p) {
+  font-family: Inter, "Helvetica Neue", Arial, sans-serif !important;
+  font-size: 15px !important;
+  line-height: 1.75 !important;
+}
+
+/* BETTR-inspired hero: strong statement, visible proof and a clear first action. */
+@media (min-width: 1025px) {
+  html body #main-content .pv-home .pv-hero {
+    grid-template-columns: minmax(0, 1.12fr) minmax(340px, .88fr) !important;
+    align-items: center !important;
+    gap: clamp(42px, 5.4vw, 88px) !important;
+    min-height: clamp(700px, calc(100svh - 76px), 840px) !important;
+    padding: clamp(76px, 7.8vw, 122px) clamp(34px, 6.3vw, 104px) 76px !important;
+    background: #20372a !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  html body #main-content .pv-home .pv-hero .editorial-hero-image {
+    opacity: .34 !important;
+    object-position: center 52% !important;
+    filter: saturate(.72) contrast(1.04) !important;
+  }
+
+  html body #main-content .pv-home .pv-hero:before {
+    background: linear-gradient(90deg, rgba(20, 41, 29, .94) 0%, rgba(32, 55, 42, .78) 53%, rgba(32, 55, 42, .62) 100%) !important;
+    opacity: 1 !important;
+  }
+
+  html body #main-content .pv-home .pv-hero-main {
+    max-width: 790px !important;
+    align-self: center !important;
+  }
+
+  html body #main-content .pv-home .pv-hero h1 {
+    max-width: 9.3ch !important;
+    margin: 28px 0 22px !important;
+    font-family: Georgia, "Roboto Slab", "Times New Roman", serif !important;
+    font-size: clamp(78px, 8.4vw, 132px) !important;
+    font-weight: 600 !important;
+    line-height: .91 !important;
+    letter-spacing: -.065em !important;
+    color: #f7f4ed !important;
+    text-wrap: balance;
+  }
+
+  html body #main-content .pv-home .pv-hero-lede {
+    max-width: 54ch !important;
+    color: rgba(247, 244, 237, .82) !important;
+    font-size: clamp(16px, 1.15vw, 18px) !important;
+    line-height: 1.75 !important;
+  }
+
+  html body #main-content .pv-home .pv-button-dark {
+    min-height: 52px !important;
+    padding: 15px 22px !important;
+    border: 1px solid #f7f4ed !important;
+    border-radius: 5px !important;
+    background: #f7f4ed !important;
+    color: #20372a !important;
+    font-size: 13px !important;
+    font-weight: 750 !important;
+  }
+
+  html body #main-content .pv-home .pv-text-link {
+    font-size: 13px !important;
+    text-underline-offset: 5px;
+  }
+
+  html body #main-content .pv-home .pv-index {
+    width: 100% !important;
+    max-width: 470px !important;
+    justify-self: end !important;
+    display: block !important;
+    padding: clamp(25px, 2.6vw, 36px) !important;
+    border: 1px solid rgba(247, 244, 237, .24) !important;
+    border-radius: 8px !important;
+    background: rgba(13, 29, 19, .48) !important;
+    color: #f7f4ed !important;
+    box-shadow: 0 22px 58px rgba(0, 0, 0, .12) !important;
+    backdrop-filter: blur(10px);
+  }
+
+  html body #main-content .pv-home .pv-index-heading,
+  html body #main-content .pv-home .pv-index > p {
+    display: flex !important;
+  }
+
+  html body #main-content .pv-home .pv-index > p {
+    display: block !important;
+    margin: 0 !important;
+    color: rgba(247, 244, 237, .7) !important;
+  }
+
+  html body #main-content .pv-home .pv-index-total {
+    align-items: end !important;
+    gap: 15px !important;
+    padding: 38px 0 28px !important;
+    border-bottom: 1px solid rgba(247, 244, 237, .2) !important;
+  }
+
+  html body #main-content .pv-home .pv-index-total strong {
+    font-family: Georgia, "Times New Roman", serif !important;
+    font-size: clamp(76px, 6.5vw, 100px) !important;
+    line-height: .84 !important;
+    letter-spacing: -.07em !important;
+    color: #f7f4ed !important;
+  }
+
+  html body #main-content .pv-home .pv-index-total span,
+  html body #main-content .pv-home .pv-index-metrics small {
+    color: rgba(247, 244, 237, .72) !important;
+  }
+
+  html body #main-content .pv-home .pv-index-metrics {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+    padding: 24px 0 !important;
+  }
+
+  html body #main-content .pv-home .pv-index-metrics b {
+    color: #e8c65d !important;
+    font-family: Georgia, "Times New Roman", serif !important;
+    font-size: 27px !important;
+  }
+}
+
+/* A restrained yellow-green ticker is the BETTR-style visual bridge between bands. */
+html body #main-content .pv-home .pv-motion-ribbon {
+  margin: 0 !important;
+  padding: 16px 0 !important;
+  background: #dce7d5 !important;
+  color: #20372a !important;
+  border: 0 !important;
+}
+
+html body #main-content .pv-home .pv-motion-ribbon-track {
+  color: #20372a !important;
+  font-size: clamp(14px, 1.25vw, 18px) !important;
+  letter-spacing: .08em !important;
+}
+
+html body #main-content .pv-home .pv-motion-ribbon i {
+  color: #a56c43 !important;
+}
+
+/* Audience pathways move directly below the hero, like BETTR's three entry points. */
+html body #main-content .pv-home .pv-journey-section {
+  padding: clamp(66px, 7vw, 104px) clamp(22px, 5.2vw, 84px) !important;
+  background: #f7f4ed !important;
+  color: #2c241c !important;
+}
+
+html body #main-content .pv-home .pv-journey-wrap {
+  width: min(1320px, 100%) !important;
+  max-width: 1320px !important;
+  margin-inline: auto !important;
+}
+
+html body #main-content .pv-home .pv-journey-head {
+  grid-template-columns: minmax(0, 1.15fr) minmax(260px, .85fr) !important;
+  gap: clamp(30px, 5vw, 76px) !important;
+  align-items: end !important;
+  margin-bottom: clamp(28px, 3.5vw, 44px) !important;
+}
+
+html body #main-content .pv-home .pv-journey-head h2 {
+  max-width: 12ch;
+  margin: 12px 0 0 !important;
+  color: #20372a !important;
+  font-size: clamp(42px, 5.2vw, 76px) !important;
+  line-height: .98 !important;
+}
+
+html body #main-content .pv-home .pv-journey-head p {
+  max-width: 45ch !important;
+  margin: 0 0 4px !important;
+  color: #586b59 !important;
+  font-size: 15px !important;
+  line-height: 1.75 !important;
+}
+
+html body #main-content .pv-home .pv-journey-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+}
+
+html body #main-content .pv-home .pv-journey-card {
+  min-height: 350px !important;
+  padding: clamp(23px, 2.5vw, 34px) !important;
+  border: 1px solid rgba(32, 55, 42, .18) !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  color: #20372a !important;
+  transition: transform .28s ease, box-shadow .28s ease !important;
+}
+
+html body #main-content .pv-home .pv-journey-card:nth-child(1) { background: #e8c65d !important; }
+html body #main-content .pv-home .pv-journey-card:nth-child(2) { background: #dce7d5 !important; }
+html body #main-content .pv-home .pv-journey-card:nth-child(3) { background: #ead6c4 !important; }
+
+html body #main-content .pv-home .pv-journey-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 14px 30px rgba(32, 55, 42, .09) !important;
+}
+
+html body #main-content .pv-home .pv-journey-number {
+  color: rgba(32, 55, 42, .72) !important;
+  font-size: 10px !important;
+  letter-spacing: .15em !important;
+}
+
+html body #main-content .pv-home .pv-journey-card h3 {
+  max-width: 10ch !important;
+  margin: auto 0 14px !important;
+  color: #20372a !important;
+  font-family: Georgia, "Roboto Slab", "Times New Roman", serif !important;
+  font-size: clamp(29px, 2.8vw, 43px) !important;
+  font-weight: 600 !important;
+  line-height: 1.02 !important;
+  letter-spacing: -.05em !important;
+}
+
+html body #main-content .pv-home .pv-journey-card p {
+  max-width: 37ch !important;
+  color: rgba(32, 55, 42, .78) !important;
+  font-size: 14px !important;
+  line-height: 1.7 !important;
+}
+
+html body #main-content .pv-home .pv-journey-card strong {
+  color: #20372a !important;
+  font-size: 12px !important;
+  letter-spacing: .015em;
+}
+
+/* The community showcase borrows BETTR's bold split storytelling and Rewilding's earthy product palette. */
+html body #main-content .pv-home .pv-home-showcase {
+  margin: clamp(54px, 7vw, 96px) 0 !important;
+  padding: clamp(54px, 6vw, 86px) 0 !important;
+  background: #eef1e8 !important;
+  color: #20372a !important;
+}
+
+html body #main-content .pv-home .pv-showcase-heading,
+html body #main-content .pv-home .pv-showcase-tabs,
+html body #main-content .pv-home .pv-showcase-panel,
+html body #main-content .pv-home .pv-showcase-controls {
+  width: min(1320px, 100%) !important;
+  max-width: 1320px !important;
+}
+
+html body #main-content .pv-home .pv-showcase-heading h2 {
+  max-width: 11ch !important;
+  color: #20372a !important;
+  font-size: clamp(46px, 5.6vw, 82px) !important;
+  line-height: .96 !important;
+}
+
+html body #main-content .pv-home .pv-showcase-heading h2 span {
+  color: #a56c43 !important;
+}
+
+html body #main-content .pv-home .pv-showcase-heading > p {
+  color: #5b6b60 !important;
+}
+
+html body #main-content .pv-home .pv-showcase-tabs button {
+  color: #637366 !important;
+  border-bottom-color: rgba(32, 55, 42, .22) !important;
+}
+
+html body #main-content .pv-home .pv-showcase-tabs button:is(:hover, .is-active, [aria-selected="true"]) {
+  color: #20372a !important;
+  border-bottom-color: #20372a !important;
+}
+
+html body #main-content .pv-home .pv-showcase-slide {
+  border: 1px solid rgba(32, 55, 42, .14) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 16px 36px rgba(32, 55, 42, .07) !important;
+}
+
+html body #main-content .pv-home [data-showcase-panel="latest"] .pv-showcase-slide { background: #e8c65d !important; }
+html body #main-content .pv-home [data-showcase-panel="featured"] .pv-showcase-slide { background: #dce7d5 !important; }
+html body #main-content .pv-home [data-showcase-panel="expensive"] .pv-showcase-slide { background: #ead6c4 !important; }
+html body #main-content .pv-home [data-showcase-panel="affordable"] .pv-showcase-slide { background: #f4f0e5 !important; }
+html body #main-content .pv-home [data-showcase-panel="events"] .pv-showcase-slide { background: #c5d7bd !important; }
+
+html body #main-content .pv-home .pv-showcase-copy h3 {
+  color: #20372a !important;
+  font-size: clamp(40px, 4.8vw, 72px) !important;
+  line-height: .96 !important;
+}
+
+html body #main-content .pv-home .pv-showcase-copy > p,
+html body #main-content .pv-home .pv-showcase-byline {
+  color: rgba(32, 55, 42, .78) !important;
+}
+
+html body #main-content .pv-home .pv-showcase-art {
+  background: #20372a !important;
+  border-left-color: rgba(32, 55, 42, .16) !important;
+}
+
+html body #main-content .pv-home .pv-showcase-cta {
+  border-radius: 5px !important;
+  background: #20372a !important;
+  color: #f7f4ed !important;
+  box-shadow: 4px 4px 0 rgba(255, 255, 255, .28) !important;
+}
+
+html body #main-content .pv-home .pv-showcase-counter,
+html body #main-content .pv-home .pv-showcase-counter b { color: #20372a !important; }
+html body #main-content .pv-home .pv-showcase-arrows button { border-color: rgba(32,55,42,.28) !important; color: #20372a !important; }
+html body #main-content .pv-home .pv-showcase-arrows button:hover:not(:disabled) { background: #20372a !important; color: #f7f4ed !important; }
+
+/* Rewilding-inspired collection presentation: grouped categories and image-led work cards. */
+html body #main-content .pv-home .pv-category-section {
+  background: #dfe8d7 !important;
+  padding: clamp(66px, 7vw, 104px) clamp(22px, 5.2vw, 84px) !important;
+}
+
+html body #main-content .pv-home .pv-section-top h2 {
+  color: #20372a !important;
+  font-size: clamp(44px, 5.4vw, 78px) !important;
+  line-height: .96 !important;
+}
+
+html body #main-content .pv-home .pv-section-top > p { color: #586b59 !important; }
+
+html body #main-content .pv-home .pv-category-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 13px !important;
+  border: 0 !important;
+}
+
+html body #main-content .pv-home .pv-category-grid .home-category {
+  min-height: 260px !important;
+  padding: 23px !important;
+  border: 1px solid rgba(32, 55, 42, .16) !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  color: #20372a !important;
+  transition: transform .25s ease, box-shadow .25s ease !important;
+}
+
+html body #main-content .pv-home .pv-category-grid .home-category:nth-child(1) { background: #f7f4ed !important; }
+html body #main-content .pv-home .pv-category-grid .home-category:nth-child(2) { background: #c5d7bd !important; }
+html body #main-content .pv-home .pv-category-grid .home-category:nth-child(3) { background: #ead6c4 !important; }
+html body #main-content .pv-home .pv-category-grid .home-category:nth-child(4) { background: #e8c65d !important; }
+
+html body #main-content .pv-home .pv-category-grid .home-category:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 14px 26px rgba(32, 55, 42, .08) !important;
+}
+
+html body #main-content .pv-home .pv-category-grid .home-category > span,
+html body #main-content .pv-home .pv-category-grid .home-category > small { color: rgba(32, 55, 42, .76) !important; }
+
+html body #main-content .pv-home .pv-category-grid .home-category > strong {
+  max-width: 11ch !important;
+  margin: auto 0 12px !important;
+  color: #20372a !important;
+  font-size: clamp(23px, 2vw, 30px) !important;
+  line-height: 1.03 !important;
+}
+
+html body #main-content .pv-home .pv-talent-section {
+  background: #f7f4ed !important;
+  padding: clamp(68px, 7vw, 104px) clamp(22px, 5.2vw, 84px) !important;
+}
+
+html body #main-content .pv-home .pv-talent-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 18px !important;
+}
+
+html body #main-content .pv-home .pv-talent-grid .designer-card {
+  border: 1px solid #d3ddce !important;
+  border-radius: 8px !important;
+  background: #fffdf8 !important;
+  box-shadow: 0 8px 22px rgba(32, 55, 42, .045) !important;
+  overflow: hidden !important;
+}
+
+html body #main-content .pv-home .pv-work-section {
+  margin: 0 !important;
+  padding: clamp(66px, 7vw, 100px) clamp(22px, 5.2vw, 84px) !important;
+  border-radius: 0 !important;
+  background: #f0eee5 !important;
+}
+
+html body #main-content .pv-home .pv-project-grid {
+  max-width: 1320px !important;
+  grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+  gap: clamp(24px, 3vw, 40px) 22px !important;
+}
+
+html body #main-content .pv-home .home-project-image {
+  border-radius: 8px !important;
+  background: #dce7d5 !important;
+}
+
+html body #main-content .pv-home .home-project-caption strong {
+  color: #20372a !important;
+  font-size: 18px !important;
+}
+
+html body #main-content .pv-home .home-project-caption small { color: #647264 !important; }
+
+/* Quiet editorial sections and conversion bands. */
+html body #main-content .pv-home .pv-manifesto {
+  background: #dce7d5 !important;
+  color: #20372a !important;
+}
+
+html body #main-content .pv-home .pv-manifesto h2 { color: #20372a !important; }
+html body #main-content .pv-home .pv-manifesto-copy > p { color: #465d49 !important; }
+
+html body #main-content .pv-home .pv-join {
+  border-radius: 8px !important;
+  background: #20372a !important;
+  color: #f7f4ed !important;
+}
+
+html body #main-content .pv-home .pv-join h2 { color: #f7f4ed !important; }
+html body #main-content .pv-home .pv-join p { color: rgba(247,244,237,.78) !important; }
+
+html body #main-content .pv-home .pv-faq {
+  padding: clamp(68px, 7vw, 100px) clamp(22px, 5.2vw, 84px) !important;
+  background: #f7f4ed !important;
+}
+
+html body #main-content .pv-home .pv-faq h2 { color: #20372a !important; }
+html body #main-content .pv-home .pv-faq-list details { border-color: #cbd5c5 !important; }
+
+html body #main-content .pv-home .pv-home-testimonials {
+  background: #20372a !important;
+  color: #f7f4ed !important;
+}
+
+html body #main-content .pv-home .pv-testimonials-head h2 { color: #f7f4ed !important; }
+html body #main-content .pv-home .pv-testimonials-head p { color: rgba(247,244,237,.72) !important; }
+html body #main-content .pv-home .pv-testimonial-card {
+  border: 1px solid rgba(247,244,237,.2) !important;
+  border-radius: 8px !important;
+  background: rgba(247,244,237,.06) !important;
+}
+
+/* Discovery directory: collection-style filter panel + clean creative profile grid. */
+@media (min-width: 1180px) {
+  html body #main-content.wrap > .pv-discovery-stage {
+    display: grid !important;
+    grid-template-columns: minmax(250px, 300px) minmax(0, 1fr) !important;
+    grid-template-areas:
+      "finder finder"
+      "filters heading"
+      "filters budget"
+      "filters cards"
+      "filters pages"
+      "selected selected"
+      "how how" !important;
+    align-items: start !important;
+    column-gap: clamp(24px, 3vw, 42px) !important;
+    row-gap: 22px !important;
+    padding: clamp(38px, 4.5vw, 64px) clamp(24px, 4.5vw, 72px) !important;
+    background: #e8eee2 !important;
+  }
+
+  html body #main-content.wrap > .pv-discovery-stage > .pv-match-finder {
+    grid-area: finder !important;
+    width: min(1320px, 100%) !important;
+    max-width: 1320px !important;
+    margin: 0 auto 18px !important;
+    background: #dce7d5 !important;
+    border: 1px solid #c5d3bf !important;
+    border-radius: 8px !important;
+    box-shadow: none !important;
+  }
+
+  html body #main-content.wrap > .pv-discovery-stage > .pv-discovery-search-band {
+    grid-area: filters !important;
+    display: block !important;
+    position: sticky !important;
+    top: 94px !important;
+    align-self: start !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  html body #main-content.wrap > .pv-discovery-stage > .pv-discovery-search-band > .pv-discovery-shell {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 20px !important;
+    border: 1px solid #cbd7c5 !important;
+    border-radius: 8px !important;
+    background: #f7f4ed !important;
+    box-shadow: 0 8px 24px rgba(32,55,42,.045) !important;
+  }
+
+  html body #main-content.wrap > .pv-discovery-stage > .pv-discovery-search-band > .pv-discovery-shell > .section-head {
+    margin: 0 0 16px !important;
+  }
+
+  html body #main-content.wrap > .pv-discovery-stage .pv-discovery-filters {
+    display: grid !important;
+    grid-template-columns: minmax(0,1fr) !important;
+    gap: 14px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  html body #main-content.wrap > .pv-discovery-stage .pv-filter-toggle { display: none !important; }
+
+  html body #main-content.wrap > .pv-discovery-stage .pv-filter-panel {
+    display: block !important;
+    grid-template-rows: 1fr !important;
+    min-height: 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  html body #main-content.wrap > .pv-discovery-stage .pv-filter-panel-inner {
+    overflow: visible !important;
+  }
+
+  html body #main-content.wrap > .pv-discovery-stage .pv-filter-fields {
+    grid-template-columns: minmax(0,1fr) !important;
+    gap: 13px !important;
+  }
+
+  html body #main-content.wrap > .pv-discovery-stage .pv-filter-fields label,
+  html body #main-content.wrap > .pv-discovery-stage .pv-discovery-filters > label {
+    color: #344b37 !important;
+    font-size: 11px !important;
+    font-weight: 750 !important;
+  }
+
+  html body #main-content.wrap > .pv-discovery-stage .pv-filter-fields :is(input,select),
+  html body #main-content.wrap > .pv-discovery-stage .pv-discovery-filters > label input {
+    min-height: 43px !important;
+    border: 1px solid #cbd5c5 !important;
+    border-radius: 5px !important;
+    background: #fffdf8 !important;
+    color: #20372a !important;
+    font-size: 12px !important;
+  }
+
+  html body #main-content.wrap > .pv-discovery-stage .discovery-shortcuts {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 7px !important;
+    margin-top: 14px !important;
+  }
+
+  html body #main-content.wrap > .pv-discovery-stage .discovery-shortcuts a {
+    padding: 6px 9px !important;
+    border: 1px solid #cbd7c5 !important;
+    border-radius: 4px !important;
+    background: #e8eee2 !important;
+    color: #344b37 !important;
+    font-size: 10px !important;
+    text-decoration: none !important;
+  }
+
+  html body #main-content.wrap > .pv-discovery-stage .pv-filter-actions {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+  }
+
+  html body #main-content.wrap > .pv-discovery-stage .pv-filter-actions .btn {
+    min-height: 42px !important;
+    padding: 10px 9px !important;
+    border-radius: 5px !important;
+    font-size: 11px !important;
+  }
+
+  html body #main-content.wrap > .pv-discovery-stage > .pv-directory-filter-error {
+    grid-area: budget !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+
+  html body #main-content.wrap > .pv-discovery-stage > .section-head {
+    grid-area: heading !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+
+  html body #main-content.wrap > .pv-discovery-stage > .grid {
+    grid-area: cards !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    grid-template-columns: repeat(2, minmax(0,1fr)) !important;
+    gap: 16px !important;
+    align-items: stretch !important;
+  }
+
+  html body #main-content.wrap > .pv-discovery-stage > .pv-directory-pagination {
+    grid-area: pages !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+
+  html body #main-content.wrap > .pv-discovery-stage > .pv-selected-work-section {
+    grid-area: selected !important;
+    width: min(1320px,100%) !important;
+    max-width: 1320px !important;
+    margin: 32px auto 0 !important;
+  }
+
+  html body #main-content.wrap > .pv-discovery-stage > #cara-kerja {
+    grid-area: how !important;
+    width: min(1320px,100%) !important;
+    max-width: 1320px !important;
+    margin: 18px auto 0 !important;
+  }
+}
+
+@media (min-width: 1500px) {
+  html body #main-content.wrap > .pv-discovery-stage > .grid {
+    grid-template-columns: repeat(3, minmax(0,1fr)) !important;
+  }
+}
+
+html body #main-content.wrap > .pv-discovery-stage > .grid .designer-card {
+  min-width: 0 !important;
+  border: 1px solid #d2ddcc !important;
+  border-radius: 8px !important;
+  background: #fffdf8 !important;
+  box-shadow: 0 8px 22px rgba(32,55,42,.045) !important;
+  overflow: hidden !important;
+}
+
+html body #main-content.wrap > .pv-discovery-stage > .grid .designer-card-cover {
+  min-height: 126px !important;
+  background: #dce7d5 !important;
+}
+
+html body #main-content.wrap > .pv-discovery-stage > .grid .designer-card-portrait {
+  border: 4px solid #fffdf8 !important;
+  box-shadow: 0 4px 14px rgba(32,55,42,.12) !important;
+}
+
+html body #main-content.wrap > .pv-discovery-stage > .grid .designer-card-content {
+  padding: 18px !important;
+}
+
+html body #main-content.wrap > .pv-discovery-stage > .grid .designer-card-heading h2 {
+  color: #20372a !important;
+  font-family: Georgia, "Times New Roman", serif !important;
+  font-size: 22px !important;
+  letter-spacing: -.035em !important;
+}
+
+html body #main-content.wrap > .pv-discovery-stage > .grid .designer-card-bio {
+  color: #617061 !important;
+  font-size: 12px !important;
+  line-height: 1.65 !important;
+}
+
+html body #main-content.wrap > .pv-discovery-stage > .grid .designer-card-skills span {
+  border-radius: 4px !important;
+  background: #e8eee2 !important;
+  color: #3f5a43 !important;
+}
+
+/* Tablet and mobile keep the existing disclosure/filter flow and stack cleanly. */
+@media (max-width: 1179px) {
+  html body #main-content.wrap > .pv-discovery-stage {
+    display: block !important;
+  }
+
+  html body #main-content.wrap > .pv-discovery-stage > .pv-discovery-search-band {
+    position: relative !important;
+    top: auto !important;
+  }
+}
+
+@media (max-width: 900px) {
+  html body #main-content .pv-home .pv-journey-head {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  html body #main-content .pv-home .pv-journey-grid {
+    grid-template-columns: repeat(2, minmax(0,1fr)) !important;
+  }
+
+  html body #main-content .pv-home .pv-journey-card:last-child {
+    grid-column: 1 / -1 !important;
+    min-height: 260px !important;
+  }
+
+  html body #main-content .pv-home .pv-category-grid {
+    grid-template-columns: repeat(2, minmax(0,1fr)) !important;
+  }
+
+  html body #main-content .pv-home .pv-talent-grid {
+    grid-template-columns: repeat(2, minmax(0,1fr)) !important;
+  }
+}
+
+@media (max-width: 600px) {
+  html body #main-content .pv-home .pv-journey-section,
+  html body #main-content .pv-home .pv-category-section,
+  html body #main-content .pv-home .pv-talent-section,
+  html body #main-content .pv-home .pv-work-section,
+  html body #main-content .pv-home .pv-faq {
+    padding: 54px 18px !important;
+  }
+
+  html body #main-content .pv-home .pv-journey-grid,
+  html body #main-content .pv-home .pv-category-grid,
+  html body #main-content .pv-home .pv-talent-grid {
+    grid-template-columns: minmax(0,1fr) !important;
+  }
+
+  html body #main-content .pv-home .pv-journey-card,
+  html body #main-content .pv-home .pv-category-grid .home-category {
+    min-height: 230px !important;
+  }
+
+  html body #main-content .pv-home .pv-journey-card:last-child { grid-column: auto !important; }
+
+  html body #main-content .pv-home .pv-home-showcase {
+    margin: 40px 0 !important;
+    padding: 44px 0 !important;
+  }
+
+  html body #main-content .pv-home .pv-showcase-heading,
+  html body #main-content .pv-home .pv-showcase-tabs,
+  html body #main-content .pv-home .pv-showcase-panel,
+  html body #main-content .pv-home .pv-showcase-controls {
+    padding-inline: 18px !important;
+  }
+
+  html body #main-content .pv-home .pv-showcase-copy { min-height: 330px !important; }
+  html body #main-content .pv-home .pv-showcase-art { min-height: 300px !important; }
+
+  html body #main-content .pv-home .pv-join { padding: 30px 22px !important; }
+  html body #main-content .pv-home .pv-join .pv-button { margin-top: 22px !important; }
+
+  html body #main-content.wrap > .pv-discovery-stage > .grid {
+    grid-template-columns: minmax(0,1fr) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html body #main-content .pv-home :is(.pv-journey-card, .home-category, .home-project-image img, .designer-card),
+  html body #main-content.wrap > .pv-discovery-stage .designer-card {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+
+/* -------------------------------------------------------------------------
+
+ * PIR VISUALS — Brand Harmony v3.63.0
+ * Unifies the public website around the original PIR identity:
+ * forest green, soft sage, warm cream, botanical olive and restrained clay.
+ * The layer intentionally changes presentation only; routes and workflows stay intact.
+ */
+
+:root,
+html[data-theme="light"] {
+  color-scheme: light;
+  --pir-forest: #20372A;
+  --pir-forest-deep: #14291D;
+  --pir-forest-soft: #315A3D;
+  --pir-sage: #C7DAAF;
+  --pir-sage-soft: #E4EBDD;
+  --pir-sage-pale: #EDF2E8;
+  --pir-cream: #F0F3EB;
+  --pir-ivory: #FCFDF8;
+  --pir-olive: #7A8450;
+  --pir-clay: #AD634A;
+  --pir-peach: #E8D3C3;
+  --pir-ink: #20372A;
+  --pir-copy: #405A48;
+  --pir-muted: #627565;
+  --pir-line: #BECDBB;
+  --pir-line-strong: #91A88F;
+
+  --bg: var(--pir-cream);
+  --bg-soft: var(--pir-sage-soft);
+  --surface: var(--pir-ivory);
+  --surface-raised: #E1EADD;
+  --surface-elevated: #FFFFFF;
+  --panel: var(--pir-ivory);
+  --panel2: var(--pir-sage-soft);
+  --line: var(--pir-line);
+  --text: var(--pir-ink);
+  --muted: var(--pir-copy);
+  --subtle: var(--pir-muted);
+  --accent: var(--pir-forest-soft);
+  --accent-strong: var(--pir-forest);
+  --accent-ink: #F0F3EB;
+  --mint: var(--pir-forest-soft);
+  --mint2: var(--pir-forest);
+  --gold: var(--pir-clay);
+  --danger: #A33D39;
+  --shadow: 0 14px 36px rgba(32, 55, 42, .075);
+  --brand-forest: var(--pir-forest);
+  --brand-sage: var(--pir-sage);
+  --brand-cream: var(--pir-cream);
+  --brand-copy: var(--pir-copy);
+  --company-ink: var(--pir-forest);
+  --company-yellow: var(--pir-sage);
+  --company-cream: var(--pir-cream);
+  --company-sage: var(--pir-sage);
+  --company-clay: var(--pir-clay);
+}
+
+html,
+body,
+html body #main-content.wrap {
+  background: var(--pir-cream) !important;
+  color: var(--pir-ink) !important;
+}
+
+html body {
+  font-family: Inter, "Trebuchet MS", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif !important;
+}
+
+::selection {
+  background: var(--pir-sage) !important;
+  color: var(--pir-forest) !important;
+}
+
+/* Shared navigation and actions. */
+html body #main-content :is(.site-nav, header.site-nav) {
+  background: rgba(32, 55, 42, .98) !important;
+  border-color: rgba(199, 218, 175, .24) !important;
+  color: var(--pir-cream) !important;
+  box-shadow: 0 8px 26px rgba(20, 41, 29, .12) !important;
+}
+html body #main-content .site-nav :is(.brand, .brand-copy strong, .brand-copy small, .nav-primary > a, .nav-more > summary, .nav-links > a, .nav-actions > a, .nav-action-button, .nav-toggle) {
+  color: var(--pir-cream) !important;
+}
+html body #main-content .site-nav :is(.nav-primary > a:hover, .nav-more > summary:hover, .nav-links > a:hover, .nav-toggle:hover, .nav-action-button:hover) {
+  background: #315A3D !important;
+  color: #FFFFFF !important;
+}
+html body #main-content .site-nav :is(.nav-cta, a.nav-cta) {
+  background: var(--pir-sage) !important;
+  border-color: var(--pir-sage) !important;
+  color: var(--pir-forest) !important;
+  -webkit-text-fill-color: var(--pir-forest) !important;
+}
+html body #main-content .site-nav .nav-more-menu {
+  background: var(--pir-forest) !important;
+  border-color: rgba(199, 218, 175, .28) !important;
+}
+html body #main-content .site-nav .nav-more-menu a { color: var(--pir-cream) !important; }
+
+html body #main-content :is(.btn:not(.btn-secondary):not(.btn-ghost), .button, button[type="submit"]) {
+  background: var(--pir-forest) !important;
+  border: 1px solid var(--pir-forest) !important;
+  color: var(--pir-cream) !important;
+  -webkit-text-fill-color: var(--pir-cream) !important;
+  box-shadow: none !important;
+}
+html body #main-content :is(.btn:not(.btn-secondary):not(.btn-ghost), .button, button[type="submit"]):hover {
+  background: var(--pir-forest-soft) !important;
+  border-color: var(--pir-forest-soft) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-1px);
+}
+html body #main-content .btn-secondary {
+  background: var(--pir-sage-soft) !important;
+  border: 1px solid var(--pir-line) !important;
+  color: var(--pir-forest) !important;
+  -webkit-text-fill-color: var(--pir-forest) !important;
+  box-shadow: none !important;
+}
+html body #main-content .btn-ghost {
+  background: transparent !important;
+  border: 1px solid var(--pir-line-strong) !important;
+  color: var(--pir-forest) !important;
+  -webkit-text-fill-color: var(--pir-forest) !important;
+  box-shadow: none !important;
+}
+html body #main-content :is(input:not([type="checkbox"]):not([type="radio"]), select, textarea) {
+  background: var(--pir-ivory) !important;
+  color: var(--pir-ink) !important;
+  border-color: var(--pir-line) !important;
+}
+html body #main-content :is(input, select, textarea)::placeholder { color: var(--pir-muted) !important; }
+html body #main-content :is(input, select, textarea):focus-visible,
+html body #main-content :is(a, button, summary):focus-visible {
+  outline: 3px solid rgba(122, 132, 80, .72) !important;
+  outline-offset: 3px !important;
+}
+html body #main-content .eyebrow { color: var(--pir-olive) !important; }
+html body #main-content .muted,
+html body #main-content .status { color: var(--pir-copy) !important; }
+html body #main-content .tag,
+html body #main-content .discovery-shortcuts a {
+  background: var(--pir-sage-soft) !important;
+  border-color: var(--pir-line) !important;
+  color: var(--pir-forest) !important;
+}
+
+/* Shared content surfaces use ivory rather than unrelated white/blue tints. */
+html body #main-content :is(.card, .feature-item, .trust-item, .stat, .search-panel, .designer-card, .work, .studio-panel, .studio-editor-section, .studio-story-editor, .studio-preview, .support-channel, .support-form-card, .support-note, .pv-creative-card, .command-explorer-card, .command-explorer-workflow) {
+  background: var(--pir-ivory) !important;
+  border-color: var(--pir-line) !important;
+  color: var(--pir-ink) !important;
+  box-shadow: 0 10px 28px rgba(32, 55, 42, .055) !important;
+}
+html body #main-content :is(.card, .feature-item, .trust-item, .stat, .search-panel, .designer-card, .work, .studio-panel, .support-channel, .support-form-card):hover {
+  border-color: var(--pir-line-strong) !important;
+}
+html body #main-content :is(.card, .feature-item, .trust-item, .stat, .search-panel, .designer-card, .work, .studio-panel, .support-channel, .support-form-card) :is(h1, h2, h3, h4, strong, b, summary) {
+  color: var(--pir-forest) !important;
+}
+html body #main-content :is(.card, .feature-item, .trust-item, .stat, .search-panel, .designer-card, .work, .studio-panel, .support-channel, .support-form-card) :is(p, li, small, .muted, .description, .help-text) {
+  color: var(--pir-copy) !important;
+}
+
+/* Homepage: forest hero, sage/cream rhythm, peach as the only warm card accent. */
+html body #main-content .pv-home {
+  background: var(--pir-cream) !important;
+  color: var(--pir-forest) !important;
+  --text: var(--pir-forest);
+  --muted: var(--pir-copy);
+  --line: var(--pir-line);
+  --surface: var(--pir-ivory);
+  --surface-raised: var(--pir-sage-soft);
+  --accent: var(--pir-forest-soft);
+  --accent-strong: var(--pir-forest);
+  --gold: var(--pir-clay);
+}
+html body #main-content .pv-home .pv-hero {
+  background: linear-gradient(122deg, var(--pir-forest-deep) 0%, var(--pir-forest) 62%, #315A3D 100%) !important;
+  color: var(--pir-cream) !important;
+}
+html body #main-content .pv-home .pv-hero::before {
+  background: linear-gradient(90deg, rgba(20, 41, 29, .93), rgba(32, 55, 42, .62)) !important;
+}
+html body #main-content .pv-home .pv-hero :is(h1, .pv-hero-title-visual, .pv-hero-word, .pv-overline, .pv-hero-lede, .pv-hero-foot, .pv-text-link) {
+  color: var(--pir-cream) !important;
+  -webkit-text-fill-color: var(--pir-cream) !important;
+}
+html body #main-content .pv-home .pv-hero .pv-button,
+html body #main-content .pv-home .pv-hero .pv-button-dark {
+  background: var(--pir-sage) !important;
+  border-color: var(--pir-sage) !important;
+  color: var(--pir-forest) !important;
+  -webkit-text-fill-color: var(--pir-forest) !important;
+}
+html body #main-content .pv-home .pv-index {
+  background: rgba(20, 41, 29, .36) !important;
+  border-color: rgba(199, 218, 175, .28) !important;
+  color: var(--pir-cream) !important;
+}
+html body #main-content .pv-home .pv-index :is(strong, b, small, span) { color: var(--pir-cream) !important; }
+html body #main-content .pv-home .pv-index :is(.pv-index-total strong, .pv-index-metrics b) { color: var(--pir-sage) !important; }
+html body #main-content .pv-home .pv-motion-ribbon {
+  background: var(--pir-sage) !important;
+  color: var(--pir-forest) !important;
+  border-color: transparent !important;
+}
+html body #main-content .pv-home .pv-motion-ribbon-track,
+html body #main-content .pv-home .pv-motion-ribbon i { color: var(--pir-forest) !important; }
+html body #main-content .pv-home :is(.pv-category-section, .pv-work-section, .pv-faq, .pv-journey-section) {
+  background: var(--pir-cream) !important;
+  color: var(--pir-forest) !important;
+}
+html body #main-content .pv-home .pv-talent-section { background: var(--pir-sage-soft) !important; color: var(--pir-forest) !important; }
+html body #main-content .pv-home .pv-manifesto { background: var(--pir-sage) !important; color: var(--pir-forest) !important; }
+html body #main-content .pv-home .pv-join {
+  background: var(--pir-forest) !important;
+  color: var(--pir-cream) !important;
+}
+html body #main-content .pv-home .pv-join :is(h2, p, .pv-label) { color: var(--pir-cream) !important; }
+html body #main-content .pv-home :is(.pv-section-top h2, .pv-journey-head h2, .pv-showcase-heading h2, .pv-showcase-copy h3, .pv-testimonials-head h2, .pv-manifesto h2, .pv-faq h2) { color: var(--pir-forest) !important; }
+html body #main-content .pv-home .pv-journey-card:nth-child(1) { background: var(--pir-sage-soft) !important; }
+html body #main-content .pv-home .pv-journey-card:nth-child(2) { background: #D5E2C8 !important; }
+html body #main-content .pv-home .pv-journey-card:nth-child(3) { background: var(--pir-peach) !important; }
+html body #main-content .pv-home .pv-journey-card { border-color: var(--pir-line) !important; color: var(--pir-forest) !important; }
+html body #main-content .pv-home .home-category { border-color: var(--pir-line-strong) !important; color: var(--pir-forest) !important; }
+html body #main-content .pv-home .home-category:nth-child(1) { background: var(--pir-ivory) !important; }
+html body #main-content .pv-home .home-category:nth-child(2) { background: var(--pir-sage-soft) !important; }
+html body #main-content .pv-home .home-category:nth-child(3) { background: var(--pir-peach) !important; }
+html body #main-content .pv-home .home-category:nth-child(4) { background: #D5E2C8 !important; }
+html body #main-content .pv-home .home-category :is(strong, small, span, b, p) { color: var(--pir-forest) !important; }
+html body #main-content .pv-home .pv-manifesto :is(h2, p, span, div, b, .pv-label, li) { color: var(--pir-forest) !important; }
+html body #main-content .pv-home .pv-manifesto-points,
+html body #main-content .pv-home .pv-manifesto-points > div { border-color: rgba(32, 55, 42, .25) !important; }
+html body #main-content .pv-home .pv-faq-list details {
+  background: var(--pir-ivory) !important;
+  border: 1px solid var(--pir-line) !important;
+}
+html body #main-content .pv-home .pv-faq-list :is(summary, summary::after) { color: var(--pir-forest) !important; }
+html body #main-content .pv-home .pv-faq-list details p { color: var(--pir-copy) !important; }
+html body #main-content .pv-home .pv-home-showcase,
+html body #main-content .pv-home-showcase { background: var(--pir-sage-soft) !important; color: var(--pir-forest) !important; }
+html body #main-content .pv-home-showcase :is(h2, h3, p, .pv-label, .pv-showcase-meta, .pv-showcase-byline) { color: var(--pir-forest) !important; }
+html body #main-content .pv-home-showcase .pv-showcase-tabs { border-color: var(--pir-line) !important; }
+
+/* For Business and other editorial company pages. */
+html body #main-content .company-editorial { color: var(--pir-forest) !important; }
+html body #main-content .company-editorial-business,
+html body #main-content .company-editorial-business-main-band { background: var(--pir-cream) !important; }
+html body #main-content .company-editorial-business-hero-band { background: var(--pir-sage-soft) !important; }
+html body #main-content .company-editorial-hero {
+  background: var(--pir-sage) !important;
+  color: var(--pir-forest) !important;
+  border-color: var(--pir-line) !important;
+}
+html body #main-content .company-editorial-hero :is(h1, p, .eyebrow) { color: var(--pir-forest) !important; }
+html body #main-content .company-editorial-hero-aside,
+html body #main-content .company-editorial-cta {
+  background: var(--pir-forest) !important;
+  border-color: var(--pir-forest) !important;
+  color: var(--pir-cream) !important;
+}
+html body #main-content .company-editorial-hero-aside :is(span, strong, p),
+html body #main-content .company-editorial-cta :is(h2, p, .eyebrow) { color: var(--pir-cream) !important; }
+html body #main-content .company-editorial-card:nth-child(1) { background: var(--pir-ivory) !important; }
+html body #main-content .company-editorial-card:nth-child(2) { background: var(--pir-sage-soft) !important; }
+html body #main-content .company-editorial-card:nth-child(3) { background: var(--pir-peach) !important; }
+html body #main-content .company-editorial-card { border-color: var(--pir-line) !important; }
+html body #main-content .company-editorial-card :is(h2, p, span, a) { color: var(--pir-forest) !important; }
+html body #main-content .company-editorial-copy { background: var(--pir-ivory) !important; border-color: var(--pir-line) !important; }
+
+/* Discover: keep the deep-green introduction; make filters and listings feel like one PIR catalogue. */
+html body #main-content.wrap > .pv-discovery-stage {
+  background: var(--pir-sage-soft) !important;
+  color: var(--pir-forest) !important;
+}
+html body #main-content.wrap > .pv-discovery-stage .pv-match-finder {
+  background: var(--pir-ivory) !important;
+  border-color: var(--pir-line) !important;
+  color: var(--pir-forest) !important;
+}
+html body #main-content.wrap > .pv-discovery-stage .pv-discovery-shell {
+  background: #DDE8D6 !important;
+  border-color: var(--pir-line) !important;
+  color: var(--pir-forest) !important;
+}
+html body #main-content.wrap > .pv-discovery-stage .pv-discovery-filters,
+html body #main-content.wrap > .pv-discovery-stage .search-panel {
+  background: var(--pir-ivory) !important;
+  border-color: var(--pir-line) !important;
+}
+html body #main-content.wrap > .pv-discovery-stage .designer-card {
+  background: var(--pir-ivory) !important;
+  border-color: var(--pir-line) !important;
+}
+html body #main-content.wrap > .pv-discovery-stage .designer-card :is(h2, h3, strong, .price) { color: var(--pir-forest) !important; }
+html body #main-content.wrap > .pv-discovery-stage .designer-card :is(p, small, .muted) { color: var(--pir-copy) !important; }
+html body #main-content.wrap > .pv-discovery-stage .designer-card .tag { background: var(--pir-sage-soft) !important; color: var(--pir-forest) !important; }
+html body #main-content.wrap > .pv-discovery-stage #cara-kerja { background: var(--pir-ivory) !important; border-color: var(--pir-line) !important; }
+
+/* Designer Studio login and recovery pages: clear hierarchy with the same palette. */
+html body #main-content.wrap:has(form[action="/studio/login"]) {
+  max-width: 1040px !important;
+  padding-top: 0 !important;
+}
+html body #main-content.wrap:has(form[action="/studio/login"]) > .hero {
+  box-sizing: border-box !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin: 0 0 28px calc(50% - 50vw) !important;
+  padding: clamp(52px, 8vw, 100px) max(22px, calc((100vw - 1040px) / 2 + 22px)) 54px !important;
+  border: 0 !important;
+  border-radius: 0 0 18px 18px !important;
+  background: linear-gradient(128deg, var(--pir-forest-deep), var(--pir-forest) 62%, var(--pir-forest-soft)) !important;
+  color: var(--pir-cream) !important;
+}
+html body #main-content.wrap:has(form[action="/studio/login"]) > .hero :is(h1, p, .muted) { color: var(--pir-cream) !important; }
+html body #main-content.wrap:has(form[action="/studio/login"]) > .hero .muted { color: rgba(240, 243, 235, .78) !important; }
+html body #main-content.wrap:has(form[action="/studio/login"]) > .card {
+  max-width: 760px !important;
+  margin: 0 auto 24px !important;
+  padding: clamp(18px, 3vw, 30px) !important;
+  background: var(--pir-ivory) !important;
+  border: 1px solid var(--pir-line) !important;
+  border-radius: 16px !important;
+  box-shadow: var(--shadow) !important;
+}
+html body #main-content.wrap:has(form[action="/studio/login"]) > .card > .card {
+  margin: 20px 0 0 !important;
+  padding: 18px !important;
+  background: var(--pir-sage-soft) !important;
+  border-color: var(--pir-line) !important;
+  box-shadow: none !important;
+}
+html body #main-content.wrap:has(form[action="/studio/login"]) :is(label, h2, h3) { color: var(--pir-forest) !important; }
+html body #main-content.wrap:has(form[action="/studio/login"]) form[action="/studio/login"] input { min-height: 48px; }
+html body #main-content.wrap:has(form[action="/studio/login"]) .pv-resend-verification-controls { display: flex; gap: 10px; flex-wrap: wrap; }
+html body #main-content.wrap:has(form[action="/studio/login"]) .pv-resend-verification-controls input { flex: 1 1 220px; }
+
+/* Command Explorer: make utility cards and code samples part of the same brand. */
+html body #main-content:has(.command-explorer-hero) .command-explorer-hero {
+  background: linear-gradient(125deg, var(--pir-forest-deep), var(--pir-forest) 65%, var(--pir-forest-soft)) !important;
+  border: 0 !important;
+  border-radius: 16px !important;
+  color: var(--pir-cream) !important;
+  padding: clamp(28px, 5vw, 64px) !important;
+}
+html body #main-content:has(.command-explorer-hero) .command-explorer-hero :is(h1, p, .muted, .eyebrow) { color: var(--pir-cream) !important; }
+html body #main-content:has(.command-explorer-hero) .command-explorer-hero .stat {
+  background: rgba(252, 253, 248, .10) !important;
+  border-color: rgba(240, 243, 235, .24) !important;
+  color: var(--pir-cream) !important;
+  box-shadow: none !important;
+}
+html body #main-content:has(.command-explorer-hero) .command-explorer-hero .stat :is(strong, span, .muted) { color: var(--pir-cream) !important; }
+html body #main-content:has(.command-explorer-hero) .command-explorer-controls,
+html body #main-content:has(.command-explorer-hero) .command-explorer-card,
+html body #main-content:has(.command-explorer-hero) .command-explorer-workflow { background: var(--pir-ivory) !important; border-color: var(--pir-line) !important; }
+html body #main-content:has(.command-explorer-hero) .command-explorer-example { background: var(--pir-sage-soft) !important; border-color: var(--pir-line) !important; }
+html body #main-content:has(.command-explorer-hero) .command-explorer-card-head code { color: var(--pir-forest) !important; }
+html body #main-content:has(.command-explorer-hero) .command-explorer-workflows .section-heading :is(h2, p) { color: var(--pir-forest) !important; }
+
+/* Responsive polish and motion/accessibility safeguards. */
+@media (max-width: 760px) {
+  html body #main-content.wrap:has(form[action="/studio/login"]) > .hero {
+    padding: 48px 22px 42px !important;
+    border-radius: 0 0 14px 14px !important;
+  }
+  html body #main-content.wrap:has(form[action="/studio/login"]) > .card { margin-inline: 0 !important; }
+  html body #main-content.wrap:has(form[action="/studio/login"]) .pv-resend-verification-controls { display: grid; }
+  html body #main-content.wrap:has(form[action="/studio/login"]) .pv-resend-verification-controls input { width: 100%; }
+  html body #main-content .pv-home .pv-journey-card { min-height: 0 !important; }
+}
+
+@media (max-width: 480px) {
+  html body #main-content :is(.btn, button[type="submit"]) { min-height: 44px; }
+  html body #main-content :is(input:not([type="checkbox"]):not([type="radio"]), select, textarea) { font-size: 16px !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html body #main-content *,
+  html body #main-content *::before,
+  html body #main-content *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+/* Light-on-forest CTA pairings stay legible on dark brand bands. */
+html body #main-content :is(.pv-home .pv-join, .company-editorial-cta, .footer-cta) :is(.btn:not(.btn-secondary):not(.btn-ghost), .pv-button, .pv-button-dark) {
+  background: var(--pir-sage) !important;
+  border-color: var(--pir-sage) !important;
+  color: var(--pir-forest) !important;
+  -webkit-text-fill-color: var(--pir-forest) !important;
+}
+html body #main-content :is(.pv-home .pv-join, .company-editorial-cta, .footer-cta) .btn-secondary,
+html body #main-content :is(.pv-home .pv-join, .company-editorial-cta, .footer-cta) .btn-ghost {
+  background: transparent !important;
+  border-color: rgba(240, 243, 235, .55) !important;
+  color: var(--pir-cream) !important;
+  -webkit-text-fill-color: var(--pir-cream) !important;
+}

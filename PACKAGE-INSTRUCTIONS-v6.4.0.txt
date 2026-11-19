@@ -1,0 +1,11 @@
+PIR VISUALS BOT v6.4.0 — TWO-PART ZIP
+
+- PIR-Visuals-v6.4.0-Part-1-of-2.zip
+- PIR-Visuals-v6.4.0-Part-2-of-2.zip
+
+Both archives use the same root folder: PIR-Visuals-v6.4.0/
+Extract Part 1 and Part 2 into the SAME destination. These are file-split archives, not separate versions.
+
+Website package: 3.47.0.
+After extraction, run npm ci and npm ci --prefix portfolio-website.
+See DOCUMENTATION-INDEX-v6.4.0.md and INSTALL_UPDATE_v6_4_0.md for feature docs, database indexes, staging checks, and rollback.

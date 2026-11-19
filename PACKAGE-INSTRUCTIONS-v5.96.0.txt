@@ -1,0 +1,17 @@
+PIR Visuals v5.96.0 — Split Source Package
+
+Part 1 and Part 2 are complementary archives, not separate installations.
+Download BOTH and extract them into the SAME destination folder.
+
+1. Preserve the existing .env, WhatsApp auth/session folder, database, portfolio media,
+   backups, allowlists and local configuration.
+2. Push the source to a GitHub repository to run .github/workflows/ci.yml on a
+   network-enabled hosted runner, or use a staging server with npm registry access.
+3. Run npm ci from the project root and npm ci --prefix portfolio-website.
+4. Follow INSTALL_UPDATE_v5_96_0.md and docs/STAGING-ACCESS-REQUIREMENTS-v5.96.0.md.
+5. Complete the full test suites, MongoDB staging verification, fresh WhatsApp account
+   tests, and backup/restore drill before approving production.
+
+The clean archives exclude .env, .git, node_modules, WhatsApp auth/session state,
+backups, runtime uploads, local allowlists/settings, and temporary files.
+Never overwrite local secrets or session data with sample files.

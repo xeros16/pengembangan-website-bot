@@ -1,0 +1,29 @@
+PIR Visuals v5.82.0
+Universal Interaction Reliability
+
+Clipboard and sharing
+- Adds one shared copyText helper using the Clipboard API with a selection-based fallback.
+- Handles denied clipboard permissions without silently failing.
+- Adds live success/error feedback for copy actions.
+- Covers WhatsApp setup token, support ticket ID, public profile share, collection share and shortlist share.
+- Native share remains preferred where supported; non-cancel failures fall back to clipboard.
+
+Form behavior
+- Native POST forms receive a processing state after existing validation and confirmation handlers accept submission.
+- Repeated submit attempts are prevented.
+- Submit controls receive aria-disabled and a visual progress indicator without being disabled before native form data serialization.
+- GET forms and forms targeting a new browsing context are left alone.
+- Password and confirmPassword fields receive immediate equality validation.
+- Server-side validation remains authoritative.
+
+Compatibility and preservation
+- Upload-specific validation runs before the generic submit feedback handler.
+- A canceled delete confirmation does not lock its form.
+- GSAP and magnetic mouse-following animation are unchanged.
+- No database, model, auth, bot, or transaction behavior changed.
+
+Release metadata
+- Platform 5.82.0
+- Website 3.36.0
+- Public cache pir-visuals-public-v33
+- Public asset suffix 5820

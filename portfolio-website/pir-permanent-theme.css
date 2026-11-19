@@ -1,0 +1,269 @@
+/* PIR VISUALS · Permanent Editorial Theme · 2026-11-14g
+   One intentionally fixed visual identity, derived from PIR Visuals' original
+   homepage: deep forest hero/navigation, warm ivory canvas, sage content,
+   Georgia editorial headlines, and a dark-forest footer.
+   The public website does not expose theme switching. */
+
+:root,
+html[data-theme="light"] {
+  color-scheme:light;
+  --bg:#F0F3EB;
+  --bg-soft:#E4EBDD;
+  --surface:#FCFDF8;
+  --surface-raised:#E1EADD;
+  --surface-elevated:#FFFFFF;
+  --panel:#FCFDF8;
+  --panel2:#E1EADD;
+  --line:#B8C9B5;
+  --text:#20372A;
+  --muted:#405A48;
+  --subtle:#536B56;
+  --accent:#315A3D;
+  --accent-strong:#274B33;
+  --accent-ink:#FFFFFF;
+  --mint:#315A3D;
+  --mint2:#274B33;
+  --gold:#93604A;
+  --shadow:0 14px 36px rgba(27,57,37,.08);
+  --brand-forest:#20372A;
+  --brand-sage:#C7DAAF;
+  --brand-cream:#F0F3EB;
+  --brand-copy:#405A48;
+}
+html,
+html body,
+html body #main-content.wrap {
+  background:var(--brand-cream) !important;
+  color:var(--brand-forest) !important;
+}
+html body {font-family:Inter,"Trebuchet MS",ui-sans-serif,system-ui,sans-serif;}
+html body:has(.pv-home)::before,
+html body:has(.pv-home)::after {display:none !important;}
+html body:has(.pv-home) #main-content.wrap {
+  padding:0 !important;
+  max-width:none !important;
+}
+
+/* Same navigation on home AND all other routes, regardless of stored legacy data. */
+html body #main-content > header.site-nav {
+  position:sticky !important;
+  top:0 !important;
+  z-index:300;
+  display:flex;
+  align-items:center;
+  gap:clamp(12px,1.8vw,27px) !important;
+  width:100vw !important;
+  max-width:none !important;
+  min-height:76px !important;
+  margin:0 !important;
+  padding:12px clamp(16px,3.1vw,54px) !important;
+  border:1px solid #496A50 !important;
+  border-top:0 !important;
+  border-radius:0 0 16px 16px !important;
+  background:#20372A !important;
+  color:#F1F7ED !important;
+  box-shadow:0 8px 24px rgba(16,42,25,.13) !important;
+}
+html body:not(:has(.pv-home)) #main-content > header.site-nav {
+  margin-left:calc(-1 * clamp(18px,3.5vw,62px) - max(0px, 50vw - 720px)) !important;
+}
+html body:has(.pv-home) #main-content > header.site-nav {margin-left:0 !important;}
+html #main-content > header.site-nav :is(.brand,.brand-copy strong,.brand-copy small,.nav-primary>a,.nav-more>summary) {
+  color:#F1F7ED !important;
+}
+html #main-content > header.site-nav .brand-emblem {width:43px;height:43px;flex:0 0 auto;}
+html #main-content > header.site-nav .brand-copy strong {font-size:17px !important;line-height:1.1;}
+html #main-content > header.site-nav .brand-copy small {font-size:8px !important;}
+html #main-content > header.site-nav .nav-primary>a,
+html #main-content > header.site-nav .nav-more>summary {
+  min-height:41px;
+  padding:10px 12px;
+  font-size:12.5px !important;
+}
+html #main-content > header.site-nav .nav-primary>a:hover,
+html #main-content > header.site-nav .nav-more>summary:hover {background:#345A40 !important;color:#FFFFFF !important;}
+html #main-content > header.site-nav .nav-actions {gap:9px !important;padding-left:13px;}
+html #main-content > header.site-nav .nav-actions .nav-action-button {background:#315440 !important;border-color:#5B7A61 !important;color:#F2F7ED !important;}
+html #main-content > header.site-nav .nav-actions>a.nav-cta {
+  background:#D8E6C8 !important;
+  border-color:#D8E6C8 !important;
+  color:#20372A !important;
+  -webkit-text-fill-color:#20372A !important;
+}
+html #main-content > header.site-nav .nav-more-menu {background:#24412E !important;border-color:#496A50 !important;}
+html #main-content > header.site-nav .nav-more-menu a {color:#F2F7ED !important;}
+html #main-content > header.site-nav .nav-more-menu a:hover {background:#345A40 !important;}
+/* No theme switch appears even if a stale browser extension injects the old control. */
+html #main-content [data-theme-toggle] {display:none !important;}
+
+/* Editorial hierarchy and quiet interior pages. */
+html #main-content :is(.hero h1,.company-hero h1,.company-editorial h1,.company-editorial h2,.pv-home .pv-managed-title,.footer-cta h2,.category-intro h1,.support-hero h1,.section-head h2,.section-space>h2) {
+  font-family:Georgia,"Times New Roman",serif;
+  line-height:1.05;
+  letter-spacing:-.052em;
+}
+html #main-content :is(.card,.feature-item,.search-panel,.stat,.designer-card,.company-editorial-card,.support-channel,.support-form-card,.studio-panel) {
+  border-color:var(--line);
+}
+html #main-content .company-editorial-hero,
+html #main-content .support-hero {
+  background:var(--brand-sage) !important;
+  color:var(--brand-forest) !important;
+}
+html #main-content .company-editorial-hero :is(h1,p,.eyebrow),
+html #main-content .support-hero :is(h1,h1 em,p,.eyebrow) {
+  color:var(--brand-forest) !important;
+}
+html #main-content .company-editorial-hero-aside,
+html #main-content .company-editorial-cta,
+html #main-content .support-hero-aside {background:var(--brand-forest) !important;}
+html #main-content .company-editorial-card:nth-child(2) {background:#D1E2C8 !important;}
+html #main-content .company-editorial-card:nth-child(3) {background:#E8D5C3 !important;}
+html #main-content .company-editorial-card :is(h2,p,span) {color:var(--brand-forest) !important;}
+html #main-content .company-editorial-card a {color:#274B33 !important;}
+
+/* Return to the PREVIOUS homepage: FOREST hero, not pale/light hero. */
+html body #main-content .pv-home {
+  --pv-ink:#20372A;
+  --text:#20372A;
+  --muted:#405A48;
+  --line:#B8C9B5;
+  --surface:#FCFDF8;
+  --surface-raised:#E1EADD;
+  color:#20372A !important;
+  background:var(--brand-cream) !important;
+  font-family:Inter,"Trebuchet MS",ui-sans-serif,system-ui,sans-serif;
+}
+html body #main-content .pv-home .pv-hero {
+  background:linear-gradient(110deg,#172B20,#213D2B 63%,#2C4733) !important;
+  color:#F1F7ED !important;
+}
+html body #main-content .pv-home .pv-hero:before {
+  background:linear-gradient(0deg,rgba(12,31,20,.94),rgba(20,44,29,.18)) !important;
+}
+html body #main-content .pv-home .pv-hero .editorial-hero-image {opacity:.50 !important;filter:none !important;}
+html body #main-content .pv-home .pv-hero :is(h1,.pv-hero-title-visual,.pv-hero-word) {
+  color:#F1F7ED !important;
+  -webkit-text-fill-color:#F1F7ED !important;
+}
+html body #main-content .pv-home .pv-hero :is(.pv-overline,.pv-hero-lede,.pv-hero-foot,.pv-text-link,.pv-announcement) {
+  color:#E4F0E0 !important;
+  -webkit-text-fill-color:#E4F0E0 !important;
+}
+html body #main-content .pv-home .pv-hero .pv-hero-foot {border-color:#6F8E73 !important;}
+html body #main-content .pv-home .pv-hero .pv-button {
+  background:#D8E6C8 !important;
+  border-color:#D8E6C8 !important;
+  color:#20372A !important;
+  -webkit-text-fill-color:#20372A !important;
+}
+html body #main-content .pv-home .pv-index {
+  background:transparent !important;
+  color:#F1F7ED !important;
+  border-color:#6F8E73 !important;
+}
+html body #main-content .pv-home .pv-index :is(strong,b,small,span) {color:#F1F7ED !important;-webkit-text-fill-color:#F1F7ED !important;}
+html body #main-content .pv-home .pv-index :is(.pv-index-total strong,.pv-index-metrics b) {color:#D8E6C8 !important;-webkit-text-fill-color:#D8E6C8 !important;}
+
+/* Ivory + sage sections, intentionally interleaved (the original home rhythm). */
+html body #main-content .pv-home .pv-category-section,
+html body #main-content .pv-home .pv-work-section,
+html body #main-content .pv-home .pv-faq {background:#F0F3EB !important;color:#20372A !important;}
+html body #main-content .pv-home .pv-talent-section {background:#E3EBE0 !important;color:#20372A !important;}
+html body #main-content .pv-home .pv-manifesto {background:#CBDDB6 !important;color:#20372A !important;}
+html body #main-content .pv-home :is(.pv-category-section,.pv-talent-section,.pv-work-section,.pv-faq,.pv-manifesto) :is(h2.pv-managed-title,.pv-label) {color:#20372A !important;}
+html body #main-content .pv-home .pv-category-grid {gap:18px;}
+html body #main-content .pv-home .home-category {background:#E0E9DA !important;border-color:#98B39A !important;color:#20372A !important;}
+html body #main-content .pv-home .home-category:nth-child(2) {background:#C5D8BD !important;}
+html body #main-content .pv-home .home-category:nth-child(3) {background:#E7D6C7 !important;}
+html body #main-content .pv-home .home-category:nth-child(4) {background:#D5E2C8 !important;}
+html body #main-content .pv-home .home-category :is(strong,small,span,b) {color:#20372A !important;}
+html body #main-content .pv-home .pv-section-top>p {color:#405A48 !important;}
+html body #main-content .pv-home .pv-talent-section .pv-outline-link {color:#274B33 !important;-webkit-text-fill-color:#274B33 !important;border-color:#274B33 !important;}
+html body #main-content .pv-home .pv-empty {background:#F6F9F3 !important;border-color:#9FB69E !important;color:#405A48 !important;}
+html body #main-content .pv-home .pv-empty a {color:#274B33 !important;text-decoration:underline;text-underline-offset:3px;font-weight:800;}
+html body #main-content .pv-home .pv-manifesto :is(h2,p,span,div,b,.pv-label) {color:#20372A !important;}
+html body #main-content .pv-home .pv-manifesto-points,
+html body #main-content .pv-home .pv-manifesto-points>div {border-color:#8CA57F !important;}
+html body #main-content .pv-home .pv-manifesto-points b {font-size:14px;font-weight:900;color:#284833 !important;}
+html body #main-content .pv-home .pv-join {background:#20372A !important;color:#F1F7ED !important;}
+html body #main-content .pv-home .pv-join :is(h2,p,.pv-label) {color:#D8E6C8 !important;}
+html body #main-content .pv-home .pv-faq-list details {background:#F8FAF4 !important;border:1px solid #C2D0BE !important;border-radius:12px;}
+html body #main-content .pv-home .pv-faq-list summary {color:#20372A !important;font-family:Georgia,"Times New Roman",serif;}
+html body #main-content .pv-home .pv-faq-list details p {color:#405A48 !important;}
+html body #main-content .pv-home .pv-faq-list summary::after {color:#315A3D !important;}
+html body #main-content .pv-home .pv-motion-ribbon {background:#C7DAAF !important;color:#20372A !important;}
+html body #main-content .pv-home .pv-motion-ribbon-track,
+html body #main-content .pv-home .pv-motion-ribbon i {color:#20372A !important;}
+
+/* Remaining public pages share the green/ivory editorial hierarchy. */
+html body #main-content > section.hero:not(.pv-hero) {
+  padding:clamp(38px,5vw,72px) clamp(20px,4vw,62px) !important;
+  border:1px solid #385641 !important;
+  border-radius:0 0 16px 16px !important;
+  margin:0 0 32px !important;
+  background:linear-gradient(125deg,#1C3123,#254330) !important;
+  color:#F1F7ED !important;
+}
+html body #main-content > section.hero:not(.pv-hero) :is(h1,p,.eyebrow,.muted) {color:#F1F7ED !important;}
+html body #main-content > section.hero:not(.pv-hero) + .search-panel {margin-top:24px;}
+html body #main-content .foot {background:#20372A !important;color:#F1F7ED !important;}
+html body #main-content .footer-cta {background:linear-gradient(135deg,#264531,#1D3929) !important;border-color:#4E6D55 !important;}
+html body #main-content .footer-cta :is(h2,em,.eyebrow) {color:#D8E6C8 !important;}
+html body #main-content .footer-cta p {color:#E4EDE1 !important;}
+
+
+/* Contrasts on the fixed dark hero and the fixed light KPI surfaces. */
+html body #main-content .pv-home .pv-index-launch .pv-launch-copy,
+html body #main-content .pv-home .pv-index-launch .pv-launch-copy :is(strong,span),
+html body #main-content .pv-home .pv-index-launch .pv-launch-link {
+  color:#E5F0DD !important;
+  -webkit-text-fill-color:#E5F0DD !important;
+}
+html body #main-content .pv-home .pv-index-launch .pv-launch-copy strong {
+  color:#F1F7ED !important;
+  -webkit-text-fill-color:#F1F7ED !important;
+}
+html body #main-content > section.hero:not(.pv-hero) .stat-grid .stat {
+  background:#F8FAF5 !important;
+  border-color:#C0CFBF !important;
+}
+html body #main-content > section.hero:not(.pv-hero) .stat-grid .stat :is(strong,span,small,.muted) {
+  color:#20372A !important;
+  -webkit-text-fill-color:#20372A !important;
+}
+html body #main-content > section.hero:not(.pv-hero) .stat-grid .stat span {
+  font-size:12px;
+  font-weight:650;
+}
+
+@media (max-width:1180px) {
+  html #main-content > header.site-nav .nav-primary > a,
+  html #main-content > header.site-nav .nav-more > summary {font-size:11px !important;padding-inline:9px;}
+}
+@media (max-width:850px) {
+  html body #main-content > header.site-nav {min-height:65px !important;padding:10px 16px !important;border-radius:0 0 14px 14px !important;}
+  html body:not(:has(.pv-home)) #main-content > header.site-nav {margin-left:-14px !important;}
+  html #main-content > header.site-nav .nav-links.open {background:#20372A !important;border-color:#5B7A61 !important;max-height:calc(100dvh - 78px);overflow:auto;}
+  html #main-content > header.site-nav .nav-links.open .nav-actions {
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    grid-template-areas:"portal portal" "search motion" !important;
+    gap:10px !important;
+    padding-left:0 !important;
+    border-left:0;
+  }
+  html #main-content > header.site-nav .nav-links.open .nav-actions .nav-cta {grid-area:portal !important;grid-column:1/-1 !important;width:100% !important;}
+  html #main-content > header.site-nav .nav-links.open .nav-actions [data-command-open] {grid-area:search !important;grid-column:1 !important;width:100% !important;justify-content:center;}
+  html #main-content > header.site-nav .nav-links.open .nav-actions [data-motion-toggle] {grid-area:motion !important;grid-column:2 !important;width:100% !important;}
+}
+@media (max-width:600px) {
+  html body #main-content > header.site-nav {padding-inline:13px !important;}
+  html #main-content .pv-home .pv-category-grid {grid-template-columns:1fr !important;}
+  html #main-content .pv-home .pv-faq-list summary {font-size:19px;}
+  html #main-content .pv-home .pv-manifesto-points b {font-size:13px;}
+  html body #main-content > section.hero:not(.pv-hero) {padding:30px 20px !important;}
+}
+@media (prefers-reduced-motion: reduce) {
+  html #main-content .pv-home * {transition-duration:.01ms !important;animation-duration:.01ms !important;}
+}

@@ -1,0 +1,326 @@
+/* PIR Visuals v6.7.0 — unified editorial visual system */
+:root {
+  color-scheme: dark;
+  --bg: #171d19;
+  --bg-soft: #202821;
+  --surface: #252e27;
+  --surface-raised: #2c372e;
+  --surface-elevated: #354136;
+  --line: #435047;
+  --text: #f1f2e9;
+  --muted: #bac4b9;
+  --subtle: #9eaa9f;
+  --accent: #a8b99c;
+  --accent-strong: #c8d6bd;
+  --accent-ink: #1d281f;
+  --gold: #d3bb8c;
+  --danger: #e6a19a;
+  --shadow: 0 16px 42px rgba(0, 0, 0, .13);
+  --pv-pattern: rgba(207, 220, 198, .045);
+  --pv-orbit: rgba(211, 187, 140, .16);
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f4f2e9;
+  --bg-soft: #ecebe2;
+  --surface: #fffef9;
+  --surface-raised: #f8f8f1;
+  --surface-elevated: #ffffff;
+  --line: #d5d9ce;
+  --text: #202820;
+  --muted: #515d53;
+  --subtle: #657064;
+  --accent: #526b4b;
+  --accent-strong: #35543b;
+  --accent-ink: #ffffff;
+  --gold: #80673b;
+  --danger: #a13e38;
+  --shadow: 0 14px 38px rgba(38, 48, 36, .065);
+  --pv-pattern: rgba(62, 82, 57, .035);
+  --pv-orbit: rgba(128, 103, 59, .13);
+}
+
+html,
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+body {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse at 84% -8%, color-mix(in srgb, var(--accent) 9%, transparent), transparent 35%),
+    radial-gradient(ellipse at 4% 42%, color-mix(in srgb, var(--gold) 4%, transparent), transparent 30%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%) !important;
+  background-attachment: fixed;
+}
+
+/* One sparse diagonal motif; no dense grid or concentric rings. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 1 !important;
+  background: repeating-linear-gradient(
+    135deg,
+    transparent 0 286px,
+    var(--pv-pattern) 287px,
+    transparent 288px 572px
+  ) !important;
+  mask-image: linear-gradient(112deg, #000 0%, rgba(0, 0, 0, .52) 42%, transparent 82%);
+}
+
+/* A single asymmetrical organic form adds depth without a ring stack. */
+body::after {
+  content: "";
+  position: fixed;
+  z-index: 0;
+  pointer-events: none;
+  width: min(43vw, 520px);
+  height: min(36vw, 410px);
+  min-height: 230px;
+  top: 20vh;
+  right: -245px;
+  border: 1px solid var(--pv-orbit) !important;
+  border-radius: 62% 38% 55% 45% / 45% 55% 45% 55%;
+  box-shadow: none !important;
+  opacity: .58 !important;
+  transform: rotate(-17deg);
+}
+
+.wrap {
+  max-width: 1480px;
+  padding-inline: clamp(14px, 3.5vw, 54px);
+}
+
+/* Navigation spacing is deliberate: actions have their own breathing room. */
+.site-nav {
+  gap: clamp(12px, 1.45vw, 22px) !important;
+  padding: 10px 15px !important;
+  background: color-mix(in srgb, var(--surface) 94%, transparent) !important;
+  border: 1px solid var(--line) !important;
+  box-shadow: 0 12px 34px color-mix(in srgb, var(--text) 7%, transparent) !important;
+  backdrop-filter: blur(18px) saturate(125%);
+}
+
+.nav-primary {
+  gap: 6px !important;
+}
+
+.site-nav .nav-actions {
+  display: flex !important;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: 10px !important;
+  margin-left: 5px;
+  padding-left: 14px;
+  border-left: 1px solid var(--line);
+}
+
+.site-nav .nav-actions .nav-cta,
+.site-nav .nav-actions .nav-action-button {
+  min-height: 42px;
+  border-radius: 11px;
+}
+
+.site-nav .nav-actions .nav-action-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  width: auto !important;
+  min-width: 44px;
+  padding-inline: 12px;
+  background: var(--surface-raised) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--line) !important;
+}
+
+.site-nav .nav-actions .nav-action-button:hover {
+  background: var(--surface-elevated) !important;
+  border-color: var(--accent) !important;
+}
+
+.site-nav .nav-actions .nav-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 15px;
+  background: var(--accent) !important;
+  color: var(--accent-ink) !important;
+  border: 1px solid var(--accent) !important;
+}
+
+/* Shared surfaces across public pages, Studio, Shortlist and support screens. */
+#main-content :is(
+  .card,
+  .stat,
+  .feature-item,
+  .trust-item,
+  .hero-panel,
+  .designer-card,
+  .work,
+  .pv-client-card,
+  .studio-panel,
+  .growth-panel,
+  .support-form-card,
+  .support-channel,
+  .support-note,
+  .shortlist-table-wrap
+) {
+  color: var(--text);
+  border-color: var(--line);
+  box-shadow: var(--shadow);
+}
+
+#main-content :is(.card, .stat, .feature-item, .trust-item, .designer-card, .studio-panel, .growth-panel) {
+  background: var(--surface);
+}
+
+#main-content :is(h1, h2, h3, h4, h5, h6, strong) {
+  color: var(--text);
+}
+
+#main-content :is(p, li, dd, figcaption, .muted, .pv-field-help, .growth-footnote, .studio-section-copy) {
+  color: var(--muted);
+}
+
+#main-content :is(.eyebrow, .pv-overline, .pv-label, .studio-card-kicker, .studio-nav-label) {
+  color: var(--accent-strong);
+}
+
+#main-content a:not(.btn):not(.pv-button):not(.nav-cta) {
+  color: var(--accent-strong);
+  text-underline-offset: 3px;
+}
+
+#main-content a:not(.btn):not(.pv-button):not(.nav-cta):hover {
+  color: var(--gold);
+}
+
+input,
+select,
+textarea {
+  background: var(--surface-raised) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--line) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--subtle) !important;
+  opacity: 1;
+}
+
+label {
+  color: var(--text);
+}
+
+.btn:not(.btn-secondary):not(.btn-ghost),
+.pv-button:not(.pv-button-light):not(.pv-button-dark),
+.nav-cta {
+  background: var(--accent) !important;
+  color: var(--accent-ink) !important;
+  border: 1px solid var(--accent) !important;
+  box-shadow: 0 8px 22px color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+.btn-secondary,
+.btn-ghost,
+.pv-button-light,
+.pv-button-dark,
+.favorite-btn,
+.shortlist-btn {
+  background: var(--surface-raised) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--line) !important;
+  box-shadow: none !important;
+}
+
+.btn-ghost {
+  background: transparent !important;
+}
+
+.tag,
+.pill-count {
+  background: var(--surface-raised);
+  color: var(--accent-strong);
+  border: 1px solid var(--line);
+}
+
+:where(button, a, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent-strong) 70%, transparent) !important;
+  outline-offset: 3px !important;
+}
+
+@media (max-width: 850px) {
+  .site-nav .nav-links.open {
+    gap: 12px !important;
+    padding: 12px !important;
+    background: var(--surface) !important;
+    border: 1px solid var(--line) !important;
+    box-shadow: var(--shadow) !important;
+  }
+
+  .site-nav .nav-links.open .nav-actions {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-areas: none !important;
+    width: 100%;
+    gap: 10px !important;
+    margin: 8px 0 0;
+    padding: 12px 0 0;
+    border: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .site-nav .nav-links.open .nav-actions .nav-cta {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  .site-nav .nav-links.open .nav-actions .nav-action-button,
+  .site-nav .nav-links.open .nav-actions [data-theme-toggle],
+  .site-nav .nav-links.open .nav-actions [data-motion-toggle],
+  .site-nav .nav-links.open .nav-actions [data-command-open] {
+    grid-area: auto !important;
+    align-self: stretch !important;
+    justify-self: stretch !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 44px;
+    margin: 0 !important;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 520px) {
+  body::before {
+    background: repeating-linear-gradient(135deg, transparent 0 340px, var(--pv-pattern) 341px, transparent 342px 680px) !important;
+    mask-image: linear-gradient(112deg, #000 0%, transparent 78%);
+  }
+
+  body::after {
+    width: 280px;
+    height: 240px;
+    min-height: 0;
+    top: 24vh;
+    right: -185px;
+    opacity: .38 !important;
+  }
+
+  .site-nav .nav-links.open .nav-actions {
+    gap: 9px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::after {
+    transform: none;
+  }
+}

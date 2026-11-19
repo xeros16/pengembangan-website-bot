@@ -1,0 +1,57 @@
+PIR Visuals v5.86.0 — Atomic Account Security
+
+INSTALLATION
+1. Stop the running website and create a full backup of the project, MongoDB database, uploads and WhatsApp session folders.
+2. Extract Part 1 into the project root and choose Merge/Replace.
+3. Extract Part 2 into the same project root and choose Merge/Replace.
+4. Preserve local .env files, portfolio-website/models.js, database data, uploads/media and WhatsApp auth/session folders.
+5. Keep TRUST_CLOUDFLARE_IP_HEADER=false unless the origin is firewalled to accept traffic only from Cloudflare.
+6. Start the bot and website using the existing deployment procedure.
+7. Hard-refresh the website with Ctrl + Shift + R.
+
+PART 1 — CORE APPLICATION
+- package.json / package-lock.json
+- README.md
+- scripts/check-js.js
+- portfolio-website/server.js
+- portfolio-website/security.js
+- portfolio-website/package.json / package-lock.json
+- portfolio-website/.env.example
+
+PART 2 — TESTS & RELEASE DOCUMENTATION
+- portfolio-website/tests/*.test.js
+- INSTALL_UPDATE_v5_86_0.txt
+- UPDATE_MANIFEST_v5_86_0.txt
+- QA_REPORT_v5_86_0.md
+- portfolio-website/RELEASE_NOTES_v5_86_0.txt
+- portfolio-website/SECURITY_OPERATIONS_v5_86_0.md
+
+WHAT CHANGED
+- WhatsApp setup/activation tokens are now consumed with an expiry-aware atomic compare-and-set update.
+- Concurrent activation attempts cannot both activate the same setup token.
+- A duplicate email race is handled as HTTP 409 instead of surfacing as a generic server error.
+- Designer Studio login now consumes WhatsApp OTP atomically before issuing a session; one OTP cannot create multiple concurrent sessions.
+- Failed OTP attempts increment only the same active OTP and stop at the configured limit.
+- Password changes are throttled and compare-and-set against the current password hash to prevent concurrent overwrites.
+- Password setup, password change and password reset invalidate previously issued WhatsApp OTPs.
+- Existing IP/identity throttles, email verification confirmation, CSRF, session hashing, cookie parsing and HTTP hardening from v5.85 remain intact.
+- Root JavaScript syntax checks now include the website source and tests while excluding node_modules and .git.
+
+PRESERVED
+- No MongoDB schema migration or new runtime dependency is required.
+- Existing profile, portfolio, client project, Designer Studio and WhatsApp bot features remain in place.
+- Existing design system, themes, responsive navigation, GSAP and reduced-motion behavior remain in place.
+- Local .env, database contents, uploads, media and WhatsApp authentication sessions must not be replaced.
+
+QA SUMMARY
+- Website tests: 364 passed, 0 failed.
+- Root JavaScript syntax check: 215 JavaScript files passed.
+- Website syntax check: passed.
+- Root test suite: 397 passed, 10 known baseline failures; the same 10 failing test names were present in the prior v5.85 baseline. No new root-suite failures were introduced.
+- Live MongoDB, SMTP delivery, production TLS/proxy behavior and browser-based end-to-end login were not available in this isolated QA run. Verify them in the deployment environment.
+
+VERSIONS
+Platform: 5.86.0
+Website package: 3.40.0
+Public service-worker cache: pir-visuals-public-v37
+Public asset suffix: 5860

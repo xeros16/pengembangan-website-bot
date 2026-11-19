@@ -1,0 +1,10 @@
+PIR Visuals Bot v5.90.0 — split source package
+
+This source is split into Part 1 and Part 2 because of download size.
+Download BOTH ZIP files, then extract both into the SAME empty destination folder.
+When prompted, merge folders and keep the files from both archives. The two parts contain
+different files; neither part is a standalone installation.
+
+After extraction, run npm ci, then follow INSTALL_UPDATE_v5_90_0.md.
+The package intentionally excludes .env, WhatsApp auth/session state, backups, runtime
+uploads, and node_modules. Preserve your existing local .env, auth state, and database.

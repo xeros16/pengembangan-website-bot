@@ -1,0 +1,41 @@
+PIR VISUALS BOT v5.13.0 — ACCESS MANAGER SEARCH
+================================================
+
+Isi patch:
+- Pencarian allowlist untuk grup dan kontak.
+- Dokumentasi v5.13.0, changelog, status fitur, dan metadata versi.
+- Tes unit baru untuk pencarian.
+
+CARA MEMASANG (Windows)
+1. Matikan bot dengan Ctrl+C di terminal bot.
+2. Buat salinan cadangan file berikut dari folder proyek:
+   - features\access-control.js
+   - features\commands\general-owner.js
+   - tests\access-control.test.js
+   - package.json
+   - package-lock.json
+   - docs\ACCESS-CONTROL.md
+   - docs\commands.md
+   - CHANGELOG.md
+3. Ekstrak ZIP ini langsung ke folder proyek bot (contoh: E:\bot-grup-desain), lalu pilih Replace/Timpa untuk file yang diminta.
+4. JANGAN hapus atau timpa .env, config\allowed-chats.json, config\allowed-chats.json.bak,
+   config\command-aliases.json, content\texts.json, folder auth_info_baileys,
+   folder backups, atau database MongoDB.
+5. Dari folder proyek, jalankan:
+   npm run check
+   npm test
+6. Jika kedua perintah lulus, jalankan kembali bot seperti biasa.
+
+CARA MENGGUNAKAN
+- .allowlist search <kata kunci>
+- .allowlist search group <kata kunci>
+- .allowlist search contact <kata kunci>
+
+Pencarian hanya dapat dijalankan Owner. Hasil maksimal 10 entri per pesan.
+Pencarian mencocokkan alias, nama WhatsApp yang tersimpan, ID/JID, dan catatan internal.
+
+BATASAN VALIDASI
+- Pemeriksaan sintaks lokal: lulus (146 file JavaScript).
+- Tes otomatis: 231 lulus, 0 gagal.
+- Audit paket rilis: lulus.
+- Belum diuji dengan WhatsApp aktif dan MongoDB produksi/staging.

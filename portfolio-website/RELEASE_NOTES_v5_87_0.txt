@@ -1,0 +1,34 @@
+PIR Visuals v5.87.0
+Backend & Operational Stability
+
+Backup operations
+- Validates mongodump output and refuses to mark empty/non-BSON dumps successful.
+- Writes backup-manifest.json with database dump inventory and optional local-state inventory.
+- Prevents overlapping backup jobs within one process.
+- Adds bounded age-based retention (default 14 days, configurable 1–3650).
+- Optional Baileys auth and portfolio media backup is disabled by default.
+- Applies restrictive backup directory and manifest permissions where supported.
+
+Bot health
+- Adds loopback-only /health and /ready endpoints.
+- /health reports process liveness; /ready reports MongoDB and WhatsApp readiness.
+- Public/non-loopback bind addresses are rejected.
+
+Designer Studio
+- Adds private owner-only activation token generation via .portfolio dashboard setup.
+- Activation tokens are hashed and expire after 20 minutes.
+- Login OTP uses cryptographic random integer generation, is stored hashed and expires after 5 minutes.
+- Retains atomic single-use activation/OTP consumption and password-change protections.
+
+Designer profiles
+- Adds verified, featured, language and watermark preferences.
+- Public profile formatter and profile route expose verified/featured state.
+- Optional designer-name watermark is applied to portfolio media.
+- Adds portfolio link, QR, analytics, language and watermark commands.
+- Owner-only controls manage verified and featured status.
+
+Validation
+- Root tests: 415/415.
+- Website tests: 364/364.
+- Root JavaScript syntax: 216 files.
+- Website syntax: passed.

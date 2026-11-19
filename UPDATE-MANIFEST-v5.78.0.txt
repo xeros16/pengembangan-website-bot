@@ -1,0 +1,27 @@
+PIR VISUALS v5.78.0 — MOTION & VISUAL EXPERIENCE
+Platform version: 5.78.0
+Website package version: 3.32.0
+GSAP dependency: 3.15.1
+Public cache: pir-visuals-public-v24
+Asset cache query: v=5780
+
+Core files:
+- package.json
+- package-lock.json
+- portfolio-website/server.js
+- portfolio-website/package.json
+- portfolio-website/package-lock.json
+
+Regression tests:
+- Existing portfolio website test suite aligned to v5.78.0 release metadata
+- portfolio-website/tests/motion-experience-v5.78.test.js (new)
+
+Documentation:
+- RELEASE-NOTES-v5.78.0.md
+- INSTALL-UPDATE-v5.78.0.md
+- TEST-REPORT-v5.78.0.md
+- UPDATE-MANIFEST-v5.78.0.txt
+
+Important:
+- Run `npm run website:install` after applying the update to install GSAP.
+- No .env, database, uploads, WhatsApp auth/session, or node_modules included.

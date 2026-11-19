@@ -1,0 +1,475 @@
+/* PIR VISUALS · Public page harmony 2026-11-15aa.
+   Loaded AFTER all legacy styles, scoped to public pages. One permanent
+   editorial forest / sage / warm-ivory visual system; no theme toggle. */
+
+/* 01 — BUSINESS CTA. Eyebrow had a low-contrast legacy color. */
+html body #main-content .company-editorial-cta {
+  background:linear-gradient(112deg,#20372a 0%,#2b4634 100%) !important;
+  border:1px solid rgba(195,219,186,.27) !important;
+  border-radius:14px !important;
+  padding:clamp(26px,4vw,56px) !important;
+  display:flex;
+  align-items:center;
+  gap:24px;
+  box-shadow:0 16px 40px rgba(32,55,42,.1);
+}
+html body #main-content .company-editorial-cta > div{min-width:0;flex:1}
+html body #main-content .company-editorial-cta .eyebrow {
+  display:block;
+  color:#cde2bd !important;-webkit-text-fill-color:#cde2bd !important;
+  font-size:11px !important;font-weight:800;letter-spacing:.15em;
+  opacity:1 !important;margin-bottom:16px;
+}
+html body #main-content .company-editorial-cta h2 {
+  color:#f1f5e9 !important;-webkit-text-fill-color:#f1f5e9 !important;
+  font:700 clamp(34px,4.1vw,59px)/1.05 Georgia,'Times New Roman',serif !important;
+  letter-spacing:-.052em;margin:0 0 13px;text-wrap:balance;
+}
+html body #main-content .company-editorial-cta p {
+  max-width:660px;
+  color:#dce7d6 !important;-webkit-text-fill-color:#dce7d6 !important;
+  font-size:clamp(14px,1.15vw,17px) !important;line-height:1.7;
+}
+html body #main-content .company-editorial-cta > .btn {
+  display:inline-flex;justify-content:center;align-items:center;gap:12px;
+  min-height:51px;padding:12px 21px;flex-shrink:0;
+  background:#d9e8cd !important;color:#20372a !important;
+  -webkit-text-fill-color:#20372a !important;
+  border:1px solid #d9e8cd !important;border-radius:8px;
+  font-weight:750;white-space:nowrap;
+}
+html body #main-content .company-editorial-cta > .btn:hover{
+  background:#eef3e5 !important;box-shadow:0 12px 22px rgba(8,23,13,.18);
+}
+/* 02 — BUSINESS CARDS. Only their arrows move; labels never touch the glyph. */
+html body #main-content .company-editorial-card > a {
+  display:inline-flex !important;align-items:center;justify-content:flex-start;
+  flex-wrap:nowrap;gap:11px !important;max-width:100%;
+  font-size:clamp(13px,1.1vw,16px) !important;
+  line-height:1.45 !important;
+  text-decoration:none !important;
+  color:#274b33 !important;-webkit-text-fill-color:#274b33 !important;
+  margin-top:22px !important;
+  padding-bottom:4px;
+  border-bottom:1px solid currentColor;
+  transition:color .2s ease,border-color .2s ease;
+}
+html body #main-content .company-editorial-card > a .pv-action-label {
+  display:inline !important;flex:0 1 auto;min-width:0;
+  font-size:inherit !important;font-weight:750 !important;letter-spacing:0 !important;
+  color:inherit !important;-webkit-text-fill-color:inherit !important;
+}
+html body #main-content .company-editorial-card > a .pv-link-arrow {
+  display:inline-block !important;flex:0 0 auto;
+  color:inherit !important;-webkit-text-fill-color:inherit !important;
+  font-size:17px !important;font-weight:650 !important;
+  line-height:1 !important;letter-spacing:0 !important;
+  transform:none;transition:transform .32s cubic-bezier(.22,1,.36,1) !important;
+}
+html body #main-content .company-editorial-card > a:is(:hover,:focus-visible) .pv-link-arrow,
+html body #main-content .company-editorial-cta .btn:is(:hover,:focus-visible) .pv-link-arrow{
+  transform:translate(4px,-3px) !important;
+}
+/* 03 — DISCOVER HERO. A complete, contained PIR mark replaces the cropped
+   1600×1000 background artwork. The mark sits clear of the heading and stats. */
+html body #main-content.wrap:not(:has(.pv-home)) > .hero:not(.pv-hero):has(.stat-grid) {
+  background:linear-gradient(114deg,#152c20 2%,#254332 67%,#294534 100%) !important;
+  min-height:620px;
+  padding-right:clamp(24px,5vw,78px) !important;
+}
+html body #main-content.wrap:not(:has(.pv-home)) > .hero:not(.pv-hero):has(.stat-grid)::before{
+  content:'';pointer-events:none;
+  position:absolute;z-index:-1;
+  top:50%;right:clamp(30px,5vw,110px);bottom:auto;left:auto;
+  width:clamp(250px,33vw,470px);height:auto;
+  aspect-ratio:1;opacity:.39;
+  background:url('/pir-footer-seal.svg') center center / contain no-repeat !important;
+  transform:translateY(-50%);
+  filter:none;
+}
+html body #main-content.wrap:not(:has(.pv-home)) > .hero:not(.pv-hero):has(.stat-grid) > h1,
+html body #main-content.wrap:not(:has(.pv-home)) > .hero:not(.pv-hero):has(.stat-grid) > p {
+  position:relative;max-width:min(820px,67%) !important;
+}
+html body #main-content.wrap:not(:has(.pv-home)) > .hero:not(.pv-hero):has(.stat-grid) > .stat-grid{
+  max-width:min(980px,73%);
+  position:relative;z-index:1;
+}
+
+/* 04 — DISCOVER. Purposeful alternating sage and cream areas rather than an
+   uninterrupted stack of white filters and empty-state cards. */
+html body #main-content:not(:has(.pv-home)) .pv-match-finder{
+  background:linear-gradient(135deg,#d3e3c5 0%,#e4eedc 56%,#edf3e7 100%) !important;
+  border:1px solid #b6ccae !important;
+  border-radius:18px !important;
+  box-shadow:0 12px 30px rgba(32,55,42,.07) !important;
+  padding:clamp(25px,4vw,54px) !important;
+}
+html body #main-content:not(:has(.pv-home)) .pv-match-finder-form{
+  background:#f9faf4;
+  border:1px solid #d1dec9;border-radius:13px;
+  padding:clamp(17px,2vw,27px);
+}
+html body #main-content:not(:has(.pv-home)) .pv-discovery-shell{
+  background:#e3eddc !important;
+  border:1px solid #c5d7bd;
+  border-radius:18px;
+  padding:clamp(22px,3vw,44px) !important;
+  margin-block:clamp(30px,4vw,60px) !important;
+}
+html body #main-content:not(:has(.pv-home)) .pv-discovery-shell > .section-head{
+  margin-top:0 !important;
+}
+html body #main-content:not(:has(.pv-home)) .pv-discovery-shell .search-panel.pv-discovery-filters{
+  background:#f9faf5 !important;border:1px solid #c5d4bd !important;
+  border-radius:13px !important;
+}
+html body #main-content:not(:has(.pv-home)) .pv-discovery-shell .empty-state,
+html body #main-content:not(:has(.pv-home)) .pv-discovery-shell .card.empty-state {
+  background:#f6f8f1 !important;
+  border:1px dashed #b3c8ad !important;
+  border-radius:13px !important;
+}
+html body #main-content:not(:has(.pv-home)) .pv-selected-work-section{
+  background:#f5f7ef !important;
+  border-radius:18px;
+  padding:clamp(24px,3vw,44px) !important;
+  margin-block:clamp(24px,4vw,52px) !important;
+}
+html body #main-content:not(:has(.pv-home)) .company-editorial-grid{
+  padding:clamp(15px,2vw,22px);background:#e4eddd;
+  border-radius:17px;margin-bottom:clamp(30px,5vw,60px) !important;
+}
+html body #main-content:not(:has(.pv-home)) .company-editorial-copy{
+  padding:clamp(36px,5vw,68px) clamp(20px,3vw,40px) !important;
+  background:#f7f8f2;border-radius:15px;border:1px solid #d9e3d3;
+  margin-bottom:clamp(24px,4vw,50px);
+}
+
+/* 05 — SHORTLIST. Restore coherent hierarchy and a properly framed empty state. */
+html body #main-content.wrap > .shortlist-hero {
+  border-radius:0 !important;
+  background:linear-gradient(114deg,#152d21,#264732 82%) !important;
+  color:#f3f6ea !important;
+  padding:clamp(46px,6vw,88px) clamp(24px,5vw,82px) !important;
+  margin:0 0 clamp(25px,3vw,42px) !important;
+  box-shadow:none !important;
+}
+html body #main-content.wrap > .shortlist-hero :is(.eyebrow,h1,h1 em,p){
+  color:#f2f7eb !important;-webkit-text-fill-color:#f2f7eb !important;
+}
+html body #main-content.wrap > .shortlist-hero h1{
+  font:700 clamp(48px,7vw,96px)/.99 Georgia,'Times New Roman',serif !important;
+  letter-spacing:-.058em;
+}
+html body #main-content.wrap > .shortlist-hero p{font-size:clamp(14px,1.25vw,17px) !important;line-height:1.7;}
+html body #main-content.wrap > .shortlist-hero .btn-secondary{
+  background:#dbe9cf !important;color:#20372a !important;
+  -webkit-text-fill-color:#20372a !important;border-color:#dbe9cf !important;
+}
+html body #main-content.wrap > .shortlist-results{
+  padding:clamp(28px,4vw,54px) !important;
+  background:#e1ecda !important;border:1px solid #c8d8bf;
+  border-radius:18px;
+  margin:0 auto clamp(42px,5vw,70px) !important;
+}
+html body #main-content.wrap > .shortlist-results > .shortlist-toolbar{
+  background:transparent !important;box-shadow:none !important;
+  border:0 !important;border-bottom:1px solid #a9c2a3 !important;
+  padding:0 0 23px !important;margin-bottom:22px !important;
+  display:flex;align-items:end;justify-content:space-between;gap:22px;
+}
+html body #main-content.wrap > .shortlist-results .shortlist-toolbar h2{
+  font:700 clamp(29px,3.5vw,46px)/1.12 Georgia,'Times New Roman',serif !important;
+  color:#20372a !important;letter-spacing:-.04em;margin:10px 0 0;
+}
+html body #main-content.wrap > .shortlist-results .shortlist-toolbar .btn-secondary{
+  border:1px solid #9eb99d !important;background:#f3f7ee !important;
+  color:#244a33 !important;white-space:nowrap;
+}
+html body #main-content.wrap > .shortlist-results #shortlist-results > .empty-state{
+  max-width:100%;margin:0 !important;
+  min-height:245px;padding:clamp(30px,4vw,56px) !important;
+  border:1px dashed #a8c1a2 !important;
+  border-radius:14px !important;
+  box-shadow:none !important;
+  background:#f8faf4 !important;color:#20372a !important;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:15px;text-align:center;
+}
+html body #main-content.wrap > .shortlist-results #shortlist-results > .empty-state h2{
+  font:700 clamp(27px,3vw,40px)/1.14 Georgia,'Times New Roman',serif !important;
+  color:#20372a !important;letter-spacing:-.035em;margin:0;
+}
+html body #main-content.wrap > .shortlist-results #shortlist-results > .empty-state p{
+  color:#506656 !important;font-size:15px;line-height:1.65;margin:0;
+}
+html body #main-content.wrap > .shortlist-results #shortlist-results > .empty-state .btn{
+  margin:9px 0 0;min-height:44px;background:#2b583a !important;
+  border-color:#2b583a !important;color:#fff !important;-webkit-text-fill-color:#fff !important;
+}
+html body #main-content.wrap > .shortlist-results .shortlist-table-wrap{
+  background:#f9faf5 !important;border:1px solid #c6d5bd !important;
+  border-radius:12px;box-shadow:none;
+}
+
+@media(max-width:1000px){
+  html body #main-content.wrap:not(:has(.pv-home)) > .hero:not(.pv-hero):has(.stat-grid)::before{
+    width:clamp(205px,29vw,340px);right:20px;opacity:.24;
+  }
+}
+@media(max-width:760px){
+  html body #main-content .company-editorial-cta{flex-direction:column;align-items:flex-start;gap:23px;}
+  html body #main-content .company-editorial-cta .btn{align-self:flex-start;}
+  html body #main-content.wrap:not(:has(.pv-home)) > .hero:not(.pv-hero):has(.stat-grid){min-height:0;}
+  html body #main-content.wrap:not(:has(.pv-home)) > .hero:not(.pv-hero):has(.stat-grid)::before{
+    display:none !important;
+  }
+  html body #main-content.wrap:not(:has(.pv-home)) > .hero:not(.pv-hero):has(.stat-grid) > h1,
+  html body #main-content.wrap:not(:has(.pv-home)) > .hero:not(.pv-hero):has(.stat-grid) > p,
+  html body #main-content.wrap:not(:has(.pv-home)) > .hero:not(.pv-hero):has(.stat-grid) > .stat-grid{
+    max-width:100% !important;
+  }
+  html body #main-content.wrap > .shortlist-results > .shortlist-toolbar{
+    align-items:flex-start;flex-direction:column;
+  }
+  html body #main-content:not(:has(.pv-home)) .pv-match-finder-form{padding:17px;}
+  html body #main-content:not(:has(.pv-home)) .pv-discovery-shell{padding:20px !important;}
+}
+@media(prefers-reduced-motion:reduce){
+  html body #main-content .company-editorial-card > a .pv-link-arrow{transition:none !important;transform:none !important;}
+}
+
+
+/* PIR Visuals / Editorial Ornament System · 2026-11-15ab
+   Artwork stays within the right-hand half of each banner; align it with
+   the headline and statistics, not the entire tall content block. */
+html body #main-content.wrap:not(:has(.pv-home)) > .hero:not(.pv-hero):has(.stat-grid) {
+  --pv-hero-orbit-y: 41%;
+  background:
+    radial-gradient(circle at 82% 40%,rgba(182,214,165,.13),transparent 32%),
+    linear-gradient(113deg,#152d21 2%,#234332 67%,#294b36 100%) !important;
+}
+html body #main-content.wrap:not(:has(.pv-home)) > .hero:not(.pv-hero):has(.stat-grid)::before {
+  display:block !important;
+  top:var(--pv-hero-orbit-y) !important;
+  right:clamp(42px,7.2vw,146px) !important;
+  width:clamp(235px,28vw,425px) !important;
+  height:auto !important;
+  aspect-ratio:1 !important;
+  transform:translateY(-50%) !important;
+  opacity:.60 !important;
+  z-index:-1 !important;
+  background:url('/pir-footer-seal.svg') center / contain no-repeat !important;
+}
+html body #main-content.wrap:not(:has(.pv-home)) > .hero:not(.pv-hero):has(.stat-grid)::after {
+  content:'' !important;display:block !important;
+  position:absolute;pointer-events:none;
+  width:clamp(315px,39vw,570px);height:auto;aspect-ratio:1;
+  left:auto;bottom:auto;right:clamp(-30px,1.8vw,50px);
+  top:var(--pv-hero-orbit-y);transform:translateY(-50%);
+  border:1px solid rgba(196,223,178,.18);border-radius:50%;
+  background:
+    radial-gradient(circle at center,transparent 53%,rgba(201,229,190,.12) 53.3%,rgba(201,229,190,.12) 53.7%,transparent 54.1%),
+    radial-gradient(circle at 73% 18%,#d0e4bf 0 4px,transparent 5px),
+    radial-gradient(circle at 13% 71%,#aec69d 0 3px,transparent 4px);
+  opacity:.72;z-index:-2;
+}
+/* A fine editorial stroke above the small introductory label. */
+html body #main-content.wrap:not(:has(.pv-home)) > .hero:not(.pv-hero):has(.stat-grid) > .eyebrow {
+  display:inline-flex;align-items:center;gap:12px;
+  color:#d7e8ca !important;
+}
+html body #main-content.wrap:not(:has(.pv-home)) > .hero:not(.pv-hero):has(.stat-grid) > .eyebrow::before {
+  content:'';display:inline-block;width:25px;height:1px;
+  background:#c0dab3;flex:0 0 25px;
+}
+/* Styling across the 'Lainnya' pages: deliberate editorial accents rather
+   than identical all-white boxes. No opacity on actual form elements. */
+html body #main-content:not(:has(.pv-home)) .company-editorial-hero,
+html body #main-content:not(:has(.pv-home)) .category-intro {
+  position:relative;isolation:isolate;overflow:hidden;
+  background:
+    radial-gradient(circle at 83% 14%,rgba(61,93,61,.09),transparent 30%),
+    linear-gradient(120deg,#d0e2bf 0%,#e4edd8 100%) !important;
+}
+html body #main-content:not(:has(.pv-home)) .company-editorial-hero::before,
+html body #main-content:not(:has(.pv-home)) .category-intro::before {
+  content:'';position:absolute;right:-110px;top:-150px;
+  width:400px;height:400px;border:1px solid rgba(49,85,59,.13);
+  border-radius:50%;pointer-events:none;z-index:-1;
+  box-shadow:0 0 0 48px rgba(161,192,147,.09),0 0 0 95px rgba(161,192,147,.04);
+}
+html body #main-content:not(:has(.pv-home)) .company-editorial-hero > *,
+html body #main-content:not(:has(.pv-home)) .category-intro > * {position:relative;z-index:1;}
+html body #main-content:not(:has(.pv-home)) .company-editorial-hero-aside {
+  isolation:isolate;overflow:hidden;
+  background:
+    radial-gradient(circle at 86% 30%,rgba(164,205,154,.22),transparent 45%),
+    #203a2b !important;
+  border:1px solid rgba(231,246,224,.18) !important;
+}
+html body #main-content:not(:has(.pv-home)) .company-editorial-hero-aside::after {
+  content:'✳';position:absolute;right:22px;bottom:-20px;
+  color:rgba(215,237,205,.16);font:130px/1 Georgia,serif;
+  pointer-events:none;transform:rotate(-10deg);z-index:-1;
+}
+/* About / How it works / Business: alternating light surfaces and consistent
+   small heading details.  Card text and links retain their original contrast. */
+html body #main-content:not(:has(.pv-home)) .company-editorial-grid {
+  background:linear-gradient(135deg,#dbe9d1,#eaf0e2) !important;
+  border:1px solid #c5d8b9;
+}
+html body #main-content:not(:has(.pv-home)) .company-editorial-copy {
+  background:
+    radial-gradient(circle at 92% 13%,rgba(166,194,151,.13),transparent 26%),
+    #f7f8f2 !important;
+  border:1px solid #d2dfcb !important;
+}
+html body #main-content:not(:has(.pv-home)) .company-editorial-copy .eyebrow,
+html body #main-content:not(:has(.pv-home)) .category-index-heading .eyebrow {color:#486e4d !important;}
+/* Category page: a subtle background rhythm behind the index, not a white slab. */
+html body #main-content:not(:has(.pv-home)) .category-index {
+  position:relative;isolation:isolate;
+  background:linear-gradient(152deg,#f6f8f1,#e7efdf 98%) !important;
+  border:1px solid #cadbc4;border-radius:16px;
+  padding:clamp(20px,3vw,44px) !important;
+}
+html body #main-content:not(:has(.pv-home)) .category-index::before {
+  content:'';position:absolute;right:clamp(12px,3vw,45px);top:23px;
+  width:56px;height:56px;border:1px solid #8eac86;
+  border-radius:50%;pointer-events:none;opacity:.42;
+  background:radial-gradient(circle,transparent 50%,#b4c9ac 51% 53%,transparent 54%);
+  z-index:-1;
+}
+/* Legal, support and related informational pages inherit home-like paper/forest. */
+html body #main-content.wrap:not(:has(.pv-home)) > .hero.legal-copy .card {
+  background:#fafbf6 !important;color:#20372a !important;
+  border:1px solid #bed1b5 !important;
+  border-radius:16px !important;
+  padding:clamp(20px,3vw,40px) !important;
+}
+html body #main-content.wrap:not(:has(.pv-home)) > .hero.legal-copy .card :is(h2,h3,strong,p,li) {
+  color:#2a4735 !important;-webkit-text-fill-color:#2a4735 !important;
+}
+html body #main-content.wrap > .shortlist-hero {
+  background:
+    radial-gradient(circle at 88% 32%,rgba(173,207,154,.18),transparent 32%),
+    linear-gradient(114deg,#152d21,#264732 82%) !important;
+}
+html body #main-content.wrap > .shortlist-hero::after {
+  content:'';position:absolute;right:4%;top:50%;transform:translateY(-50%);
+  width:min(32vw,320px);height:auto;aspect-ratio:1;
+  border:1px solid rgba(214,235,204,.20);border-radius:50%;
+  background:radial-gradient(circle,transparent 45%,rgba(208,232,199,.13) 45.5% 46%,transparent 46.5%);
+  pointer-events:none;z-index:0;
+}
+html body #main-content.wrap > .shortlist-hero > * {position:relative;z-index:1;}
+html body #main-content:not(:has(.pv-home)) .pv-discovery-shell {
+  background:linear-gradient(152deg,#e0ecd7,#edf3e7 85%) !important;
+}
+html body #main-content:not(:has(.pv-home)) .support-hero {
+  background:
+    radial-gradient(circle at 91% 22%,rgba(207,230,190,.18),transparent 31%),
+    linear-gradient(120deg,#1b3425,#2a4935) !important;
+}
+html body #main-content:not(:has(.pv-home)) .support-hero::after {
+  content:'';position:absolute;right:-80px;top:-140px;
+  width:360px;height:360px;border:1px solid rgba(211,233,199,.24);
+  border-radius:50%;pointer-events:none;opacity:.6;
+}
+/* Shared decorative smallcaps line for internal page section headings. */
+html body #main-content:not(:has(.pv-home)) :is(.category-index-heading,.section-head) .eyebrow {
+  display:inline-flex;align-items:center;gap:10px;
+}
+html body #main-content:not(:has(.pv-home)) :is(.category-index-heading,.section-head) .eyebrow::before {
+  content:'';width:18px;height:1px;background:#6c9669;flex:0 0 18px;
+}
+@media(max-width:1020px){
+  html body #main-content.wrap:not(:has(.pv-home)) > .hero:not(.pv-hero):has(.stat-grid)::before{
+    right:clamp(12px,3vw,44px) !important;width:clamp(215px,29vw,345px) !important;
+    opacity:.36 !important;
+  }
+  html body #main-content.wrap:not(:has(.pv-home)) > .hero:not(.pv-hero):has(.stat-grid)::after{
+    right:-55px;opacity:.4;
+  }
+}
+@media(max-width:760px){
+  html body #main-content.wrap:not(:has(.pv-home)) > .hero:not(.pv-hero):has(.stat-grid)::before,
+  html body #main-content.wrap:not(:has(.pv-home)) > .hero:not(.pv-hero):has(.stat-grid)::after{
+    display:none !important;
+  }
+  html body #main-content:not(:has(.pv-home)) .category-index {padding:22px 16px !important;}
+  html body #main-content:not(:has(.pv-home)) .category-index::before {opacity:.21;width:35px;height:35px;top:16px;}
+  html body #main-content.wrap > .shortlist-hero::after {opacity:.4;right:-95px;}
+  html body #main-content:not(:has(.pv-home)) .company-editorial-hero::before,
+  html body #main-content:not(:has(.pv-home)) .category-intro::before {opacity:.38;}
+}
+@media(prefers-reduced-motion:reduce){
+  html body #main-content.wrap:not(:has(.pv-home)) > .hero:not(.pv-hero):has(.stat-grid)::before,
+  html body #main-content.wrap:not(:has(.pv-home)) > .hero:not(.pv-hero):has(.stat-grid)::after{transition:none !important;}
+}
+
+/* Remaining pages in the "Lainnya" menu share the same forest / sage cadence. */
+html body #main-content.wrap:not(:has(.pv-home)) > .hero:not(.pv-hero):not(:has(.stat-grid)) {
+  background:
+    radial-gradient(circle at 85% 45%,rgba(173,206,156,.13),transparent 33%),
+    linear-gradient(120deg,#193323,#2b4935 100%) !important;
+}
+html body #main-content.wrap:not(:has(.pv-home)) > .hero:not(.pv-hero):not(:has(.stat-grid)):not(.legal-copy)::before {
+  display:block !important;
+  content:'';position:absolute;inset:auto !important;
+  top:48% !important;right:4% !important;
+  width:clamp(210px,26vw,370px) !important;height:auto !important;
+  aspect-ratio:1;transform:translateY(-50%) !important;
+  background:url('/pir-footer-seal.svg') center / contain no-repeat !important;
+  opacity:.18 !important;pointer-events:none;z-index:-1;
+}
+html body #main-content:not(:has(.pv-home)) .pv-creative-grid {
+  padding:clamp(15px,2vw,28px);
+  background:linear-gradient(145deg,#dce9d1,#edf2e7);
+  border:1px solid #c7dac0;border-radius:18px;
+}
+html body #main-content:not(:has(.pv-home)) .pv-creative-grid .pv-creative-card {
+  background:#fcfdf8 !important;border:1px solid #c1d3ba !important;
+  border-radius:14px !important;box-shadow:0 12px 30px rgba(32,55,42,.05) !important;
+}
+html body #main-content:not(:has(.pv-home)) .pv-creative-grid .pv-creative-card:nth-child(3n+2){
+  background:#e7efdf !important;
+}
+html body #main-content:not(:has(.pv-home)) .pv-creative-grid .pv-creative-card :is(p,li,small,.pv-creative-note){
+  color:#3c5946 !important;-webkit-text-fill-color:#3c5946 !important;
+}
+html body #main-content:not(:has(.pv-home)) .pv-creative-grid .pv-creative-card h2 {
+  color:#20372a !important;-webkit-text-fill-color:#20372a !important;
+  font-family:Georgia,'Times New Roman',serif !important;
+}
+html body #main-content:not(:has(.pv-home)) .pv-creative-grid .pv-creative-command{
+  background:#f4f7ef !important;border-color:#c8d9c0 !important;
+}
+html body #main-content:not(:has(.pv-home)) .pv-creative-grid .pv-creative-command code{
+  color:#264433 !important;-webkit-text-fill-color:#264433 !important;
+}
+html body #main-content:not(:has(.pv-home)) .pv-collection-builder {
+  border-radius:18px;padding:clamp(16px,2.5vw,32px);
+  background:linear-gradient(130deg,#dce9d3,#f2f6ed);
+  border:1px solid #c2d6bd;
+}
+html body #main-content:not(:has(.pv-home)) .pv-client-confirmation {
+  border:1px solid #b7ceb0 !important;
+  background:linear-gradient(120deg,#d7e7cb,#f5f8f0 87%) !important;
+  color:#20372a !important;box-shadow:0 16px 42px rgba(24,56,35,.08) !important;
+}
+html body #main-content:not(:has(.pv-home)) .pv-client-confirmation :is(h1,p,strong) {
+  color:#20372a !important;-webkit-text-fill-color:#20372a !important;
+}
+html body #main-content:not(:has(.pv-home)) .pv-client-confirmation .pv-invite-pending {
+  background:#f8faf5 !important;border:1px solid #c4d7bd !important;
+}
+@media(max-width:760px){
+  html body #main-content.wrap:not(:has(.pv-home)) > .hero:not(.pv-hero):not(:has(.stat-grid))::before{
+    display:none !important;
+  }
+  html body #main-content:not(:has(.pv-home)) .pv-creative-grid{padding:12px;}
+  html body #main-content:not(:has(.pv-home)) .pv-collection-builder{padding:15px;}
+}

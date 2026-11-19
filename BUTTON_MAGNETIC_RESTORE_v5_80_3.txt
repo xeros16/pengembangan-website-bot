@@ -1,0 +1,8 @@
+PIR Visuals v5.80.3 — Restore mouse-following animation for all buttons
+
+- Restore the magnetic hover motion to all native buttons, submit/reset controls, button-like links, navigation actions, back-to-top, and role=button controls.
+- Use delegated pointer events so controls created later by dialogs, filters, or studio panels also receive the effect.
+- The pointer-following movement is subtle (max 6px horizontal / 5px vertical) and returns smoothly to center when the pointer leaves.
+- Disabled controls are excluded. Touch devices and reduced-motion settings are not affected.
+- Existing category palette/hover reset and CTA contrast fixes from v5.80.2 remain intact.
+- Cache/version bump: app 5.80.3, website 3.34.3, public cache v28, asset suffix 5803.

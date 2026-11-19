@@ -1,0 +1,41 @@
+PIR VISUALS — FOREST EDITORIAL REDESIGN
+Release date: 2026-11-18
+
+ISI UTAMA
+- Forest editorial visual system across the website
+- Root/branch/leaf decorative frame
+- Leaf scatter hover micro-interaction
+- Reduced-motion and Motion Off support
+- Showcase presentation refinement for uploaded artwork
+- Sticky-header-safe anchor scrolling
+- Responsive forest treatment for desktop and mobile
+- Existing functionality/data preserved
+
+INSTALASI
+1. Download all 3 ZIP parts.
+2. Extract PART 1, PART 2, and PART 3 into the SAME destination folder.
+3. If Windows asks to merge folders, choose Yes / Merge.
+4. Do not extract one part into a separate project folder.
+5. Install dependencies with `npm ci` inside `portfolio-website` if dependencies are not already present.
+6. Use the existing environment configuration for MongoDB and other secrets; do not copy secrets into the release ZIP.
+7. Start the website with the existing project start command.
+
+IMPORTANT
+- The forest frame is decorative and has pointer-events disabled.
+- Leaf particles are skipped for prefers-reduced-motion and when the existing Motion Off control is active.
+- The redesign does not copy Bettr Academy assets, branding, illustrations, or copy.
+- The supplied offline preview is also updated.
+
+QA
+- node --check server.js: PASS
+- npm run check: PASS
+- Homepage showcase tests: PASS
+- Homepage media/aspect-ratio tests: PASS
+- Homepage featured-card test: PASS
+- Layout consistency test: PASS
+
+The legacy suite contains historical release/version assertions that are not aligned with the current package metadata; these are pre-existing baseline failures and are not a forest-redesign regression.
+
+
+THIS ZIP = PART 1 OF 3.
+Extract all three ZIPs into the same destination folder.

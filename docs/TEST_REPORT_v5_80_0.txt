@@ -1,0 +1,28 @@
+PIR Visuals v5.80.0 — QA Report
+
+Static checks
+- node --check portfolio-website/server.js: PASS
+- npm run website:check: PASS
+- CSS parsing: 0 parse errors
+- Targeted regression tests: 35/35 PASS
+- Full website test suite: 286/286 PASS
+
+Browser visual QA
+- 14 combinations: 7 viewport widths x 2 themes (Light/Dark)
+- Widths: 320, 390, 600, 760, 960, 1180, 1440px
+- Horizontal overflow: 0 cases
+- Headline-to-copy gap minimum: 18px
+- Copy-to-CTA gap minimum: 28px
+- Early animation state at 250ms: headline-to-copy gap 27px; copy-to-CTA gap 28px
+- Category card palette on hover: unchanged in Light Mode and Dark Mode
+- Browser page errors: 0
+
+Motion preservation
+- GSAP intro timeline remains active.
+- Word stagger and opacity remain active with safe 14px y-offset instead of 112% yPercent.
+- ScrollTrigger reveal, count-up, and looping ribbon integration remain intact.
+- CSS/IntersectionObserver fallback and reduced-motion handling remain intact.
+
+Model compatibility
+- Server import names were compared with the original portfolio-website/models.js exports: 19/19 present.
+- portfolio-website/models.js is intentionally excluded from this update ZIP to avoid overwriting the user's original model file.

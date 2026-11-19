@@ -1,0 +1,18 @@
+{
+  "release": "5.73.0",
+  "browser": "Chromium headless",
+  "fixture": "Actual pageShell output + exact public-ui.js route output + representative selected-work markup",
+  "viewports": [
+    {"width":320,"height":600,"menu":true,"submenu":true,"submenuAria":true,"theme":true,"escapeSubmenu":true,"focusSummary":true,"escapeMenu":true,"focusToggle":true,"outsideClick":true,"workFilterVisible":2,"workFilterResetVisible":3,"pageErrors":0,"consoleErrors":0},
+    {"width":360,"height":700,"menu":true,"submenu":true,"submenuAria":true,"theme":true,"escapeSubmenu":true,"focusSummary":true,"escapeMenu":true,"focusToggle":true,"outsideClick":true,"workFilterVisible":2,"workFilterResetVisible":3,"pageErrors":0,"consoleErrors":0},
+    {"width":390,"height":844,"menu":true,"submenu":true,"submenuAria":true,"theme":true,"escapeSubmenu":true,"focusSummary":true,"escapeMenu":true,"focusToggle":true,"outsideClick":true,"workFilterVisible":2,"workFilterResetVisible":3,"pageErrors":0,"consoleErrors":0},
+    {"width":400,"height":497,"menu":true,"submenu":true,"submenuAria":true,"theme":true,"escapeSubmenu":true,"focusSummary":true,"escapeMenu":true,"focusToggle":true,"outsideClick":true,"workFilterVisible":2,"workFilterResetVisible":3,"pageErrors":0,"consoleErrors":0},
+    {"width":430,"height":932,"menu":true,"submenu":true,"submenuAria":true,"theme":true,"escapeSubmenu":true,"focusSummary":true,"escapeMenu":true,"focusToggle":true,"outsideClick":true,"workFilterVisible":2,"workFilterResetVisible":3,"pageErrors":0,"consoleErrors":0},
+    {"width":768,"height":900,"menu":true,"submenu":true,"submenuAria":true,"theme":true,"escapeSubmenu":true,"focusSummary":true,"escapeMenu":true,"focusToggle":true,"outsideClick":true,"workFilterVisible":2,"workFilterResetVisible":3,"pageErrors":0,"consoleErrors":0},
+    {"width":1024,"height":768,"menu":true,"submenu":true,"submenuAria":true,"theme":true,"escapeSubmenu":true,"focusSummary":true,"escapeMenu":true,"focusToggle":true,"outsideClick":true,"workFilterVisible":2,"workFilterResetVisible":3,"pageErrors":0,"consoleErrors":0},
+    {"width":1180,"height":820,"menu":true,"submenu":true,"submenuAria":true,"theme":true,"escapeSubmenu":true,"focusSummary":true,"escapeMenu":true,"focusToggle":true,"outsideClick":true,"workFilterVisible":2,"workFilterResetVisible":3,"pageErrors":0,"consoleErrors":0},
+    {"width":1280,"height":900,"desktopNavigationVisible":true,"submenu":true,"submenuAria":true,"theme":true,"workFilterVisible":2,"workFilterResetVisible":3,"pageErrors":0,"consoleErrors":0},
+    {"width":1440,"height":900,"desktopNavigationVisible":true,"submenu":true,"submenuAria":true,"theme":true,"workFilterVisible":2,"workFilterResetVisible":3,"pageErrors":0,"consoleErrors":0}
+  ],
+  "summary": {"viewports":10,"pageErrors":0,"consoleErrors":0,"result":"passed"}
+}

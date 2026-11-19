@@ -1,0 +1,83 @@
+/* PIR Visuals / PIR Visuals brand edition. Homepage layout uses original pine, sage and warm stone identity. */
+body:has(.pv-home){background:#F0F3EB;color:#20372A}
+body:has(.pv-home)::before,body:has(.pv-home)::after{display:none}
+body:has(.pv-home) #main-content{max-width:none;padding:0;background:#F0F3EB;color:#20372A}
+body:has(.pv-home) .site-nav{margin:0;padding:20px 4%;border:0;border-radius:0;background:#1C3225;color:#F1F7ED;position:relative;z-index:30;box-shadow:none}
+body:has(.pv-home) .site-nav a,body:has(.pv-home) .site-nav button{color:#F1F7ED}
+body:has(.pv-home) .site-nav .brand{color:#C7DAAF;font-weight:900}
+body:has(.pv-home) .site-nav .nav-links.open{background:#1C3225}
+#main-content .pv-home{--text:#20372A;--muted:#405A48;--line:#BECDBB;--accent:#C7DAAF;--bg:#F0F3EB;--surface:#F0F3EB;--surface-raised:#E3EADD;--pv-ink:#20372A;--pv-paper:#F0F3EB;margin:0;color:#20372A;background:#F0F3EB;font-family:Arial,Helvetica,sans-serif}
+#main-content .pv-home *{box-sizing:border-box}
+#main-content .pv-home a{color:inherit}
+#main-content .pv-home .pv-hero{position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(0,1fr);min-height:760px;padding:100px 5% 40px;gap:30px;overflow:hidden;background:#20372A;border:0;border-radius:0;color:#F1F7ED}
+#main-content .pv-home .editorial-hero-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-3;opacity:.52}
+#main-content .pv-home .pv-hero:before{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(34,22,14,.96),rgba(34,22,14,.1));z-index:-2;border:0;border-radius:0;transform:none;width:auto;height:auto}
+#main-content .pv-home .pv-hero:after{display:none}
+#main-content .pv-home .pv-hero-main{max-width:1200px;align-self:end;position:relative;padding:0;background:none;border:0}
+#main-content .pv-home .pv-overline{font-size:12px;letter-spacing:.16em;color:#F1F7ED;line-height:1.6;flex-wrap:wrap}
+#main-content .pv-home .pv-overline i{background:#C7DAAF}
+#main-content .pv-home .pv-hero h1{font-family:Georgia,'Times New Roman',serif;font-weight:900;font-size:clamp(56px,7.8vw,118px);letter-spacing:-.055em;line-height:1.02;max-width:1100px;margin:26px 0;color:#C7DAAF;text-wrap:balance}
+#main-content .pv-home .pv-hero-title-visual{font:inherit;line-height:inherit;letter-spacing:inherit}
+#main-content .pv-home .pv-hero-word{display:inline;opacity:1;transform:none;filter:none;color:inherit}
+#main-content .pv-home .pv-hero-lede{font-size:18px;line-height:1.65;max-width:610px;color:#F1F7ED;margin:20px 0 30px}
+#main-content .pv-home .pv-hero-actions{display:flex;gap:24px;flex-wrap:wrap;align-items:center}
+#main-content .pv-home .pv-button{display:inline-flex;justify-content:center;align-items:center;gap:24px;padding:18px 24px;border:1px solid #20372A;border-radius:4px;font-size:14px;font-weight:700;text-decoration:none;background:#C7DAAF;color:#1C3225;min-height:52px;transition:transform .2s,background .2s}
+#main-content .pv-home .pv-button:hover{transform:translateY(-3px);background:#DFEACD}
+#main-content .pv-home .pv-text-link{color:#F1F7ED;text-underline-offset:6px}
+#main-content .pv-home .pv-hero-foot{display:flex;gap:22px;flex-wrap:wrap;color:#CBDCCB;font-size:10px;letter-spacing:.12em;margin-top:35px;padding-top:24px;border-top:1px solid #718C75}
+#main-content .pv-home .pv-index{position:relative;width:auto;max-width:none;display:flex;align-items:center;gap:36px;flex-wrap:wrap;background:none;color:#F1F7ED;border:0;border-top:1px solid #718C75;padding:25px 0 0;box-shadow:none;border-radius:0}
+#main-content .pv-home .pv-index-heading,#main-content .pv-home .pv-index>p{display:none}
+#main-content .pv-home .pv-index-total{display:flex;align-items:center;gap:15px;padding:0;border:0}
+#main-content .pv-home .pv-index-total strong{font-size:44px;color:#C7DAAF;line-height:1}
+#main-content .pv-home .pv-index-total span{font-size:10px;line-height:1.5;color:#F1F7ED}
+#main-content .pv-home .pv-index-metrics{display:flex;gap:35px;border:0;padding:0}
+#main-content .pv-home .pv-index-metrics div{border:0;padding:0;background:none}
+#main-content .pv-home .pv-index-metrics b{display:block;font-size:24px;color:#C7DAAF}
+#main-content .pv-home .pv-index-metrics small{font-size:9px;color:#F1F7ED;letter-spacing:.08em}
+#main-content .pv-home .pv-hero-bottom{display:none}
+#main-content .pv-home .pv-motion-ribbon{background:#C7DAAF;color:#20372A;border:0;padding:20px 0;overflow:hidden;transform:none;margin:0}
+#main-content .pv-home .pv-motion-ribbon-track{display:flex;width:max-content;gap:40px;align-items:center;animation:editorial-marquee 45s linear infinite;font-size:19px;font-weight:900;letter-spacing:.05em}
+#main-content .pv-home .pv-motion-ribbon i{font-style:normal;font-size:28px}
+#main-content .pv-home>section:not(.pv-hero){padding:90px 5%;margin:0;border-radius:0;border:0}
+#main-content .pv-home .pv-section-top{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:40px}
+#main-content .pv-home .pv-label{display:block;font-size:11px;font-weight:700;letter-spacing:.14em;margin-bottom:20px;color:inherit}
+#main-content .pv-home h2.pv-managed-title{font-family:Georgia,'Times New Roman',serif;font-size:clamp(36px,4.7vw,68px);font-weight:800;line-height:1.06;letter-spacing:-.045em;margin:0;color:inherit}
+#main-content .pv-home .pv-section-top>p{max-width:370px;font-size:16px;line-height:1.7;color:#405A48}
+#main-content .pv-home .pv-category-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+#main-content .pv-home .home-category{position:relative;display:flex;flex-direction:column;min-height:280px;padding:28px 24px;background:#E0E9DA;border:1px solid #9FB69E;border-radius:3px;text-decoration:none;transition:transform .25s}
+#main-content .pv-home .home-category:nth-child(2){background:#C5D8BD}#main-content .pv-home .home-category:nth-child(3){background:#E7D6C7}#main-content .pv-home .home-category:nth-child(4){background:#D5E2C8}
+#main-content .pv-home .home-category:hover{transform:translateY(-7px)}
+#main-content .pv-home .home-category>span{font-size:10px;letter-spacing:.14em;color:#20372A}
+#main-content .pv-home .home-category strong{font-family:Georgia,serif;font-size:30px;line-height:1.05;margin:38px 0 16px;color:#20372A}
+#main-content .pv-home .home-category small{font-size:13px;line-height:1.5;color:#405A48}
+#main-content .pv-home .home-category b{margin-top:auto;padding-top:20px;align-self:end;font-size:28px;color:#20372A}
+#main-content .pv-home .pv-talent-section{background:#E3EBE0}
+#main-content .pv-home .pv-talent-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+#main-content .pv-home .pv-empty{grid-column:1/-1;padding:35px;border:1px dashed #9FB69E;line-height:1.7;color:#405A48}
+#main-content .pv-home .pv-project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:35px}
+#main-content .pv-home .home-project{text-decoration:none;color:#20372A}
+#main-content .pv-home .home-project-image{aspect-ratio:4/3;position:relative;overflow:hidden;background:#CFDCCB}
+#main-content .pv-home .home-project img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+#main-content .pv-home .home-project:hover img{transform:scale(1.035)}
+#main-content .pv-home .home-project-caption{display:flex;justify-content:space-between;padding:18px 0}
+#main-content .pv-home .home-project-caption small{display:block;margin-top:8px}
+#main-content .pv-home .pv-work-foot{display:flex;justify-content:space-between;gap:20px;padding-top:30px;font-size:12px}
+#main-content .pv-home .pv-manifesto{display:grid;grid-template-columns:1fr 2fr;gap:60px;background:#C7DAAF;color:#20372A}
+#main-content .pv-home .pv-manifesto-copy>p{font-size:18px;line-height:1.7;max-width:700px;color:#20372A}
+#main-content .pv-home .pv-manifesto-index{font-family:Georgia,serif;font-size:24px}
+#main-content .pv-home .pv-manifesto-points{display:grid;gap:14px;margin-top:30px}
+#main-content .pv-home .pv-manifesto-points>div{display:flex;gap:20px;padding:16px 0;border-top:1px solid #8BA97D;color:#20372A}
+#main-content .pv-home .pv-join{display:flex;align-items:center;justify-content:space-between;gap:50px;background:#20372A;color:#F1F7ED}
+#main-content .pv-home .pv-join h2{color:#C7DAAF}#main-content .pv-home .pv-join p{max-width:550px;line-height:1.7;color:#F1F7ED}
+#main-content .pv-home .pv-join .pv-button{flex-shrink:0}
+#main-content .pv-home .pv-faq{display:grid;grid-template-columns:1fr 1.4fr;gap:70px}
+#main-content .pv-home .pv-faq details{border-bottom:1px solid #BECDBB;padding:22px 0;background:none;color:#20372A}
+#main-content .pv-home .pv-faq summary{font-size:18px;font-weight:700;cursor:pointer;line-height:1.5}
+#main-content .pv-home .pv-faq details p{line-height:1.7;color:#405A48}
+#main-content .pv-home :is(a,button,summary):focus-visible{outline:3px solid #548D64;outline-offset:5px}
+#main-content .pv-home .pv-hero :is(a,button):focus-visible{outline-color:#F1F7ED}
+@keyframes editorial-marquee{to{transform:translateX(-50%)}}
+@media(max-width:900px){#main-content .pv-home .pv-category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#main-content .pv-home .pv-talent-grid{grid-template-columns:1fr}#main-content .pv-home .pv-hero{min-height:700px;padding-top:70px}#main-content .pv-home .pv-section-top{align-items:start;flex-direction:column}#main-content .pv-home .pv-manifesto,#main-content .pv-home .pv-faq{grid-template-columns:1fr;gap:30px}#main-content .pv-home .pv-join{align-items:start;flex-direction:column}}
+@media(max-width:540px){#main-content .pv-home>section:not(.pv-hero){padding:55px 6%}#main-content .pv-home .pv-hero{padding:55px 6% 30px;min-height:0}#main-content .pv-home .pv-hero h1{font-size:52px}#main-content .pv-home .pv-overline{font-size:9px}#main-content .pv-home .pv-hero-lede{font-size:16px}#main-content .pv-home .pv-category-grid,#main-content .pv-home .pv-project-grid{grid-template-columns:1fr}#main-content .pv-home .home-category{min-height:220px}#main-content .pv-home .pv-index{gap:25px}#main-content .pv-home .pv-index-metrics{gap:24px}#main-content .pv-home .pv-work-foot{flex-direction:column}}
+@media(prefers-reduced-motion:reduce){#main-content .pv-home *,#main-content .pv-home *::before,#main-content .pv-home *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+[data-motion="off"] .pv-home .pv-motion-ribbon-track{animation:none!important}

@@ -1,0 +1,27 @@
+PIR Visuals v5.80.3 — Restore mouse-following animation for all buttons
+
+INSTALLATION
+1. Make a backup of the current project.
+2. Extract Part 1 into the project root and choose Replace/Overwrite.
+3. Extract Part 2 into the same project root and choose Merge/Replace.
+4. Do not replace portfolio-website/models.js, .env, database files, uploads, or WhatsApp session folders.
+5. Restart the website server.
+6. In the browser, hard-refresh with Ctrl + Shift + R.
+
+WHAT CHANGED
+- Magnetic pointer-following animation now applies to all native buttons, button-like links, navigation controls, back-to-top, and role=button controls.
+- Delegated pointer handling also covers controls rendered dynamically after page load.
+- Movement is subtle and bounded, then returns to center when the pointer leaves.
+- Disabled controls are excluded.
+- Touch-only devices and reduced-motion preferences are respected.
+- Existing category color and CTA contrast fixes are preserved.
+
+RELEASE
+- Platform: 5.80.3
+- Website: 3.34.3
+- Public cache: pir-visuals-public-v28
+- Asset suffix: 5803
+
+QA
+- Website regression tests: 292 passed, 0 failed
+- JavaScript syntax checks: passed

@@ -1,0 +1,2895 @@
+/* PIR Visuals / 20261115ag — continuous floating paths, balanced shortlist
+   spacing, and shared forest / sage / ivory internal-page system. */
+
+/* A motion path has no hard corners and loops without easing to a stop.
+   The closed cubic curves have matching tangents at the loop seam. Unlike a
+   handful of translate keyframes, animation progress always moves along
+   the curve at a consistent distance per frame (compositor-friendly). */
+@keyframes pv-ag-orbit {
+  from { offset-distance:0%; }
+  to { offset-distance:100%; }
+}
+@keyframes pv-ag-orbit-alt {
+  from { offset-distance:0%; }
+  to { offset-distance:100%; }
+}
+@media (min-width:761px) and (prefers-reduced-motion:no-preference) {
+  html body #main-content.wrap:not(:has(.pv-home)) > .hero:not(.pv-hero)::before,
+  html body #main-content:not(:has(.pv-home)) :is(.company-editorial-hero,.category-intro)::before,
+  html body #main-content.wrap > .shortlist-hero::after,
+  html body #main-content:not(:has(.pv-home)) .support-hero::after {
+    offset-path:path("M 0 -14 C 12 -14 21 -8 21 0 C 21 9 12 15 0 15 C -12 15 -21 9 -21 0 C -21 -8 -12 -14 0 -14 Z");
+    offset-rotate:0deg;
+    animation:pv-ag-orbit 9.6s linear infinite;
+  }
+  html body #main-content.wrap:not(:has(.pv-home)) > .hero:not(.pv-hero)::after,
+  html body #main-content:not(:has(.pv-home)) .company-editorial-hero-aside::after {
+    offset-path:path("M 0 -10 C 10 -10 16 -5 16 0 C 16 8 9 12 0 12 C -9 12 -16 8 -16 0 C -16 -5 -10 -10 0 -10 Z");
+    offset-rotate:0deg;
+    animation:pv-ag-orbit-alt 11.7s linear infinite reverse;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html body #main-content.wrap:not(:has(.pv-home)) > .hero::before,
+  html body #main-content.wrap:not(:has(.pv-home)) > .hero::after,
+  html body #main-content:not(:has(.pv-home)) :is(.company-editorial-hero,.category-intro)::before,
+  html body #main-content.wrap > .shortlist-hero::after,
+  html body #main-content:not(:has(.pv-home)) .support-hero::after,
+  html body #main-content:not(:has(.pv-home)) .company-editorial-hero-aside::after {
+    animation: none !important; translate: none !important; offset-distance:0% !important;
+  }
+}
+html[data-pv-motion="off"] body #main-content.wrap > .hero::before,
+html[data-pv-motion="off"] body #main-content.wrap > .hero::after,
+html[data-pv-motion="off"] body #main-content.wrap > .shortlist-hero::after,
+html[data-pv-motion="off"] body #main-content .category-intro::before,
+html[data-pv-motion="off"] body #main-content .support-hero::after,
+html[data-pv-motion="off"] body #main-content .company-editorial-hero::before {
+  animation: none !important; translate: none !important; offset-distance:0% !important;
+  offset-distance:0% !important;
+}
+
+/* Contact/support: prior permanent light theme imposed FOREST lettering on the
+   subsequently darkened forest hero. Explicit both CSS color and WebKit fill. */
+html body #main-content.wrap > .support-hero .support-hero-main,
+html body #main-content.wrap > .support-hero .support-hero-main :is(h1,h1 em,.eyebrow,p,.support-hours) {
+  color: #F3F7EC !important;
+  -webkit-text-fill-color: #F3F7EC !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+html body #main-content.wrap > .support-hero .support-hero-main .eyebrow,
+html body #main-content.wrap > .support-hero .support-hero-main .support-hours {
+  color:#D0E2C4 !important;
+  -webkit-text-fill-color:#D0E2C4 !important;
+}
+html body #main-content.wrap > .support-hero .support-hero-main h1 {
+  font-family: Georgia,'Times New Roman',serif !important;
+  font-size:clamp(46px,6.6vw,92px) !important;
+  line-height:1.03 !important;
+  letter-spacing:-.055em !important;
+  text-wrap:balance;
+  max-width:12ch;
+}
+html body #main-content.wrap > .support-hero .support-hero-main h1 em {
+  color:#CDE2C1 !important;
+  -webkit-text-fill-color:#CDE2C1 !important;
+}
+html body #main-content.wrap > .support-hero .support-hero-main p {
+  max-width:53ch;
+  line-height:1.75;
+}
+
+/* The category masthead and shortlist banner are viewport wide, while internal
+   text retains generous readable padding like the homepage. */
+html body #main-content.wrap > .category-intro,
+html body #main-content.wrap > .shortlist-hero,
+html body #main-content.wrap > .shortlist-results {
+  box-sizing: border-box !important;
+  width:100vw !important;
+  max-width:none !important;
+  margin-left:calc(50% - 50vw) !important;
+  margin-right:0 !important;
+  border-radius:0 !important;
+}
+html body #main-content.wrap > .category-intro {
+  padding:clamp(42px,6.5vw,94px) clamp(24px,5vw,88px) !important;
+  border-left:0 !important;border-right:0 !important;
+  background:linear-gradient(122deg,#D0E2BF,#EAF1E2) !important;
+}
+html body #main-content.wrap > .shortlist-hero {
+  padding:clamp(48px,7vw,95px) clamp(24px,5vw,88px) !important;
+}
+html body #main-content.wrap > .shortlist-results {
+  padding:clamp(28px,4vw,56px) clamp(24px,5vw,88px) clamp(18px,3vw,30px) !important;
+  background:linear-gradient(150deg,#DDEBD4,#EFF4E9) !important;
+  border-left:0 !important;border-right:0 !important;
+}
+
+
+/* Shared full-width editorial stages: where pages use the same public-section
+   structure as the homepage, remove inset gutters so the band reads as one
+   continuous panel from edge to edge. */
+html body #main-content.wrap > :is(.shortlist-results,.support-layout,.company-editorial-grid,.pv-selected-work-section){
+  box-sizing:border-box !important;
+  width:100vw !important;
+  max-width:none !important;
+  margin-left:calc(50% - 50vw) !important;
+  margin-right:0 !important;
+  border-left:0 !important;
+  border-right:0 !important;
+  border-radius:0 !important;
+}
+
+html body #main-content.wrap > .shortlist-results > .shortlist-toolbar,
+html body #main-content.wrap > .shortlist-results > #shortlist-results {
+  width:min(1320px,100%);
+  max-width:1320px;
+  margin-inline:auto !important;
+}
+/* Keep the title/headline within the layout at phone widths. */
+@media(max-width:760px) {
+  html body #main-content.wrap > .category-intro,
+  html body #main-content.wrap > .shortlist-hero,
+  html body #main-content.wrap > .shortlist-results,
+  html body #main-content.wrap > :is(.support-layout,.company-editorial-grid,.pv-selected-work-section) {
+    padding:38px 20px !important;
+  }
+  html body #main-content.wrap > .support-hero .support-hero-main h1{
+    font-size:clamp(40px,10.5vw,65px) !important;
+  }
+}
+
+/* Manifesto: legacy editorial-theme set grid gap:14px; this made the lines
+   appear too far from steps 01 and 02. Use a single uninterrupted stack. */
+html body #main-content .pv-home .pv-manifesto-points {
+  display:block !important;
+  gap:0 !important;
+  row-gap:0 !important;
+  border:0 !important;
+  margin-top:26px !important;
+}
+html body #main-content .pv-home .pv-manifesto-points > div {
+  display:grid !important;
+  grid-template-columns:32px minmax(0,1fr) !important;
+  align-items:center !important;
+  align-content:center !important;
+  gap:14px !important;
+  height:auto !important;
+  min-height:62px !important;
+  margin:0 !important;
+  padding:0 !important;
+  border:0 !important;
+  border-top:1px solid #8CA57F !important;
+  box-sizing:border-box !important;
+}
+html body #main-content .pv-home .pv-manifesto-points > div:last-child {
+  border-bottom:1px solid #8CA57F !important;
+}
+html body #main-content .pv-home .pv-manifesto-points > div > :is(b,span),
+html body #main-content .pv-home .pv-manifesto-points > div:nth-child(-n+2) > :is(b,span) {
+  position:static !important;
+  top:auto !important;
+  transform:none !important;
+  align-self:center !important;
+  min-height:0 !important;
+  height:auto !important;
+  padding:0 !important;
+  margin:0 !important;
+  line-height:1.3 !important;
+}
+@media(max-width:600px){
+  html body #main-content .pv-home .pv-manifesto-points > div{min-height:60px !important;}
+}
+
+
+/* AD: final, targeted fixes — placed last to defeat inherited theme styles. */
+/* Category masthead is NESTED in .category-editorial; old > .category-intro
+   selector only matched direct children and could not actually make it full bleed. */
+html body #main-content.wrap > .category-editorial > .category-intro {
+  position:relative;
+  display:grid;
+  box-sizing:border-box !important;
+  width:100vw !important;
+  max-width:none !important;
+  margin:0 0 0 calc(50% - 50vw) !important;
+  border-radius:0 !important;
+  border-left:0 !important;
+  border-right:0 !important;
+  background:linear-gradient(112deg,#d2e2c2,#e5efd9) !important;
+  padding:clamp(48px,6vw,92px) clamp(24px,5.2vw,88px) !important;
+}
+
+/* No white divider between the full-bleed shortlist panels. The seal artwork
+   is a real PIR wordmark, not just empty orbit rings. */
+html body #main-content.wrap:has(> .shortlist-hero) {
+  background:#e5efd9 !important;
+}
+html body #main-content.wrap > .shortlist-hero {
+  position:relative;
+  overflow:hidden;
+  margin:0 !important;
+  border:0 !important;
+  border-radius:0 !important;
+}
+html body #main-content.wrap > .shortlist-hero::after {
+  content:'' !important;
+  display:block !important;
+  position:absolute;
+  top:50% !important;
+  right:clamp(22px,7vw,115px) !important;
+  bottom:auto !important;
+  left:auto !important;
+  width:clamp(210px,29vw,360px) !important;
+  height:auto !important;
+  aspect-ratio:1 !important;
+  border:0 !important;
+  border-radius:0 !important;
+  background:url('/pir-footer-seal.svg') center / contain no-repeat !important;
+  opacity:.82 !important;
+  transform:translateY(-50%) !important;
+  pointer-events:none !important;
+  z-index:0 !important;
+}
+html body #main-content.wrap > .shortlist-hero > * {position:relative;z-index:1;}
+html body #main-content.wrap > .shortlist-results {
+  margin:0 !important;
+  border-top:0 !important;
+}
+html body #main-content.wrap > .shortlist-results > #shortlist-results:has(> .empty-state){
+  padding-bottom:0 !important;
+}
+html body #main-content.wrap > .shortlist-results > #shortlist-results > .empty-state{
+  width:100% !important;
+  max-width:none !important;
+  min-height:0 !important;
+  padding:clamp(30px,4vw,46px) clamp(20px,3vw,28px) !important;
+  margin:0 !important;
+  border-radius:22px !important;
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:12px !important;
+  box-sizing:border-box !important;
+}
+html body #main-content.wrap > .shortlist-results > #shortlist-results > .empty-state .btn{
+  margin-top:8px !important;
+}
+
+html body #main-content > footer.foot.pv-footer {
+  margin-top:0 !important;
+}
+
+/* Compact navigation can occur on desktop when browser zoom increases.
+   Use the same high-contrast palette as the desktop header, not white pills
+   with light text; clamp the menu within viewport and support 1-column phones. */
+@media (max-width:1180px) {
+  html body #main-content.wrap > header.site-nav {
+    position:sticky !important;
+    z-index:500 !important;
+    overflow:visible !important;
+  }
+  html body #main-content.wrap > header.site-nav nav.nav-links.open {
+    display:flex !important;
+    position:absolute !important;
+    left:auto !important;
+    right:clamp(8px,2vw,20px) !important;
+    top:calc(100% + 6px) !important;
+    width:min(440px,calc(100vw - 24px)) !important;
+    max-width:calc(100vw - 20px) !important;
+    max-height:calc(100dvh - 90px) !important;
+    overflow-y:auto !important;
+    overflow-x:hidden !important;
+    padding:14px !important;
+    border:1px solid #63836b !important;
+    border-radius:16px !important;
+    background:#20382b !important;
+    color:#edf5e9 !important;
+    -webkit-text-fill-color:#edf5e9 !important;
+    box-shadow:0 24px 55px rgba(12,30,19,.35) !important;
+  }
+  html body #main-content.wrap > header.site-nav nav.nav-links.open .nav-primary {
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:9px !important;
+    width:100%;
+  }
+  html body #main-content.wrap > header.site-nav nav.nav-links.open .nav-primary > a,
+  html body #main-content.wrap > header.site-nav nav.nav-links.open .nav-more > summary {
+    display:flex !important;
+    min-width:0 !important;
+    min-height:49px !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    padding:12px 14px !important;
+    border:1px solid rgba(199,223,191,.32) !important;
+    border-radius:11px !important;
+    background:#314d3a !important;
+    color:#f5f8ef !important;
+    -webkit-text-fill-color:#f5f8ef !important;
+    font-size:12px !important;
+    font-weight:750 !important;
+    white-space:normal !important;
+    text-align:left !important;
+  }
+  html body #main-content.wrap > header.site-nav nav.nav-links.open .nav-primary > a:is(:hover,:focus-visible),
+  html body #main-content.wrap > header.site-nav nav.nav-links.open .nav-primary > a[aria-current="page"],
+  html body #main-content.wrap > header.site-nav nav.nav-links.open .nav-more > summary:is(:hover,:focus-visible) {
+    background:#486d4d !important;
+    border-color:#a7c9a0 !important;
+    color:#fff !important;
+    -webkit-text-fill-color:#fff !important;
+  }
+  html body #main-content.wrap > header.site-nav nav.nav-links.open .nav-more > summary > span {
+    color:#d3e8ca !important;
+    -webkit-text-fill-color:#d3e8ca !important;
+  }
+  html body #main-content.wrap > header.site-nav nav.nav-links.open .nav-more-menu {
+    width:100% !important;
+    margin:8px 0 0 !important;
+    border-color:#52795a !important;
+    background:#294634 !important;
+    box-shadow:none !important;
+  }
+  html body #main-content.wrap > header.site-nav nav.nav-links.open .nav-more-menu a {
+    color:#edf5e9 !important;
+    -webkit-text-fill-color:#edf5e9 !important;
+    background:transparent !important;
+  }
+  html body #main-content.wrap > header.site-nav nav.nav-links.open .nav-more-menu a:is(:hover,:focus-visible) {
+    background:#3c6044 !important;
+  }
+  html body #main-content.wrap > header.site-nav nav.nav-links.open .nav-actions {
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    grid-template-areas:none !important;
+    gap:9px !important;
+    width:100% !important;
+    padding-top:12px !important;
+    border-top:1px solid #60836a !important;
+  }
+  html body #main-content.wrap > header.site-nav nav.nav-links.open .nav-actions > .nav-cta {
+    grid-column:1/-1 !important;
+    grid-area:auto !important;
+    color:#20382b !important;
+    -webkit-text-fill-color:#20382b !important;
+    background:#d8e6cf !important;
+    border:1px solid #d8e6cf !important;
+  }
+  html body #main-content.wrap > header.site-nav nav.nav-links.open .nav-actions > .nav-action-button {
+    display:inline-flex !important;
+    grid-column:auto !important;
+    grid-area:auto !important;
+    min-width:0 !important;
+    min-height:44px !important;
+    width:100% !important;
+    justify-content:center !important;
+    color:#f1f6eb !important;
+    -webkit-text-fill-color:#f1f6eb !important;
+    background:#365741 !important;
+    border-color:#668b6e !important;
+  }
+}
+@media (max-width:600px) {
+  html body #main-content.wrap > header.site-nav nav.nav-links.open .nav-primary {
+    grid-template-columns:minmax(0,1fr) !important;
+  }
+  html body #main-content.wrap > .category-editorial > .category-intro {
+    grid-template-columns:1fr !important;
+    padding:40px 23px !important;
+  }
+  html body #main-content.wrap > .shortlist-hero::after {
+    display:none !important;
+  }
+}
+@media(min-width:601px) and (max-width:920px){
+  html body #main-content.wrap > .shortlist-hero::after {
+    right:8px !important;
+    width:190px !important;
+    opacity:.3 !important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  html body #main-content.wrap > .shortlist-hero::after {animation:none!important;translate:none!important;offset-distance:0%!important;}
+}
+html[data-pv-motion="off"] body #main-content.wrap > .shortlist-hero::after{animation:none!important;translate:none!important;offset-distance:0%!important;}
+
+/* Full-bleed shortlist offsets must survive the earlier margin:0 shorthand. */
+html body #main-content.wrap > .shortlist-hero,
+html body #main-content.wrap > .shortlist-results {
+  margin-left:calc(50% - 50vw) !important;
+  margin-right:0 !important;
+}
+
+/* Compact Shortlist retains a faint PIR identity instead of losing it entirely. */
+@media (max-width:600px) {
+  html body #main-content.wrap > .shortlist-hero::after {
+    display:block !important;
+    width:min(44vw,168px) !important;
+    right:8px !important;
+    top:22% !important;
+    opacity:.19 !important;
+  }
+}
+
+/* AG / symmetric vertical rhythm on the full-width Shortlist results band.
+   Previous sheets set 54px top but only 18–30px bottom. That visually pushed
+   all the content low, even when the empty card itself was centered. */
+html body #main-content.wrap > .shortlist-results {
+  --pv-band-space:clamp(42px,4.4vw,66px);
+  padding-top:var(--pv-band-space) !important;
+  padding-bottom:var(--pv-band-space) !important;
+  display:flex !important;
+  flex-direction:column;
+  justify-content:center;
+  gap:0;
+}
+html body #main-content.wrap > .shortlist-results > .shortlist-toolbar {
+  margin-bottom:clamp(16px,1.6vw,24px) !important;
+}
+html body #main-content.wrap > .shortlist-results > #shortlist-results {
+  padding:0 !important;
+}
+html body #main-content.wrap > .shortlist-results > #shortlist-results > .empty-state {
+  margin-block:0 !important;
+}
+
+/* Public pages share the permanent PIR palette, while maintaining different
+   editorial compositions. Private Studio screens are intentionally excluded. */
+html body #main-content.wrap:has(> .shortlist-hero),
+html body #main-content.wrap:has(> .category-editorial),
+html body #main-content.wrap:has(> .company-editorial),
+html body #main-content.wrap:has(> .pv-match-finder),
+html body #main-content.wrap:has(> .support-hero),
+html body #main-content.wrap:has(> .pv-collection-builder),
+html body #main-content.wrap:has(> .command-explorer-hero) {
+  --pv-public-forest:#20372a;
+  --pv-public-sage:#d9e8cc;
+  --pv-public-ivory:#f8f9f3;
+  --pv-public-rule:#c1d0b9;
+  background-color:#eef3e8 !important;
+}
+html body #main-content.wrap :is(
+  .pv-match-finder,.pv-discovery-shell,.category-index,.shortlist-results,
+  .company-editorial-grid,.support-layout,.pv-collection-builder,.command-explorer-controls
+) {
+  --surface:#f8f9f3;
+  --surface-raised:#f1f5ea;
+  --line:#c1d0b9;
+}
+html body #main-content.wrap :is(
+  .pv-discovery-shell,.category-index,.company-editorial-grid,.support-layout,
+  .pv-collection-builder,.command-explorer-controls
+) {
+  border-color:var(--pv-public-rule,#c1d0b9);
+}
+@media(max-width:760px) {
+  html body #main-content.wrap > .shortlist-results {
+    --pv-band-space:clamp(27px,7vw,40px);
+    padding-top:var(--pv-band-space) !important;
+    padding-bottom:var(--pv-band-space) !important;
+  }
+}
+
+/* AH / 20261115ah — discovery panels inherit the same full-bleed band system
+   as Shortlist, with centered vertical rhythm and a lower right ornament. */
+html body #main-content.wrap:has(> .pv-discovery-stage) > .hero:not(.pv-hero):has(.stat-grid) {
+  --pv-hero-orbit-y: 49%;
+}
+
+html body #main-content.wrap > .pv-discovery-stage {
+  --pv-discovery-stage-space: clamp(40px,4.4vw,66px);
+  box-sizing:border-box !important;
+  width:100vw !important;
+  max-width:none !important;
+  margin:0 0 0 calc(50% - 50vw) !important;
+  padding:var(--pv-discovery-stage-space) clamp(24px,5vw,88px) !important;
+  border-left:0 !important;
+  border-right:0 !important;
+  border-radius:0 !important;
+  background:linear-gradient(150deg,#dce9d3,#eef3e8) !important;
+}
+html body #main-content.wrap > .pv-discovery-stage > :is(.pv-match-finder,.pv-discovery-shell,.section-head,.grid,.pv-selected-work-section,.card,.pagination,.page-nav,.empty-state) {
+  width:min(1320px,100%) !important;
+  max-width:1320px !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+html body #main-content.wrap > .pv-discovery-stage > .pv-match-finder,
+html body #main-content.wrap > .pv-discovery-stage > .pv-discovery-shell,
+html body #main-content.wrap > .pv-discovery-stage > #cara-kerja {
+  margin-top:0 !important;
+  margin-bottom:clamp(18px,1.8vw,28px) !important;
+}
+html body #main-content.wrap > .pv-discovery-stage > .pv-match-finder {
+  padding:clamp(26px,3vw,34px) !important;
+}
+html body #main-content.wrap > .pv-discovery-stage > .pv-discovery-shell {
+  padding:clamp(24px,2.8vw,34px) !important;
+  margin-bottom:clamp(24px,2.5vw,34px) !important;
+}
+html body #main-content.wrap > .pv-discovery-stage > .section-head {
+  margin-top:0 !important;
+  margin-bottom:14px !important;
+}
+html body #main-content.wrap > .pv-discovery-stage > .grid {
+  margin-top:0 !important;
+  margin-bottom:clamp(22px,2.2vw,32px) !important;
+}
+html body #main-content.wrap > .pv-discovery-stage > :is(.pagination,.page-nav) {
+  margin-top:0 !important;
+  margin-bottom:clamp(22px,2.2vw,32px) !important;
+}
+html body #main-content.wrap > .pv-discovery-stage > .pv-selected-work-section {
+  margin-top:0 !important;
+  margin-bottom:clamp(22px,2.2vw,34px) !important;
+}
+html body #main-content.wrap > .pv-discovery-stage > #cara-kerja {
+  margin-bottom:0 !important;
+}
+html body #main-content.wrap:has(> .pv-discovery-stage) > footer.foot.pv-footer {
+  margin-top:0 !important;
+}
+
+/* Give the broader public pages the same balanced lower spacing before footer. */
+html body #main-content.wrap .category-index,
+html body #main-content.wrap .category-recent,
+html body #main-content.wrap .company-editorial-grid,
+html body #main-content.wrap .company-editorial-copy,
+html body #main-content.wrap .company-editorial-cta,
+html body #main-content.wrap .support-layout,
+html body #main-content.wrap .pv-collection-builder,
+html body #main-content.wrap .command-explorer-controls {
+  margin-bottom:clamp(28px,3vw,42px) !important;
+}
+html body #main-content.wrap .company-editorial-copy:last-child,
+html body #main-content.wrap .company-editorial-cta:last-child,
+html body #main-content.wrap .support-layout:last-child,
+html body #main-content.wrap .command-explorer-controls:last-child,
+html body #main-content.wrap .pv-collection-builder:last-child,
+html body #main-content.wrap .category-recent:last-child,
+html body #main-content.wrap .category-index:last-child {
+  margin-bottom:0 !important;
+}
+
+@media (max-width:760px) {
+  html body #main-content.wrap:has(> .pv-discovery-stage) > .hero:not(.pv-hero):has(.stat-grid) {
+    --pv-hero-orbit-y: 52%;
+  }
+  html body #main-content.wrap > .pv-discovery-stage {
+    --pv-discovery-stage-space: clamp(28px,7vw,40px);
+    padding:var(--pv-discovery-stage-space) 20px !important;
+  }
+  html body #main-content.wrap > .pv-discovery-stage > .pv-match-finder,
+  html body #main-content.wrap > .pv-discovery-stage > .pv-discovery-shell,
+  html body #main-content.wrap > .pv-discovery-stage > #cara-kerja {
+    margin-bottom:18px !important;
+  }
+}
+
+/* AI / 20261115ai — remove discovery seam, center right ornament, and extend
+   the full-bleed section rhythm across public menus. */
+
+/* Discover: hero and the full-bleed stage should touch directly, with no pale strip. */
+html body #main-content.wrap:has(> .pv-discovery-stage) > .hero:not(.pv-hero):has(.stat-grid) {
+  --pv-hero-orbit-y: 56% !important;
+  margin-bottom:0 !important;
+}
+html body #main-content.wrap:has(> .pv-discovery-stage) > .pv-discovery-stage {
+  position:relative;
+  margin-top:-1px !important;
+  padding-top:clamp(34px,4vw,58px) !important;
+  padding-bottom:clamp(34px,4vw,58px) !important;
+  background:linear-gradient(150deg,#dfead6,#eef3e7) !important;
+}
+html body #main-content.wrap > .pv-discovery-stage > .pv-match-finder,
+html body #main-content.wrap > .pv-discovery-stage > .pv-discovery-shell {
+  border-radius:18px !important;
+}
+html body #main-content.wrap > .pv-discovery-stage > .pv-match-finder {
+  background:linear-gradient(145deg,#f7faf3,#e8f0e0 70%) !important;
+}
+html body #main-content.wrap > .pv-discovery-stage > .pv-discovery-shell {
+  background:linear-gradient(152deg,#d7e5cc,#e5efdc 88%) !important;
+  border:1px solid #bfd2bb !important;
+}
+html body #main-content.wrap > .pv-discovery-stage > .pv-discovery-shell .search-panel.pv-discovery-filters {
+  background:#fbfcf8 !important;
+  border:1px solid #c6d7c0 !important;
+}
+
+/* Give the common inner panels a clearer contrast against the shared stage. */
+html body #main-content.wrap > .pv-discovery-stage > :is(.pv-match-finder,.pv-discovery-shell,.grid > .empty-state,#cara-kerja) {
+  box-shadow:0 16px 42px rgba(32,55,42,.06) !important;
+}
+
+/* Shared full-bleed bands across other public menu pages. */
+html body #main-content.wrap > :is(.category-editorial,.company-editorial) {
+  --pv-fullbleed-space: clamp(38px,4.6vw,66px);
+  box-sizing:border-box !important;
+  width:100vw !important;
+  max-width:none !important;
+  margin:0 0 0 calc(50% - 50vw) !important;
+  padding:var(--pv-fullbleed-space) clamp(24px,5vw,88px) !important;
+  border-left:0 !important;
+  border-right:0 !important;
+  border-radius:0 !important;
+  background:linear-gradient(150deg,#dfead6,#eef3e7) !important;
+}
+html body #main-content.wrap > .category-editorial > *,
+html body #main-content.wrap > .company-editorial > * {
+  width:min(1320px,100%) !important;
+  max-width:1320px !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+html body #main-content.wrap > :is(.support-layout,.pv-collection-builder,.command-explorer-controls) {
+  --pv-fullbleed-space: clamp(38px,4.6vw,66px);
+  position:relative !important;
+  isolation:isolate;
+  width:min(1320px,100%) !important;
+  max-width:1320px !important;
+  margin:0 auto !important;
+  padding:var(--pv-fullbleed-space) 0 !important;
+}
+html body #main-content.wrap > :is(.support-layout,.pv-collection-builder,.command-explorer-controls)::before {
+  content:'';
+  position:absolute;
+  inset:0;
+  left:50%;
+  width:100vw;
+  transform:translateX(-50%);
+  background:linear-gradient(150deg,#dfead6,#eef3e7) !important;
+  z-index:-1;
+}
+
+/* Category wrapper already had a centered max width; let the inner modules own it. */
+html body #main-content.wrap > .category-editorial {
+  max-width:none !important;
+}
+html body #main-content.wrap > .category-editorial > :is(.category-intro,.category-index,.category-recent) {
+  width:min(1320px,100%) !important;
+  max-width:1320px !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+html body #main-content.wrap > .category-editorial > :not(:last-child),
+html body #main-content.wrap > .company-editorial > :not(:last-child) {
+  margin-bottom:clamp(22px,2.5vw,34px) !important;
+}
+html body #main-content.wrap > :is(.category-editorial,.company-editorial,.support-layout,.pv-collection-builder,.command-explorer-controls):last-of-type {
+  margin-bottom:0 !important;
+}
+html body #main-content.wrap:has(> :is(.category-editorial,.company-editorial,.support-layout,.pv-collection-builder,.command-explorer-controls)) > footer.foot.pv-footer {
+  margin-top:0 !important;
+}
+
+/* Generic hero ornaments on interior pages sit closer to the visual center. */
+html body #main-content.wrap:not(:has(.pv-home)) > .hero:not(.pv-hero):not(:has(.stat-grid)):not(.legal-copy)::before {
+  top:54% !important;
+}
+html body #main-content:not(:has(.pv-home)) .support-hero::after {
+  top:50% !important;
+  transform:translateY(-50%) rotate(-22deg) !important;
+}
+
+@media (max-width:760px) {
+  html body #main-content.wrap:has(> .pv-discovery-stage) > .hero:not(.pv-hero):has(.stat-grid) {
+    --pv-hero-orbit-y: 52% !important;
+  }
+  html body #main-content.wrap > :is(.category-editorial,.company-editorial) {
+    --pv-fullbleed-space: clamp(28px,7vw,40px);
+    padding:var(--pv-fullbleed-space) 20px !important;
+  }
+  html body #main-content.wrap > :is(.support-layout,.pv-collection-builder,.command-explorer-controls) {
+    --pv-fullbleed-space: clamp(28px,7vw,40px);
+  }
+}
+
+/* PIR Visuals / Final public-page rhythm pass · 2026-11-15ah
+   Addresses remaining feedback: full-width stage bands, clearer card contrast,
+   centered right-side ornament placement, and balanced top/bottom spacing across
+   Discover, Business, Command Explorer, Favorites, Moodboard, About,
+   Categories, Creative Studio, How it Works, Client Workspace, and Studio login. */
+html body #main-content.wrap{
+  --pv-stage-max: 1320px;
+  --pv-band-pad-x: clamp(24px,5vw,88px);
+  --pv-band-pad-y: clamp(32px,4.4vw,58px);
+  --pv-band-bg: linear-gradient(140deg,#dfe9d7 0%,#edf3e7 100%);
+  --pv-band-card: #f8fbf5;
+  --pv-band-card-strong: #f1f7eb;
+  --pv-band-border: #bccfba;
+}
+
+/* Bring all major content stages closer to the navigation and keep top/bottom
+   spacing more even. */
+html body #main-content.wrap > :is(.company-editorial,.category-editorial,.command-explorer-controls,.command-explorer-grid,.command-explorer-workflows,.pv-collection-builder,.pv-creative-grid,.pv-creative-bottom,.pv-client-confirmation,#favorite-results,.shortlist-results),
+html body #main-content.wrap > .hero:not(.pv-hero),
+html body #main-content.wrap > .pv-creative-hero,
+html body #main-content.wrap > .pv-discovery-stage{
+  scroll-margin-top:110px;
+}
+
+/* Global hero polish for secondary/public pages. */
+html body #main-content.wrap > .hero:not(.pv-hero),
+html body #main-content.wrap > .pv-creative-hero,
+html body #main-content.wrap > .pv-client-confirmation{
+  margin-top:0 !important;
+}
+html body #main-content.wrap > .hero:not(.pv-hero) h1,
+html body #main-content.wrap > .pv-creative-hero h1,
+html body #main-content.wrap > .pv-client-confirmation h1,
+html body #main-content .company-editorial-hero h1,
+html body #main-content .category-intro h1{
+  margin-top:0 !important;
+}
+
+/* Decorative orbit / seal should sit around the mid-right area, not too high. */
+html body #main-content.wrap:not(:has(.pv-home)) > .hero:not(.pv-hero):has(.stat-grid){
+  --pv-hero-orbit-y: 50%;
+}
+html body #main-content:not(:has(.pv-home)) .company-editorial-hero::before,
+html body #main-content:not(:has(.pv-home)) .category-intro::before{
+  top:50% !important;
+  right:clamp(-115px,-5vw,-72px) !important;
+  transform:translateY(-50%) !important;
+}
+html body #main-content:not(:has(.pv-home)) .company-editorial-hero,
+html body #main-content:not(:has(.pv-home)) .category-intro{
+  padding-top:clamp(32px,4.3vw,52px) !important;
+  padding-bottom:clamp(32px,4.3vw,52px) !important;
+}
+
+/* Discover: give the “Cari talenta” stage a clearer full-width band and make
+   the inner search box more distinguishable from the section background. */
+html body #main-content:not(:has(.pv-home)) .pv-discovery-stage{
+  width:100vw !important;
+  max-width:none !important;
+  margin-left:calc(50% - 50vw) !important;
+  margin-right:calc(50% - 50vw) !important;
+  padding:clamp(30px,4vw,56px) var(--pv-band-pad-x) !important;
+  border-top:1px solid rgba(53,77,54,.08);
+  border-bottom:1px solid rgba(53,77,54,.08);
+  background:linear-gradient(180deg,#dfe8d6 0%,#ebf1e4 100%) !important;
+}
+html body #main-content:not(:has(.pv-home)) .pv-discovery-shell{
+  max-width:min(1240px,100%) !important;
+  margin:0 auto !important;
+  padding:clamp(28px,4vw,42px) !important;
+  border:1px solid #bfd0bb !important;
+  border-radius:22px !important;
+  background:#f7faf4 !important;
+  box-shadow:0 16px 34px rgba(31,52,33,.05) !important;
+}
+html body #main-content:not(:has(.pv-home)) .pv-discovery-shell .section-head,
+html body #main-content:not(:has(.pv-home)) .pv-discovery-shell .pv-discovery-filters{
+  max-width:100%;
+}
+
+/* Business / About / How-it-works editorial pages: full-width internal bands,
+   balanced rhythm, and stronger contrast for the three feature cards. */
+html body #main-content:not(:has(.pv-home)) .company-editorial{
+  max-width:none !important;
+  width:100vw !important;
+  margin:0 0 0 calc(50% - 50vw) !important;
+  padding:var(--pv-band-pad-y) var(--pv-band-pad-x) !important;
+  background:transparent !important;
+}
+html body #main-content:not(:has(.pv-home)) .company-editorial > *{
+  max-width:var(--pv-stage-max) !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+html body #main-content:not(:has(.pv-home)) .company-editorial-grid{
+  margin:clamp(18px,3vw,30px) auto clamp(30px,4vw,44px) !important;
+  padding:clamp(22px,3vw,30px) !important;
+  border:1px solid #c6d6c0 !important;
+  border-radius:24px !important;
+  background:var(--pv-band-bg) !important;
+}
+html body #main-content:not(:has(.pv-home)) .company-editorial-card{
+  border-color:#bfd0b8 !important;
+  box-shadow:0 10px 26px rgba(37,53,42,.04);
+}
+html body #main-content:not(:has(.pv-home)) .company-editorial-card:first-child{
+  background:#fbfcf8 !important;
+}
+html body #main-content:not(:has(.pv-home)) .company-editorial-card:nth-child(2){
+  background:#d8e7cc !important;
+}
+html body #main-content:not(:has(.pv-home)) .company-editorial-card:nth-child(3){
+  background:#ead8c6 !important;
+}
+html body #main-content:not(:has(.pv-home)) .company-editorial-copy{
+  margin-bottom:clamp(24px,3vw,34px) !important;
+}
+html body #main-content:not(:has(.pv-home)) .company-editorial-cta{
+  margin-top:0 !important;
+  padding-top:clamp(22px,3vw,36px) !important;
+  padding-bottom:clamp(22px,3vw,36px) !important;
+}
+
+/* Command Explorer: normalize section spacing and ensure the search/tools
+   stage feels centered inside a full band rather than floating awkwardly. */
+html body #main-content.wrap:has(.command-explorer-controls) > .command-explorer-controls,
+html body #main-content.wrap:has(.command-explorer-controls) > .command-explorer-grid,
+html body #main-content.wrap:has(.command-explorer-controls) > .command-explorer-workflows{
+  width:100vw !important;
+  max-width:none !important;
+  margin-left:calc(50% - 50vw) !important;
+  margin-right:calc(50% - 50vw) !important;
+  padding-left:var(--pv-band-pad-x) !important;
+  padding-right:var(--pv-band-pad-x) !important;
+}
+html body #main-content.wrap:has(.command-explorer-controls) > .command-explorer-controls{
+  margin-top:0 !important;
+  padding-top:clamp(28px,4vw,44px) !important;
+  padding-bottom:18px !important;
+  background:linear-gradient(180deg,#e3ebdb 0%,#eef4e8 100%) !important;
+}
+html body #main-content.wrap:has(.command-explorer-controls) > .command-explorer-controls > *,
+html body #main-content.wrap:has(.command-explorer-controls) > .command-explorer-grid > *,
+html body #main-content.wrap:has(.command-explorer-controls) > .command-explorer-workflows > *{
+  max-width:var(--pv-stage-max) !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+html body #main-content.wrap:has(.command-explorer-controls) > .command-explorer-grid{
+  padding-top:0 !important;
+  padding-bottom:clamp(30px,4vw,48px) !important;
+  background:linear-gradient(180deg,#eef4e8 0%,#f6f9f2 100%) !important;
+}
+html body #main-content.wrap:has(.command-explorer-controls) > .command-explorer-grid .card{
+  background:#f9fbf6 !important;
+  border-color:#c4d4c0 !important;
+}
+
+/* Favorites / shortlist and similar simple pages: promote the content card into
+   a centered band so it no longer looks detached from the rest of the page. */
+html body #main-content.wrap > #favorite-results,
+html body #main-content.wrap > #shortlist-results,
+html body #main-content.wrap > .shortlist-results{
+  width:100vw !important;
+  max-width:none !important;
+  margin:0 0 0 calc(50% - 50vw) !important;
+  padding:clamp(28px,4vw,44px) var(--pv-band-pad-x) !important;
+  background:linear-gradient(180deg,#eff3ea 0%,#f8faf5 100%) !important;
+}
+html body #main-content.wrap > #favorite-results > *,
+html body #main-content.wrap > #shortlist-results > *,
+html body #main-content.wrap > .shortlist-results > *{
+  max-width:var(--pv-stage-max) !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+html body #main-content.wrap > #favorite-results .empty-state,
+html body #main-content.wrap > #shortlist-results .empty-state,
+html body #main-content.wrap > .shortlist-results .empty-state{
+  max-width:720px !important;
+  margin:0 auto !important;
+  background:#ffffff !important;
+  border-color:#c4d4c0 !important;
+}
+
+/* Moodboard / Collections: remove extra top strip and make the builder zone
+   a clean, full-width stage with balanced padding. */
+html body #main-content.wrap:has(.pv-collection-builder) > .pv-collection-builder{
+  width:100vw !important;
+  max-width:none !important;
+  margin:0 0 0 calc(50% - 50vw) !important;
+  padding:clamp(28px,4vw,48px) var(--pv-band-pad-x) !important;
+  background:linear-gradient(180deg,#e6eddc 0%,#f2f6ee 100%) !important;
+}
+html body #main-content.wrap:has(.pv-collection-builder) > .pv-collection-builder > *{
+  max-width:min(1240px,100%) !important;
+}
+html body #main-content.wrap:has(.pv-collection-builder) > .pv-collection-builder .pv-collection-create,
+html body #main-content.wrap:has(.pv-collection-builder) > .pv-collection-builder .pv-collection-live-preview,
+html body #main-content.wrap:has(.pv-collection-builder) > .pv-collection-builder .pv-collection-steps{
+  background:#fbfcf9 !important;
+  border-color:#c5d4c2 !important;
+  box-shadow:0 12px 26px rgba(33,52,37,.04);
+}
+
+/* Category page: tighten the jump between intro and tiles, while keeping the
+   intro and category index inside cleaner full-width blocks. */
+html body #main-content:not(:has(.pv-home)) .category-editorial{
+  max-width:none !important;
+  width:100vw !important;
+  margin:0 0 0 calc(50% - 50vw) !important;
+  padding:var(--pv-band-pad-y) var(--pv-band-pad-x) !important;
+}
+html body #main-content:not(:has(.pv-home)) .category-editorial > *{
+  max-width:var(--pv-stage-max) !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+html body #main-content:not(:has(.pv-home)) .category-intro{
+  padding-bottom:clamp(28px,4vw,44px) !important;
+  margin-bottom:clamp(18px,3vw,28px) !important;
+}
+html body #main-content:not(:has(.pv-home)) .category-index{
+  padding:clamp(24px,3vw,34px) !important;
+  border:1px solid #c6d6c0 !important;
+  border-radius:24px !important;
+  background:var(--pv-band-bg) !important;
+}
+html body #main-content:not(:has(.pv-home)) .category-index-heading{
+  margin-bottom:22px !important;
+}
+html body #main-content:not(:has(.pv-home)) .category-recent{
+  padding-top:clamp(26px,3vw,36px) !important;
+}
+
+/* Creative Studio public page: treat the hero, command cards, and footer CTA
+   as one coherent system with more even stage spacing. */
+html body #main-content.wrap > .pv-creative-hero,
+html body #main-content.wrap > .pv-creative-grid,
+html body #main-content.wrap > .pv-creative-bottom{
+  width:100vw !important;
+  max-width:none !important;
+  margin-left:calc(50% - 50vw) !important;
+  margin-right:calc(50% - 50vw) !important;
+  padding-left:var(--pv-band-pad-x) !important;
+  padding-right:var(--pv-band-pad-x) !important;
+}
+html body #main-content.wrap > .pv-creative-hero{
+  padding-top:clamp(30px,4vw,46px) !important;
+  padding-bottom:clamp(30px,4vw,46px) !important;
+  border-radius:0 !important;
+  border-left:0 !important;
+  border-right:0 !important;
+  background:linear-gradient(180deg,#e6eddc 0%,#f0f5ea 100%) !important;
+}
+html body #main-content.wrap > .pv-creative-hero > *,
+html body #main-content.wrap > .pv-creative-grid > *,
+html body #main-content.wrap > .pv-creative-bottom > *{
+  max-width:var(--pv-stage-max) !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+html body #main-content.wrap > .pv-creative-grid{
+  margin:0 !important;
+  padding-top:18px !important;
+  padding-bottom:20px !important;
+  background:linear-gradient(180deg,#f0f5ea 0%,#f8faf6 100%) !important;
+}
+html body #main-content.wrap > .pv-creative-grid .pv-creative-card{
+  background:#fbfcf9 !important;
+  border-color:#c4d5c0 !important;
+}
+html body #main-content.wrap > .pv-creative-bottom{
+  margin:0 0 clamp(28px,4vw,44px) !important;
+  padding-top:0 !important;
+  padding-bottom:clamp(28px,4vw,44px) !important;
+  background:linear-gradient(180deg,#f8faf6 0%,transparent 100%) !important;
+}
+html body #main-content.wrap > .pv-creative-bottom > div,
+html body #main-content.wrap > .pv-creative-bottom > a{
+  max-width:var(--pv-stage-max) !important;
+}
+html body #main-content.wrap > .pv-creative-bottom .btn,
+html body #main-content.wrap > .pv-creative-bottom > a.btn{
+  align-self:flex-start;
+}
+
+/* Client Workspace + Designer Studio public login pages. */
+html body #main-content.wrap > .pv-client-confirmation,
+html body #main-content.wrap > .card:has(> form[action="/studio/login"]),
+html body #main-content.wrap > .card:has(> form[action="/studio/request-login"]),
+html body #main-content.wrap > .card:has(> form[action="/studio/request-reset"]){
+  width:100vw !important;
+  max-width:none !important;
+  margin-left:calc(50% - 50vw) !important;
+  margin-right:calc(50% - 50vw) !important;
+  padding-left:var(--pv-band-pad-x) !important;
+  padding-right:var(--pv-band-pad-x) !important;
+}
+html body #main-content.wrap > .pv-client-confirmation{
+  padding-top:clamp(32px,4vw,50px) !important;
+  padding-bottom:clamp(32px,4vw,50px) !important;
+  background:linear-gradient(180deg,#edf3e8 0%,#f7faf4 100%) !important;
+}
+html body #main-content.wrap > .pv-client-confirmation > *{
+  max-width:min(1240px,100%) !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+html body #main-content.wrap > .card:has(> form[action="/studio/login"]),
+html body #main-content.wrap > .card:has(> form[action="/studio/request-login"]),
+html body #main-content.wrap > .card:has(> form[action="/studio/request-reset"]){
+  padding-top:clamp(28px,4vw,42px) !important;
+  padding-bottom:clamp(28px,4vw,42px) !important;
+  background:linear-gradient(180deg,#eff4ea 0%,#fafcf8 100%) !important;
+  border:0 !important;
+  box-shadow:none !important;
+}
+html body #main-content.wrap > .card:has(> form[action="/studio/login"]) > *,
+html body #main-content.wrap > .card:has(> form[action="/studio/request-login"]) > *,
+html body #main-content.wrap > .card:has(> form[action="/studio/request-reset"]) > *{
+  max-width:min(860px,100%) !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+html body #main-content.wrap > .card:has(> form[action="/studio/login"]) form,
+html body #main-content.wrap > .card:has(> form[action="/studio/request-login"]) form,
+html body #main-content.wrap > .card:has(> form[action="/studio/request-reset"]) form{
+  background:#ffffff !important;
+  border:1px solid #c5d4c1 !important;
+  border-radius:22px !important;
+  padding:clamp(18px,3vw,28px) !important;
+  box-shadow:0 12px 30px rgba(33,53,37,.045);
+}
+
+@media(max-width:760px){
+  html body #main-content.wrap{
+    --pv-band-pad-x: 18px;
+    --pv-band-pad-y: 22px;
+  }
+  html body #main-content:not(:has(.pv-home)) .pv-discovery-shell,
+  html body #main-content:not(:has(.pv-home)) .company-editorial-grid,
+  html body #main-content:not(:has(.pv-home)) .category-index,
+  html body #main-content.wrap > .card:has(> form[action="/studio/login"]) form,
+  html body #main-content.wrap > .card:has(> form[action="/studio/request-login"]) form,
+  html body #main-content.wrap > .card:has(> form[action="/studio/request-reset"]) form{
+    border-radius:18px !important;
+  }
+  html body #main-content.wrap > .pv-creative-bottom{
+    padding-bottom:28px !important;
+  }
+}
+
+
+/* PIR VISUALS / 2026-11-15 AM — Definitive Discover layout & motion correction.
+   Cause fixed: the previous translate:0 0!important and offset-distance:0%!important
+   prevented animation keyframes from ever changing the computed position.
+   Orbit paths have matching start/end tangents for continuous motion, while
+   the center stays anchored to 50% of the hero. */
+html body #main-content.wrap:has(> .pv-discovery-stage) > .hero:not(.pv-hero):has(.stat-grid) {
+  --pv-hero-orbit-y:50% !important;
+  position:relative !important;
+  isolation:isolate;
+}
+html body #main-content.wrap:has(> .pv-discovery-stage) > .hero:not(.pv-hero):has(.stat-grid)::before {
+  top:50% !important;
+  bottom:auto !important;
+  left:auto !important;
+  right:clamp(36px,7.2vw,144px) !important;
+  width:clamp(240px,27vw,415px) !important;
+  height:auto !important;
+  transform:translateY(-50%) !important;
+  translate:none;
+  offset-path:path("M 0 -21 C 15 -21 25 -10 25 0 C 25 10 15 21 0 21 C -15 21 -25 10 -25 0 C -25 -10 -15 -21 0 -21 Z") !important;
+  offset-rotate:0deg !important;
+  offset-distance:0%;
+  animation:pv-am-continuous-orbit 8.8s linear infinite !important;
+  will-change:offset-distance;
+}
+html body #main-content.wrap:has(> .pv-discovery-stage) > .hero:not(.pv-hero):has(.stat-grid)::after {
+  top:50% !important;
+  bottom:auto !important;
+  left:auto !important;
+  right:clamp(-24px,2vw,48px) !important;
+  transform:translateY(-50%) !important;
+  translate:none;
+  offset-path:path("M 0 -13 C 10 -13 18 -7 18 0 C 18 7 10 13 0 13 C -10 13 -18 7 -18 0 C -18 -7 -10 -13 0 -13 Z") !important;
+  offset-rotate:0deg !important;
+  offset-distance:0%;
+  animation:pv-am-continuous-orbit 11.4s linear infinite reverse,
+            pv-am-ring-breathe 7.4s ease-in-out infinite !important;
+  will-change:offset-distance;
+}
+@keyframes pv-am-continuous-orbit {
+  from { offset-distance:0%; }
+  to { offset-distance:100%; }
+}
+@keyframes pv-am-ring-breathe {
+  0%,100% { opacity:.58; }
+  50% { opacity:.78; }
+}
+/* Keep the large sage band full bleed; eliminate extra outside margin that
+   produced unbalanced empty strips around the actual content panel. */
+html body #main-content.wrap > .pv-discovery-stage > .pv-discovery-search-band {
+  box-sizing:border-box !important;
+  position:relative !important;
+  isolation:isolate;
+  display:flex !important;
+  align-items:center !important;
+  width:100vw !important;
+  max-width:none !important;
+  margin:0 0 0 calc(50% - 50vw) !important;
+  padding:clamp(60px,5.6vw,84px) clamp(20px,5vw,88px) !important;
+  background:linear-gradient(110deg,#c7dcc0 0%,#ccdec3 52%,#bed5b6 100%) !important;
+  border-top:1px solid rgba(35,70,44,.15) !important;
+  border-bottom:1px solid rgba(35,70,44,.15) !important;
+  border-radius:0 !important;
+  box-shadow:none !important;
+}
+html body #main-content.wrap > .pv-discovery-stage > .pv-discovery-search-band > .pv-discovery-shell {
+  box-sizing:border-box !important;
+  display:block !important;
+  width:min(1240px,100%) !important;
+  max-width:1240px !important;
+  margin:0 auto !important;
+  padding:clamp(24px,3.6vw,46px) !important;
+  background:linear-gradient(135deg,#e9f2e3 0%,#eef5e8 100%) !important;
+  border:1px solid #b2c9ac !important;
+  border-radius:22px !important;
+  box-shadow:0 18px 42px rgba(29,58,37,.075) !important;
+}
+html body #main-content.wrap > .pv-discovery-stage > .pv-discovery-search-band > .pv-discovery-shell > .section-head {
+  margin:0 0 clamp(16px,2.5vw,28px) !important;
+  padding:0 !important;
+}
+html body #main-content.wrap > .pv-discovery-stage > .pv-discovery-search-band > .pv-discovery-shell > .search-panel.pv-discovery-filters {
+  box-sizing:border-box !important;
+  width:100% !important;
+  max-width:100% !important;
+  margin:0 !important;
+  background:#fafbf7 !important;
+  border:1px solid #cad9c4 !important;
+  border-radius:16px !important;
+  box-shadow:0 5px 14px rgba(29,58,37,.035) !important;
+}
+@media (max-width:1020px) and (min-width:761px) {
+  html body #main-content.wrap:has(> .pv-discovery-stage) > .hero:not(.pv-hero):has(.stat-grid)::before {
+    right:clamp(18px,4vw,50px) !important;
+    width:clamp(200px,27vw,310px) !important;
+  }
+}
+@media (max-width:760px) {
+  /* Mobile uses the existing simplified hero; preserve room for the form. */
+  html body #main-content.wrap > .pv-discovery-stage > .pv-discovery-search-band {
+    padding:42px 18px !important;
+    margin:0 0 0 calc(50% - 50vw) !important;
+  }
+  html body #main-content.wrap > .pv-discovery-stage > .pv-discovery-search-band > .pv-discovery-shell {
+    padding:20px 16px !important;
+    border-radius:17px !important;
+  }
+}
+@media (prefers-reduced-motion:reduce) {
+  html body #main-content.wrap:has(> .pv-discovery-stage) > .hero:not(.pv-hero):has(.stat-grid)::before,
+  html body #main-content.wrap:has(> .pv-discovery-stage) > .hero:not(.pv-hero):has(.stat-grid)::after {
+    animation:none !important;
+    offset-distance:0% !important;
+    will-change:auto;
+  }
+}
+html[data-pv-motion="off"] body #main-content.wrap:has(> .pv-discovery-stage) > .hero:not(.pv-hero):has(.stat-grid)::before,
+html[data-pv-motion="off"] body #main-content.wrap:has(> .pv-discovery-stage) > .hero:not(.pv-hero):has(.stat-grid)::after {
+  animation:none !important;
+  offset-distance:0% !important;
+  will-change:auto;
+}
+
+
+/* PIR Visuals AN — Discover ornament & stage: remove the former pseudo motion
+   path entirely. Motion-path coordinates were overriding the intended top:50%,
+   leaving the emblem far above its visual center. The explicit ornament box
+   remains centered in the hero, while only the nested image moves. */
+html body #main-content.wrap:has(> .pv-discovery-stage) > .hero:not(.pv-hero):has(.stat-grid){
+  position:relative !important;
+  isolation:isolate;
+  overflow:hidden;
+}
+html body #main-content.wrap:has(> .pv-discovery-stage) > .hero:not(.pv-hero):has(.stat-grid)::before,
+html body #main-content.wrap:has(> .pv-discovery-stage) > .hero:not(.pv-hero):has(.stat-grid)::after{
+  content:none !important;
+  display:none !important;
+  animation:none !important;
+  offset-path:none !important;
+}
+html body #main-content .pv-discover-ornament{
+  box-sizing:border-box;
+  display:grid;
+  place-items:center;
+  position:absolute;
+  top:50%;
+  right:clamp(26px,7.1vw,138px);
+  width:clamp(265px,30vw,425px);
+  aspect-ratio:1;
+  height:auto;
+  margin:0;
+  transform:translateY(-50%);
+  pointer-events:none;
+  z-index:0;
+  opacity:.68;
+  filter:none;
+}
+html body #main-content .pv-discover-ornament__outer{
+  width:100%;height:100%;
+  position:relative;
+  animation:pv-an-centered-orbit 14s linear infinite;
+  will-change:transform;
+}
+html body #main-content .pv-discover-ornament__inner{
+  width:100%;height:100%;
+  animation:pv-an-centered-orbit 18.2s linear infinite reverse;
+  will-change:transform;
+}
+html body #main-content .pv-discover-ornament img{
+  display:block;width:100%;height:100%;object-fit:contain;
+}
+/* Rigidly centered parent. Nested counter-rotation keeps PIR wordmark upright
+   while tracing continuous gentle orbital movement with no stop/start jump. */
+@keyframes pv-an-centered-orbit{
+  0%{transform:rotate(0deg) translateX(11px) rotate(0deg)}
+  100%{transform:rotate(360deg) translateX(11px) rotate(-360deg)}
+}
+/* A single explicit layout rhythm: no spacer strips before/after the band. */
+html body #main-content.wrap > .pv-discovery-stage{
+  padding:clamp(44px,4.4vw,62px) 0 !important;
+  background:linear-gradient(180deg,#e4efdc 0%,#e8f1e2 100%) !important;
+  border:0 !important;
+}
+html body #main-content.wrap > .pv-discovery-stage > .pv-match-finder{
+  box-sizing:border-box;
+  width:min(1320px,calc(100% - 2 * clamp(22px,5vw,88px))) !important;
+  max-width:1320px !important;
+  margin:0 auto clamp(24px,2.8vw,38px) !important;
+}
+html body #main-content.wrap > .pv-discovery-stage > .pv-discovery-search-band{
+  width:100vw !important;
+  max-width:none !important;
+  position:relative !important;
+  overflow:hidden !important;
+  isolation:isolate;
+  margin:0 0 clamp(28px,3.4vw,46px) calc(50% - 50vw) !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  padding:clamp(60px,6vw,82px) clamp(20px,5vw,88px) clamp(52px,4.7vw,66px) !important;
+  background:linear-gradient(110deg,#c6dbbe,#cbdcc2 55%,#bdd3b5) !important;
+  border-top:1px solid rgba(35,70,44,.15) !important;
+  border-bottom:1px solid rgba(35,70,44,.15) !important;
+}
+html body #main-content.wrap > .pv-discovery-stage > .pv-discovery-search-band > .pv-discovery-shell{
+  position:relative !important;
+  z-index:1;
+  display:block !important;
+  align-self:center !important;
+  margin:0 auto !important;
+  width:min(1240px,100%) !important;
+  max-width:1240px !important;
+}
+html body #main-content.wrap > .pv-discovery-stage > :is(.section-head,.grid,.pagination,.page-nav,.pv-selected-work-section,#cara-kerja){
+  box-sizing:border-box;
+  width:min(1320px,calc(100% - 2 * clamp(22px,5vw,88px))) !important;
+  max-width:1320px !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+}
+@media(max-width:960px){
+  html body #main-content .pv-discover-ornament{width:clamp(200px,32vw,310px);right:clamp(8px,3vw,40px);opacity:.53}
+}
+@media(max-width:760px){
+  html body #main-content .pv-discover-ornament{display:none !important}
+  html body #main-content.wrap > .pv-discovery-stage{padding:30px 0 !important}
+  html body #main-content.wrap > .pv-discovery-stage > .pv-discovery-search-band{
+    padding:44px 18px 38px !important;
+    margin-bottom:26px !important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  html body #main-content .pv-discover-ornament__outer,
+  html body #main-content .pv-discover-ornament__inner{
+    animation:none !important;will-change:auto !important;
+  }
+}
+html[data-pv-motion="off"] body #main-content .pv-discover-ornament__outer,
+html[data-pv-motion="off"] body #main-content .pv-discover-ornament__inner{
+  animation:none !important;will-change:auto !important;
+}
+
+
+/* PIR Visuals AP: ornaments belong to the floating logo, never to Cari Talenta.
+   Keep the filter band intentionally quiet and fully readable. */
+html body #main-content.wrap > .pv-discovery-stage > .pv-discovery-search-band::before,
+html body #main-content.wrap > .pv-discovery-stage > .pv-discovery-search-band::after {
+  content:none !important;
+  display:none !important;
+}
+
+/* Loading-inspired orbit accessories: tiny pencil, leaf, and sparkles dance
+   continuously around the PIR Visuals seal. The seal itself stays centered. */
+html body #main-content .pv-discover-ornament__accents {
+  position:absolute;
+  inset:-7%;
+  border-radius:50%;
+  pointer-events:none;
+  z-index:2;
+  animation:pv-ap-satellite-orbit 25s linear infinite;
+  will-change:transform;
+}
+html body #main-content .pv-discover-ornament__accents::before {
+  content:"";
+  position:absolute;
+  inset:4%;
+  border:1px dashed rgba(198,222,187,.23);
+  border-radius:50%;
+}
+html body #main-content .pv-discover-ornament__accent {
+  position:absolute;
+  display:block;
+  pointer-events:none;
+  line-height:1;
+}
+html body #main-content .pv-discover-ornament__accent--star {
+  left:10%;
+  top:15%;
+  color:#cde6bb;
+  font:normal clamp(23px,2.7vw,34px)/1 Georgia,serif;
+  text-shadow:0 0 9px rgba(201,230,184,.13);
+}
+html body #main-content .pv-discover-ornament__accent--star2 {
+  right:10%;
+  bottom:12%;
+  color:#ebcaab;
+  font:normal clamp(17px,2vw,27px)/1 Georgia,serif;
+}
+html body #main-content .pv-discover-ornament__accent--dots {
+  width:7px;
+  height:7px;
+  top:14%;
+  right:19%;
+  border-radius:50%;
+  background:#cedfb0;
+  box-shadow:18px 10px 0 -1px #c6d7b3, -11px 18px 0 -2px #e0ab83;
+}
+html body #main-content .pv-discover-ornament__accent--leaf {
+  width:clamp(18px,2.3vw,27px);
+  height:clamp(11px,1.4vw,17px);
+  bottom:20%;
+  left:2%;
+  background:#9fc39a;
+  border:1.5px solid #d6e9ba;
+  border-radius:95% 0 95% 5%;
+  transform:rotate(-38deg);
+}
+html body #main-content .pv-discover-ornament__accent--leaf::after {
+  content:"";
+  position:absolute;
+  width:92%;
+  height:1px;
+  left:4%;
+  top:57%;
+  background:#d5e6ba;
+  transform:rotate(-18deg);
+}
+html body #main-content .pv-discover-ornament__accent--pencil {
+  right:1%;
+  top:45%;
+  width:clamp(26px,3vw,38px);
+  height:clamp(6px,.72vw,9px);
+  border:1px solid rgba(239,210,173,.9);
+  background:#d99e7e;
+  border-radius:2px;
+  transform:rotate(-35deg);
+}
+html body #main-content .pv-discover-ornament__accent--pencil::before {
+  content:"";
+  position:absolute;
+  top:-1px;
+  left:-9px;
+  width:0;
+  height:0;
+  border-top:4px solid transparent;
+  border-bottom:4px solid transparent;
+  border-right:9px solid #f1ddc1;
+}
+html body #main-content .pv-discover-ornament__accent--pencil::after {
+  content:"";
+  position:absolute;
+  right:-4px;
+  top:-1px;
+  width:5px;
+  height:calc(100% + 2px);
+  background:#afcb9b;
+  border-radius:0 2px 2px 0;
+}
+@keyframes pv-ap-satellite-orbit {
+  from {transform:rotate(0deg)}
+  to   {transform:rotate(360deg)}
+}
+@media(max-width:960px) {
+  html body #main-content .pv-discover-ornament__accent--star {font-size:22px}
+  html body #main-content .pv-discover-ornament__accent--star2 {font-size:19px}
+}
+@media(prefers-reduced-motion:reduce) {
+  html body #main-content .pv-discover-ornament__accents {
+    animation:none !important;
+    will-change:auto;
+  }
+}
+html[data-pv-motion="off"] body #main-content .pv-discover-ornament__accents {
+  animation:none !important;
+  will-change:auto;
+}
+
+/* AQ / 2026-11-15 — Discover: balance the seam above Cari talenta.
+   Previous overrides: finder margin-bottom = clamp(24px,2.8vw,38px),
+   band padding-top = clamp(60px,6vw,82px). Their unequal values
+   place the full-bleed green boundary visibly too close to the finder.
+   A shared gap places the boundary at their midpoint without a spacer,
+   negative margin, position adjustment, or moving the form/card itself.
+   The sum stays approximately unchanged at common zoom/viewports. */
+html body #main-content.wrap > .pv-discovery-stage {
+  --pv-discover-seam: clamp(42px,4.4vw,60px);
+}
+html body #main-content.wrap > .pv-discovery-stage > .pv-match-finder {
+  margin-bottom: var(--pv-discover-seam) !important;
+}
+html body #main-content.wrap > .pv-discovery-stage > .pv-discovery-search-band {
+  padding-top: var(--pv-discover-seam) !important;
+  padding-bottom: var(--pv-discover-seam) !important;
+}
+@media(max-width:760px) {
+  html body #main-content.wrap > .pv-discovery-stage {
+    --pv-discover-seam: 31px;
+  }
+}
+
+/* AR / 2026-11-15 — Shared PIR orbit for existing seal-bearing menu heroes.
+   Reuses the Discover emblem, ring motion, and loading-inspired satellites.
+   Keeps the right-hand artwork centered without affecting text or layout. */
+html body #main-content.wrap > :is(.hero,.shortlist-hero).pv-shared-seal-host {
+  position:relative !important;
+  isolation:isolate;
+  overflow:hidden;
+}
+html body #main-content.wrap > .hero.pv-shared-seal-host::before,
+html body #main-content.wrap > .hero.pv-shared-seal-host::after,
+html body #main-content.wrap > .shortlist-hero.pv-shared-seal-host::after {
+  content:none !important;
+  display:none !important;
+  animation:none !important;
+  offset-path:none !important;
+}
+html body #main-content.wrap > :is(.hero,.shortlist-hero).pv-shared-seal-host > :not(.pv-shared-seal) {
+  position:relative;
+  z-index:1;
+}
+html body #main-content.wrap > :is(.hero,.shortlist-hero) > .pv-discover-ornament.pv-shared-seal {
+  top:50% !important;
+  right:clamp(22px,6.6vw,104px) !important;
+  width:clamp(210px,27vw,365px) !important;
+  height:auto !important;
+  aspect-ratio:1 !important;
+  opacity:.62 !important;
+  transform:translateY(-50%) !important;
+  z-index:0 !important;
+}
+html body #main-content.wrap > .shortlist-hero > .pv-discover-ornament.pv-shared-seal {
+  width:clamp(205px,28vw,350px) !important;
+  opacity:.71 !important;
+}
+/* Footer graphic is already a seal: only its satellite marks are shared. */
+html body #main-content > .pv-footer .pv-footer-feature-graphic > .pv-footer-orbit-accents {
+  inset:-11%;
+  z-index:1;
+  opacity:.7;
+}
+@media(max-width:1050px) {
+  html body #main-content.wrap > :is(.hero,.shortlist-hero) > .pv-discover-ornament.pv-shared-seal {
+    width:clamp(165px,25vw,275px) !important;
+    right:clamp(10px,3vw,35px) !important;
+    opacity:.43 !important;
+  }
+}
+@media(max-width:760px) {
+  /* Do not overlay long headlines at high zoom or on narrow screens. */
+  html body #main-content.wrap > :is(.hero,.shortlist-hero) > .pv-discover-ornament.pv-shared-seal {
+    display:none !important;
+  }
+  html body #main-content > .pv-footer .pv-footer-feature-graphic > .pv-footer-orbit-accents {
+    opacity:.4;
+  }
+}
+@media(prefers-reduced-motion:reduce) {
+  html body #main-content .pv-footer-orbit-accents {animation:none !important;will-change:auto;}
+}
+html[data-pv-motion="off"] body #main-content .pv-footer-orbit-accents {
+  animation:none !important;
+  will-change:auto;
+}
+/* The older shortlist rule gives every direct child position:relative.
+   Override it explicitly for this new decorative child so it never enters
+   the text flow or drifts to the left of the headline. */
+html body #main-content.wrap > :is(.hero,.shortlist-hero).pv-shared-seal-host > .pv-discover-ornament.pv-shared-seal {
+  position:absolute !important;
+  margin:0 !important;
+  left:auto !important;
+  bottom:auto !important;
+  pointer-events:none !important;
+}
+
+/* PIR Visuals / 2026-11-16as
+   For Business: remove the top gap under the navbar and turn the page into
+   true full-bleed horizontal bands, while keeping the inner editorial content
+   centered. */
+html body #main-content.wrap > .company-editorial.company-editorial-business{
+  width:100vw !important;
+  max-width:none !important;
+  margin:0 0 0 calc(50% - 50vw) !important;
+  padding:0 !important;
+  background:transparent !important;
+}
+html body #main-content.wrap > .company-editorial.company-editorial-business > .company-editorial-band{
+  width:100vw !important;
+  max-width:none !important;
+  margin:0 !important;
+  padding-inline:clamp(22px,4vw,72px) !important;
+}
+html body #main-content.wrap > .company-editorial.company-editorial-business > .company-editorial-band > .company-editorial-business-inner{
+  width:min(1320px,100%) !important;
+  max-width:1320px !important;
+  margin:0 auto !important;
+}
+html body #main-content.wrap > .company-editorial.company-editorial-business > .company-editorial-business-hero-band{
+  padding-top:0 !important;
+  padding-bottom:clamp(24px,3vw,36px) !important;
+  background:linear-gradient(180deg,#dfead6 0%,#dfead6 100%) !important;
+}
+html body #main-content.wrap > .company-editorial.company-editorial-business > .company-editorial-business-main-band{
+  padding-top:clamp(24px,3.5vw,38px) !important;
+  padding-bottom:clamp(56px,6vw,88px) !important;
+  background:#f5f7f0 !important;
+}
+html body #main-content.wrap > .company-editorial.company-editorial-business .company-editorial-hero{
+  margin:0 !important;
+  padding:clamp(32px,4.8vw,56px) 0 !important;
+  border-radius:0 !important;
+  background:transparent !important;
+}
+html body #main-content.wrap > .company-editorial.company-editorial-business .company-editorial-grid,
+html body #main-content.wrap > .company-editorial.company-editorial-business .company-editorial-copy,
+html body #main-content.wrap > .company-editorial.company-editorial-business .company-editorial-cta{
+  width:100% !important;
+  max-width:none !important;
+}
+html body #main-content.wrap > .company-editorial.company-editorial-business .company-editorial-grid{
+  margin:0 auto clamp(32px,4vw,44px) !important;
+}
+html body #main-content.wrap > .company-editorial.company-editorial-business .company-editorial-copy{
+  margin-top:0 !important;
+  margin-bottom:clamp(26px,3vw,34px) !important;
+}
+html body #main-content.wrap > .company-editorial.company-editorial-business .company-editorial-cta{
+  margin-top:0 !important;
+}
+@media (max-width:760px){
+  html body #main-content.wrap > .company-editorial.company-editorial-business > .company-editorial-band{
+    padding-inline:20px !important;
+  }
+  html body #main-content.wrap > .company-editorial.company-editorial-business > .company-editorial-business-hero-band{
+    padding-bottom:20px !important;
+  }
+  html body #main-content.wrap > .company-editorial.company-editorial-business > .company-editorial-business-main-band{
+    padding-top:20px !important;
+    padding-bottom:42px !important;
+  }
+  html body #main-content.wrap > .company-editorial.company-editorial-business .company-editorial-hero{
+    padding:26px 0 !important;
+  }
+}
+
+/* PIR Visuals / 2026-11-16at
+   Command Explorer: use the same shared PIR ornament treatment as Jelajahi,
+   and remove the visual gap between the hero and the tools band. */
+html body #main-content.wrap > .hero.command-explorer-hero{
+  margin-bottom:0 !important;
+  padding-bottom:clamp(16px,2.2vw,24px) !important;
+  border-bottom:0 !important;
+}
+html body #main-content.wrap > .hero.command-explorer-hero .stat-grid{
+  margin-bottom:0 !important;
+}
+html body #main-content.wrap:has(.command-explorer-controls) > .command-explorer-controls{
+  margin-top:0 !important;
+  padding-top:12px !important;
+  border-top:0 !important;
+  background:linear-gradient(180deg,#e3ebdb 0%,#eef4e8 100%) !important;
+}
+html body #main-content.wrap:has(.command-explorer-controls) > .command-explorer-grid{
+  margin-top:0 !important;
+}
+html body #main-content.wrap > .hero.command-explorer-hero > .pv-discover-ornament.pv-shared-seal{
+  top:50% !important;
+  right:clamp(22px,7vw,104px) !important;
+  width:clamp(220px,29vw,370px) !important;
+  opacity:.62 !important;
+  transform:translateY(-50%) !important;
+}
+@media (max-width:760px){
+  html body #main-content.wrap > .hero.command-explorer-hero{
+    padding-bottom:16px !important;
+  }
+  html body #main-content.wrap:has(.command-explorer-controls) > .command-explorer-controls{
+    padding-top:10px !important;
+  }
+}
+
+/* PIR Visuals / 2026-11-16au
+   The global interior-hero rule has a more specific bottom margin. Override
+   that exact rule on Command Explorer so the search band touches the hero. */
+html body #main-content.wrap:not(:has(.pv-home)) > .hero.command-explorer-hero:not(.pv-hero){
+  margin-bottom:0 !important;
+}
+
+/* PIR Visuals / 2026-11-16av
+   Favorites and Shortlist: align the breathing room above and below each
+   empty-state band. Favorites previously inherited the generic interior-hero
+   bottom margin, adding a second top gap before its results panel. */
+html body #main-content.wrap:has(> #favorite-results) > .hero:not(.pv-hero),
+html body #main-content.wrap:has(> .shortlist-hero) > .shortlist-hero {
+  margin-bottom:0 !important;
+}
+html body #main-content.wrap:has(> #favorite-results) > #favorite-results,
+html body #main-content.wrap:has(> .shortlist-hero) > .shortlist-results {
+  --pv-empty-band-space:clamp(32px,3.5vw,48px);
+  box-sizing:border-box !important;
+  margin-top:0 !important;
+  padding-top:var(--pv-empty-band-space) !important;
+  padding-bottom:var(--pv-empty-band-space) !important;
+}
+html body #main-content.wrap:has(> #favorite-results) > #favorite-results > .empty-state,
+html body #main-content.wrap:has(> .shortlist-hero) > .shortlist-results > #shortlist-results > .empty-state {
+  margin-top:0 !important;
+  margin-bottom:0 !important;
+}
+@media(max-width:760px) {
+  html body #main-content.wrap:has(> #favorite-results) > #favorite-results,
+  html body #main-content.wrap:has(> .shortlist-hero) > .shortlist-results {
+    --pv-empty-band-space:clamp(24px,6vw,32px);
+  }
+}
+
+
+/* PIR Visuals / 2026-11-16aw
+   About / company editorial masthead: remove the spacer below the navbar and
+   let the sage hero surface run continuously from the left to right viewport edge.
+   The editorial cards and copy below remain on their existing centered grid. */
+html body #main-content.wrap:has(> .company-editorial) {
+  width:100% !important;
+  max-width:none !important;
+  padding-left:0 !important;
+  padding-right:0 !important;
+}
+html body #main-content.wrap:has(> .company-editorial > .company-editorial-hero) > .company-editorial {
+  box-sizing:border-box !important;
+  width:100vw !important;
+  max-width:none !important;
+  margin:0 0 0 calc(50% - 50vw) !important;
+  padding:0 0 clamp(32px,4.4vw,58px) !important;
+  background:linear-gradient(150deg,#dfead6 0%,#eef3e7 100%) !important;
+}
+html body #main-content.wrap:has(> .company-editorial > .company-editorial-hero) > .company-editorial > .company-editorial-hero {
+  box-sizing:border-box !important;
+  width:100vw !important;
+  max-width:100vw !important;
+  margin:0 !important;
+  padding:clamp(32px,4.3vw,52px) clamp(24px,5vw,88px) !important;
+  border-radius:0 !important;
+}
+@media(max-width:760px) {
+  html body #main-content.wrap:has(> .company-editorial > .company-editorial-hero) > .company-editorial {
+    padding-bottom:22px !important;
+  }
+  html body #main-content.wrap:has(> .company-editorial > .company-editorial-hero) > .company-editorial > .company-editorial-hero {
+    padding:32px 20px !important;
+  }
+}
+
+
+/* PIR Visuals / 2026-11-16ax
+   Keep the shared footer truly full-bleed on every interior page.
+   The About shell can be viewport-wide or constrained by an older cached/base
+   wrapper; calculate the breakout from the wrapper's actual centre so the
+   footer always reaches both viewport edges instead of inheriting its column. */
+html body:not(:has(.pv-home)) #main-content.wrap > footer.foot.pv-footer {
+  display:block !important;
+  width:100vw !important;
+  min-width:100vw !important;
+  max-width:none !important;
+  margin-left:calc(50% - 50vw) !important;
+  margin-right:calc(50% - 50vw) !important;
+  box-sizing:border-box !important;
+}
+
+
+/* PIR Visuals / 2026-11-16ba — client workspace and homepage spacing balance.
+   Client landing: one centered text rail, consistent left alignment, and no
+   trailing spacer before the shared footer. Home: equal vertical breathing
+   room at the top and bottom of the hero at every breakpoint. */
+
+/* Client Workspace landing band */
+html body #main-content.wrap:has(> .pv-client-landing) {
+  padding-bottom:0 !important;
+}
+html body #main-content.wrap > .pv-client-landing {
+  box-sizing:border-box !important;
+  margin-top:0 !important;
+  margin-bottom:0 !important;
+  padding-top:clamp(30px,4vw,48px) !important;
+  padding-bottom:clamp(30px,4vw,48px) !important;
+  border:0 !important;
+  border-radius:0 !important;
+}
+html body #main-content.wrap > .pv-client-landing > .pv-client-landing-inner {
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:flex-start !important;
+  width:min(936px,100%) !important;
+  max-width:936px !important;
+  margin:0 auto !important;
+  text-align:left !important;
+}
+html body #main-content.wrap > .pv-client-landing .eyebrow {
+  display:block !important;
+  width:auto !important;
+  max-width:100% !important;
+  margin:0 0 8px !important;
+  text-align:left !important;
+}
+html body #main-content.wrap > .pv-client-landing h1 {
+  width:100% !important;
+  max-width:900px !important;
+  margin:0 0 12px !important;
+  text-align:left !important;
+}
+html body #main-content.wrap > .pv-client-landing-inner > p {
+  width:100% !important;
+  max-width:900px !important;
+  margin:0 !important;
+  text-align:left !important;
+}
+html body #main-content.wrap > .pv-client-landing .pv-invite-pending {
+  box-sizing:border-box !important;
+  width:100% !important;
+  max-width:936px !important;
+  margin:18px 0 0 !important;
+}
+html body #main-content.wrap > .pv-client-landing .pv-invite-pending p {
+  margin-bottom:0;
+}
+html body #main-content.wrap > .pv-client-landing .btn {
+  align-self:flex-start !important;
+  margin:16px 0 0 !important;
+}
+html body #main-content.wrap:has(> .pv-client-landing) > footer.pv-footer {
+  margin-top:0 !important;
+}
+@media(max-width:760px) {
+  html body #main-content.wrap > .pv-client-landing {
+    padding:28px 18px !important;
+  }
+  html body #main-content.wrap > .pv-client-landing > .pv-client-landing-inner {
+    width:100% !important;
+    max-width:640px !important;
+  }
+  html body #main-content.wrap > .pv-client-landing h1 {
+    font-size:clamp(36px,9vw,58px) !important;
+  }
+  html body #main-content.wrap > .pv-client-landing .pv-invite-pending {
+    padding:16px !important;
+  }
+}
+
+/* Homepage hero: use the same vertical inset above and below the content.
+   The bottom scroll cue remains inside that lower inset. */
+html body #main-content .pv-home > .pv-hero {
+  box-sizing:border-box !important;
+  padding-top:clamp(48px,6vw,88px) !important;
+  padding-bottom:clamp(48px,6vw,88px) !important;
+  align-content:center !important;
+}
+@media(max-width:760px) {
+  html body #main-content .pv-home > .pv-hero {
+    padding-top:clamp(32px,7vw,54px) !important;
+    padding-bottom:clamp(32px,7vw,54px) !important;
+    align-content:start !important;
+  }
+}
+
+
+/* PIR Visuals / 2026-11-16bb — keep the lowercase g descender visible. */
+/* The home-story animation previously applied overflow:hidden to all section
+   titles. On the category headline this clips the ink below the line box in
+   “looking”. Reveal the complete letter without changing font or layout. */
+html body #main-content .pv-home-motion .pv-category-section .pv-section-top h2.pv-managed-title {
+  overflow:visible !important;
+}
+
+
+/* PIR Visuals / 2026-11-16bc — manifesto index mobile typography.
+   The original editorial CSS gives "PV / 2026" a 24px serif size. On a narrow
+   screen it wraps to two lines and competes with the chapter heading. Only
+   reduce this decorative index in mobile view; desktop remains unchanged. */
+@media (max-width:760px) {
+  html body #main-content .pv-home .pv-manifesto .pv-manifesto-aside {
+    display:flex;
+    flex-direction:row;
+    align-items:flex-start;
+    justify-content:space-between;
+    flex-wrap:nowrap;
+    gap:12px;
+    min-width:0;
+    width:100%;
+  }
+  html body #main-content .pv-home .pv-manifesto .pv-manifesto-index {
+    flex:0 0 auto;
+    width:auto;
+    max-width:100%;
+    font-size:clamp(12px,3.2vw,14px) !important;
+    line-height:1.4;
+    letter-spacing:.05em;
+    white-space:nowrap;
+    text-align:right;
+  }
+  html body #main-content .pv-home .pv-manifesto .pv-manifesto-aside > .pv-label {
+    flex:1 1 auto;
+    min-width:0;
+  }
+}
+
+
+/* PIR Visuals / 2026-11-16bd — true full-bleed category masthead, zero top gap.
+   Previous category styles constrained EACH direct child to a centered 1320px
+   rail, inadvertently shrinking the green masthead. Put the background on the
+   viewport-wide header, and constrain only the follow-on index modules. */
+html body #main-content.wrap:has(> .category-editorial) {
+  padding-top:0 !important;
+}
+html body #main-content.wrap > .category-editorial {
+  box-sizing:border-box !important;
+  width:100vw !important;
+  max-width:none !important;
+  margin:0 0 0 calc(50% - 50vw) !important;
+  padding:0 0 clamp(28px,4.2vw,54px) !important;
+  background:linear-gradient(180deg,#e2ecd9,#edf3e7) !important;
+}
+html body #main-content.wrap > .category-editorial > .category-intro {
+  box-sizing:border-box !important;
+  width:100vw !important;
+  max-width:none !important;
+  margin:0 !important;
+  padding:clamp(42px,5.4vw,76px) max(clamp(22px,5vw,76px),calc((100vw - 1240px)/2)) !important;
+  border-radius:0 !important;
+  border-inline:0 !important;
+  background:linear-gradient(112deg,#d5e6c6,#e6f0dd) !important;
+}
+html body #main-content.wrap > .category-editorial > :is(.category-index,.category-recent) {
+  box-sizing:border-box !important;
+  width:min(1240px,calc(100% - 2 * clamp(20px,4vw,64px))) !important;
+  max-width:1240px !important;
+  margin-inline:auto !important;
+}
+html body #main-content.wrap > .category-editorial > .category-index {
+  margin-top:clamp(24px,3vw,38px) !important;
+}
+@media(max-width:760px) {
+  html body #main-content.wrap > .category-editorial > .category-intro {
+    grid-template-columns:minmax(0,1fr) !important;
+    gap:clamp(22px,5vw,34px) !important;
+    padding:clamp(34px,7vw,48px) 20px !important;
+  }
+  html body #main-content.wrap > .category-editorial > :is(.category-index,.category-recent) {
+    width:calc(100% - 32px) !important;
+  }
+  html body #main-content.wrap > .category-editorial > .category-index {
+    margin-top:18px !important;
+  }
+}
+
+/* 2026-11-17be — media previews preserve the uploaded aspect ratio everywhere. */
+html body #main-content .carousel-art {
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  background:#202820 !important;
+}
+html body #main-content .carousel-art::before,
+html body #main-content .carousel-art::after {
+  content:none !important;
+  display:none !important;
+}
+html body #main-content .carousel-art :is(img,video) {
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  max-width:100% !important;
+  max-height:100% !important;
+  object-fit:contain !important;
+  object-position:center !important;
+  padding:12px !important;
+  opacity:1 !important;
+  mask-image:none !important;
+  -webkit-mask-image:none !important;
+  animation:none !important;
+  transform:none !important;
+  background:transparent !important;
+}
+html body #main-content .studio-work-preview {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  max-height:420px;
+  overflow:hidden;
+  border-radius:12px;
+  background:var(--bg-soft);
+}
+html body #main-content .studio-work-preview img {
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:420px;
+  object-fit:contain;
+  object-position:center;
+}
+html body #main-content .showcase-work-image {
+  height:auto !important;
+  min-height:0 !important;
+  aspect-ratio:auto !important;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--surface-raised);
+}
+html body #main-content .showcase-work-image img {
+  display:block;
+  width:100%;
+  height:auto !important;
+  max-height:680px;
+  object-fit:contain !important;
+  object-position:center;
+}
+html body #main-content .home-project-image {
+  height:auto !important;
+  min-height:0 !important;
+  aspect-ratio:auto !important;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--surface-raised);
+}
+html body #main-content .home-project-image img {
+  display:block;
+  width:100%;
+  height:auto !important;
+  max-height:620px;
+  object-fit:contain !important;
+  object-position:center;
+}
+html body #main-content .case-gallery-item img {
+  width:100%;
+  height:auto !important;
+  max-height:680px;
+  object-fit:contain !important;
+}
+html body #main-content .pv-upload-preview-card img {
+  display:block;
+  width:100%;
+  height:auto !important;
+  max-height:260px;
+  object-fit:contain !important;
+  object-position:center;
+  background:var(--bg-soft);
+}
+.home-media-preview {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:120px;
+  max-height:280px;
+  margin:10px 0;
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background:var(--bg-soft);
+}
+.home-media-preview :is(img,video) {
+  display:block;
+  width:100%;
+  max-width:100%;
+  max-height:280px;
+  height:auto;
+  object-fit:contain;
+  object-position:center;
+}
+.home-media-empty {
+  display:grid;
+  place-items:center;
+  min-height:110px;
+  padding:16px;
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.65;
+  text-align:center;
+}
+.home-media-help {
+  display:block;
+  color:var(--muted);
+  font-size:10px;
+  line-height:1.65;
+}
+.home-media-remove { display:flex !important; align-items:center; gap:8px; }
+.home-media-remove input { width:auto !important; }
+@media(max-width:760px) {
+  html body #main-content .carousel-track,
+  html body #main-content .carousel-slide,
+  html body #main-content .carousel-slide.is-active {
+    min-height:0 !important;
+    height:auto !important;
+  }
+  html body #main-content .carousel-slide.is-active {
+    display:flex !important;
+    flex-direction:column-reverse !important;
+  }
+  html body #main-content .carousel-art {
+    position:relative !important;
+    inset:auto !important;
+    width:100% !important;
+    height:clamp(190px,58vw,300px) !important;
+    min-height:190px !important;
+    max-height:300px !important;
+    opacity:1 !important;
+    border-radius:12px !important;
+    mask-image:none !important;
+    -webkit-mask-image:none !important;
+  }
+  html body #main-content .carousel-art :is(img,video) {
+    width:100% !important;
+    height:100% !important;
+    max-height:100% !important;
+    padding:8px !important;
+    opacity:1 !important;
+    mask-image:none !important;
+    -webkit-mask-image:none !important;
+  }
+  html body #main-content .carousel-copy {
+    width:100% !important;
+    padding:22px 18px !important;
+  }
+  html body #main-content .studio-work-preview { max-height:340px; }
+  html body #main-content .studio-work-preview img { max-height:340px; }
+  .home-media-preview { max-height:240px; }
+  .home-media-preview :is(img,video) { max-height:240px; }
+}
+
+/* v3.56.0 — circular directory portraits, natural-ratio project media, reliable homepage visibility. */
+html body #main-content .designer-card-cover {
+  box-sizing:border-box !important;
+  height:104px !important;
+  min-height:104px !important;
+  padding:16px 18px 16px 102px !important;
+  overflow:hidden !important;
+}
+html body #main-content .designer-card-cover-label {
+  position:relative !important;
+  z-index:2 !important;
+  display:block !important;
+  white-space:nowrap !important;
+}
+html body #main-content .designer-card-portrait {
+  position:absolute !important;
+  z-index:3 !important;
+  top:18px !important;
+  bottom:auto !important;
+  left:18px !important;
+  width:68px !important;
+  height:68px !important;
+  border-radius:50% !important;
+  border:3px solid var(--surface) !important;
+  box-shadow:0 5px 16px rgba(0,0,0,.16) !important;
+}
+html body #main-content .designer-card-portrait img {
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  border-radius:50% !important;
+  object-fit:cover !important;
+}
+html body #main-content .designer-card-content {
+  padding:18px 19px 18px !important;
+}
+html body #main-content .pv-selected-work-grid {
+  align-items:start !important;
+  grid-auto-flow:row !important;
+}
+html body #main-content .pv-selected-work-card {
+  display:block !important;
+  min-width:0 !important;
+  overflow:visible !important;
+  padding:0 !important;
+  border:0 !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+}
+html body #main-content .pv-selected-work-image {
+  display:block !important;
+  width:100% !important;
+  height:auto !important;
+  min-height:0 !important;
+  aspect-ratio:auto !important;
+  overflow:hidden !important;
+  border:0 !important;
+  border-radius:12px !important;
+  background:transparent !important;
+}
+html body #main-content .pv-selected-work-image img {
+  display:block !important;
+  width:100% !important;
+  height:auto !important;
+  max-height:680px !important;
+  aspect-ratio:auto !important;
+  object-fit:contain !important;
+  object-position:center !important;
+  border-radius:12px !important;
+  transform:none !important;
+}
+html body #main-content .pv-home-motion .pv-project-grid[data-pv-story],
+html body #main-content .pv-home-motion .pv-project-grid[data-pv-story] > .home-project {
+  opacity:1 !important;
+  visibility:visible !important;
+  transform:none !important;
+}
+html body #main-content .pv-home-motion .pv-project-grid[data-pv-story] .home-project-image {
+  clip-path:none !important;
+  -webkit-clip-path:none !important;
+}
+html body #main-content .home-project-image {
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  width:100% !important;
+  height:auto !important;
+  min-height:0 !important;
+  aspect-ratio:auto !important;
+  overflow:hidden !important;
+  border-radius:12px !important;
+  background:transparent !important;
+  clip-path:none !important;
+}
+html body #main-content .home-project-image :is(img,video) {
+  display:block !important;
+  width:100% !important;
+  height:auto !important;
+  max-height:620px !important;
+  object-fit:contain !important;
+  object-position:center !important;
+  transform:none !important;
+  border-radius:12px !important;
+}
+html body #main-content .home-work-editor-grid {
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+}
+@media(max-width:760px) {
+  html body #main-content .designer-card-cover {
+    height:98px !important;
+    min-height:98px !important;
+    padding-left:94px !important;
+  }
+  html body #main-content .designer-card-portrait {
+    top:17px !important;
+    left:16px !important;
+    width:64px !important;
+    height:64px !important;
+  }
+  html body #main-content .designer-card-content {
+    padding:16px 15px 15px !important;
+  }
+  html body #main-content .pv-selected-work-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    align-items:start !important;
+  }
+  html body #main-content .home-work-editor-grid {
+    grid-template-columns:1fr !important;
+  }
+}
+
+
+/* v3.57.0 — designer portfolio media, quick-view avatar and review form repair */
+#main-content .designer-showcase .showcase-work-grid{
+  display:grid!important;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))!important;
+  column-count:initial!important;
+  column-gap:clamp(18px,2.2vw,28px)!important;
+  row-gap:clamp(24px,3vw,38px)!important;
+  align-items:start;
+}
+#main-content .designer-showcase .showcase-work{
+  display:block!important;
+  width:auto!important;
+  min-width:0;
+  margin:0!important;
+  break-inside:auto!important;
+}
+#main-content .designer-showcase .showcase-work-image{
+  display:block;
+  width:100%;
+  height:auto!important;
+  min-height:0!important;
+  aspect-ratio:auto!important;
+  overflow:hidden;
+  border-radius:10px;
+  background:transparent;
+}
+#main-content .designer-showcase .showcase-work-image img{
+  display:block;
+  width:100%!important;
+  height:auto!important;
+  max-height:none!important;
+  aspect-ratio:auto!important;
+  object-fit:contain!important;
+  object-position:center;
+  transform:none!important;
+  filter:none;
+  background:var(--surface-raised);
+}
+#main-content .designer-showcase .showcase-work-index{
+  z-index:2;
+  background:rgba(20,31,24,.92);
+  color:#fff;
+  border:1px solid rgba(255,255,255,.2);
+  box-shadow:0 3px 12px rgba(0,0,0,.2);
+}
+#main-content .designer-showcase .showcase-work-featured{
+  z-index:2;
+  background:#f3edcf;
+  color:#26372b;
+  border:1px solid rgba(38,55,43,.18);
+}
+#main-content .pv-quick-view-avatar{
+  width:58px;
+  height:58px;
+  flex:0 0 58px;
+  overflow:hidden;
+  border-radius:50%!important;
+  background:var(--surface-raised);
+}
+#main-content .pv-quick-view-avatar img{
+  display:block;
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  object-fit:cover;
+  object-position:center;
+}
+#main-content .case-study .pv-case-chapters{
+  position:sticky;
+  top:88px;
+  z-index:15;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:10px 14px;
+  margin:12px 0 30px;
+  padding:12px 15px;
+  border:1px solid #cbd8cc!important;
+  border-radius:13px;
+  background:rgba(250,251,247,.98)!important;
+  color:#20372a!important;
+  box-shadow:0 8px 24px rgba(25,48,33,.09);
+  backdrop-filter:blur(14px);
+}
+#main-content .case-study .pv-case-chapters-label{
+  flex:0 0 auto;
+  color:#53675a!important;
+  font-size:9px;
+  line-height:1.4;
+  letter-spacing:.14em;
+}
+#main-content .case-study .pv-case-chapters>div{
+  display:flex;
+  flex:1 1 420px;
+  flex-wrap:wrap;
+  gap:5px;
+  min-width:0;
+  overflow:visible;
+}
+#main-content .case-study .pv-case-chapters a{
+  min-height:34px;
+  padding:8px 10px;
+  border-radius:8px;
+  color:#354b3b!important;
+  font-size:10px;
+  line-height:1.25;
+  font-weight:800;
+}
+#main-content .case-study .pv-case-chapters a:hover,
+#main-content .case-study .pv-case-chapters a.is-active,
+#main-content .case-study .pv-case-chapters a[aria-current="location"]{
+  background:#e2ebdf!important;
+  color:#20372a!important;
+}
+#main-content .case-study .case-cover{
+  overflow:visible;
+  border:0;
+  border-radius:10px;
+  background:transparent;
+  box-shadow:none;
+}
+#main-content .case-study .case-cover img{
+  display:block;
+  width:100%!important;
+  height:auto!important;
+  max-width:100%;
+  max-height:none!important;
+  object-fit:contain!important;
+  object-position:center;
+  transform:none!important;
+  animation:none!important;
+  will-change:auto!important;
+  border-radius:8px;
+  background:var(--surface-raised);
+}
+#main-content .case-study .case-cover figcaption{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px 16px;
+  margin-top:10px;
+  padding:10px 13px;
+  border:1px solid var(--line);
+  border-radius:9px;
+  background:var(--surface);
+  color:var(--muted);
+  font-size:9px;
+  line-height:1.5;
+  letter-spacing:.1em;
+}
+#main-content .showcase-review-card{
+  width:min(100%,960px);
+  margin:clamp(42px,7vw,82px) auto 36px;
+  padding:clamp(20px,3.2vw,36px);
+  border-radius:14px;
+}
+#main-content .showcase-review-heading{
+  max-width:680px;
+  margin-bottom:22px;
+}
+#main-content .showcase-review-heading h2{
+  margin:8px 0 7px;
+  font-size:clamp(23px,3vw,32px);
+  line-height:1.15;
+  letter-spacing:-.045em;
+}
+#main-content .showcase-review-heading p{margin:0;line-height:1.65}
+#main-content .showcase-review-form{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px 20px;
+  align-items:start;
+  width:100%;
+}
+#main-content .showcase-review-form>label{
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr);
+  gap:7px;
+  min-width:0;
+  width:100%;
+  margin:0!important;
+  color:var(--text)!important;
+  font-size:12px;
+  font-weight:800;
+  line-height:1.45;
+}
+#main-content .showcase-review-form input,
+#main-content .showcase-review-form select,
+#main-content .showcase-review-form textarea{
+  display:block!important;
+  width:100%!important;
+  min-width:0;
+  max-width:none!important;
+  min-height:45px;
+  margin:0!important;
+  padding:11px 13px;
+  border:1px solid var(--line);
+  border-radius:9px;
+  background:var(--surface-raised);
+  color:var(--text);
+  font:inherit;
+  font-size:13px;
+  line-height:1.5;
+}
+#main-content .showcase-review-form textarea{
+  min-height:142px;
+  resize:vertical;
+}
+#main-content .showcase-review-form .showcase-review-message{grid-column:1/-1}
+#main-content .showcase-review-submit{
+  grid-column:1/-1;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:10px 14px;
+  padding-top:2px;
+}
+#main-content .showcase-review-submit .btn{min-height:44px}
+#main-content .showcase-review-submit small{
+  color:var(--muted);
+  font-size:10px;
+  line-height:1.5;
+}
+@media(max-width:760px){
+  #main-content .case-study .pv-case-chapters{top:76px;margin:10px 0 22px;padding:10px 11px;gap:8px}
+  #main-content .case-study .pv-case-chapters>div{flex-basis:100%;gap:4px}
+  #main-content .case-study .pv-case-chapters a{min-height:32px;padding:7px 8px;font-size:9px}
+  #main-content .showcase-review-card{margin:36px auto 26px;padding:19px}
+  #main-content .showcase-review-form{grid-template-columns:1fr;gap:13px}
+  #main-content .showcase-review-form .showcase-review-message,
+  #main-content .showcase-review-submit{grid-column:1}
+}
+@media(prefers-reduced-motion:reduce){
+  #main-content .designer-showcase .showcase-work-image img,
+  #main-content .case-study .case-cover img{transform:none!important;animation:none!important;transition:none!important}
+}
+/* PIR Visuals v3.58.0 — keep portfolio media visible without reveal-JS dependency.
+   The previous curtain could remain over Selected Work if the reveal observer
+   did not mark a card visible. The artwork itself is always the primary content. */
+html body #main-content .designer-showcase .showcase-work-image:after{
+  content:none!important;
+  display:none!important;
+}
+html body #main-content .designer-showcase .showcase-work-image img{
+  display:block!important;
+  opacity:1!important;
+  visibility:visible!important;
+  filter:none!important;
+  transform:none!important;
+}
+
+/* Restore the Beranda carousel preview on narrow screens. Keep a soft surface
+   gradient behind copy at the left while allowing the uploaded artwork to show. */
+@media(max-width:760px){
+  html body #main-content .pv-home .home-carousel .carousel-art{
+    opacity:1!important;
+    mask-image:none!important;
+    -webkit-mask-image:none!important;
+  }
+  html body #main-content .pv-home .home-carousel .carousel-art :is(img,video){
+    display:block!important;
+    width:100%!important;
+    height:100%!important;
+    opacity:1!important;
+    object-fit:contain!important;
+    object-position:center!important;
+    mask-image:none!important;
+    -webkit-mask-image:none!important;
+    padding:0!important;
+  }
+  html body #main-content .pv-home .home-carousel .carousel-art:before{
+    background:linear-gradient(
+      90deg,
+      color-mix(in srgb,var(--surface) 92%,transparent) 0%,
+      color-mix(in srgb,var(--surface) 68%,transparent) 38%,
+      color-mix(in srgb,var(--surface) 22%,transparent) 76%,
+      transparent 100%
+    )!important;
+  }
+  html body #main-content .pv-home .home-carousel .carousel-art:after{
+    background:linear-gradient(90deg,rgba(32,39,43,.08),transparent 64%)!important;
+  }
+}
+
+
+/* PIR Visuals v3.59.0 — restore the homepage carousel and separate mobile card controls. */
+@media(max-width:760px){
+  html body #main-content .pv-home .home-carousel{
+    display:block!important;
+    visibility:visible!important;
+    opacity:1!important;
+    margin:22px 0 30px!important;
+  }
+  html body #main-content .pv-home .home-carousel .carousel-track,
+  html body #main-content .pv-home .home-carousel .carousel-slide{
+    min-height:410px!important;
+  }
+  html body #main-content .pv-home .home-carousel .carousel-slide.is-active{
+    display:flex!important;
+    flex-direction:column-reverse!important;
+  }
+  html body #main-content .pv-home .home-carousel .carousel-art{
+    position:absolute!important;
+    top:0!important;
+    right:0!important;
+    bottom:auto!important;
+    width:100%!important;
+    height:54%!important;
+    overflow:hidden!important;
+    opacity:1!important;
+    border-radius:12px!important;
+  }
+  html body #main-content .pv-home .home-carousel .carousel-art :is(img,video){
+    display:block!important;
+    width:100%!important;
+    height:100%!important;
+    object-fit:contain!important;
+    object-position:center!important;
+    opacity:1!important;
+    filter:none!important;
+    mask-image:none!important;
+    -webkit-mask-image:none!important;
+  }
+  html body #main-content .pv-home .home-carousel .carousel-art:before,
+  html body #main-content .pv-home .home-carousel .carousel-art:after{
+    content:none!important;
+    display:none!important;
+  }
+  html body #main-content .pv-home .home-carousel .carousel-copy{
+    position:relative!important;
+    z-index:2!important;
+    width:100%!important;
+    min-height:410px!important;
+    justify-content:flex-end!important;
+    padding:220px 20px 22px!important;
+    background:linear-gradient(180deg,transparent 0%,color-mix(in srgb,var(--surface) 78%,transparent) 47%,var(--surface) 62%)!important;
+  }
+  html body #main-content .pv-home .home-carousel .carousel-copy :is(.carousel-kicker,.carousel-kind,h2,p,a){
+    position:relative!important;
+    z-index:3!important;
+  }
+  html body #main-content .pv-home .home-carousel .carousel-copy h2{
+    font-size:clamp(25px,7vw,32px)!important;
+    line-height:1.08!important;
+  }
+  html body #main-content .designer-card-cover{
+    height:112px!important;
+    min-height:112px!important;
+    padding:15px 16px 14px 94px!important;
+  }
+  html body #main-content .designer-card-cover-label{
+    display:block!important;
+    max-width:100%!important;
+    white-space:normal!important;
+    overflow-wrap:anywhere!important;
+    line-height:1.4!important;
+    letter-spacing:.12em!important;
+    margin:0!important;
+  }
+  html body #main-content .pv-quick-preview-trigger{
+    top:auto!important;
+    right:12px!important;
+    bottom:10px!important;
+    z-index:5!important;
+    min-height:32px!important;
+    padding:6px 10px!important;
+  }
+  html body #main-content .designer-card-portrait{
+    top:17px!important;
+    left:15px!important;
+    width:64px!important;
+    height:64px!important;
+  }
+}
+
+/* v3.60.0 — standalone community showcase and practical Owner control center */
+.pv-home-showcase{position:relative;margin:clamp(46px,7vw,92px) 0 clamp(56px,8vw,104px);padding:clamp(18px,3vw,34px);border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,#f9fbf7 0%,#eef3eb 58%,#e6eee4 100%);color:#1d3326;overflow:hidden}
+[data-theme="dark"] .pv-home-showcase{background:linear-gradient(145deg,#202a23 0%,#263329 58%,#202a24 100%);color:#eef3e9}
+.pv-showcase-heading{display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,.55fr);gap:26px;align-items:end;margin-bottom:24px}
+.pv-showcase-heading h2{margin:9px 0 0;font-size:clamp(30px,4.4vw,56px);line-height:1.02;letter-spacing:-.055em;color:inherit}
+.pv-showcase-heading h2 span{color:#8a9b73}
+.pv-showcase-heading>p{margin:0 0 4px;max-width:390px;color:var(--muted);font-size:14px;line-height:1.7}
+.pv-showcase-tabs{display:flex;gap:8px;overflow-x:auto;padding:0 0 14px;scrollbar-width:thin}
+.pv-showcase-tabs button{flex:0 0 auto;border:1px solid color-mix(in srgb,var(--line) 80%,transparent);border-radius:999px;padding:10px 15px;background:transparent;color:inherit;font:inherit;font-size:12px;font-weight:800;white-space:nowrap;cursor:pointer;transition:background .2s ease,color .2s ease,border-color .2s ease}
+.pv-showcase-tabs button:hover,.pv-showcase-tabs button.is-active,.pv-showcase-tabs button[aria-selected="true"]{background:#244b34;border-color:#244b34;color:#fff}
+.pv-showcase-panel{border-top:1px solid color-mix(in srgb,var(--line) 78%,transparent);padding-top:16px}
+.pv-showcase-panel[hidden]{display:none!important}
+.pv-showcase-track{position:relative;min-height:330px}
+.pv-showcase-slide{display:none;grid-template-columns:minmax(0,1.1fr) minmax(260px,.9fr);gap:clamp(18px,3vw,38px);align-items:stretch;min-height:330px;animation:pv-showcase-enter .35s ease both}
+.pv-showcase-slide.is-active{display:grid}
+@keyframes pv-showcase-enter{from{opacity:.5;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+.pv-showcase-art{display:grid;place-items:center;min-width:0;min-height:300px;aspect-ratio:16/10;border-radius:15px;overflow:hidden;background:#e1e9df;border:1px solid #d2ddcf}
+[data-theme="dark"] .pv-showcase-art{background:#1a251e;border-color:#3c4c3e}
+.pv-showcase-art img,.pv-showcase-art video{display:block;width:100%;height:100%;max-height:500px;object-fit:contain;object-position:center;background:transparent}
+.pv-showcase-art-placeholder{width:100%;height:100%;min-height:300px;display:grid;place-items:center;background:radial-gradient(circle at 50% 45%,#d1dfc8,#e9efe6 70%);color:#536b50;font-size:clamp(28px,4vw,54px);font-weight:900;letter-spacing:.16em}
+.pv-showcase-copy{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;min-width:0;padding:12px clamp(4px,1.6vw,22px)}
+.pv-showcase-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;font-size:10px;font-weight:850;letter-spacing:.12em;text-transform:uppercase;color:#63775e}
+[data-theme="dark"] .pv-showcase-meta{color:#b8c7ad}
+.pv-showcase-meta strong{font-size:12px;letter-spacing:0;text-align:right;color:#315a3e}
+[data-theme="dark"] .pv-showcase-meta strong{color:#c8d9bd}
+.pv-showcase-copy h3{margin:18px 0 10px;font-size:clamp(28px,3.6vw,48px);line-height:1.04;letter-spacing:-.05em;color:inherit;overflow-wrap:anywhere}
+.pv-showcase-copy>p{max-width:540px;margin:0;color:var(--muted);font-size:14px;line-height:1.75}
+.pv-showcase-byline{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;width:100%;margin-top:22px;padding-top:14px;border-top:1px solid color-mix(in srgb,var(--line) 80%,transparent);font-size:10px;letter-spacing:.08em;color:var(--muted)}
+.pv-showcase-byline a{color:inherit;font-weight:800;letter-spacing:0}
+.pv-showcase-cta{display:inline-flex;align-items:center;gap:12px;margin-top:22px;padding:12px 17px;border-radius:10px;background:#244b34;color:#fff!important;font-size:12px;font-weight:850}
+.pv-showcase-controls{display:flex;align-items:center;gap:14px;padding:16px 2px 0;border-top:1px solid color-mix(in srgb,var(--line) 65%,transparent)}
+.pv-showcase-counter{font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.pv-showcase-counter b{color:inherit}
+.pv-showcase-dots{display:flex;align-items:center;justify-content:center;gap:7px;flex:1}
+.pv-showcase-dots button{width:8px;height:8px;padding:0;border:0;border-radius:99px;background:#9bab91;opacity:.5;cursor:pointer}
+.pv-showcase-dots button[aria-current="true"]{width:24px;opacity:1;background:#315b3d}
+.pv-showcase-arrows{display:flex;gap:7px}
+.pv-showcase-arrows button{width:36px;height:36px;border:1px solid var(--line);border-radius:50%;background:transparent;color:inherit;font-size:18px;cursor:pointer}
+.pv-showcase-arrows button:disabled{opacity:.35;cursor:not-allowed}
+.pv-showcase-empty{min-height:300px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:clamp(24px,5vw,60px);border:1px dashed #b5c4b0;border-radius:15px;background:rgba(255,255,255,.28)}
+.pv-showcase-empty>span{font-size:10px;font-weight:850;letter-spacing:.16em;color:#6c8065}
+.pv-showcase-empty h3{max-width:560px;margin:16px 0 8px;font-size:clamp(22px,3vw,36px);line-height:1.1;color:inherit}
+.pv-showcase-empty p{max-width:520px;margin:0;color:var(--muted);font-size:13px}
+@media(max-width:760px){.pv-home-showcase{margin:42px -2px 54px;padding:15px 13px;border-radius:16px}.pv-showcase-heading{grid-template-columns:1fr;gap:9px;margin-bottom:17px}.pv-showcase-heading h2{font-size:clamp(28px,8vw,40px)}.pv-showcase-heading>p{font-size:12px}.pv-showcase-tabs{gap:6px;margin-right:-13px;padding-right:13px}.pv-showcase-tabs button{padding:9px 12px;font-size:11px}.pv-showcase-track{min-height:0}.pv-showcase-slide{grid-template-columns:1fr;gap:0;min-height:0}.pv-showcase-art{min-height:0;aspect-ratio:4/3;border-radius:12px}.pv-showcase-art img,.pv-showcase-art video{max-height:360px;object-fit:contain}.pv-showcase-art-placeholder{min-height:220px}.pv-showcase-copy{padding:17px 4px 6px}.pv-showcase-copy h3{font-size:29px;margin:12px 0 8px}.pv-showcase-copy>p{font-size:12px}.pv-showcase-byline{margin-top:15px;padding-top:11px;font-size:9px}.pv-showcase-cta{margin-top:16px}.pv-showcase-controls{gap:9px;padding-top:12px}.pv-showcase-arrows button{width:33px;height:33px}.pv-showcase-empty{min-height:220px;padding:24px}}
+
+.owner-dashboard-hero{padding-bottom:18px}
+.owner-dashboard-hero h1{margin:8px 0 10px}
+.owner-dashboard-nav{position:sticky;top:8px;z-index:12;display:flex;gap:7px;flex-wrap:wrap;padding:10px;margin:0 0 22px;border:1px solid var(--line);border-radius:14px;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(14px)}
+.owner-dashboard-nav a{padding:8px 11px;border-radius:8px;background:var(--panel2);color:var(--text);font-size:12px;font-weight:800}
+.owner-manager-section{margin:32px 0;padding:clamp(16px,2.5vw,28px);border:1px solid var(--line);border-radius:20px;background:var(--panel)}
+.owner-manager-heading{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:18px}
+.owner-manager-heading h2{margin:7px 0;font-size:clamp(25px,3vw,36px);letter-spacing:-.04em}
+.owner-manager-heading p{max-width:720px;margin:0;color:var(--muted);font-size:13px}
+.owner-manager-count{flex:0 0 auto;padding:8px 11px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:10px;font-weight:850;letter-spacing:.1em}
+.owner-pending-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px}
+.owner-pending-grid>.card{margin:0}
+.owner-create-work{margin:18px 0;padding:16px;border:1px solid var(--line);border-radius:14px;background:var(--panel2)}
+.owner-create-work>summary{cursor:pointer;font-weight:850}
+.owner-create-work form{padding-top:16px}
+.owner-work-create-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.owner-work-create-grid>label,.owner-work-edit-form>label{display:flex;flex-direction:column;gap:6px;color:var(--text);font-size:12px}
+.owner-work-create-grid input,.owner-work-create-grid select,.owner-work-create-grid textarea,.owner-work-edit-form input,.owner-work-edit-form select,.owner-work-edit-form textarea{width:100%;min-width:0;padding:10px;font-size:13px}
+.owner-work-create-wide{grid-column:1/-1}
+.owner-work-featured{display:flex!important;flex-direction:row!important;align-items:center;gap:8px!important}
+.owner-work-featured input{width:auto!important}
+.owner-work-help{color:var(--muted);font-size:11px}
+.owner-work-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,310px),1fr));gap:14px}
+.owner-work-card{min-width:0;padding:13px;border:1px solid var(--line);border-radius:15px;background:var(--panel2)}
+.owner-work-card-heading{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:9px}
+.owner-work-card-heading small{font-size:10px;color:var(--muted)}
+.owner-work-status{display:inline-flex;padding:4px 9px;border-radius:999px;background:#e9e1c8;color:#67501d;font-size:10px;font-weight:900;text-transform:uppercase}
+.owner-work-status.status-approved{background:#dcebdc;color:#245936}.owner-work-status.status-rejected{background:#f4dddd;color:#8b3030}
+.owner-work-preview{position:relative;display:grid;place-items:center;min-height:160px;aspect-ratio:16/9;overflow:hidden;border-radius:10px;background:var(--bg)}
+.owner-work-preview img{width:100%;height:100%;max-height:240px;object-fit:contain}
+.owner-work-preview span{position:absolute;right:8px;bottom:8px;padding:5px 8px;border-radius:6px;background:#14251dd9;color:#fff;font-size:10px}
+.owner-work-preview-empty{color:var(--muted);font-size:12px}
+.owner-work-author{display:flex;justify-content:space-between;gap:8px;margin:10px 0;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.owner-work-author strong{font-size:12px}.owner-work-author span{font-size:10px;color:var(--muted)}
+.owner-work-edit-form{display:grid;gap:9px}
+.owner-work-edit-form textarea{min-height:74px;resize:vertical}
+.owner-work-actions{display:flex;flex-wrap:wrap;gap:8px;padding-top:5px}
+.owner-work-actions .btn{font-size:11px;padding:9px 12px}
+.owner-designer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:12px}
+.owner-designer-card{display:grid;gap:9px;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--panel2)}
+.owner-designer-card>div:first-of-type{display:grid;gap:2px}.owner-designer-card>div:first-of-type strong{font-size:14px}.owner-designer-card small{color:var(--muted);font-size:10px}
+.owner-designer-card>label{display:flex;align-items:center;gap:8px;color:var(--text);font-size:12px}.owner-designer-card input[type=checkbox]{width:auto}
+.owner-designer-prices{display:grid;grid-template-columns:1fr 1fr;gap:9px}.owner-designer-prices label{display:grid;gap:5px;color:var(--text);font-size:11px}.owner-designer-prices input{width:100%;padding:8px;font-size:12px}
+.owner-event-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
+.owner-event-editor{min-width:0}.owner-event-editor input,.owner-event-editor select,.owner-event-editor textarea{width:100%;margin:5px 0 10px}
+.owner-event-editor .studio-toggle{display:flex;align-items:center;gap:8px}.owner-event-editor .studio-toggle input{width:auto;margin:0}
+@media(max-width:640px){.owner-dashboard-nav{position:relative;top:auto;overflow-x:auto;flex-wrap:nowrap}.owner-dashboard-nav a{flex:0 0 auto}.owner-manager-heading{align-items:start;flex-direction:column}.owner-work-create-grid{grid-template-columns:1fr}.owner-work-create-wide{grid-column:auto}.owner-work-author{flex-direction:column}.owner-manager-section{padding:13px;border-radius:15px}}
+
+
+/* v3.60.2 — Owner FAQ controls, same-origin live preview, global checkbox rhythm and larger artwork previews. */
+.studio-cms-shell{
+  margin:clamp(38px,5vw,64px) 0!important;
+  padding:0!important;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+.studio-cms-layout{
+  grid-template-columns:minmax(0,1.35fr) minmax(360px,.85fr)!important;
+  gap:clamp(20px,3vw,36px)!important;
+  align-items:start;
+}
+#main-content .studio-editor-section{
+  padding:clamp(22px,3vw,30px) 0!important;
+  margin:0!important;
+  border:0!important;
+  border-top:1px solid var(--line)!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+}
+#main-content .studio-editor-section:first-child{border-top:0!important}
+#main-content .studio-preview{
+  position:sticky;
+  top:18px;
+  min-width:0;
+  border:1px solid var(--line)!important;
+  border-radius:14px!important;
+  overflow:hidden;
+}
+#main-content .studio-preview iframe{
+  display:block;
+  width:100%;
+  height:min(78vh,900px);
+  min-height:650px;
+  border:0;
+  background:var(--surface);
+}
+.studio-faq-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:14px!important}
+.studio-faq-control{min-width:0}
+.studio-faq-control-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:4px}
+.studio-faq-remove{border:1px solid #d9b9b5;border-radius:8px;background:#fff7f5;color:#8b3830;padding:6px 10px;font:inherit;font-size:10px;font-weight:800;cursor:pointer}
+.studio-faq-remove:hover{background:#fbe9e6}
+.studio-faq-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:14px}
+.studio-faq-actions>span{font-size:11px;color:var(--muted)}
+.studio-faq-actions button:disabled{opacity:.55;cursor:not-allowed}
+#main-content label:has(input[type="checkbox"]),
+#main-content label:has(input[type="radio"]){
+  display:inline-flex!important;
+  flex-direction:row!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  gap:10px!important;
+  line-height:1.5;
+}
+#main-content label:has(input[type="checkbox"]) input[type="checkbox"],
+#main-content label:has(input[type="radio"]) input[type="radio"]{
+  flex:0 0 18px!important;
+  margin:0!important;
+}
+#main-content input[type="checkbox"] + label,
+#main-content input[type="radio"] + label{margin-left:10px!important}
+#main-content .owner-work-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:18px!important}
+#main-content .owner-work-preview{
+  min-height:clamp(220px,24vw,380px);
+  aspect-ratio:16/9;
+  background:var(--surface-raised);
+}
+#main-content .owner-work-preview img,
+#main-content .owner-work-preview video{
+  display:block;
+  width:100%;
+  height:100%;
+  max-height:none!important;
+  object-fit:contain;
+  object-position:center;
+}
+#main-content .home-media-preview{min-height:180px;max-height:420px}
+#main-content .home-media-preview :is(img,video){max-height:420px;width:100%;object-fit:contain;object-position:center}
+@media(max-width:1100px){
+  .studio-cms-layout{grid-template-columns:minmax(0,1fr)!important}
+  #main-content .studio-preview{position:static}
+  #main-content .studio-preview iframe{height:720px;min-height:560px}
+}
+@media(max-width:760px){
+  .studio-faq-grid{grid-template-columns:minmax(0,1fr)!important}
+  #main-content .owner-work-grid{grid-template-columns:minmax(0,1fr)!important}
+  #main-content .owner-work-preview{min-height:220px}
+  #main-content .studio-preview iframe{height:620px;min-height:480px}
+  .studio-faq-actions{align-items:flex-start;flex-direction:column}
+}
+
+/* v3.61.0 — Designer Studio portfolio gallery editor, natural media ratios and borderless Owner editor. */
+.studio-work-list-section{min-width:0;grid-column:1/-1;margin-top:24px}
+.studio-work-list-heading{display:flex;align-items:end;justify-content:space-between;gap:14px;margin-bottom:14px}
+.studio-work-list-heading h2{margin:0}
+.studio-work-list-heading p{margin:0;max-width:56ch;font-size:11px}
+.studio-work-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:start}
+.studio-work-item{min-width:0;align-self:start;padding:16px!important;border:1px solid var(--line)!important;border-radius:14px!important;background:var(--surface)!important;box-shadow:0 10px 28px rgba(32,48,34,.055)!important}
+.studio-work-item-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;min-width:0}
+.studio-work-item-heading>div{min-width:0}
+.studio-work-item-heading>div>strong{display:block;overflow-wrap:anywhere}
+.studio-work-item-heading p{margin:4px 0 0;font-size:11px}
+.studio-work-id{flex:0 0 auto;padding:5px 8px;border:1px solid var(--line);border-radius:7px;background:var(--bg-soft);font-size:9px;font-weight:850;letter-spacing:.04em;color:var(--muted)}
+.studio-work-preview{display:block;min-width:0;overflow:hidden;border-radius:10px;background:var(--bg-soft);border:1px solid var(--line)}
+.studio-work-preview img{display:block;width:100%;height:auto;max-height:none;object-fit:contain;object-position:center}
+.studio-work-summary{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:10px;font-weight:750;color:var(--muted)}
+.studio-work-media-manager{display:grid;gap:10px;min-width:0;margin:5px 0 0;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--bg-soft)}
+.studio-work-media-manager legend{padding:0 6px;font-size:11px;font-weight:850;color:var(--text)}
+.studio-work-media-manager>p{margin:0;font-size:10px;line-height:1.65}
+.studio-work-media-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(105px,1fr));gap:9px;min-width:0}
+.studio-work-media-choice{display:grid!important;grid-template-columns:1fr 1fr;align-items:center;gap:7px!important;min-width:0;margin:0!important;padding:7px;border:1px solid var(--line);border-radius:9px;background:var(--surface)}
+.studio-work-media-choice>img{grid-column:1/-1;display:block;width:100%;height:104px;object-fit:contain;background:var(--bg-soft);border-radius:6px}
+.studio-work-media-choice-control{display:flex;align-items:center;gap:5px;font-size:9px;font-weight:750;white-space:nowrap}
+.studio-work-media-choice-control input{width:14px;height:14px;flex:0 0 14px;margin:0!important}
+.studio-work-add-media{display:grid!important;gap:7px!important;margin:0!important;font-size:10px!important}
+.studio-work-add-media input{width:100%;min-width:0;padding:9px!important;border:1px dashed var(--line);border-radius:8px;background:var(--surface)}
+.studio-work-item .studio-work-edit-form{gap:9px}
+.studio-work-item .studio-work-edit-form>label{font-size:10px;font-weight:800}
+.studio-work-item .studio-work-edit-form>input:not([type=hidden]),
+.studio-work-item .studio-work-edit-form>textarea{width:100%;min-width:0;padding:10px 11px!important}
+
+/* Natural image dimensions prevent uploaded artwork from being cropped or stretched. */
+#main-content .owner-work-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:18px!important;align-items:start!important}
+#main-content .owner-work-card{min-width:0;align-self:start}
+#main-content .owner-work-preview{display:block!important;min-height:0!important;height:auto!important;aspect-ratio:auto!important;overflow:hidden;border-radius:10px;background:var(--surface-raised)}
+#main-content .owner-work-preview img,
+#main-content .owner-work-preview video{display:block!important;width:100%!important;height:auto!important;max-height:none!important;object-fit:contain!important;object-position:center!important}
+
+/* The Owner Visual Site Studio editor is a work area, not a nested card/frame. */
+#main-content .studio-cms-shell,
+#main-content .studio-cms-main,
+#main-content #studio-editor{border:0!important;outline:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}
+#main-content .studio-cms-shell{padding:0!important}
+#main-content .studio-cms-main,#main-content #studio-editor{padding:0!important;margin:0!important}
+html[data-theme="light"] #main-content .studio-editor-section,
+html[data-theme="dark"] #main-content .studio-editor-section,
+#main-content .studio-editor-section{border:0!important;outline:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}
+#main-content .studio-editor-section{padding:clamp(20px,2.8vw,30px) 0!important}
+
+@media(max-width:760px){
+  .studio-work-grid{grid-template-columns:minmax(0,1fr)}
+  .studio-work-list-heading{align-items:flex-start;flex-direction:column}
+  #main-content .owner-work-grid{grid-template-columns:minmax(0,1fr)!important}
+}
+#main-content label.studio-work-media-choice-control{display:flex!important;align-items:center!important;gap:5px!important;font-size:9px!important}
+
+/* v3.61.4 — Keep Owner CMS field wrappers transparent in every content editor section.
+   Only the actual input, select and textarea controls retain their visible surfaces. */
+html body #main-content .studio-cms-shell #studio-editor .studio-form-grid > .studio-field{
+  display:flex!important;
+  flex-direction:column!important;
+  gap:7px!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  outline:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  background-image:none!important;
+  box-shadow:none!important;
+}
+html body #main-content .studio-cms-shell #studio-editor .studio-form-grid{
+  background:transparent!important;
+  border:0!important;
+  outline:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+}
+
+
+/* v3.61.2 — Force the Owner Visual Site Studio editor work area to remain borderless.
+   This deliberately outranks the global light-theme card treatment. */
+html[data-theme="light"] body #main-content .studio-cms-shell .studio-cms-main form#studio-editor,
+html[data-theme="dark"] body #main-content .studio-cms-shell .studio-cms-main form#studio-editor{
+  border:0!important;outline:0!important;border-radius:0!important;
+  background:transparent!important;background-image:none!important;box-shadow:none!important;
+}
+html[data-theme="light"] body #main-content .studio-cms-shell .studio-cms-main form#studio-editor > .studio-editor-section,
+html[data-theme="dark"] body #main-content .studio-cms-shell .studio-cms-main form#studio-editor > .studio-editor-section{
+  border:0!important;border-top:0!important;outline:0!important;border-radius:0!important;
+  background:transparent!important;background-image:none!important;box-shadow:none!important;
+}
+html[data-theme="light"] body #main-content .studio-cms-shell .studio-cms-main,
+html[data-theme="dark"] body #main-content .studio-cms-shell .studio-cms-main{
+  border:0!important;outline:0!important;border-radius:0!important;
+  background:transparent!important;background-image:none!important;box-shadow:none!important;
+}
+
+/* v3.61.3 — Remove the inherited white field-wrapper panels inside Owner CMS sections.
+   Inputs remain surfaced and bordered; only their surrounding label wrappers are transparent. */
+html body #main-content .studio-cms-shell .studio-cms-main form#studio-editor .studio-editor-section .studio-form-grid > label.studio-field,
+html body #main-content .studio-cms-shell .studio-cms-main form#studio-editor .studio-editor-section .studio-form-grid > .studio-field {
+  background:transparent!important;
+  background-image:none!important;
+  border:0!important;
+  outline:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+  padding:0!important;
+  margin:0!important;
+}
+
+
+/* v3.61.4 — Remove inherited field-wrapper panels throughout Owner Visual Site Studio.
+   Form controls keep their own surfaces; only the label/grid wrappers become transparent. */
+html body #main-content .studio-cms-shell #studio-editor .studio-editor-section .studio-form-grid .studio-field,
+html body #main-content .studio-cms-shell #studio-editor .studio-editor-section .studio-form-grid > label.studio-field{
+  display:flex!important;
+  flex-direction:column!important;
+  gap:7px!important;
+  min-width:0!important;
+  margin:0!important;
+  padding:0!important;
+  border:0!important;
+  outline:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  background-image:none!important;
+  box-shadow:none!important;
+}
+html body #main-content .studio-cms-shell #studio-editor .studio-editor-section .studio-form-grid{
+  background:transparent!important;
+  background-image:none!important;
+  border:0!important;
+  outline:0!important;
+  border-radius:0!important;
+  box-shadow:none!important;
+}

@@ -1,0 +1,16 @@
+PIR Visuals Bot v6.1.0 — WhatsApp Workflow & Group Safety Upgrade
+
+1. Back up the current source and database securely.
+2. Preserve the deployment's existing .env, Baileys auth directory, allowlist, and runtime data outside the source package.
+3. Install dependencies with: npm ci
+4. Ensure database indexes with: npm run db:ensure-directory-indexes
+5. Verify database indexes with: npm run verify:database
+6. Run checks with: npm run check && npm test && npm run audit:release
+7. Follow INSTALL_UPDATE_v6_1_0.md and complete staging acceptance before production.
+
+New WhatsApp features:
+- Resumable 24-hour Design Brief Wizard drafts.
+- .antitoxic Admin-managed per-group whole-word filter (OFF by default).
+- Admin warning review reminder at three warnings in a rolling 30-day window.
+
+The release archive must not contain .env, creds.json, Baileys auth, .git, node_modules, backups, local allowlists, or runtime data.

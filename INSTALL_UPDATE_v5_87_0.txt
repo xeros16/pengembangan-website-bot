@@ -1,0 +1,87 @@
+PIR Visuals v5.87.0 — Backend & Operational Stability
+
+INSTALLATION
+1. Stop the bot and website processes.
+2. Create a full backup of the project and MongoDB database. Also preserve uploads/media and WhatsApp auth/session folders.
+3. Extract Part 1 into the project root and choose Merge/Replace.
+4. Extract Part 2 into the same project root and choose Merge/Replace.
+5. Do not replace local .env files, portfolio-website/models.js, database contents, uploads/media or WhatsApp session folders.
+6. Review the new backup and health settings in .env. Keep BOT_HEALTH_HOST=127.0.0.1.
+7. Start the bot and website using the existing deployment procedure.
+8. Hard-refresh the website with Ctrl + Shift + R.
+
+PART 1 — APPLICATION
+- package.json / package-lock.json
+- README.md
+- .env.example
+- docs/ROADMAP.md
+- scripts/check-js.js
+- index.js
+- models/design-marketplace.js
+- features/design-marketplace/index.js
+- features/design-marketplace/services/marketplace-service.js
+- portfolio-website/server.js
+- portfolio-website/.env.example
+- portfolio-website/package.json / package-lock.json
+
+PART 2 — TESTS & DOCUMENTATION
+- tests/operational-stability-v587.test.js
+- tests/backup-hardening.test.js
+- tests/bot-health-endpoint.test.js
+- tests/designer-dashboard-v528.test.js
+- tests/designer-growth-v525.test.js
+- tests/website-integration-v539.test.js
+- portfolio-website/tests/website-security.test.js
+- portfolio-website/tests/*.test.js
+- RELEASE_NOTES_v5_87_0.txt
+- QA_REPORT_v5_87_0.md
+- OPERATIONS_RUNBOOK_v5_87_0.md
+- INSTALL_UPDATE_v5_87_0.txt
+- UPDATE_MANIFEST_v5_87_0.txt
+
+WHAT CHANGED
+1. BACKUP & RESTORE READINESS
+- MongoDB dump must contain at least one BSON file before it is considered successful.
+- Each backup receives a backup-manifest.json with dump inventory and optional local-state inventory.
+- Backup jobs cannot overlap within the same bot process.
+- Retention is bounded by BACKUP_RETENTION_DAYS (default 14 days, clamped to 1–3650).
+- Old backup directories are removed only when their names match the generated backup prefix and they are direct children of BACKUP_DIR.
+- Optional local state can include 'baileys-auth' and 'portfolio-media'. It is disabled by default because WhatsApp credentials are sensitive.
+- Backup directories are created with restrictive permissions where supported.
+
+2. BOT HEALTH
+- Adds GET /health for process liveness and GET /ready for database + WhatsApp readiness.
+- Health server binds only to 127.0.0.1, ::1 or localhost. Non-loopback configuration is rejected.
+- /health returns HTTP 200 while the process is alive; /ready returns 503 until MongoDB and WhatsApp are ready.
+
+3. DESIGNER STUDIO ACCOUNT FLOW
+- Owners can request a private, one-time activation token using .portfolio dashboard setup.
+- Setup token is hashed in MongoDB and expires after 20 minutes.
+- Login OTP is generated with the cryptographic random integer API, hashed before storage and expires after 5 minutes.
+- Existing v5.86 atomic activation/OTP consumption and password lifecycle protections remain.
+
+4. PUBLIC DESIGNER PROFILE
+- Adds isVerified, isFeatured, language (id/en) and watermarkEnabled profile fields.
+- Public profile formatter shows verified/featured labels.
+- Public designer profile routes are explicit and unknown paths return a proper 404.
+- Optional designer-name watermark is applied to public portfolio media when enabled.
+- Adds .portfolio website, qr, analytics, bahasa, watermark, verified and popular commands. Verification/featured status changes are Owner-only.
+
+VERSIONS
+Platform: 5.87.0
+Website package: 3.41.0
+Public service-worker cache: pir-visuals-public-v38
+Public asset suffix: 5870
+
+PRESERVED
+- No new runtime dependency.
+- No database migration script.
+- Existing Designer/Client workspace lifecycle, database collections, GSAP motion, theme system and WhatsApp allowlist controls remain in place.
+- Never include local .env files, database data, uploads/media or WhatsApp session credentials in a distribution archive.
+
+VALIDATION
+- Root tests: 416/416 passed.
+- Website tests: 364/364 passed.
+- Root syntax check: 216 JavaScript files passed.
+- Website syntax check: server.js, security.js and models.js passed.
+- Live MongoDB backup/restore, SMTP delivery, WhatsApp pairing, concurrent OTP requests and production reverse-proxy behavior still require staging validation.

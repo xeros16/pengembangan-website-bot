@@ -1,0 +1,24 @@
+PIR VISUALS — BRAND REVISION / PRA-RILIS
+STATUS: NO-GO (BELUM BOLEH DIKIRIM KE PERUSAHAAN UNTUK PRODUKSI)
+
+Pekerjaan lokal:
+- Palet disesuaikan dengan logo asli: forest, sage, ivory, aksen clay.
+- Gaya publik disejajarkan dan konflik light-theme homepage diperbaiki.
+- Empty state beranda/direktori tidak menampilkan statistik palsu saat data kosong.
+- Dukungan reduced motion: konten tidak boleh tersembunyi saat animasi dinonaktifkan.
+- Tidak ada revisi ZIP yang dikirim.
+
+Uji teknis:
+- npm run check (root): 285 file JavaScript valid.
+- cd portfolio-website && npm test: 415/432 pass; 17 fail (assert versi paket / cache yang tidak sinkron).
+- npm test (root): 652/679 pass; 27 fail. Selidiki seluruh kegagalan sebelum produksi.
+- Chromium: 10 halaman × 6 viewport = 60 audit; tanpa horizontal overflow, tabrakan nav, dan exception JS yang terdeteksi.
+- Chromium: menu mobile, tombol tema, filter mobile, FAQ, validasi form: lulus dalam audit lokal.
+- HTTP: 16/16 rute publik di tautan navigasi/footer = 200 dengan database kosong dimock.
+- POST /contact input tak valid = 400.
+- GET /health = 503 (MongoDB belum terhubung).
+- Integration doctor: 3 OK, 5 warning, 1 error (MONGO_URI tidak ada; URL publik, SMTP, kredensial owner, dependensi bot, sesi WA belum terkonfigurasi).
+
+BATASAN: uji homepage/direktori memakai model MongoDB palsu dengan data kosong dan loader Sharp mock. Bukan database, SMTP, autentikasi, upload, integrasi bot, atau deployment sungguhan. Privasi/ketentuan belum disahkan legal.
+
+RELEASE GATES: MongoDB staging + data realistis; /health HTTP 200; autentikasi/otorisasi semua peran; upload Sharp asli; SMTP sandbox; owner dashboard; submit brief dan ruang proyek; tes regresi 0 fail; pengujian security dan legal; review final visual mobile/desktop; TLS domain dan backup/restore.

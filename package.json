@@ -1,0 +1,37 @@
+{
+  "name": "pixel-realm-modular",
+  "version": "6.7.13",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "check": "node scripts/check-js.js",
+    "test": "node --test tests/*.test.js",
+    "docs:commands": "node scripts/generate-command-docs.js",
+    "doctor": "node scripts/setup-doctor.js",
+    "website": "node portfolio-website/server.js",
+    "website:check": "node --check portfolio-website/portfolio-media.js && node --check portfolio-website/server.js && node --check portfolio-website/pir-home-showcase.js && node --check portfolio-website/command-explorer.js && node --check portfolio-website/security.js && node --check portfolio-website/lead-utils.js && node --check portfolio-website/models.js && node --check portfolio-website/directory-utils.js && node --check portfolio-website/matchmaking-utils.js && node --check portfolio-website/portfolio-health.js",
+    "website:test": "node --test portfolio-website/tests/*.test.js",
+    "website:install": "npm ci --prefix portfolio-website --no-audit --no-fund",
+    "audit:release": "node scripts/audit-release.js",
+    "integration:doctor": "node scripts/integration-doctor.js",
+    "smoke:deployment": "node scripts/deployment-smoke.js",
+    "verify:database": "node scripts/verify-shared-db.js",
+    "local:start": "node scripts/start-local.js",
+    "db:ensure-directory-indexes": "node scripts/ensure-directory-indexes.js",
+    "backup:verify": "node scripts/backup-restore-check.js",
+    "e2e:install": "npm install --no-save --package-lock=false @playwright/test@1.56.1 && npx playwright install chromium",
+    "test:e2e": "playwright test -c e2e/playwright.config.js",
+    "db:ensure-shared-indexes": "node scripts/ensure-directory-indexes.js"
+  },
+  "dependencies": {
+    "@hapi/boom": "^10.0.1",
+    "@whiskeysockets/baileys": "6.7.24",
+    "dotenv": "^16.4.7",
+    "mongoose": "^8.9.5",
+    "node-fetch": "^2.7.0",
+    "node-webpmux": "^3.2.1",
+    "qrcode-terminal": "^0.12.0",
+    "sharp": "^0.35.5"
+  }
+}

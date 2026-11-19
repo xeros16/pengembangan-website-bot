@@ -1,0 +1,28 @@
+PIR Visuals v5.80.0 — Panduan pemasangan
+
+1. Hentikan server website.
+2. Backup folder project.
+3. Download Part 1 dan Part 2.
+4. Ekstrak kedua ZIP ke folder root project yang sama (folder pengembangan-bot-grup-desain), pilih Merge/Combine dan izinkan replace file yang ada.
+5. Jangan hapus atau ganti portfolio-website/models.js. File itu sengaja tidak disertakan di update ini agar model asli dan semua export tetap terjaga.
+6. Jangan ganti .env, database, uploads/media, folder auth/session WhatsApp, atau data lokal lain.
+7. Jalankan pemeriksaan dari root project:
+   npm run website:check
+8. Jalankan test website:
+   npm run website:test
+9. Jalankan website seperti biasa:
+   npm run website
+10. Buka ulang website dan lakukan hard refresh Ctrl+Shift+R.
+
+Tidak ada dependency baru di v5.80.0. GSAP dan ScrollTrigger tetap menggunakan dependency yang sudah ditambahkan pada update sebelumnya, jadi tidak perlu menjalankan npm install khusus untuk update ini.
+
+Jika cache lama masih terlihat:
+- Tutup tab website.
+- Buka kembali localhost/domain website.
+- Lakukan Ctrl+Shift+R.
+- Jika service worker masih menyajikan asset lama, clear site data untuk localhost/domain tersebut lalu buka ulang.
+
+Rollback:
+- Hentikan website.
+- Kembalikan backup sebelum v5.80.0.
+- Jangan menghapus database, .env, uploads, atau sesi WhatsApp.

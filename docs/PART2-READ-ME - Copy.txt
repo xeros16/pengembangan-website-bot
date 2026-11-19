@@ -1,0 +1,3 @@
+PIR VISUALS v5.75.0 — PART 2 OF 2
+
+Extract this ZIP into the exact same existing project root used for Part 1. Do not create a separate project folder.

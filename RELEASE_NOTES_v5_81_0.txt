@@ -1,0 +1,31 @@
+PIR Visuals v5.81.0
+Universal Navigation & Responsive Hardening
+
+Navigation behavior
+- Uses matchMedia('(max-width: 1180px)') as the responsive state source.
+- On compact layouts, a closed menu is inert and aria-hidden; opening it restores navigation access.
+- On desktop, the menu is always available and the compact toggle is hidden.
+- Viewport transitions and pageshow/BFCache restores close stale compact menus.
+- Escape closes the nested Lainnya disclosure first, then the compact menu, restoring focus to the menu toggle.
+- Outside click closes the compact menu and desktop Lainnya disclosure.
+- Active route is reflected through aria-current, including nested portfolio routes and the home brand link.
+
+Responsive behavior
+- Compact panel is right-aligned, safe-area-aware, touch-scrollable and height-limited.
+- Touch targets retain a 44px minimum.
+- 320px screens keep the brand and menu toggle on a single row.
+- Short screens scroll the menu internally rather than clipping its bottom.
+- No-JavaScript users still see compact navigation links.
+
+Preserved
+- GSAP motion system.
+- Magnetic mouse-following button animation.
+- Category card palettes and hover behavior.
+- Existing theme tokens and dark/light mode styling.
+- Existing data models and website routes.
+
+Release metadata
+- Platform 5.81.0
+- Website 3.35.0
+- Public cache pir-visuals-public-v32
+- Asset query suffix 5810

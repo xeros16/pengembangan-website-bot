@@ -1,0 +1,27 @@
+PIR Visuals v5.98.0 — Split Local Update Package
+
+Part 1 and Part 2 are complementary source archives, not separate installations.
+Download BOTH and extract them into the SAME destination folder.
+
+Before updating:
+1. Stop the bot and website.
+2. Preserve the existing .env, WhatsApp auth/session folder, MongoDB database,
+   portfolio_uploads media, backups, allowlists, and local configuration.
+3. Extract both parts into the same project directory. Neither part is standalone.
+4. Run npm ci and npm run website:install from the project root.
+5. Run npm run db:ensure-shared-indexes and npm run verify:database.
+6. Follow INSTALL_UPDATE_v5_98_0.md.
+
+Push notifications are OFF by default. A linked designer must opt in privately with:
+.portfolio notifikasi push aktif
+
+Optional browser E2E:
+npm run e2e:install
+npm run test:e2e
+
+Local database + media restore drill:
+npm run backup:verify
+
+The clean archives exclude .env, .git, node_modules, WhatsApp auth/session state,
+backups, runtime uploads/media, local allowlists/settings, and temporary test artifacts.
+Never upload secrets, QR codes, WhatsApp session files, or backup archives to chat.

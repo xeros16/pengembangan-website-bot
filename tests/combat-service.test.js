@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import { getBossPhase, getBattleIntent, resolveEnemyRetaliation } from '../games/pixel-realm/services/combat-service.js';
+assert.equal(getBossPhase({ isBoss: true, hp: 80, maxHp: 100 }), 1);
+assert.equal(getBossPhase({ isBoss: true, hp: 50, maxHp: 100 }), 2);
+assert.equal(getBossPhase({ isBoss: true, hp: 20, maxHp: 100 }), 3);
+assert.equal(getBossPhase({ hp: 1, maxHp: 100 }), 1);
+assert.equal(getBattleIntent(null), '');
+const enemy = { name: 'Slime', hp: 100, maxHp: 100, atk: 10, turn: 1 };
+const game = { level: 1, name: 'Hero', equipment: { armor: 'none' } };
+const result = resolveEnemyRetaliation(enemy, game, () => 0.99);
+assert.equal(result.hit, 14);
+assert.equal(result.dodged, false);
+assert.equal(enemy.turn, 2);
+console.log('combat-service tests passed');

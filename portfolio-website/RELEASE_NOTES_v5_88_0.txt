@@ -1,0 +1,37 @@
+PIR Visuals v5.88.0
+Final Audit & Release Candidate
+
+Security and interaction reliability
+- CSP now explicitly restricts executable scripts and network connections to the same origin.
+- Inline event handlers blocked by the CSP were removed from generated HTML.
+- Collection deletion confirmation, copy-link selection and carousel image fallback use first-party delegated event handlers.
+- Browser JavaScript bundles are covered by parsing checks.
+
+Private collection links
+- Edit-key collection pages are never publicly cached.
+- Edit-key responses use no-referrer and noindex policies.
+- Collection creation and post-update responses containing management links are also no-store/no-referrer.
+- Public collection pages without an edit key retain their short public cache.
+
+QR page
+- Uses the shared secure HTML response helper.
+- Local brand icon and HTTPS QR image are both allowed by CSP.
+- Target URL is escaped in both href and text content.
+
+Health and smoke tests
+- /health only accepts GET and HEAD.
+- Deployment smoke test verifies GSAP and ScrollTrigger runtime assets.
+
+Coordinated versions
+- Platform: 5.88.0
+- Website package: 3.42.0
+- Public cache: pir-visuals-public-v39
+- Asset suffix: 5880
+
+Automated validation
+- Root tests: 416/416.
+- Website tests: 376/376.
+- Root JavaScript syntax: 217 files.
+- Website syntax check: passed.
+
+Staging is still required for live MongoDB, SMTP, WhatsApp, native Sharp image processing, GSAP delivery, TLS/reverse proxy, backup restoration and real-browser visual validation.

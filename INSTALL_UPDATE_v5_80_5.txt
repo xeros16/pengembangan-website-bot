@@ -1,0 +1,9 @@
+PIR Visuals v5.80.5 — Small form layout fix
+
+1. Back up the project.
+2. Extract Part 1 into the project root and replace matching files.
+3. Extract Part 2 into the same root and merge/replace test and documentation files.
+4. Do not replace portfolio-website/models.js, .env, database files, uploads, or WhatsApp session folders.
+5. Restart the website server and hard-refresh with Ctrl + Shift + R.
+
+This update only fixes oversized checkboxes/radios and spacing in the resend-verification form. Existing magnetic mouse-following animation is retained.

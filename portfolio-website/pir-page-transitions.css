@@ -1,0 +1,72 @@
+/* PIR Visuals — smooth cross-document transitions · 2026-11-16bd.
+   One composited viewport crossfade, with a static shared navigation layer.
+   Avoid a separately animated #main-content snapshot (it nests the nav and
+   causes double fading / snapping as the two documents change). */
+@view-transition { navigation:auto; }
+html body #main-content { view-transition-name:none !important; }
+html body #main-content > header.site-nav { view-transition-name:pv-site-nav; }
+::view-transition-group(pv-site-nav) { animation-duration:1ms !important; }
+::view-transition-old(pv-site-nav),
+::view-transition-new(pv-site-nav) { animation:none !important; mix-blend-mode:normal; }
+
+/* The old frame remains visible while the next frame eases into place.
+   Only opacity/transform are animated, avoiding costly layout repaints. */
+::view-transition-old(root) {
+  animation:pv-route-crossfade-out 300ms cubic-bezier(.33,0,.67,1) both !important;
+  mix-blend-mode:normal;
+}
+::view-transition-new(root) {
+  animation:pv-route-crossfade-in 480ms cubic-bezier(.16,1,.3,1) both !important;
+  mix-blend-mode:normal;
+}
+@keyframes pv-route-crossfade-out {
+  from { opacity:1; transform:translate3d(0,0,0); }
+  to { opacity:0; transform:translate3d(0,-4px,0); }
+}
+@keyframes pv-route-crossfade-in {
+  from { opacity:0; transform:translate3d(0,12px,0); }
+  to { opacity:1; transform:translate3d(0,0,0); }
+}
+
+/* Fall back to a lightweight exit / entrance on browsers without the
+   cross-document transition lifecycle. Native link semantics are unchanged. */
+html[data-pv-route-fallback="true"] #main-content > :not(header.site-nav):not(footer.pv-footer):not(.pv-command-dialog) {
+  transition:opacity 210ms cubic-bezier(.33,0,.67,1),transform 210ms cubic-bezier(.33,0,.67,1);
+}
+html[data-pv-route-fallback="true"][data-pv-route-leaving="true"] #main-content > :not(header.site-nav):not(footer.pv-footer):not(.pv-command-dialog) {
+  opacity:0;
+  transform:translate3d(0,-4px,0);
+  pointer-events:none;
+}
+html[data-pv-route-fallback="true"][data-pv-route-arriving="true"] #main-content > :not(header.site-nav):not(footer.pv-footer):not(.pv-command-dialog) {
+  animation:pv-route-fallback-enter 450ms cubic-bezier(.16,1,.3,1) both;
+}
+@keyframes pv-route-fallback-enter {
+  from { opacity:0; transform:translate3d(0,12px,0); }
+  to { opacity:1; transform:translate3d(0,0,0); }
+}
+
+html[data-pv-motion="off"]::view-transition-old(root),
+html[data-pv-motion="off"]::view-transition-new(root),
+html[data-pv-motion="off"]::view-transition-old(pv-site-nav),
+html[data-pv-motion="off"]::view-transition-new(pv-site-nav) {
+  animation:none !important;
+}
+html[data-pv-motion="off"][data-pv-route-fallback="true"] #main-content > :not(header.site-nav):not(footer.pv-footer):not(.pv-command-dialog) {
+  animation:none !important;
+  transition:none !important;
+  opacity:1 !important;
+  transform:none !important;
+}
+@media(prefers-reduced-motion:reduce) {
+  ::view-transition-old(root),::view-transition-new(root),
+  ::view-transition-old(pv-site-nav),::view-transition-new(pv-site-nav) {
+    animation:none !important;
+  }
+  html[data-pv-route-fallback="true"] #main-content > :not(header.site-nav):not(footer.pv-footer):not(.pv-command-dialog) {
+    animation:none !important;
+    transition:none !important;
+    opacity:1 !important;
+    transform:none !important;
+  }
+}

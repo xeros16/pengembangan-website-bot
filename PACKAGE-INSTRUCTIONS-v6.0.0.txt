@@ -1,0 +1,35 @@
+PIR Visuals Bot v6.0.0 — Split Update Package
+
+Part 1 and Part 2 are complementary source archives, not separate installations.
+Download BOTH and extract them into the SAME existing project folder.
+
+Before updating:
+1. Stop the bot process.
+2. Make a verified backup of MongoDB and local configuration.
+3. Preserve the existing .env, auth_info_baileys/, config/allowed-chats.json,
+   config/bot-settings.json, config/command-aliases.json, subscription data,
+   local portfolio media, and other runtime files.
+4. Extract both parts into the same project folder. Neither part is standalone.
+5. Follow INSTALL_UPDATE_v6_0_0.md.
+
+Install and validate from the project root:
+  npm ci
+  npm run check
+  npm test
+  npm run audit:release
+
+Bot package: 6.0.0
+Website package: 3.46.0 (unchanged)
+No database migration or new runtime dependency is required.
+
+Quick Access examples (private chat only):
+  .cepat
+  .cepat tambah contrast
+  .cepat tambah wizard
+  .cepat riwayat aktif
+  .cepat riwayat nonaktif
+  .cepat riwayat hapus
+
+Recent-command history is OFF by default. It stores only public command names,
+not arguments, message text, or media. Do not upload .env, WhatsApp sessions,
+QR codes, database dumps, or backup archives to chat.

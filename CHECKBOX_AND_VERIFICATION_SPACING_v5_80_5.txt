@@ -1,0 +1,9 @@
+PIR Visuals v5.80.5 — Checkbox and verification form spacing fix
+
+Changes are limited to the two reported UI issues:
+- Checkbox and radio controls are explicitly sized to 18×18px and no longer inherit the generic 44px form-field minimum height or 11px padding.
+- Discovery filter labels keep their checkbox and text on one aligned horizontal row.
+- Resend verification email input and button are placed in a responsive grid with a 12px gap; on narrow screens the button moves below the input.
+- Existing magnetic pointer-following animation and GSAP behavior are retained unchanged.
+
+Release: platform 5.80.5; website 3.34.5; public cache v30; asset suffix 5805.

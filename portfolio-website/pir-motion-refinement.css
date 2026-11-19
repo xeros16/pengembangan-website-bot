@@ -1,0 +1,45 @@
+/* PIR Visuals / Movement polish 2026-11-14k.
+   Keep native scroll accessibility, avoid scroll snapping and heavy effects. */
+html {scroll-padding-top: max(90px, calc(env(safe-area-inset-top, 0px) + 78px));}
+html body #main-content .pv-home .pv-faq-list details,
+html body #main-content .pv-home .pv-faq-list details[open] {
+  padding:0 !important;
+  transition:background-color .24s ease,box-shadow .24s ease,border-color .24s ease !important;
+  contain:layout style;
+}
+html body #main-content .pv-home .pv-faq-list summary {
+  user-select:none;
+  -webkit-tap-highlight-color:transparent;
+  cursor:pointer;
+}
+html body #main-content .pv-home .pv-faq-list summary::after {
+  transition:transform .32s cubic-bezier(.2,.8,.2,1),opacity .2s ease;
+}
+html body #main-content .pv-home .pv-faq-list .pv-faq-panel {
+  display:block;
+  overflow:hidden;
+  opacity:1;
+  transform:translateY(0);
+  transition:opacity .28s ease, transform .36s cubic-bezier(.22,.84,.25,1);
+}
+html body #main-content .pv-home .pv-faq-list details[data-accordion-state="closing"] .pv-faq-panel {
+  opacity:.12;
+  transform:translateY(-5px);
+}
+html body #main-content .pv-home .pv-faq-list details[data-accordion-state="opening"] .pv-faq-panel {
+  opacity:1;
+  transform:translateY(0);
+}
+html body #main-content .pv-home .pv-faq-list details:focus-within {
+  border-color:#6C9A6A !important;
+}
+@media (prefers-reduced-motion:reduce) {
+  html, html:focus-within {scroll-behavior:auto !important;}
+  html body #main-content .pv-home .pv-faq-list details,
+  html body #main-content .pv-home .pv-faq-list details::after,
+  html body #main-content .pv-home .pv-faq-list .pv-faq-panel {transition:none !important;animation:none !important;}
+}
+html[data-pv-motion="off"] body #main-content .pv-home .pv-faq-list .pv-faq-panel,
+html[data-pv-motion="off"] body #main-content .pv-home .pv-faq-list details {
+  transition:none !important;
+}

@@ -1,0 +1,12 @@
+PIR VISUALS BOT v6.5.0 — TWO-PART ZIP
+
+- PIR-Visuals-v6.5.0-Part-1-of-2.zip
+- PIR-Visuals-v6.5.0-Part-2-of-2.zip
+
+Both archives use the same root folder: PIR-Visuals-v6.5.0/
+Extract Part 1 and Part 2 into the SAME destination.
+
+Bot package: 6.5.0
+Website package: 3.48.0
+Run npm ci and npm ci --prefix portfolio-website after extraction.
+See DOCUMENTATION-INDEX-v6.5.0.md and INSTALL_UPDATE_v6_5_0.md.

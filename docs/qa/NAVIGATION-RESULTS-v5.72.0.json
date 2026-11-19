@@ -1,0 +1,262 @@
+[
+  {
+    "viewport": "320x600",
+    "compact_nav_open": true,
+    "closed_submenu_hidden": true,
+    "utility_hit_targets_closed": {
+      "portal": true,
+      "search": true,
+      "motion": true,
+      "theme": true
+    },
+    "submenu_opens_and_aria": true,
+    "utility_actions_reachable_when_submenu_open": true,
+    "utility_hit_targets_open": {
+      "portal": true,
+      "search": true,
+      "motion": true,
+      "theme": true
+    },
+    "escape_submenu_focus": true,
+    "escape_nav_focus": true,
+    "quick_search_opens": true,
+    "theme_toggle_works": true,
+    "horizontal_overflow": false,
+    "page_errors": [],
+    "console_errors": []
+  },
+  {
+    "viewport": "360x700",
+    "compact_nav_open": true,
+    "closed_submenu_hidden": true,
+    "utility_hit_targets_closed": {
+      "portal": true,
+      "search": true,
+      "motion": true,
+      "theme": true
+    },
+    "submenu_opens_and_aria": true,
+    "utility_actions_reachable_when_submenu_open": true,
+    "utility_hit_targets_open": {
+      "portal": true,
+      "search": true,
+      "motion": true,
+      "theme": true
+    },
+    "escape_submenu_focus": true,
+    "escape_nav_focus": true,
+    "quick_search_opens": true,
+    "theme_toggle_works": true,
+    "horizontal_overflow": false,
+    "page_errors": [],
+    "console_errors": []
+  },
+  {
+    "viewport": "390x844",
+    "compact_nav_open": true,
+    "closed_submenu_hidden": true,
+    "utility_hit_targets_closed": {
+      "portal": true,
+      "search": true,
+      "motion": true,
+      "theme": true
+    },
+    "submenu_opens_and_aria": true,
+    "utility_actions_reachable_when_submenu_open": true,
+    "utility_hit_targets_open": {
+      "portal": true,
+      "search": true,
+      "motion": true,
+      "theme": true
+    },
+    "escape_submenu_focus": true,
+    "escape_nav_focus": true,
+    "quick_search_opens": true,
+    "theme_toggle_works": true,
+    "horizontal_overflow": false,
+    "page_errors": [],
+    "console_errors": []
+  },
+  {
+    "viewport": "400x497",
+    "compact_nav_open": true,
+    "closed_submenu_hidden": true,
+    "utility_hit_targets_closed": {
+      "portal": true,
+      "search": true,
+      "motion": true,
+      "theme": true
+    },
+    "submenu_opens_and_aria": true,
+    "utility_actions_reachable_when_submenu_open": true,
+    "utility_hit_targets_open": {
+      "portal": true,
+      "search": true,
+      "motion": true,
+      "theme": true
+    },
+    "escape_submenu_focus": true,
+    "escape_nav_focus": true,
+    "quick_search_opens": true,
+    "theme_toggle_works": true,
+    "horizontal_overflow": false,
+    "page_errors": [],
+    "console_errors": []
+  },
+  {
+    "viewport": "430x932",
+    "compact_nav_open": true,
+    "closed_submenu_hidden": true,
+    "utility_hit_targets_closed": {
+      "portal": true,
+      "search": true,
+      "motion": true,
+      "theme": true
+    },
+    "submenu_opens_and_aria": true,
+    "utility_actions_reachable_when_submenu_open": true,
+    "utility_hit_targets_open": {
+      "portal": true,
+      "search": true,
+      "motion": true,
+      "theme": true
+    },
+    "escape_submenu_focus": true,
+    "escape_nav_focus": true,
+    "quick_search_opens": true,
+    "theme_toggle_works": true,
+    "horizontal_overflow": false,
+    "page_errors": [],
+    "console_errors": []
+  },
+  {
+    "viewport": "768x900",
+    "compact_nav_open": true,
+    "closed_submenu_hidden": true,
+    "utility_hit_targets_closed": {
+      "portal": true,
+      "search": true,
+      "motion": true,
+      "theme": true
+    },
+    "submenu_opens_and_aria": true,
+    "utility_actions_reachable_when_submenu_open": true,
+    "utility_hit_targets_open": {
+      "portal": true,
+      "search": true,
+      "motion": true,
+      "theme": true
+    },
+    "escape_submenu_focus": true,
+    "escape_nav_focus": true,
+    "quick_search_opens": true,
+    "theme_toggle_works": true,
+    "horizontal_overflow": false,
+    "page_errors": [],
+    "console_errors": []
+  },
+  {
+    "viewport": "1024x768",
+    "compact_nav_open": true,
+    "closed_submenu_hidden": true,
+    "utility_hit_targets_closed": {
+      "portal": true,
+      "search": true,
+      "motion": true,
+      "theme": true
+    },
+    "submenu_opens_and_aria": true,
+    "utility_actions_reachable_when_submenu_open": true,
+    "utility_hit_targets_open": {
+      "portal": true,
+      "search": true,
+      "motion": true,
+      "theme": true
+    },
+    "escape_submenu_focus": true,
+    "escape_nav_focus": true,
+    "quick_search_opens": true,
+    "theme_toggle_works": true,
+    "horizontal_overflow": false,
+    "page_errors": [],
+    "console_errors": []
+  },
+  {
+    "viewport": "1180x820",
+    "compact_nav_open": true,
+    "closed_submenu_hidden": true,
+    "utility_hit_targets_closed": {
+      "portal": true,
+      "search": true,
+      "motion": true,
+      "theme": true
+    },
+    "submenu_opens_and_aria": true,
+    "utility_actions_reachable_when_submenu_open": true,
+    "utility_hit_targets_open": {
+      "portal": true,
+      "search": true,
+      "motion": true,
+      "theme": true
+    },
+    "escape_submenu_focus": true,
+    "escape_nav_focus": true,
+    "quick_search_opens": true,
+    "theme_toggle_works": true,
+    "horizontal_overflow": false,
+    "page_errors": [],
+    "console_errors": []
+  },
+  {
+    "viewport": "1280x900",
+    "compact_nav_open": true,
+    "closed_submenu_hidden": true,
+    "utility_hit_targets_closed": {
+      "portal": true,
+      "search": true,
+      "motion": true,
+      "theme": true
+    },
+    "submenu_opens_and_aria": true,
+    "utility_actions_reachable_when_submenu_open": true,
+    "utility_hit_targets_open": {
+      "portal": true,
+      "search": true,
+      "motion": true,
+      "theme": true
+    },
+    "escape_submenu_focus": true,
+    "escape_nav_focus": true,
+    "quick_search_opens": true,
+    "theme_toggle_works": true,
+    "horizontal_overflow": false,
+    "page_errors": [],
+    "console_errors": []
+  },
+  {
+    "viewport": "1440x900",
+    "compact_nav_open": true,
+    "closed_submenu_hidden": true,
+    "utility_hit_targets_closed": {
+      "portal": true,
+      "search": true,
+      "motion": true,
+      "theme": true
+    },
+    "submenu_opens_and_aria": true,
+    "utility_actions_reachable_when_submenu_open": true,
+    "utility_hit_targets_open": {
+      "portal": true,
+      "search": true,
+      "motion": true,
+      "theme": true
+    },
+    "escape_submenu_focus": true,
+    "escape_nav_focus": true,
+    "quick_search_opens": true,
+    "theme_toggle_works": true,
+    "horizontal_overflow": false,
+    "page_errors": [],
+    "console_errors": []
+  }
+]

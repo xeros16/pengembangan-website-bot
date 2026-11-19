@@ -1,0 +1,35 @@
+PIR Visuals v5.82.0 — Universal Interaction Reliability
+
+INSTALLATION
+1. Make a backup of the current project folder.
+2. Extract Part 1 into the project root and choose Replace/Overwrite.
+3. Extract Part 2 into the same project root and choose Merge/Replace.
+4. Restart the website server.
+5. Hard-refresh the browser with Ctrl + Shift + R.
+
+KEEP THESE FILES / FOLDERS UNCHANGED
+- portfolio-website/models.js
+- .env and environment-specific configuration
+- database files / MongoDB data
+- uploads and media storage
+- WhatsApp authentication/session folders
+- local logs and backups
+
+WHAT CHANGED
+- Clipboard actions share one resilient helper: Clipboard API first, then a selection-based fallback.
+- Copy feedback is announced accessibly for one-time WhatsApp setup codes, support ticket IDs, profile links, collection links, and shortlist links.
+- Native share is still preferred; if it fails for a reason other than user cancellation, the site falls back to copying the link.
+- Native POST forms show an accessible processing state and reject accidental duplicate submits.
+- Existing validation and canceled confirmation dialogs are respected; GET forms are not locked.
+- Password confirmation fields receive immediate client-side equality feedback while server validation remains authoritative.
+
+PRESERVED
+- GSAP and magnetic mouse-following button motion.
+- Existing navigation, category hover palettes, dark/light theme and layout.
+- Existing server routes, database models, authentication and WhatsApp bot logic.
+
+VERSIONS
+Platform: 5.82.0
+Website package: 3.36.0
+Public service-worker cache: pir-visuals-public-v33
+Public asset suffix: 5820

@@ -1,0 +1,39 @@
+node_modules/
+.env
+# WhatsApp linked-device credentials and session keys (never commit/share)
+auth_info/
+auth_info_baileys/
+# Local working files and database dumps
+temp/
+backups/
+*.log
+# Portfolio media is stored locally; back it up securely, not in source control.
+uploads/portfolio/*
+!uploads/portfolio/.gitkeep
+
+# Private bot/group runtime state
+config/allowed-chats.json
+data.json
+data/pinsearch-history.json
+
+# Private bot subscription records
+data/bot-subscriptions.json
+# Allowlist recovery copy contains tenant identifiers
+config/allowed-chats.json.bak
+
+# Additional local/runtime state: never commit to GitHub
+data.json
+config/allowed-chats.json
+config/allowed-chats.json.bak
+config/command-aliases.json
+config/bot-settings.json
+content/texts.json
+data/bot-subscriptions.json
+data/pinsearch-history.json
+uploads/
+portfolio_uploads/
+
+# Local production settings and Chromium test output
+deploy/production.env
+test-results/
+playwright-report/

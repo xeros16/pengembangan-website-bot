@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 370" fill="none" role="img" aria-labelledby="title">
+<title id="title">Ilustrasi kreatif PIR Visuals dengan pensil, kuncup daun, dan kilau ide</title>
+<g transform="rotate(-6 220 185)">
+  <rect x="48" y="52" width="344" height="263" rx="26" fill="#F7FAEF" stroke="#214731" stroke-width="7"/>
+  <path d="M48 104H392" stroke="#C4DDB2" stroke-width="4" stroke-dasharray="10 10"/>
+  <path d="M134 221c-32-49-21-93 10-113 39-25 88-10 100 24 10 26-2 53-31 70-28 17-56 6-60-18-2-16 10-26 22-25" stroke="#315940" stroke-width="8" stroke-linecap="round"/>
+  <path d="M212 242c16-67 55-98 86-98 23 0 41 21 35 44-6 26-33 46-65 50" stroke="#315940" stroke-width="8" stroke-linecap="round"/>
+  <path d="M297 150c-16-22-14-42 0-56 23 3 33 21 29 44M309 160c25-11 44-4 52 13-8 17-29 23-51 15" fill="#9EC495" stroke="#315940" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M101 249l-12 33 34-8L320 77l-22-21L101 249Z" fill="#E6A383" stroke="#30543B" stroke-width="6" stroke-linejoin="round"/>
+  <path d="m298 56 22 21 13-13c6-7 6-16-1-21l-4-4c-7-7-16-7-22 0l-8 17Z" fill="#D9E9C9" stroke="#30543B" stroke-width="6"/>
+  <path d="m101 249-12 33 34-8" fill="#244433"/>
+  <path d="M361 255v32M344 271h34M69 146l-24 13M88 130l-12-24M359 111l21-14" stroke="#A8664A" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="348" cy="233" r="8" fill="#D08B66"/>
+  <circle cx="84" cy="196" r="5" fill="#729F76"/>
+</g>
+<path d="M47 26l8 10 14 2-11 9-4 13-8-11-13-2 10-8 4-13ZM383 299l7 8 11 2-9 7-3 12-7-10-11-3 10-6 2-10Z" fill="#315940"/>
+</svg>

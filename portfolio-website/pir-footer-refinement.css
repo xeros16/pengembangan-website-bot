@@ -1,0 +1,527 @@
+/* PIR Visuals · Footer, Hero & Navbar Polish / 2026-11-14h
+   Original PIR forest + sage interpretation of an expressive editorial footer.
+   One permanent theme only; no light/dark toggle and no Bettr assets. */
+
+/* NAVIGATION: active items remain readable, not white-on-white.
+   Force both background and text fill because legacy styles combine theme
+   variables and vendor-specific text fill properties. */
+html body #main-content > header.site-nav .nav-primary > a[aria-current="page"],
+html body #main-content > header.site-nav .nav-links.open .nav-primary > a[aria-current="page"],
+html body #main-content > header.site-nav .nav-more-menu > a[aria-current="page"],
+html body #main-content > header.site-nav .nav-more.has-current > summary {
+  background: #365B40 !important;
+  color: #F7F9ED !important;
+  -webkit-text-fill-color: #F7F9ED !important;
+  border: 1px solid #728F70 !important;
+  box-shadow: inset 0 0 0 1px rgba(227,244,217,.11) !important;
+  text-shadow: none !important;
+  font-weight: 800;
+}
+html body #main-content > header.site-nav .nav-primary > a[aria-current="page"]::after {
+  background: #D8E8C8 !important;
+  height: 2px;
+}
+html body #main-content > header.site-nav .nav-primary > a[aria-current="page"]:hover,
+html body #main-content > header.site-nav .nav-more-menu > a[aria-current="page"]:hover,
+html body #main-content > header.site-nav .nav-more.has-current > summary:hover {
+  background: #416A4C !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+html body #main-content > header.site-nav .nav-actions > a.nav-cta[aria-current="page"] {
+  background: #D8E6C8 !important;
+  color: #20372A !important;
+  -webkit-text-fill-color: #20372A !important;
+  border-color: #E0ECD1 !important;
+}
+html body #main-content > header.site-nav .nav-primary>a:not([aria-current="page"]) {
+  border: 1px solid transparent;
+}
+
+/* FLOATING BRAND FOOTER: clear transition from the forest hero above, followed
+   by a broad sage section with generous editorial columns and custom art. */
+html body #main-content > footer.foot.pv-footer {
+  position: relative;
+  display: block;
+  width: 100vw !important;
+  max-width: none !important;
+  margin: clamp(58px,8vw,118px) 0 0 !important;
+  padding: 0 !important;
+  overflow: hidden;
+  isolation: isolate;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: #C7DAAF !important;
+  color: #20372A !important;
+  text-align: left;
+}
+html body:not(:has(.pv-home)) #main-content > footer.foot.pv-footer {
+  margin-left: calc(-1 * clamp(18px,3.5vw,62px) - max(0px, 50vw - 720px)) !important;
+}
+html body:has(.pv-home) #main-content > footer.foot.pv-footer {margin-left: 0 !important;}
+html body #main-content > footer.foot.pv-footer::before,
+html body #main-content > footer.foot.pv-footer::after {display:none !important;content:none !important;}
+
+/* The upper panel echoes the forest hero — oversized type, organic art,
+   clear text contrast and real navigation actions. */
+html body #main-content > .pv-footer .pv-footer-feature.footer-cta {
+  position: relative;
+  display: grid !important;
+  grid-template-columns: minmax(0,1fr) minmax(230px,.42fr) !important;
+  gap: clamp(20px,4vw,70px) !important;
+  align-items:center !important;
+  overflow:hidden;
+  min-height: clamp(390px,36vw,520px);
+  max-width:none;
+  margin:0 !important;
+  padding: clamp(58px,7vw,108px) clamp(24px,6vw,112px) !important;
+  border:0 !important;
+  border-bottom: 6px solid #A6BF96 !important;
+  border-radius: 0 !important;
+  background:
+    radial-gradient(ellipse at 90% 22%,rgba(173,202,150,.15),transparent 39%),
+    linear-gradient(120deg,#172F21 0%,#203C2A 55%,#274732 100%) !important;
+  box-shadow:none !important;
+  color:#F1F7ED !important;
+}
+html body #main-content > .pv-footer .pv-footer-feature::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background-image:url('/editorial-art.svg');
+  background-position:right center;
+  background-repeat:no-repeat;
+  background-size: min(78%,1050px) auto;
+  opacity:.2;
+  mask-image:linear-gradient(90deg,transparent 35%,#000 100%);
+}
+html body #main-content > .pv-footer .pv-footer-feature-copy {position:relative;z-index:2;min-width:0;}
+html body #main-content > .pv-footer .pv-footer-kicker {
+  display:inline-block;
+  margin-bottom:20px;
+  font:800 11px/1.5 Inter,ui-sans-serif,system-ui,sans-serif;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:#D1E5C2 !important;
+}
+html body #main-content > .pv-footer .pv-footer-feature h2 {
+  display:block !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  max-width:900px !important;
+  margin:0 0 24px !important;
+  padding:0 !important;
+  font:800 clamp(48px,6.9vw,116px)/.96 Georgia,"Times New Roman",serif !important;
+  letter-spacing:-.075em !important;
+  color:#F2F7EB !important;
+  -webkit-text-fill-color:#F2F7EB !important;
+  text-wrap:balance;
+}
+html body #main-content > .pv-footer .pv-footer-feature h2 em {
+  color:#D0E4C4 !important;
+  -webkit-text-fill-color:#D0E4C4 !important;
+  font-weight:400 !important;
+}
+html body #main-content > .pv-footer .pv-footer-feature p {
+  max-width:600px !important;
+  margin:0 0 25px !important;
+  color:#E2ECDC !important;
+  -webkit-text-fill-color:#E2ECDC !important;
+  font:400 clamp(15px,1.3vw,18px)/1.8 Inter,ui-sans-serif,system-ui,sans-serif !important;
+}
+html body #main-content > .pv-footer .pv-footer-feature-actions {display:flex;flex-wrap:wrap;align-items:center;gap:20px;}
+html body #main-content > .pv-footer a.pv-footer-button {
+  display:inline-flex;
+  gap:20px;
+  align-items:center;
+  justify-content:center;
+  min-height:50px;
+  padding:14px 20px;
+  border:1px solid #D8E9C8 !important;
+  border-radius:5px;
+  background:#D8E9C8 !important;
+  color:#20372A !important;
+  -webkit-text-fill-color:#20372A !important;
+  font-size:13px;
+  font-weight:850;
+  text-decoration:none;
+}
+html body #main-content > .pv-footer a.pv-footer-button:hover {background:#F1F7ED !important;}
+html body #main-content > .pv-footer a.pv-footer-textlink {
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  border-bottom:1px solid #C6E0BB;
+  padding:6px 0;
+  color:#F1F7ED !important;
+  -webkit-text-fill-color:#F1F7ED !important;
+  font-size:13px;
+  font-weight:750;
+  text-decoration:none;
+}
+html body #main-content > .pv-footer a.pv-footer-textlink:hover {color:#D8E9C8 !important;}
+html body #main-content > .pv-footer .pv-footer-feature-graphic {
+  position:relative;
+  z-index:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  justify-self:center;
+  width:clamp(210px,29vw,360px);
+  aspect-ratio:1;
+  border:2px solid rgba(210,233,199,.25);
+  border-radius:50%;
+  transform:rotate(-12deg);
+  background:radial-gradient(circle,rgba(181,215,160,.07) 0 40%,transparent 41%);
+}
+html body #main-content > .pv-footer .pv-footer-feature-graphic::before,
+html body #main-content > .pv-footer .pv-footer-feature-graphic::after {
+  content:"";
+  position:absolute;
+  width:75%;height:75%;
+  border:2px solid rgba(210,233,199,.24);
+  border-radius:42% 58% 61% 39% / 62% 41% 59% 38%;
+}
+html body #main-content > .pv-footer .pv-footer-feature-graphic::after {width:115%;height:115%;border-width:1px;transform:rotate(55deg);}
+html body #main-content > .pv-footer .pv-footer-graphic-seal {
+  font:900 clamp(26px,3.4vw,46px)/.9 Georgia,"Times New Roman",serif;
+  letter-spacing:-.07em;
+  text-align:center;
+  color:#C7DAAF;
+}
+html body #main-content > .pv-footer .pv-footer-graphic-seal span {display:block;margin-top:8px;font-size:30px;}
+
+/* Sage mega-footer: like the reference's broad graphic rhythm, but distinctly PIR. */
+html body #main-content > .pv-footer .pv-footer-main {
+  position:relative;
+  overflow:hidden;
+  padding: clamp(60px,7vw,110px) clamp(24px,7vw,120px) 0;
+  background:#C7DAAF !important;
+  color:#20372A !important;
+}
+html body #main-content > .pv-footer .pv-footer-top {
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns: minmax(240px,1.28fr) minmax(0,1.72fr);
+  align-items:start;
+  gap: clamp(45px,6vw,110px);
+  max-width:1540px;
+  margin:0 auto;
+}
+html body #main-content > .pv-footer .pv-footer-identity {max-width:500px;}
+html body #main-content > .pv-footer a.footer-brand-lockup {
+  display:block !important;
+  width:fit-content;
+  font:950 clamp(62px,7.8vw,126px)/.78 "Arial Black",Impact,Inter,ui-sans-serif,sans-serif !important;
+  letter-spacing:-.095em !important;
+  color:#20372A !important;
+  -webkit-text-fill-color:#20372A !important;
+  text-transform:uppercase;
+  text-decoration:none;
+  white-space:nowrap;
+}
+html body #main-content > .pv-footer a.footer-brand-lockup span {color:#AD634A !important;-webkit-text-fill-color:#AD634A !important;}
+html body #main-content > .pv-footer p.footer-brand-copy {
+  max-width:380px !important;
+  margin:34px 0 18px !important;
+  font:600 clamp(15px,1.3vw,18px)/1.65 Inter,ui-sans-serif,system-ui,sans-serif !important;
+  color:#2A4633 !important;
+}
+html body #main-content > .pv-footer a.pv-footer-contact {
+  display:inline-flex;
+  align-items:center;
+  gap:18px;
+  padding:10px 0;
+  color:#20372A !important;
+  -webkit-text-fill-color:#20372A !important;
+  border-bottom:2px solid #20372A;
+  font-size:14px;
+  font-weight:850;
+  text-decoration:none;
+}
+html body #main-content > .pv-footer .pv-footer-navigation.footer-grid {
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:clamp(20px,3vw,48px) !important;
+  margin:0 !important;
+  padding:15px 0 0 !important;
+  text-align:left;
+  background:none !important;
+  box-shadow:none !important;
+  border:0 !important;
+}
+html body #main-content > .pv-footer .pv-footer-column {display:flex;flex-direction:column;align-items:flex-start;gap:14px;min-width:0;}
+html body #main-content > .pv-footer .pv-footer-column h3 {
+  margin:0 0 12px;
+  font:900 13px/1.4 Inter,ui-sans-serif,system-ui,sans-serif !important;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:#20372A !important;
+  -webkit-text-fill-color:#20372A !important;
+}
+html body #main-content > .pv-footer .pv-footer-column > a {
+  display:inline-block !important;
+  width:auto;
+  margin:0 !important;
+  padding:0;
+  font:650 14px/1.5 Inter,ui-sans-serif,system-ui,sans-serif;
+  text-decoration:none !important;
+  color:#264633 !important;
+  -webkit-text-fill-color:#264633 !important;
+  transition:transform .2s ease,color .2s ease;
+}
+html body #main-content > .pv-footer .pv-footer-column > a:hover,
+html body #main-content > .pv-footer a.pv-footer-contact:hover {
+  color:#0D2B1A !important;
+  -webkit-text-fill-color:#0D2B1A !important;
+  text-decoration:underline !important;
+  text-underline-offset:4px;
+}
+html body #main-content > .pv-footer .pv-footer-side-note {
+  max-width:160px;
+  margin-top:26px;
+  padding-top:16px;
+  border-top:1px solid #92AD8A;
+  color:#365A40;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.14em;
+  line-height:1.75;
+}
+
+/* Original line artwork, separate from link content (no obstructed click targets). */
+html body #main-content > .pv-footer .pv-footer-landscape {
+  position:relative;
+  z-index:1;
+  width:calc(100% + 2 * clamp(24px,7vw,120px));
+  max-width:none;
+  height:clamp(220px,33vw,500px);
+  margin:clamp(45px,5vw,80px) calc(-1 * clamp(24px,7vw,120px)) 0;
+  overflow:hidden;
+  pointer-events:none;
+}
+html body #main-content > .pv-footer .pv-footer-landscape img {
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center bottom;
+}
+html body #main-content > .pv-footer .pv-footer-bottom.footer-bottom {
+  position:relative;
+  z-index:2;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:16px 30px;
+  margin:0 !important;
+  padding:17px clamp(24px,7vw,120px) !important;
+  border:0 !important;
+  background:#20372A !important;
+  color:#F1F7ED !important;
+  font:550 12px/1.55 Inter,ui-sans-serif,system-ui,sans-serif !important;
+}
+html body #main-content > .pv-footer .pv-footer-bottom a {
+  margin-right:18px;
+  color:#F1F7ED !important;
+  -webkit-text-fill-color:#F1F7ED !important;
+  text-decoration:underline;
+  text-underline-offset:4px;
+}
+
+@media(max-width:1100px) {
+  html body #main-content > .pv-footer .pv-footer-top {grid-template-columns:minmax(0,1fr);gap:38px;}
+  html body #main-content > .pv-footer .pv-footer-navigation.footer-grid {max-width:950px;}
+}
+@media(max-width:850px) {
+  html body:not(:has(.pv-home)) #main-content > footer.foot.pv-footer {margin-left:-14px !important;}
+  html body #main-content > .pv-footer .pv-footer-feature.footer-cta {
+    grid-template-columns:minmax(0,1fr) !important;
+    min-height:420px;
+    padding:50px clamp(24px,6vw,60px) !important;
+  }
+  html body #main-content > .pv-footer .pv-footer-feature-graphic {display:none;}
+  html body #main-content > .pv-footer .pv-footer-feature::before {background-size:115% auto;opacity:.12;}
+  html body #main-content > .pv-footer .pv-footer-navigation.footer-grid {grid-template-columns:repeat(3,minmax(0,1fr)) !important;}
+}
+@media(max-width:600px) {
+  html body #main-content > .pv-footer .pv-footer-feature.footer-cta {min-height:0;padding:50px 22px 54px !important;}
+  html body #main-content > .pv-footer .pv-footer-feature h2 {font-size:clamp(43px,11vw,70px) !important;line-height:.98 !important;}
+  html body #main-content > .pv-footer .pv-footer-feature p {font-size:14px !important;}
+  html body #main-content > .pv-footer .pv-footer-main {padding:60px 22px 0;}
+  html body #main-content > .pv-footer a.footer-brand-lockup {font-size:clamp(62px,13vw,90px) !important;}
+  html body #main-content > .pv-footer .pv-footer-navigation.footer-grid {grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:32px 22px !important;}
+  html body #main-content > .pv-footer .pv-footer-landscape {height:210px;width:calc(100% + 44px);margin:65px -22px 0;}
+  html body #main-content > .pv-footer .pv-footer-bottom.footer-bottom {padding:20px 22px !important;font-size:11px !important;}
+}
+@media(max-width:360px) {
+  html body #main-content > .pv-footer a.footer-brand-lockup {font-size:59px !important;}
+  html body #main-content > .pv-footer .pv-footer-navigation.footer-grid {grid-template-columns:1fr 1fr !important;gap:22px 12px !important;}
+  html body #main-content > .pv-footer .pv-footer-column > a {font-size:13px;}
+}
+@media(prefers-reduced-motion:reduce) {
+  html body #main-content > .pv-footer * {transition:none !important;animation:none !important;}
+}
+
+
+/* 2026-11-14i — responsive footer + FAQ spacing refinement */
+
+/* 1) Prevent the right-side footer hero graphic from being clipped when zoom changes. */
+html body #main-content > .pv-footer .pv-footer-feature.footer-cta {
+  overflow: visible;
+  align-items: center !important;
+  min-height: clamp(360px, 34vw, 500px);
+}
+html body #main-content > .pv-footer .pv-footer-feature-graphic {
+  width: clamp(180px, 23vw, 300px);
+  max-width: 100%;
+  margin: clamp(16px, 2vw, 28px) auto;
+  aspect-ratio: 1;
+  flex: 0 0 auto;
+}
+html body #main-content > .pv-footer .pv-footer-feature-graphic::before,
+html body #main-content > .pv-footer .pv-footer-feature-graphic::after {
+  inset: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* 2) Footer illustration must remain fully visible on zoom/unzoom. */
+html body #main-content > .pv-footer .pv-footer-landscape {
+  height: auto;
+  min-height: 0;
+  overflow: visible;
+  aspect-ratio: auto;
+}
+html body #main-content > .pv-footer .pv-footer-landscape img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+/* 3) FAQ right side: softer font and tighter, more balanced spacing. */
+html body #main-content .pv-home .pv-faq {
+  align-items: start;
+  padding-top: clamp(52px, 6vw, 86px) !important;
+  padding-bottom: clamp(34px, 4vw, 58px) !important;
+}
+html body #main-content .pv-home .pv-faq-list {
+  align-self: start;
+  gap: 12px;
+}
+html body #main-content .pv-home .pv-faq-list details {
+  border-radius: 12px;
+}
+html body #main-content .pv-home .pv-faq-list summary {
+  padding: 18px 22px !important;
+  font-family: Inter, "Segoe UI", system-ui, sans-serif !important;
+  font-size: clamp(17px, 1.45vw, 22px) !important;
+  font-weight: 700 !important;
+  line-height: 1.35 !important;
+  letter-spacing: -0.02em !important;
+}
+html body #main-content .pv-home .pv-faq-list details p {
+  padding: 0 !important;
+  font-size: 14px !important;
+  line-height: 1.7 !important;
+}
+
+@media (max-width: 900px) {
+  html body #main-content > .pv-footer .pv-footer-feature.footer-cta {
+    min-height: 0;
+    overflow: hidden;
+  }
+  html body #main-content .pv-home .pv-faq {
+    padding-top: 48px !important;
+    padding-bottom: 36px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  html body #main-content > .pv-footer .pv-footer-landscape {
+    width: calc(100% + 44px);
+    margin: 48px -22px 0;
+  }
+  html body #main-content .pv-home .pv-faq-list summary {
+    padding: 16px 18px !important;
+    font-size: 17px !important;
+  }
+  html body #main-content .pv-home .pv-faq-list details p {
+    padding: 0 !important;
+  }
+}
+
+/* 2026-11-14j — Zoom-safe contained seal and smooth FAQ interactions. */
+/* Replace oversized clipped rings/background with a single bounded SVG. */
+html body #main-content > .pv-footer .pv-footer-feature.footer-cta {
+  overflow: hidden !important;
+  grid-template-columns: minmax(0,1.35fr) minmax(220px,.65fr) !important;
+}
+html body #main-content > .pv-footer .pv-footer-feature::before {
+  content: none !important;
+  display: none !important;
+  background-image: none !important;
+}
+html body #main-content > .pv-footer .pv-footer-feature-graphic {
+  display: grid !important;
+  place-items: center;
+  min-width: 0;
+  width: min(100%, 490px) !important;
+  height: auto !important;
+  padding: 0 !important;
+  margin: 0 auto !important;
+  aspect-ratio: 1 / 1;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: none !important;
+  box-shadow: none !important;
+  transform: none !important;
+  overflow: visible !important;
+}
+html body #main-content > .pv-footer .pv-footer-feature-graphic::before,
+html body #main-content > .pv-footer .pv-footer-feature-graphic::after {
+  content: none !important;
+  display: none !important;
+}
+html body #main-content > .pv-footer .pv-footer-feature-graphic .pv-footer-feature-art {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100% !important;
+  aspect-ratio: 1;
+  object-fit: contain !important;
+  object-position: center;
+}
+/* FAQ feedback + animatable height (the JavaScript respects reduced motion). */
+html body #main-content .pv-home .pv-faq-list details {
+  overflow: clip;
+  transition: border-color .22s ease, box-shadow .22s ease, background-color .22s ease;
+}
+html body #main-content .pv-home .pv-faq-list details[open] {
+  border-color: #96B395 !important;
+  background: #FCFDF8 !important;
+}
+html body #main-content .pv-home .pv-faq-list summary {
+  transition: color .22s ease;
+}
+html body #main-content .pv-home .pv-faq-list summary::after {
+  display: inline-block;
+  transition: transform .32s cubic-bezier(.22,1,.36,1);
+}
+html body #main-content .pv-home .pv-faq-list details[open] summary::after {
+  transform: rotate(180deg);
+}
+@media (max-width:900px) {
+  html body #main-content > .pv-footer .pv-footer-feature.footer-cta {grid-template-columns: 1fr !important;}
+  html body #main-content > .pv-footer .pv-footer-feature-graphic {display:none !important;}
+}
+@media (prefers-reduced-motion:reduce) {
+  html body #main-content .pv-home .pv-faq-list details,
+  html body #main-content .pv-home .pv-faq-list summary,
+  html body #main-content .pv-home .pv-faq-list summary::after {transition:none !important;}
+}

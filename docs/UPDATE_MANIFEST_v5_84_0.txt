@@ -1,0 +1,24 @@
+PIR Visuals v5.84.0 — two-part update
+
+PART 1 — Core Website
+- package.json
+- package-lock.json
+- README.md
+- portfolio-website/server.js
+- portfolio-website/package.json
+- portfolio-website/package-lock.json
+
+PART 2 — Tests & Documentation
+- portfolio-website/tests/*.test.js
+- INSTALL_UPDATE_v5_84_0.txt
+- RELEASE_NOTES_v5_84_0.txt
+- QA_REPORT_v5_84_0.md
+- UPDATE_MANIFEST_v5_84_0.txt
+
+NOT INCLUDED
+- portfolio-website/models.js
+- .env or .env.example
+- database / MongoDB data
+- uploads / media
+- auth_info / auth_info_baileys
+- local logs, temporary files and backups

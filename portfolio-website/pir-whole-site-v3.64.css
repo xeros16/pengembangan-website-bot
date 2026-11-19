@@ -1,0 +1,549 @@
+/*
+ * PIR VISUALS — Whole-site responsive refinement v3.64.0
+ * Applies one coherent visual system across the public website and creator
+ * experience. The reference blend is limited to editorial rhythm and
+ * collection clarity; all colors and brand assets remain PIR-owned.
+ */
+
+:root,
+html[data-theme="light"] {
+  --pir-forest: #20372A;
+  --pir-forest-deep: #14291D;
+  --pir-forest-soft: #315A3D;
+  --pir-sage: #C7DAAF;
+  --pir-sage-soft: #E4EBDD;
+  --pir-sage-pale: #EDF2E8;
+  --pir-cream: #F0F3EB;
+  --pir-ivory: #FCFDF8;
+  --pir-peach: #E8D3C3;
+  --pir-clay: #AD634A;
+  --pir-olive: #7A8450;
+  --pir-copy: #405A48;
+  --pir-muted: #627565;
+  --pir-line: #BECDBB;
+  --pir-line-strong: #91A88F;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+  background: var(--pir-cream, #F0F3EB);
+  color: var(--pir-forest, #20372A);
+}
+
+#main-content,
+#main-content.wrap,
+#main-content.wrap > * {
+  min-width: 0;
+}
+
+#main-content img,
+#main-content video,
+#main-content iframe,
+#main-content canvas,
+#main-content svg {
+  max-width: 100%;
+}
+
+#main-content :is(h1, h2, h3, h4, h5, h6) {
+  text-wrap: balance;
+}
+
+#main-content :is(p, li, dd, figcaption) {
+  overflow-wrap: anywhere;
+}
+
+#main-content :is(input:not([type="checkbox"]):not([type="radio"]), select, textarea) {
+  max-width: 100%;
+  border-color: var(--pir-line) !important;
+  background-color: var(--pir-ivory) !important;
+  color: var(--pir-forest) !important;
+  accent-color: var(--pir-forest);
+}
+
+#main-content :is(input, select, textarea)::placeholder {
+  color: #758678;
+  opacity: 1;
+}
+
+#main-content :is(button, .btn, .pv-button, .nav-action-button) {
+  -webkit-tap-highlight-color: transparent;
+}
+
+#main-content :is(a, button, input, select, textarea, summary):focus-visible {
+  outline: 3px solid rgba(173, 99, 74, .72) !important;
+  outline-offset: 3px !important;
+}
+
+/* Remove the remaining high-saturation mustard accents from the homepage.
+   The fourth service card and the first showcase collection were more specific
+   in the older theme layer, so these selectors intentionally win that cascade. */
+html body #main-content .pv-home .pv-category-grid .home-category:nth-child(4) {
+  background: #D5E2C8 !important;
+  border-color: var(--pir-line) !important;
+}
+
+html body #main-content .pv-home .pv-home-showcase [data-showcase-panel="latest"] .pv-showcase-slide,
+html body #main-content .pv-home [data-showcase-panel="latest"] .pv-showcase-slide {
+  background: var(--pir-sage-soft) !important;
+  color: var(--pir-forest) !important;
+}
+
+html body #main-content .pv-home .pv-home-showcase [data-showcase-panel="featured"] .pv-showcase-slide,
+html body #main-content .pv-home [data-showcase-panel="featured"] .pv-showcase-slide {
+  background: #D5E2C8 !important;
+  color: var(--pir-forest) !important;
+}
+
+html body #main-content .pv-home .pv-home-showcase [data-showcase-panel="expensive"] .pv-showcase-slide,
+html body #main-content .pv-home [data-showcase-panel="expensive"] .pv-showcase-slide {
+  background: var(--pir-peach) !important;
+  color: var(--pir-forest) !important;
+}
+
+html body #main-content .pv-home .pv-home-showcase [data-showcase-panel="affordable"] .pv-showcase-slide,
+html body #main-content .pv-home [data-showcase-panel="affordable"] .pv-showcase-slide {
+  background: var(--pir-ivory) !important;
+  color: var(--pir-forest) !important;
+}
+
+html body #main-content .pv-home .pv-home-showcase [data-showcase-panel="events"] .pv-showcase-slide,
+html body #main-content .pv-home [data-showcase-panel="events"] .pv-showcase-slide {
+  background: var(--pir-sage) !important;
+  color: var(--pir-forest) !important;
+}
+
+html body #main-content .pv-home .pv-showcase-slide :is(h2, h3, p, span, strong, small, a) {
+  color: var(--pir-forest) !important;
+  -webkit-text-fill-color: var(--pir-forest) !important;
+}
+
+html body #main-content .pv-home .pv-showcase-tabs button:is(:hover, :focus-visible, .is-active, [aria-selected="true"]) {
+  color: var(--pir-forest) !important;
+  border-bottom-color: var(--pir-forest) !important;
+}
+
+html body #main-content .pv-home .pv-showcase-tabs button::before {
+  background: var(--pir-clay) !important;
+}
+
+html body #main-content .pv-home .pv-index-metrics b,
+html body #main-content .pv-home .pv-index-total strong {
+  color: var(--pir-sage) !important;
+}
+
+/* Homepage rhythm: retain the editorial story, but keep cards and sections
+   aligned to the same paper/sage/clay palette on both viewport families. */
+html body #main-content .pv-home :is(.pv-category-section, .pv-work-section, .pv-faq, .pv-journey-section) {
+  background: var(--pir-cream) !important;
+  color: var(--pir-forest) !important;
+}
+
+html body #main-content .pv-home .pv-talent-section {
+  background: var(--pir-sage-soft) !important;
+  color: var(--pir-forest) !important;
+}
+
+html body #main-content .pv-home .pv-manifesto {
+  background: var(--pir-sage) !important;
+  color: var(--pir-forest) !important;
+}
+
+html body #main-content .pv-home .pv-join {
+  background: var(--pir-forest) !important;
+  color: var(--pir-cream) !important;
+}
+
+html body #main-content .pv-home .pv-join :is(h2, p, .pv-label) {
+  color: var(--pir-cream) !important;
+}
+
+html body #main-content .pv-home .pv-journey-card,
+html body #main-content .pv-home .home-category {
+  border-color: var(--pir-line) !important;
+  color: var(--pir-forest) !important;
+}
+
+html body #main-content .pv-home .pv-journey-card:nth-child(1) { background: var(--pir-sage-soft) !important; }
+html body #main-content .pv-home .pv-journey-card:nth-child(2) { background: #D5E2C8 !important; }
+html body #main-content .pv-home .pv-journey-card:nth-child(3) { background: var(--pir-peach) !important; }
+
+html body #main-content .pv-home .home-category:nth-child(1) { background: var(--pir-ivory) !important; }
+html body #main-content .pv-home .home-category:nth-child(2) { background: var(--pir-sage-soft) !important; }
+html body #main-content .pv-home .home-category:nth-child(3) { background: var(--pir-peach) !important; }
+html body #main-content .pv-home .home-category:nth-child(4) { background: #D5E2C8 !important; }
+
+/* For Business: three equal cards make the desktop composition balanced rather
+   than leaving a blank fourth grid cell; tablet and mobile collapse naturally. */
+html body #main-content .company-editorial-business .company-editorial-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  align-items: stretch !important;
+  gap: clamp(14px, 1.8vw, 24px) !important;
+}
+
+html body #main-content .company-editorial-business .company-editorial-card {
+  display: flex !important;
+  flex-direction: column !important;
+  min-width: 0 !important;
+  min-height: 250px !important;
+  padding: clamp(22px, 2.4vw, 34px) !important;
+  border: 1px solid var(--pir-line) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 24px rgba(32, 55, 42, .045) !important;
+  transition: transform .22s ease, box-shadow .22s ease !important;
+}
+
+html body #main-content .company-editorial-business .company-editorial-card:nth-child(1) { background: var(--pir-ivory) !important; }
+html body #main-content .company-editorial-business .company-editorial-card:nth-child(2) { background: var(--pir-sage-soft) !important; }
+html body #main-content .company-editorial-business .company-editorial-card:nth-child(3) { background: var(--pir-peach) !important; }
+
+html body #main-content .company-editorial-business .company-editorial-card:is(:hover, :focus-within) {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 14px 30px rgba(32, 55, 42, .09) !important;
+}
+
+html body #main-content .company-editorial-business .company-editorial-card :is(h2, h3, p, a, span) {
+  color: var(--pir-forest) !important;
+}
+
+html body #main-content .company-editorial-business .company-editorial-card h2 {
+  font-size: clamp(23px, 2.2vw, 32px) !important;
+  line-height: 1.06 !important;
+}
+
+/* Shared public components: paper surfaces, quiet outlines, and clear body copy. */
+html body #main-content :is(
+  .card,
+  .feature-item,
+  .trust-item,
+  .search-panel,
+  .designer-card,
+  .work,
+  .studio-panel,
+  .studio-editor-section,
+  .studio-story-editor,
+  .studio-preview,
+  .support-channel,
+  .support-form-card,
+  .support-note,
+  .pv-creative-card,
+  .command-explorer-controls,
+  .command-explorer-card,
+  .command-explorer-workflow,
+  .pv-client-card,
+  .pv-match-finder,
+  .pv-portfolio-health,
+  .pv-discovery-shell,
+  .pv-discovery-filters
+) {
+  border-color: var(--pir-line) !important;
+  box-shadow: 0 10px 28px rgba(32, 55, 42, .045) !important;
+}
+
+html body #main-content :is(.card, .feature-item, .trust-item, .studio-panel, .support-channel, .support-form-card, .command-explorer-card, .command-explorer-workflow, .pv-client-card) {
+  background: var(--pir-ivory) !important;
+  color: var(--pir-forest) !important;
+}
+
+html body #main-content :is(.card, .feature-item, .trust-item, .studio-panel, .support-channel, .support-form-card, .command-explorer-card, .command-explorer-workflow, .pv-client-card) :is(h1, h2, h3, h4, strong, b, summary) {
+  color: var(--pir-forest) !important;
+}
+
+html body #main-content :is(.card, .feature-item, .trust-item, .studio-panel, .support-channel, .support-form-card, .command-explorer-card, .command-explorer-workflow, .pv-client-card) :is(p, li, small, .muted, .description, .help-text) {
+  color: var(--pir-copy) !important;
+}
+
+html body #main-content :is(.tag, .pill-count, .designer-card .tag, .discovery-shortcuts a) {
+  border-color: var(--pir-line) !important;
+  background: var(--pir-sage-soft) !important;
+  color: var(--pir-forest) !important;
+}
+
+html body #main-content :is(.btn, .pv-button, button[type="submit"]) {
+  border-color: var(--pir-forest) !important;
+  background: var(--pir-forest) !important;
+  color: var(--pir-cream) !important;
+  -webkit-text-fill-color: var(--pir-cream) !important;
+  box-shadow: none !important;
+  transition: transform .18s ease, background-color .18s ease, border-color .18s ease !important;
+}
+
+html body #main-content :is(.btn, .pv-button, button[type="submit"]):is(:hover, :focus-visible) {
+  border-color: var(--pir-forest-soft) !important;
+  background: var(--pir-forest-soft) !important;
+  transform: translateY(-1px);
+}
+
+html body #main-content :is(.btn-secondary, .btn-ghost) {
+  border: 1px solid var(--pir-line-strong) !important;
+  background: var(--pir-sage-soft) !important;
+  color: var(--pir-forest) !important;
+  -webkit-text-fill-color: var(--pir-forest) !important;
+}
+
+/* Discover: the matching form, filter controls and result cards behave as one
+   catalogue. Preserve all existing form names, query parameters and actions. */
+html body #main-content.wrap > .pv-discovery-stage {
+  background: var(--pir-sage-soft) !important;
+  color: var(--pir-forest) !important;
+}
+
+html body #main-content.wrap > .pv-discovery-stage .pv-match-finder,
+html body #main-content.wrap > .pv-discovery-stage .pv-discovery-filters,
+html body #main-content.wrap > .pv-discovery-stage .search-panel,
+html body #main-content.wrap > .pv-discovery-stage .pv-discovery-shell {
+  border-color: var(--pir-line) !important;
+  background: var(--pir-ivory) !important;
+  color: var(--pir-forest) !important;
+}
+
+html body #main-content.wrap > .pv-discovery-stage .pv-match-finder :is(h2, h3, label),
+html body #main-content.wrap > .pv-discovery-stage .pv-discovery-shell :is(h2, h3, label) {
+  color: var(--pir-forest) !important;
+}
+
+html body #main-content.wrap > .pv-discovery-stage .designer-card {
+  overflow: hidden;
+  border: 1px solid var(--pir-line) !important;
+  border-radius: 14px !important;
+  background: var(--pir-ivory) !important;
+  color: var(--pir-forest) !important;
+  box-shadow: 0 10px 28px rgba(32, 55, 42, .055) !important;
+}
+
+html body #main-content.wrap > .pv-discovery-stage .designer-card :is(h2, h3, strong, .price) { color: var(--pir-forest) !important; }
+html body #main-content.wrap > .pv-discovery-stage .designer-card :is(p, small, .muted) { color: var(--pir-copy) !important; }
+html body #main-content.wrap > .pv-discovery-stage .designer-card .tag { background: var(--pir-sage-soft) !important; color: var(--pir-forest) !important; }
+
+/* Creator login, recovery and workspace forms. Keep the dark editorial masthead,
+   but make the task area calm, legible and consistently spaced. */
+html body #main-content.wrap:has(form[action="/studio/login"]) > .card {
+  width: min(100%, 820px) !important;
+  margin-inline: auto !important;
+  background: var(--pir-ivory) !important;
+  border-color: var(--pir-line) !important;
+}
+
+html body #main-content.wrap:has(form[action="/studio/login"]) > .card > .card {
+  background: var(--pir-sage-soft) !important;
+  border-color: var(--pir-line) !important;
+  box-shadow: none !important;
+}
+
+html body #main-content.wrap:has(form[action="/studio/login"]) form :is(label, small) {
+  color: var(--pir-forest) !important;
+}
+
+html body #main-content.wrap:has(form[action="/studio/login"]) form input {
+  min-height: 46px !important;
+  border-radius: 8px !important;
+}
+
+/* Command Explorer and command catalogue share the same utility language. */
+html body #main-content:has(.command-explorer-hero) .command-explorer-hero {
+  border: 0 !important;
+  border-radius: 14px !important;
+  background: linear-gradient(128deg, var(--pir-forest-deep), var(--pir-forest) 66%, var(--pir-forest-soft)) !important;
+  color: var(--pir-cream) !important;
+}
+
+html body #main-content:has(.command-explorer-hero) .command-explorer-hero :is(h1, h2, p, .eyebrow, .muted) {
+  color: var(--pir-cream) !important;
+  -webkit-text-fill-color: var(--pir-cream) !important;
+}
+
+html body #main-content:has(.command-explorer-hero) :is(.command-explorer-controls, .command-explorer-card, .command-explorer-workflow) {
+  background: var(--pir-ivory) !important;
+  color: var(--pir-forest) !important;
+}
+
+html body #main-content:has(.command-explorer-hero) .command-explorer-example {
+  border-color: var(--pir-line) !important;
+  background: var(--pir-sage-soft) !important;
+  color: var(--pir-forest) !important;
+}
+
+/* Category, portfolio and designer profile pages. Images stay prominent; text
+   and metadata receive a consistent paper surface and accessible contrast. */
+html body #main-content :is(.category-intro, .showcase-hero, .case-heading, .designer-showcase-hero) {
+  color: var(--pir-forest) !important;
+}
+
+html body #main-content :is(.category-recent-card, .showcase-work, .case-gallery-item, .case-related-card, .case-result-highlight, .case-creator-card) {
+  overflow: hidden;
+  border-color: var(--pir-line) !important;
+  background: var(--pir-ivory) !important;
+  color: var(--pir-forest) !important;
+}
+
+html body #main-content :is(.showcase-jumpnav, .showcase-facts, .case-facts, .case-related, .case-footer, .shortlist-toolbar, .shortlist-results) {
+  border-color: var(--pir-line) !important;
+}
+
+html body #main-content .case-footer {
+  background: var(--pir-forest) !important;
+  color: var(--pir-cream) !important;
+}
+
+html body #main-content .case-footer :is(h2, p, a) {
+  color: var(--pir-cream) !important;
+}
+
+/* Shared bottom CTA/footer remains the strong brand anchor on every route. */
+html body #main-content :is(.footer-cta, .pv-footer-cta, .pv-talent-cta) {
+  background: linear-gradient(125deg, var(--pir-forest-deep), var(--pir-forest) 72%, var(--pir-forest-soft)) !important;
+  color: var(--pir-cream) !important;
+}
+
+html body #main-content :is(.footer-cta, .pv-footer-cta, .pv-talent-cta) :is(h2, h3, p, a, span) {
+  color: var(--pir-cream) !important;
+}
+
+html body #main-content :is(.footer-cta, .pv-footer-cta, .pv-talent-cta) :is(.btn, .pv-button) {
+  background: var(--pir-sage) !important;
+  border-color: var(--pir-sage) !important;
+  color: var(--pir-forest) !important;
+  -webkit-text-fill-color: var(--pir-forest) !important;
+}
+
+/* Tablet: maintain hierarchy without squeezing editorial cards or forms. */
+@media (max-width: 1024px) {
+  html body #main-content .company-editorial-business .company-editorial-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  html body #main-content .pv-home .pv-category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  html body #main-content .pv-home .pv-talent-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* Mobile: single-column forms/cards, balanced section gutters and safe controls. */
+@media (max-width: 760px) {
+  #main-content.wrap {
+    padding-inline: 16px !important;
+  }
+
+  html body #main-content .company-editorial-business .company-editorial-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  html body #main-content .company-editorial-business .company-editorial-card {
+    min-height: 0 !important;
+    padding: 22px !important;
+  }
+
+  html body #main-content .pv-home .pv-category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+
+  html body #main-content .pv-home .pv-category-grid .home-category {
+    min-height: 170px !important;
+    padding: 18px !important;
+  }
+
+  html body #main-content .pv-home .pv-talent-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase {
+    margin-block: 48px 56px !important;
+  }
+
+  html body #main-content .pv-home .pv-showcase-heading {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 14px !important;
+  }
+
+  html body #main-content .pv-home .pv-showcase-heading h2 {
+    font-size: clamp(38px, 10vw, 58px) !important;
+  }
+
+  html body #main-content .pv-home .pv-showcase-tabs {
+    overflow-x: auto !important;
+    overscroll-behavior-inline: contain;
+  }
+
+  html body #main-content.wrap > .pv-discovery-stage .pv-match-finder-form,
+  html body #main-content.wrap > .pv-discovery-stage .pv-filter-fields {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  html body #main-content.wrap > .pv-discovery-stage .pv-match-finder-form > *,
+  html body #main-content.wrap > .pv-discovery-stage .pv-filter-fields > * {
+    min-width: 0 !important;
+  }
+
+  html body #main-content.wrap:has(form[action="/studio/login"]) > .card {
+    padding: 16px !important;
+    margin-inline: 0 !important;
+  }
+
+  html body #main-content.wrap:has(form[action="/studio/login"]) > .card > .card {
+    padding: 16px !important;
+  }
+
+  html body #main-content :is(.btn, .pv-button, button[type="submit"]) {
+    min-height: 44px !important;
+  }
+
+  html body #main-content :is(input:not([type="checkbox"]):not([type="radio"]), select, textarea) {
+    min-height: 44px;
+    font-size: 16px !important;
+  }
+
+  html body #main-content .pv-back-top {
+    right: 14px !important;
+    bottom: 14px !important;
+    width: 42px !important;
+    height: 42px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  #main-content.wrap {
+    padding-inline: 12px !important;
+  }
+
+  html body #main-content .pv-home .pv-category-grid .home-category {
+    min-height: 154px !important;
+    padding: 15px !important;
+  }
+
+  html body #main-content > .hero .stat-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 7px !important;
+  }
+
+  html body #main-content > .hero .stat-grid .stat {
+    min-width: 0 !important;
+    padding: 11px 8px !important;
+  }
+
+  html body #main-content > .hero .stat-grid .stat strong {
+    font-size: 24px !important;
+  }
+
+  html body #main-content > .hero .stat-grid .stat span {
+    font-size: 9px !important;
+    line-height: 1.35 !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html body #main-content *,
+  html body #main-content *::before,
+  html body #main-content *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}

@@ -1,0 +1,12 @@
+PIR VISUALS BOT v6.7.1 — TWO-PART ZIP
+
+- PIR-Visuals-v6.7.1-Part-1-of-2.zip
+- PIR-Visuals-v6.7.1-Part-2-of-2.zip
+
+Download both parts, extract both into the same destination, and merge the shared PIR-Visuals-v6.7.1/ folder.
+
+Bot package: 6.7.1
+Website package: 3.50.0
+
+Read INSTALL_UPDATE_v6_7_1.md before deployment. Preserve .env, WhatsApp auth/session, database, runtime settings, and uploads.
+See DOCUMENTATION-INDEX-v6.7.1.md for release details.

@@ -1,0 +1,29 @@
+PIR Visuals v5.83.0
+Keyboard-first Navigation & Accessible Overlays
+
+Command palette
+- Adds a polite live region for destination result counts and no-results feedback.
+- Adds Arrow Up/Down navigation among visible destinations.
+- Adds Home/End navigation to the first/last visible destination.
+- Advertises Ctrl+K, Cmd+K and slash shortcuts using aria-keyshortcuts.
+- Prevents global command shortcuts from opening over a different modal dialog.
+- Preserves search reset and focus restoration when the palette closes.
+
+Portfolio lightbox
+- Announces image position changes using a polite status region.
+- Connects the preview image to its visible caption using aria-describedby.
+- Preserves arrow-key navigation, Escape close, backdrop close and return-to-opener focus.
+
+Visual interaction
+- Adds a stronger, theme-aware focus-visible state to command destination buttons.
+- Does not change the established palette, layout or mouse-following motion system.
+
+Compatibility
+- Uses native dialog behavior for modal focus containment and Escape handling.
+- No database schema, authentication, bot, transaction or upload behavior changed.
+
+Release metadata
+- Platform 5.83.0
+- Website 3.37.0
+- Public cache pir-visuals-public-v34
+- Public asset suffix 5830

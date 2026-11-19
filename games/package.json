@@ -1,0 +1,7 @@
+{
+  "name": "pir-visuals-game-center",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Modul Game Center opsional untuk PIR Visuals WhatsApp bot; tidak terkait direktori desainer."
+}

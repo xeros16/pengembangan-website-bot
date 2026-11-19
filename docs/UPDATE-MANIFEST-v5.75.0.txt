@@ -1,0 +1,46 @@
+PIR VISUALS v5.75.0 WEBSITE UPDATE
+
+Overlay update for the supplied v5.72.0 project. It carries forward the prepared v5.73 navbar runtime repair and v5.74 semantic visual system. Extract both ZIP parts into the same existing project root.
+Do not replace .env, WhatsApp/Baileys session folders, MongoDB data, or uploads.
+
+Files in Part 1:
+portfolio-website/server.js
+INSTALL-UPDATE-v5.75.0.md
+README.md
+RELEASE-NOTES-v5.75.0.md
+TEST-REPORT-v5.75.0.md
+docs/CHANGELOG.md
+package-lock.json
+package.json
+
+Files in Part 2:
+portfolio-website/tests/website-security.test.js
+portfolio-website/package-lock.json
+portfolio-website/models.js
+portfolio-website/README.md
+portfolio-website/RELEASE-NOTES-v5.69.0.md
+portfolio-website/TEST-REPORT-v5.69.0.md
+portfolio-website/RELEASE-NOTES-v5.68.1.md
+portfolio-website/brand-icon.svg
+portfolio-website/public-brand-icon.svg
+portfolio-website/tests/discovery-navigation-v5.75.test.js
+portfolio-website/tests/immersive-experience-v5.69.test.js
+portfolio-website/tests/storytelling-workspace-v5.70.test.js
+portfolio-website/tests/navigation-restoration-v5.72.test.js
+portfolio-website/tests/navigation-restoration-v5.73.test.js
+portfolio-website/tests/motion-refinement-v5.68.1.test.js
+portfolio-website/tests/immersive-discovery-v5.71.test.js
+portfolio-website/tests/theme-contrast-v5.65.test.js
+portfolio-website/scripts/smoke-test.js
+portfolio-website/tests/motion-restoration-v5.72.test.js
+portfolio-website/tests/contact-support-v5.74.test.js
+portfolio-website/tests/mobile-button-alignment-v5.67.test.js
+portfolio-website/tests/motion-design-system-v5.68.test.js
+portfolio-website/RELEASE-NOTES-v5.68.0.md
+portfolio-website/tests/premium-visual-system-v5.74.test.js
+portfolio-website/tests/mobile-navigation-layout.test.js
+portfolio-website/tests/public-ui-runtime-v5.73.test.js
+portfolio-website/RELEASE-NOTES-v5.67.0.md
+portfolio-website/TEST-REPORT-v5.68.0.md
+portfolio-website/.env.example
+portfolio-website/package.json

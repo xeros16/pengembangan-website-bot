@@ -1,0 +1,23 @@
+PIR Visuals v5.80.6 — UPDATE MANIFEST
+
+Part 1 contains:
+- package.json
+- package-lock.json
+- portfolio-website/server.js
+- portfolio-website/package.json
+- portfolio-website/package-lock.json
+
+Part 2 contains:
+- INSTALL_UPDATE_v5_80_6.txt
+- DISCOVERY_FILTER_FRAME_FIX_v5_80_6.txt
+- UPDATE_MANIFEST_v5_80_6.txt
+- portfolio-website/tests/*.test.js
+
+No models.js, .env, database, uploads, WhatsApp sessions, or user data are included.
+
+QA performed before packaging:
+- Root JavaScript check: 182 files, syntax OK
+- Website server/models syntax check: PASS
+- Website automated regression suite: 304 passed, 0 failed
+- Inline CSS parsing: 3 stylesheets parsed successfully
+- ZIP extraction and re-test: performed on the packaged files

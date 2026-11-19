@@ -1,0 +1,38 @@
+PIR VISUALS v5.77.0 — UNIVERSAL WEBSITE UPDATE
+Platform version: 5.77.0
+Website package version: 3.31.0
+Public cache: pir-visuals-public-v23
+Asset cache query: v=5770
+
+Changed runtime files:
+- portfolio-website/server.js
+- package.json
+- package-lock.json
+- portfolio-website/package.json
+- portfolio-website/package-lock.json
+
+Regression test files updated:
+- portfolio-website/tests/motion-refinement-v5.68.1.test.js
+- portfolio-website/tests/light-mode-contrast-v5.76.test.js
+- portfolio-website/tests/navigation-restoration-v5.72.test.js
+- portfolio-website/tests/mobile-button-alignment-v5.67.test.js
+- portfolio-website/tests/website-security.test.js
+- portfolio-website/tests/immersive-experience-v5.69.test.js
+- portfolio-website/tests/motion-restoration-v5.72.test.js
+- portfolio-website/tests/storytelling-workspace-v5.70.test.js
+- portfolio-website/tests/motion-design-system-v5.68.test.js
+- portfolio-website/tests/universal-design-system-v5.77.test.js (new)
+- portfolio-website/tests/mobile-navigation-layout.test.js
+- portfolio-website/tests/premium-visual-system-v5.74.test.js
+- portfolio-website/tests/immersive-discovery-v5.71.test.js
+- portfolio-website/tests/discovery-navigation-v5.75.test.js
+- portfolio-website/tests/navigation-restoration-v5.73.test.js
+- portfolio-website/tests/theme-contrast-v5.65.test.js
+
+Documentation:
+- RELEASE-NOTES-v5.77.0.md
+- INSTALL-UPDATE-v5.77.0.md
+- TEST-REPORT-v5.77.0.md
+- UPDATE-MANIFEST-v5.77.0.txt
+
+No .env, database, uploads, WhatsApp auth/session, or node_modules included.

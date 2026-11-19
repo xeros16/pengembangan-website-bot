@@ -1,0 +1,144 @@
+/* PIR Visuals — motion and alignment corrections · 2026-11-14m
+   This file loads last and is the ONLY marquee/FAQ transition layer.
+   Permanent forest + sage identity remains unchanged. */
+
+/* No white strip or decorative rounded cut-out below the homepage navbar. */
+html body:has(.pv-home) #main-content > header.site-nav,
+html body:not(:has(.pv-home)) #main-content > header.site-nav {
+  margin-top:0 !important;
+  margin-bottom:0 !important;
+  border-radius:0 !important;
+  border-top:0 !important;
+  border-left:0 !important;
+  border-right:0 !important;
+  box-shadow:0 4px 14px rgba(16,42,25,.1) !important;
+}
+html body #main-content > header.site-nav::before,
+html body #main-content > header.site-nav::after {content:none !important;display:none !important;}
+html body:has(.pv-home) #main-content > .pv-home {
+  margin-top:0 !important;
+  padding-top:0 !important;
+}
+html body:has(.pv-home) #main-content .pv-home > .pv-hero {
+  margin-top:0 !important;
+  border-top:0 !important;
+  border-radius:0 !important;
+}
+
+/* Hero rules are the same visual width above and below the three value labels. */
+html body #main-content .pv-home .pv-hero {
+  grid-template-columns:minmax(0,1fr) !important;
+}
+html body #main-content .pv-home .pv-hero-main,
+html body #main-content .pv-home .pv-hero-foot,
+html body #main-content .pv-home .pv-index {
+  width:100% !important;
+  max-width:none !important;
+  min-width:0;
+  box-sizing:border-box;
+}
+html body #main-content .pv-home .pv-hero-foot,
+html body #main-content .pv-home .pv-index {
+  border-color:#719478 !important;
+  border-top-width:1px !important;
+  border-top-style:solid !important;
+  margin-left:0 !important;
+  margin-right:0 !important;
+}
+html body #main-content .pv-home .pv-hero-foot {
+  justify-content:flex-start;
+  padding-top:16px;
+  margin-top:clamp(26px,3.5vw,44px);
+}
+html body #main-content .pv-home .pv-index {
+  padding-left:0 !important;
+  padding-right:0 !important;
+  justify-self:stretch;
+}
+
+/* FAQ: native <details> + modern CSS intrinsic-size interpolation.
+   No WAAPI height cancellation, so quick repeated toggles don't snap.
+   Older browsers retain accessible native open/close without animation. */
+html body #main-content .pv-home .pv-faq-list details {
+  interpolate-size:allow-keywords;
+  height:auto !important;
+  overflow:clip;
+  contain:none !important;
+  transition:border-color .2s ease,box-shadow .24s ease !important;
+}
+html body #main-content .pv-home .pv-faq-list details::details-content {
+  block-size:0;
+  overflow:clip;
+  transition:block-size .54s cubic-bezier(.4,0,.2,1),
+             content-visibility .54s allow-discrete;
+}
+html body #main-content .pv-home .pv-faq-list details[open]::details-content {block-size:auto;}
+html body #main-content .pv-home .pv-faq-list .pv-faq-panel,
+html body #main-content .pv-home .pv-faq-list details[data-accordion-state] .pv-faq-panel {
+  display:block;
+  transform:none !important;
+  opacity:1 !important;
+  transition:none !important;
+  overflow:visible;
+}
+html body #main-content .pv-home .pv-faq-list details[open] {
+  box-shadow:0 11px 26px rgba(32,55,42,.07);
+}
+
+/* Continuous seamless ribbon: groups measured and cloned by pir-marquee.js.
+   No legacy CSS or GSAP animation is allowed to compete with its rAF. */
+html body #main-content .pv-home .pv-motion-ribbon {
+  overflow:hidden !important;
+  contain:layout paint;
+}
+html body #main-content .pv-home .pv-motion-ribbon-track,
+html body.pv-gsap-ready #main-content .pv-home .pv-motion-ribbon-track {
+  display:flex !important;
+  flex-wrap:nowrap !important;
+  align-items:center;
+  gap:0 !important;
+  width:max-content !important;
+  min-width:100%;
+  animation:none !important;
+  transition:none !important;
+  will-change:transform;
+}
+html body #main-content .pv-home .pv-motion-ribbon-group {
+  flex:0 0 auto;
+  display:flex;
+  align-items:center;
+  flex-wrap:nowrap;
+  gap:clamp(24px,3.5vw,46px);
+  padding-right:clamp(24px,3.5vw,46px);
+  white-space:nowrap;
+}
+html body #main-content .pv-home .pv-motion-ribbon-group > span,
+html body #main-content .pv-home .pv-motion-ribbon-group > i {flex:0 0 auto;}
+
+/* Scroll engine owns anchor easing; don't layer CSS smooth behavior on top. */
+html,html:focus-within {scroll-behavior:auto !important;}
+
+@media(max-width:850px) {
+  html body:has(.pv-home) #main-content > header.site-nav,
+  html body:not(:has(.pv-home)) #main-content > header.site-nav {
+    border-radius:0 !important;
+  }
+  html body #main-content .pv-home .pv-hero-foot {gap:12px;}
+}
+@media(prefers-reduced-motion:reduce) {
+  html body #main-content .pv-home .pv-faq-list details::details-content {transition:none !important;}
+  html body #main-content .pv-home .pv-motion-ribbon-track {animation:none!important;transform:none!important;will-change:auto;}
+}
+html[data-pv-motion="off"] body #main-content .pv-home .pv-faq-list details::details-content {transition:none !important;}
+
+/* Legacy :root[data-theme] navbar shorthand has higher specificity; override it
+   with equal or higher specificity so its 28px bottom margin cannot survive. */
+html:root[data-theme] body:has(.pv-home) #main-content > header.site-nav,
+html:root[data-theme] body:not(:has(.pv-home)) #main-content > header.site-nav {
+  margin:0 !important;
+  border-radius:0 !important;
+}
+
+/* 2026-11-14n: keep the visual identity but avoid repainting a fixed full-page
+   gradient during native scrolling. This reduces GPU/main-thread contention. */
+html body {background-attachment:scroll !important;}

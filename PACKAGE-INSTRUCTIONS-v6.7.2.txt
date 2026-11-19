@@ -1,0 +1,13 @@
+PIR VISUALS BOT v6.7.2 — TWO-PART ZIP
+
+Files:
+- PIR-Visuals-v6.7.2-Part-1-of-2.zip
+- PIR-Visuals-v6.7.2-Part-2-of-2.zip
+
+Download both parts, extract both into the same destination, and merge the shared PIR-Visuals-v6.7.2/ folder.
+
+Bot package: 6.7.2
+Website package: 3.50.0
+No new MongoDB collection or index. FFmpeg is required for Voice Lab. Open-Meteo/BMKG commands require outbound internet.
+
+See DOCUMENTATION-INDEX-v6.7.2.md for release details.

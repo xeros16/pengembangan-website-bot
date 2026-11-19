@@ -1,0 +1,297 @@
+/*
+ * PIR Visuals — Desktop Editorial Refinement / 2026-11-19
+ * Reference principles: Starbucks warm-neutral / forest color blocking and
+ * Webflow's disciplined grid + typography hierarchy. This is an additive
+ * refinement: the PIR Visuals palette, content, routes, and showcase media
+ * behavior remain unchanged.
+ */
+
+@media (min-width: 1025px) {
+  /* A more balanced hero: clear message on the left, readable live index on right. */
+  html body #main-content .pv-home .pv-hero {
+    grid-template-columns: minmax(0, 1.08fr) minmax(360px, .92fr);
+    gap: clamp(44px, 5.2vw, 96px);
+    min-height: clamp(680px, calc(100svh - 76px), 820px) !important;
+    padding: clamp(82px, 8vw, 124px) clamp(36px, 6.2vw, 104px) 62px !important;
+  }
+
+  html body #main-content .pv-home .pv-hero-main {
+    min-width: 0;
+    max-width: 820px;
+  }
+
+  html body #main-content .pv-home .pv-hero h1 {
+    max-width: 10.8ch !important;
+    font-size: clamp(66px, 7.6vw, 116px) !important;
+    line-height: .92 !important;
+  }
+
+  html body #main-content .pv-home .pv-hero-lede {
+    max-width: 54ch !important;
+    font-size: clamp(16px, 1.2vw, 18px) !important;
+    line-height: 1.75 !important;
+  }
+
+  html body #main-content .pv-home .pv-index {
+    width: 100%;
+    max-width: 470px;
+    justify-self: end;
+    padding: clamp(26px, 2.6vw, 36px);
+    border-radius: 14px;
+  }
+
+  html body #main-content .pv-home .pv-index-heading {
+    font-size: 9px;
+  }
+
+  html body #main-content .pv-home .pv-index-total {
+    padding-block: 40px 30px;
+  }
+
+  html body #main-content .pv-home .pv-index-total strong {
+    font-size: clamp(70px, 6.2vw, 96px);
+  }
+
+  html body #main-content .pv-home .pv-index-total span {
+    font-size: 10px;
+  }
+
+  html body #main-content .pv-home .pv-index-metrics small {
+    font-size: 8px;
+  }
+
+  /* Section headings share one editorial grid and readable supporting copy. */
+  html body #main-content .pv-home .pv-section-top {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(280px, .8fr);
+    align-items: end;
+    gap: clamp(40px, 6vw, 88px);
+    max-width: 1280px;
+    margin: 0 auto 44px;
+  }
+
+  html body #main-content .pv-home .pv-section-top h2 {
+    max-width: 12ch;
+    font-size: clamp(48px, 5.1vw, 76px);
+    line-height: .96;
+  }
+
+  html body #main-content .pv-home .pv-section-top > p {
+    max-width: 44ch;
+    margin: 0 0 4px;
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  /* Four clear service pathways; warm paper, sage, and clay stay within PIR's palette. */
+  html body #main-content .pv-home .pv-category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    max-width: 1280px;
+    margin-inline: auto;
+    gap: 14px;
+  }
+
+  html body #main-content .pv-home .pv-category-grid .home-category {
+    min-width: 0;
+    min-height: 250px !important;
+    padding: 26px !important;
+    border: 1px solid #cbd7c7 !important;
+    border-radius: 14px !important;
+    background: #fffdf8 !important;
+    box-shadow: 0 8px 24px rgba(32, 55, 42, .045);
+  }
+
+  html body #main-content .pv-home .pv-category-grid .home-category:nth-child(2) {
+    background: #e4ebdc !important;
+  }
+
+  html body #main-content .pv-home .pv-category-grid .home-category:nth-child(3) {
+    background: #f1e2d6 !important;
+    border-color: #dfc5b3 !important;
+  }
+
+  html body #main-content .pv-home .pv-category-grid .home-category:nth-child(4) {
+    background: #dce7d8 !important;
+  }
+
+  html body #main-content .pv-home .pv-category-grid .home-category > span {
+    font-size: 10px;
+    letter-spacing: .14em;
+  }
+
+  html body #main-content .pv-home .pv-category-grid .home-category > strong {
+    max-width: 11ch;
+    font-size: clamp(20px, 1.75vw, 26px);
+    line-height: 1.08;
+  }
+
+  html body #main-content .pv-home .pv-category-grid .home-category > small {
+    max-width: 24ch;
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  html body #main-content .pv-home .pv-category-grid .home-category > b {
+    right: 24px;
+    bottom: 22px;
+    font-size: 18px;
+  }
+
+  /* Cards get room to breathe without changing the existing content order. */
+  html body #main-content .pv-home .pv-journey-grid {
+    gap: 18px;
+  }
+
+  html body #main-content .pv-home .pv-journey-card {
+    min-height: 330px;
+    padding: 30px;
+    border-radius: 14px;
+  }
+
+  html body #main-content .pv-home .pv-journey-number {
+    font-size: 12px;
+  }
+
+  html body #main-content .pv-home .pv-journey-card p {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  html body #main-content .pv-home .pv-talent-grid {
+    max-width: 1280px;
+    margin-inline: auto;
+    gap: 22px;
+  }
+
+  html body #main-content .pv-home .pv-talent-grid .designer-card {
+    border-radius: 14px !important;
+  }
+
+  html body #main-content .pv-home .pv-project-grid {
+    max-width: 1280px;
+    margin-inline: auto;
+    gap: 36px 24px;
+  }
+
+  html body #main-content .pv-home .home-project-image {
+    border-radius: 10px;
+  }
+
+  html body #main-content .pv-home .home-project-caption {
+    padding-top: 16px;
+  }
+
+  html body #main-content .pv-home .home-project-caption strong {
+    font-size: 18px;
+  }
+
+  html body #main-content .pv-home .home-project-caption small {
+    font-size: 12px;
+    line-height: 1.55;
+  }
+
+  html body #main-content .pv-home .pv-work-foot {
+    max-width: 1280px;
+    margin: 35px auto 0;
+    font-size: 9px;
+  }
+
+  /* Keep manifesto and creator CTA full-width editorial bands. */
+  html body #main-content .pv-home .pv-manifesto {
+    padding-inline: clamp(36px, 6.2vw, 104px) !important;
+    grid-template-columns: minmax(220px, .65fr) minmax(0, 1.35fr);
+    gap: clamp(48px, 7vw, 110px);
+  }
+
+  html body #main-content .pv-home .pv-manifesto h2 {
+    font-size: clamp(52px, 6.2vw, 84px);
+  }
+
+  html body #main-content .pv-home .pv-manifesto-copy > p {
+    max-width: 62ch;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  html body #main-content .pv-home .pv-manifesto-points > div {
+    padding-block: 18px;
+    font-size: 14px;
+  }
+
+  html body #main-content .pv-home .pv-join {
+    padding: clamp(50px, 6vw, 84px) clamp(36px, 6.2vw, 104px);
+    gap: 48px;
+    border-radius: 14px;
+  }
+
+  html body #main-content .pv-home .pv-join p {
+    font-size: 16px;
+  }
+
+  html body #main-content .pv-home .pv-faq {
+    max-width: 1280px;
+    margin-inline: auto;
+    grid-template-columns: minmax(250px, .72fr) minmax(0, 1.28fr);
+    gap: clamp(52px, 8vw, 120px);
+  }
+
+  html body #main-content .pv-home .pv-faq-list summary {
+    padding-right: 24px;
+    font-size: 16px;
+  }
+
+  html body #main-content .pv-home .pv-faq-list p {
+    font-size: 14px;
+    line-height: 1.75;
+  }
+}
+
+/* Smaller desktop / large tablet: keep grids useful before the mobile stack. */
+@media (min-width: 901px) and (max-width: 1024px) {
+  html body #main-content .pv-home .pv-hero {
+    grid-template-columns: minmax(0, 1.08fr) minmax(280px, .92fr);
+    gap: 28px;
+    min-height: 680px !important;
+  }
+
+  html body #main-content .pv-home .pv-hero h1 {
+    max-width: 11ch !important;
+    font-size: clamp(56px, 7.6vw, 82px) !important;
+  }
+
+  html body #main-content .pv-home .pv-category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  html body #main-content .pv-home .pv-category-grid .home-category {
+    min-height: 220px !important;
+    padding: 22px !important;
+    border-radius: 12px !important;
+  }
+
+  html body #main-content .pv-home .pv-talent-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  html body #main-content .pv-home .pv-journey-grid,
+  html body #main-content .pv-home .pv-testimonials-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  html body #main-content .pv-home .pv-journey-card:last-child {
+    grid-column: 1 / -1;
+    min-height: 250px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html body #main-content .pv-home .pv-category-grid .home-category,
+  html body #main-content .pv-home .pv-journey-card,
+  html body #main-content .pv-home .pv-talent-grid .designer-card,
+  html body #main-content .pv-home .home-project-image img {
+    transition: none !important;
+    transform: none !important;
+  }
+}

@@ -1,0 +1,18 @@
+PIR Visuals v5.80.6 — Discovery Filter Frame Cleanup
+
+Install:
+1. Back up the current project.
+2. Extract Part 1 into the project root and choose Replace/Overwrite.
+3. Extract Part 2 into the same project root and merge/replace the tests and notes.
+4. Keep portfolio-website/models.js, .env, database files, uploads, and WhatsApp session folders unchanged.
+5. Restart the website server.
+6. Hard-refresh the browser with Ctrl + Shift + R.
+
+Expected:
+- The large card frame around the Smart Discovery section is gone.
+- The extra panel border/background around the filters is gone.
+- Individual input and select outlines remain intact.
+- Checkbox dimensions and form spacing remain unchanged.
+- Magnetic mouse-following animation remains intact.
+
+Versions: Platform 5.80.6 | Website 3.34.6 | Public cache v31 | Asset suffix 5806

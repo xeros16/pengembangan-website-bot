@@ -1,0 +1,18 @@
+PIR Visuals Bot v6.2.0 — Package Instructions
+
+1. Download BOTH Part 1 and Part 2 ZIP archives.
+2. Extract both into the SAME parent folder. They merge into one PIR-Visuals-v6.2.0/ directory.
+3. Verify the files using RELEASE-MANIFEST-v6.2.0.txt.
+4. Back up the current source and database securely before updating.
+5. Preserve the deployment's existing .env, Baileys auth, database, allowlist, local bot settings, and content/texts.json.
+6. Read INSTALL_UPDATE_v6_2_0.md.
+7. Run npm ci on the target host, then npm run check, npm test, and npm run audit:release.
+8. Complete WhatsApp and Jikan staging acceptance before production.
+
+New general feature:
+- Anime Discovery through .anime cari / populer / musim / detail.
+- Information only; no unofficial streaming or copyrighted episode download.
+
+The release archive excludes .env, creds.json, Baileys auth, .git, node_modules,
+backups, uploads, local allowlists, and runtime data. The website package remains
+unchanged. Do not overwrite local runtime configuration with example files.

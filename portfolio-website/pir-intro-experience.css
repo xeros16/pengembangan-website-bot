@@ -1,0 +1,162 @@
+/* PIR Visuals / Brand intro & gentle FAQ typography — 2026-11-14q.
+   The intro runs only once per tab/session; the content is always accessible if JS fails. */
+#pv-intro-overlay {display:none;}
+html.pv-intro-active body {overflow:hidden !important;}
+html.pv-intro-active #pv-intro-overlay {
+  display:flex;
+  position:fixed;
+  z-index:2147483646;
+  inset:0;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  isolation:isolate;
+  background:#D6E8BC;
+  color:#20372A;
+  text-align:center;
+  opacity:1;
+  transform:translate3d(0,0,0);
+  transition:transform .48s cubic-bezier(.65,0,.19,1),opacity .48s ease;
+}
+html.pv-intro-exit #pv-intro-overlay {opacity:0;transform:translate3d(0,-5%,0);pointer-events:none;}
+#pv-intro-overlay::before {content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 18% 80%,rgba(255,255,255,.24),transparent 30%),radial-gradient(circle at 82% 12%,rgba(79,122,78,.12),transparent 32%);}
+#pv-intro-overlay .pv-intro-stage {position:relative;width:min(90vw,1040px);min-height:min(75dvh,550px);display:flex;align-items:center;justify-content:center;}
+#pv-intro-overlay .pv-intro-wordmark {position:relative;z-index:0;color:#20372A;font:900 clamp(66px,13vw,182px)/.78 "Arial Black",Impact,Arial,sans-serif;letter-spacing:-.095em;text-align:center;white-space:nowrap;transform:translateX(-.05em);animation:pv-intro-words .68s cubic-bezier(.2,.7,.15,1) both;}
+#pv-intro-overlay .pv-intro-wordmark span {color:#A8694C;}
+#pv-intro-overlay .pv-intro-sticker {position:absolute;z-index:1;left:50%;top:48%;width:clamp(170px,34vw,350px);transform:translate(-48%,-50%) rotate(-7deg);animation:pv-intro-sticker-in .65s .15s cubic-bezier(.18,.82,.25,1) both;filter:drop-shadow(4px 12px 0 rgba(30,70,43,.16));}
+#pv-intro-overlay .pv-intro-sticker img {display:block;width:100%;height:auto;}
+#pv-intro-overlay .pv-intro-caption {position:absolute;z-index:2;bottom:clamp(26px,5vh,70px);left:20px;right:20px;display:flex;align-items:center;justify-content:center;gap:16px;color:#31533C;font:800 11px/1.6 "Trebuchet MS", "Segoe UI", sans-serif;letter-spacing:.24em;text-transform:uppercase;}
+#pv-intro-overlay .pv-intro-caption::before,#pv-intro-overlay .pv-intro-caption::after {content:"";width:clamp(18px,5vw,55px);height:1px;background:#6D966E;}
+#pv-intro-overlay .pv-intro-skip {position:absolute;right:clamp(20px,4vw,64px);top:clamp(20px,4vw,54px);z-index:5;background:transparent;border:1px solid #537959;border-radius:99px;padding:10px 17px;color:#244631;font:700 12px/1.3 "Trebuchet MS", "Segoe UI",sans-serif;cursor:pointer;}
+#pv-intro-overlay .pv-intro-skip:hover,#pv-intro-overlay .pv-intro-skip:focus-visible {background:#20372A;color:#F4FAEC;outline:2px solid #315940;outline-offset:3px;}
+@keyframes pv-intro-words {from{opacity:0;transform:translate(-.05em,18px) scale(.97)}to{opacity:1;transform:translate(-.05em,0) scale(1)}}
+@keyframes pv-intro-sticker-in {from{opacity:0;transform:translate(-48%,-50%) rotate(-19deg) scale(.7)}to{opacity:1;transform:translate(-48%,-50%) rotate(-7deg) scale(1)}}
+@media(max-width:600px){
+ #pv-intro-overlay .pv-intro-stage {width:100%;min-height:370px;}
+ #pv-intro-overlay .pv-intro-wordmark{font-size:clamp(58px,16vw,100px);}
+ #pv-intro-overlay .pv-intro-sticker{width:clamp(160px,53vw,245px);}
+ #pv-intro-overlay .pv-intro-caption{font-size:9px;letter-spacing:.13em;}
+}
+@media(prefers-reduced-motion:reduce){
+ html.pv-intro-active #pv-intro-overlay{transition:none!important;}
+ #pv-intro-overlay .pv-intro-wordmark,#pv-intro-overlay .pv-intro-sticker{animation:none!important;}
+}
+
+/* FAQ labels: calm, modern humanist sans instead of the earlier overly heavy caps.
+   Keep the main section's expressive Georgia heading unchanged. */
+html body #main-content .pv-home .pv-faq-list details > summary,
+html body #main-content .pv-home .pv-faq-list summary {
+ font-family:"Trebuchet MS", "Segoe UI", Arial, sans-serif !important;
+ font-size:clamp(17px,1.45vw,20px) !important;
+ font-weight:600 !important;
+ letter-spacing:-.02em !important;
+ line-height:1.45 !important;
+ color:#284735 !important;
+ -webkit-text-fill-color:#284735 !important;
+ padding:19px clamp(18px,2vw,27px) !important;
+}
+html body #main-content .pv-home .pv-faq-list details > summary:hover {color:#16412C!important;-webkit-text-fill-color:#16412C!important;}
+html body #main-content .pv-home .pv-faq-list details > p,
+html body #main-content .pv-home .pv-faq-list .pv-faq-panel p {font-family:"Trebuchet MS", "Segoe UI",Arial,sans-serif!important;font-weight:400!important;line-height:1.75!important;}
+@media(max-width:600px){ html body #main-content .pv-home .pv-faq-list details>summary {font-size:17px!important;padding:17px 18px!important;} }
+
+/* 2026-11-14s: longer and more legible intro; no progress flicker. */
+html.pv-intro-active #pv-intro-overlay {transition: opacity .45s ease,transform .45s cubic-bezier(.44,0,.19,1);}
+html.pv-intro-active #pv-intro-overlay .pv-intro-wordmark {animation-duration:1.05s;}
+html.pv-intro-active #pv-intro-overlay .pv-intro-sticker {animation-duration:1.05s;animation-delay:.22s;}
+#pv-intro-overlay .pv-intro-progress {
+  position:absolute;left:50%;bottom:clamp(64px,10vh,110px);
+  transform:translateX(-50%);width:min(300px,58vw);height:3px;
+  border-radius:99px;background:rgba(32,55,42,.18);overflow:hidden;
+}
+#pv-intro-overlay .pv-intro-progress::after {
+  content:"";display:block;width:100%;height:100%;background:#315A3D;
+  transform:scaleX(0);transform-origin:left center;
+}
+html.pv-intro-active #pv-intro-overlay .pv-intro-progress::after {
+  animation:pv-intro-progress 2.15s linear forwards;
+}
+@keyframes pv-intro-progress {to{transform:scaleX(1)}}
+@media(prefers-reduced-motion:reduce){
+  html.pv-intro-active #pv-intro-overlay .pv-intro-progress::after{animation:none;}
+}
+/* Always allow the TOP button to receive input once visible. */
+html body button[data-back-top].is-visible {
+  pointer-events:auto !important;
+  z-index:1000 !important;
+}
+
+/* 2026-11-14t: equal visual space between the hero rules, single owner of
+   the bottom rule. The next community panel no longer draws a second line. */
+html body #main-content .pv-home .pv-hero-main .pv-hero-foot {
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  flex-wrap:wrap;
+  gap:clamp(12px,2vw,28px);
+  min-height:64px;
+  margin:clamp(26px,3.5vw,44px) 0 0 !important;
+  padding:19px 0 !important;
+  border-top:1px solid #719478 !important;
+  border-bottom:1px solid #719478 !important;
+  line-height:1.45 !important;
+  box-sizing:border-box;
+}
+html body #main-content .pv-home .pv-hero-main .pv-hero-foot > span {
+  display:inline-flex !important;
+  align-items:center;
+  margin:0!important;
+  padding:0!important;
+  line-height:1.45 !important;
+}
+html body #main-content .pv-home .pv-index,
+html:root[data-theme] body #main-content .pv-home .pv-index,
+html[data-theme="light"] body #main-content .pv-home .pv-index {
+  border-top:0 !important;
+  margin-top:0 !important;
+  padding-top:clamp(18px,2.2vw,30px) !important;
+}
+/* The TOP control is an anchor with a browser-native fallback. Keep it above
+   sticky headings, the footer and decorative layers; only visible after scroll. */
+html body .pv-page-top-marker {
+  position:absolute;top:0;left:0;width:1px;height:1px;pointer-events:none;
+}
+html body a.pv-back-top[data-back-top] {
+  position:fixed !important;
+  z-index:2147483000 !important;
+  right:18px !important;
+  bottom:18px !important;
+  display:grid !important;
+  place-items:center;
+  width:48px;
+  height:48px;
+  text-decoration:none !important;
+  cursor:pointer !important;
+  pointer-events:none !important;
+  opacity:0;
+  visibility:hidden;
+}
+html body a.pv-back-top[data-back-top].is-visible {
+  pointer-events:auto !important;
+  opacity:1 !important;
+  visibility:visible !important;
+  transform:none !important;
+}
+html body a.pv-back-top[data-back-top]:focus-visible {
+  outline:3px solid #719478;outline-offset:3px;
+}
+@media(max-width:600px) {
+  html body #main-content .pv-home .pv-hero-main .pv-hero-foot {
+    padding:15px 0 !important;min-height:58px;
+  }
+  html body a.pv-back-top[data-back-top] {right:12px !important;bottom:12px !important;}
+}
+
+/* The TOP anchor remains visible as a no-JavaScript fallback when enhancement
+   cannot initialize; normal visibility logic activates with pv-top-ready. */
+html:not(.pv-top-ready) body a.pv-back-top[data-back-top] {
+  visibility:visible !important;
+  opacity:1 !important;
+  pointer-events:auto !important;
+  transform:none !important;
+}

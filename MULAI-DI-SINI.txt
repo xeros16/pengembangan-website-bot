@@ -1,0 +1,16 @@
+PIR VISUALS — PEMBARUAN WEBSITE PORTOFOLIO
+
+Lihat desain
+Ekstrak ZIP, lalu buka PRATINJAU-OFFLINE.html di browser. Beranda contoh dapat dibuka tanpa instalasi. Tautan ke direktori, Studio, dan halaman layanan menggunakan alamat website lokal standar http://localhost:3080. Pada instalasi yang menggunakan port lain, buka alamat yang ditampilkan server.
+
+Pasang di proyek yang kamu kirim
+1. Buka folder pengembangan-bot-grup-desain dari ZIP asli. Di dalamnya ada START-WEBSITE.bat, package.json, dan folder portfolio-website.
+2. Simpan salinan folder portfolio-website saat ini. Salin folder portfolio-website dari paket pembaruan ke lokasi yang sama dan pilih gabungkan folder. Timpa hanya file dengan nama yang sama. Jika ingin mengganti pratinjau lama, salin juga kedua file HTML dari paket ini ke sebelah START-WEBSITE.bat.
+3. Jalankan kembali START-WEBSITE.bat di Windows, atau npm run website dari folder utama. Gunakan koneksi MongoDB dan konfigurasi .env milik instalasimu. Paket ini tidak memerlukan dependensi baru.
+4. Buka alamat server untuk memakai fitur lengkap, termasuk pencarian desainer, Studio, dan pengelolaan konten.
+
+Catatan tampilan
+Judul, deskripsi, media, FAQ, dan urutan bagian yang sudah diatur di CMS tetap dipakai. Judul contoh muncul ketika pemilik belum mengganti judul. Statistik beranda muncul saat ada profil publik.
+
+Pemeriksaan
+Beranda diperiksa pada lebar 375, 390, 480, 768, 1024, 1280, dan 1440 piksel. Menu seluler, FAQ, tab etalase, serta tujuan utama diperiksa dengan data uji. Kondisi CMS terisi dan kosong diperiksa terpisah. Pengiriman email, login akun asli, dan penyimpanan ke MongoDB produksi belum diuji.

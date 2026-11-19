@@ -1,0 +1,41 @@
+PIR Visuals v5.87.0 — UPDATE MANIFEST
+
+PART 1 — APPLICATION
+- package.json
+- package-lock.json
+- README.md
+- .env.example
+- docs/ROADMAP.md
+- scripts/check-js.js
+- index.js
+- models/design-marketplace.js
+- features/design-marketplace/index.js
+- features/design-marketplace/services/marketplace-service.js
+- portfolio-website/server.js
+- portfolio-website/.env.example
+- portfolio-website/package.json
+- portfolio-website/package-lock.json
+
+PART 2 — TESTS & DOCUMENTATION
+- tests/operational-stability-v587.test.js
+- tests/backup-hardening.test.js
+- tests/bot-health-endpoint.test.js
+- tests/designer-dashboard-v528.test.js
+- tests/designer-growth-v525.test.js
+- tests/website-integration-v539.test.js
+- portfolio-website/tests/*.test.js
+- RELEASE_NOTES_v5_87_0.txt
+- QA_REPORT_v5_87_0.md
+- OPERATIONS_RUNBOOK_v5_87_0.md
+- INSTALL_UPDATE_v5_87_0.txt
+- UPDATE_MANIFEST_v5_87_0.txt
+
+DO NOT INCLUDE / DO NOT REPLACE
+- .env and portfolio-website/.env
+- portfolio-website/models.js
+- MongoDB database contents
+- uploads, media, temporary files, logs and backups
+- auth_info, auth_info_baileys or any WhatsApp session credentials
+- node_modules
+
+No new runtime dependency and no database migration script.

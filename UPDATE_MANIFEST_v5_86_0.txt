@@ -1,0 +1,30 @@
+PIR Visuals v5.86.0 — UPDATE MANIFEST
+
+PART 1 — APPLICATION
+- package.json
+- package-lock.json
+- README.md
+- scripts/check-js.js
+- portfolio-website/server.js
+- portfolio-website/security.js
+- portfolio-website/package.json
+- portfolio-website/package-lock.json
+- portfolio-website/.env.example
+
+PART 2 — TESTS & DOCUMENTATION
+- portfolio-website/tests/*.test.js
+- INSTALL_UPDATE_v5_86_0.txt
+- UPDATE_MANIFEST_v5_86_0.txt
+- QA_REPORT_v5_86_0.md
+- portfolio-website/RELEASE_NOTES_v5_86_0.txt
+- portfolio-website/SECURITY_OPERATIONS_v5_86_0.md
+
+DO NOT INCLUDE / DO NOT REPLACE
+- .env and portfolio-website/.env
+- portfolio-website/models.js
+- MongoDB database files or live database contents
+- uploads, media, temporary files, logs, backups
+- auth_info, auth_info_baileys or any WhatsApp session credentials
+- node_modules
+
+No new dependency and no database migration.

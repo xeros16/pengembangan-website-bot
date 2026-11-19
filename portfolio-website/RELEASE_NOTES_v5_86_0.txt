@@ -1,0 +1,15 @@
+PIR Visuals v5.86.0
+Atomic Account Security
+
+- WhatsApp setup tokens are consumed atomically and only while their expiry is still valid.
+- Duplicate-email activation races are handled cleanly with a conflict response.
+- Designer Studio login consumes the active WhatsApp OTP through an atomic compare-and-set operation before issuing a session.
+- Invalid password-reset URLs also receive no-store and no-referrer policies.
+- Concurrent login requests can no longer exchange the same OTP for multiple sessions.
+- Failed OTP attempts are bounded against the same active OTP.
+- Password changes receive per-IP and per-designer throttles and use a compare-and-set against the current password hash.
+- Password setup, password change and password reset invalidate all outstanding WhatsApp OTPs.
+- Existing v5.85 security throttles, token-safe email verification, CSRF protections, hashed sessions, hardened cookies and HTTP limits are retained.
+- Root syntax checking now includes website JavaScript and excludes dependency and Git folders.
+
+No database migration or new runtime dependency is required.

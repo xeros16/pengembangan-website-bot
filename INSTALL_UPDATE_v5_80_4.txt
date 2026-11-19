@@ -1,0 +1,17 @@
+PIR Visuals v5.80.4 — Restore magnetic mouse-following on all buttons
+
+Install:
+1. Back up the current project.
+2. Extract Part 1 to the project root and replace matching files.
+3. Extract Part 2 to the same root and merge/replace tests and notes.
+4. Keep the existing portfolio-website/models.js, .env, database, uploads, and WhatsApp session folders unchanged.
+5. Restart the website server.
+6. Hard refresh the browser with Ctrl + Shift + R.
+
+Expected behavior:
+- Buttons and button-like controls move subtly toward the mouse while hovered.
+- The motion is more visible than v5.80.3 and smoothly returns to center after the pointer leaves.
+- Dynamically-rendered buttons are included.
+- Touch-only devices and reduced-motion settings remain respected.
+
+Versions: Platform 5.80.4 | Website 3.34.4 | Public cache v29 | Asset suffix 5804

@@ -1,0 +1,28 @@
+PIR VISUALS v5.80.0 — HERO LAYOUT & STABLE CATEGORY HOVER
+Platform: 5.80.0
+Website package: 3.34.0
+Public cache: pir-visuals-public-v26
+Asset cache suffix: v=5800
+
+Part 1 — Core runtime:
+- package.json
+- package-lock.json
+- portfolio-website/server.js
+- portfolio-website/package.json
+- portfolio-website/package-lock.json
+- portfolio-website/.env.example
+
+Part 2 — Tests & documentation:
+- portfolio-website/tests/*.test.js (only changed/new test files)
+- RELEASE_NOTES_v5_80_0.txt
+- INSTALL_UPDATE_v5_80_0.txt
+- TEST_REPORT_v5_80_0.txt
+- UPDATE_MANIFEST_v5_80_0.txt
+
+Important exclusions:
+- portfolio-website/models.js (keep user's original)
+- .env
+- database
+- uploads/media
+- node_modules
+- WhatsApp auth/session data

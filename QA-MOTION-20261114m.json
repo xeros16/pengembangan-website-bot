@@ -1,0 +1,292 @@
+{
+  "passed": 33,
+  "total": 33,
+  "results": [
+    {
+      "name": "width 390: navbar flush",
+      "pass": true,
+      "data": {
+        "gap": 0,
+        "radius": "0px"
+      }
+    },
+    {
+      "name": "width 390: hero line alignment",
+      "pass": true,
+      "data": [
+        {
+          "x": 22,
+          "y": 518,
+          "width": 346,
+          "height": 62
+        },
+        {
+          "x": 22,
+          "y": 621,
+          "width": 346,
+          "height": 167.53125
+        }
+      ]
+    },
+    {
+      "name": "width 390: endless ribbon coverage",
+      "pass": true,
+      "data": {
+        "groups": 3,
+        "width": 2437,
+        "viewport": 390
+      }
+    },
+    {
+      "name": "width 390: no horizontal overflow",
+      "pass": true,
+      "data": 0
+    },
+    {
+      "name": "width 390: no script errors",
+      "pass": true,
+      "data": []
+    },
+    {
+      "name": "width 768: navbar flush",
+      "pass": true,
+      "data": {
+        "gap": 0,
+        "radius": "0px"
+      }
+    },
+    {
+      "name": "width 768: hero line alignment",
+      "pass": true,
+      "data": [
+        {
+          "x": 39.390625,
+          "y": 484.640625,
+          "width": 689.21875,
+          "height": 33.5
+        },
+        {
+          "x": 39.390625,
+          "y": 570.53125,
+          "width": 689.21875,
+          "height": 146.734375
+        }
+      ]
+    },
+    {
+      "name": "width 768: endless ribbon coverage",
+      "pass": true,
+      "data": {
+        "groups": 3,
+        "width": 2506,
+        "viewport": 768
+      }
+    },
+    {
+      "name": "width 768: no horizontal overflow",
+      "pass": true,
+      "data": 0
+    },
+    {
+      "name": "width 768: no script errors",
+      "pass": true,
+      "data": []
+    },
+    {
+      "name": "width 1365: navbar flush",
+      "pass": true,
+      "data": {
+        "gap": 0,
+        "radius": "0px"
+      }
+    },
+    {
+      "name": "width 1365: hero line alignment",
+      "pass": true,
+      "data": [
+        {
+          "x": 69.25,
+          "y": 690.15625,
+          "width": 1226.5,
+          "height": 33.5
+        },
+        {
+          "x": 69.25,
+          "y": 767.65625,
+          "width": 1226.5,
+          "height": 107.1875
+        }
+      ]
+    },
+    {
+      "name": "width 1365: endless ribbon coverage",
+      "pass": true,
+      "data": {
+        "groups": 4,
+        "width": 4581,
+        "viewport": 1365
+      }
+    },
+    {
+      "name": "width 1365: no horizontal overflow",
+      "pass": true,
+      "data": 0
+    },
+    {
+      "name": "width 1365: no script errors",
+      "pass": true,
+      "data": []
+    },
+    {
+      "name": "FAQ opening animates progressively",
+      "pass": true,
+      "data": [
+        0,
+        65.25,
+        65.5938
+      ]
+    },
+    {
+      "name": "FAQ closing animates progressively",
+      "pass": true,
+      "data": [
+        65.5938,
+        0.46875,
+        0
+      ]
+    },
+    {
+      "name": "FAQ fast clicks final state consistent",
+      "pass": true,
+      "data": null
+    },
+    {
+      "name": "FAQ keyboard Enter works",
+      "pass": true,
+      "data": null
+    },
+    {
+      "name": "marquee continues on hover at slow speed",
+      "pass": true,
+      "data": [
+        -228.758,
+        -236.122
+      ]
+    },
+    {
+      "name": "marquee accelerates after hover",
+      "pass": true,
+      "data": [
+        -271.416,
+        -286.46
+      ]
+    },
+    {
+      "name": "width 1920: navbar flush",
+      "pass": true,
+      "data": {
+        "gap": 0,
+        "radius": "0px"
+      }
+    },
+    {
+      "name": "width 1920: hero line alignment",
+      "pass": true,
+      "data": [
+        {
+          "x": 97,
+          "y": 700.65625,
+          "width": 1726,
+          "height": 33.5
+        },
+        {
+          "x": 97,
+          "y": 778.15625,
+          "width": 1726,
+          "height": 107.1875
+        }
+      ]
+    },
+    {
+      "name": "width 1920: endless ribbon coverage",
+      "pass": true,
+      "data": {
+        "groups": 4,
+        "width": 4581,
+        "viewport": 1920
+      }
+    },
+    {
+      "name": "width 1920: no horizontal overflow",
+      "pass": true,
+      "data": 0
+    },
+    {
+      "name": "width 1920: no script errors",
+      "pass": true,
+      "data": []
+    },
+    {
+      "name": "width 4096: navbar flush",
+      "pass": true,
+      "data": {
+        "gap": 0,
+        "radius": "0px"
+      }
+    },
+    {
+      "name": "width 4096: hero line alignment",
+      "pass": true,
+      "data": [
+        {
+          "x": 205.796875,
+          "y": 700.65625,
+          "width": 3684.40625,
+          "height": 33.5
+        },
+        {
+          "x": 205.796875,
+          "y": 778.15625,
+          "width": 3684.40625,
+          "height": 107.1875
+        }
+      ]
+    },
+    {
+      "name": "width 4096: endless ribbon coverage",
+      "pass": true,
+      "data": {
+        "groups": 6,
+        "width": 6871,
+        "viewport": 4096
+      }
+    },
+    {
+      "name": "width 4096: no horizontal overflow",
+      "pass": true,
+      "data": 0
+    },
+    {
+      "name": "width 4096: no script errors",
+      "pass": true,
+      "data": []
+    },
+    {
+      "name": "interior navbar consistent",
+      "pass": true,
+      "data": {
+        "radius": "0px",
+        "margin": "0px",
+        "width": 1365
+      }
+    },
+    {
+      "name": "reduced motion disables movement",
+      "pass": true,
+      "data": {
+        "anim": "none",
+        "trans": "0s"
+      }
+    }
+  ]
+}

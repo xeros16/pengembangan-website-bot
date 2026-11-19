@@ -1,0 +1,2638 @@
+/*
+ * PIR Visuals — Community Showcase / Editorial Carousel
+ * Native PIR Visuals identity:
+ * deep forest, soft sage, warm ivory, strong serif headlines,
+ * editorial composition, curated media, direct creator connection.
+ */
+
+#main-content .pv-home-showcase {
+  --pir-showcase-forest: #20372a;
+  --pir-showcase-deep: #14291d;
+  --pir-showcase-sage: #c7daaf;
+  --pir-showcase-light: #f0f3eb;
+  --pir-showcase-paper: #fbfcf7;
+  --pir-showcase-line: #9fb69e;
+  --pir-showcase-copy: #304f39;
+  position: relative;
+  margin: clamp(58px, 8vw, 118px) 0 clamp(64px, 9vw, 124px);
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: var(--pir-showcase-light);
+  color: var(--pir-showcase-forest);
+  overflow: visible;
+}
+
+#main-content .pv-home-showcase::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: clamp(-28px, -2vw, -12px);
+  height: 1px;
+  background: rgba(32,55,42,.22);
+}
+
+#main-content .pv-showcase-heading {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(18px, 4.5vw, 72px) clamp(24px, 3vw, 40px);
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(260px, .75fr);
+  gap: clamp(28px, 6vw, 96px);
+  align-items: end;
+}
+
+#main-content .pv-showcase-heading .pv-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #49634e;
+}
+
+#main-content .pv-showcase-heading .pv-label::before {
+  content: "";
+  width: 32px;
+  height: 1px;
+  background: var(--pir-showcase-forest);
+}
+
+#main-content .pv-showcase-heading h2 {
+  max-width: 11ch;
+  margin: 12px 0 0;
+  font-size: clamp(48px, 6.4vw, 96px);
+  line-height: .9;
+  letter-spacing: -.065em;
+  color: var(--pir-showcase-forest);
+  text-wrap: balance;
+}
+
+#main-content .pv-showcase-heading h2 span {
+  color: #6f8e73;
+}
+
+#main-content .pv-showcase-heading > p {
+  max-width: 390px;
+  margin: 0 0 5px;
+  color: #49634e;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+#main-content .pv-showcase-tabs {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 clamp(18px, 4.5vw, 72px) 18px;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  border-bottom: 1px solid rgba(32,55,42,.16);
+}
+
+#main-content .pv-showcase-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+#main-content .pv-showcase-tabs button {
+  position: relative;
+  flex: 0 0 auto;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  padding: 10px 4px 13px;
+  margin-right: clamp(18px, 2.5vw, 34px);
+  background: transparent;
+  color: #6b7d6e;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+#main-content .pv-showcase-tabs button::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: var(--pir-showcase-forest);
+  transition: width .25s ease;
+}
+
+#main-content .pv-showcase-tabs button::after {
+  content: "↗";
+  margin-left: 7px;
+  opacity: 0;
+  transform: translate(-4px, 3px);
+  display: inline-block;
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+#main-content .pv-showcase-tabs button:hover,
+#main-content .pv-showcase-tabs button.is-active,
+#main-content .pv-showcase-tabs button[aria-selected="true"] {
+  color: var(--pir-showcase-forest);
+}
+
+#main-content .pv-showcase-tabs button:hover::before,
+#main-content .pv-showcase-tabs button.is-active::before,
+#main-content .pv-showcase-tabs button[aria-selected="true"]::before {
+  width: 100%;
+}
+
+#main-content .pv-showcase-tabs button:hover::after,
+#main-content .pv-showcase-tabs button.is-active::after,
+#main-content .pv-showcase-tabs button[aria-selected="true"]::after {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+#main-content .pv-showcase-panel {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: clamp(20px, 2.6vw, 34px) clamp(18px, 4.5vw, 72px) 0;
+  border: 0;
+}
+
+#main-content .pv-showcase-track {
+  position: relative;
+  min-height: 0;
+}
+
+#main-content .pv-showcase-slide {
+  position: relative;
+  display: none;
+  grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr);
+  grid-template-areas: "copy art";
+  min-height: clamp(500px, 44vw, 600px);
+  overflow: hidden;
+  border: 1px solid rgba(32,55,42,.2);
+  background: var(--pir-showcase-paper);
+  box-shadow: 0 22px 50px rgba(20,41,29,.09);
+  isolation: isolate;
+  animation: pv-showcase-pir-enter .42s cubic-bezier(.2,.75,.2,1) both;
+}
+
+#main-content .pv-showcase-slide.is-active {
+  display: grid;
+}
+
+@keyframes pv-showcase-pir-enter {
+  from { opacity: .35; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* PIR Visuals palette: keep every collection inside the native brand system. */
+#main-content [data-showcase-panel="latest"] .pv-showcase-slide { background: #e4ecdb; }
+#main-content [data-showcase-panel="featured"] .pv-showcase-slide { background: #d5e2c8; }
+#main-content [data-showcase-panel="expensive"] .pv-showcase-slide { background: #e7d6c7; }
+#main-content [data-showcase-panel="affordable"] .pv-showcase-slide { background: #f0f3eb; }
+#main-content [data-showcase-panel="events"] .pv-showcase-slide { background: #c7daaf; }
+
+#main-content .pv-showcase-slide::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: min(34%, 340px);
+  height: 1px;
+  background: rgba(32,55,42,.2);
+  z-index: 4;
+  pointer-events: none;
+}
+
+#main-content .pv-showcase-slide::after {
+  content: "";
+  position: absolute;
+  left: 42%;
+  bottom: -150px;
+  width: 330px;
+  height: 330px;
+  border: 1px solid rgba(32,55,42,.12);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 28px rgba(32,55,42,.035),
+    0 0 0 62px rgba(32,55,42,.018);
+  pointer-events: none;
+}
+
+#main-content .pv-showcase-copy {
+  grid-area: copy;
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  padding: clamp(28px, 4vw, 56px);
+  color: var(--pir-showcase-forest);
+  overflow: hidden;
+}
+
+#main-content .pv-showcase-copy::before {
+  content: "PIR";
+  position: absolute;
+  right: -12px;
+  bottom: -38px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(120px, 13vw, 210px);
+  line-height: .8;
+  font-weight: 900;
+  letter-spacing: -.08em;
+  color: rgba(32,55,42,.055);
+  pointer-events: none;
+}
+
+#main-content .pv-showcase-copy::after {
+  content: "";
+  position: absolute;
+  top: 28px;
+  right: 28px;
+  width: 54px;
+  height: 54px;
+  border: 1px solid rgba(32,55,42,.22);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+#main-content .pv-showcase-meta {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  width: 100%;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: #536c58;
+}
+
+#main-content .pv-showcase-meta strong {
+  flex: 0 0 auto;
+  font-size: 11px;
+  letter-spacing: 0;
+  color: var(--pir-showcase-forest);
+  text-align: right;
+}
+
+#main-content .pv-showcase-copy h3 {
+  position: relative;
+  z-index: 2;
+  max-width: 9.5ch;
+  margin: clamp(70px, 7vw, 112px) 0 14px;
+  font-size: clamp(40px, 5vw, 78px);
+  line-height: .92;
+  letter-spacing: -.065em;
+  color: var(--pir-showcase-forest);
+  text-wrap: balance;
+}
+
+#main-content .pv-showcase-copy > p {
+  position: relative;
+  z-index: 2;
+  max-width: 38ch;
+  margin: auto 0 0;
+  color: #49634e;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+#main-content .pv-showcase-byline {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  width: 100%;
+  margin-top: 24px;
+  padding-top: 13px;
+  border-top: 1px dashed rgba(32,55,42,.28);
+  color: #607664;
+  font-size: 9px;
+  letter-spacing: .1em;
+}
+
+#main-content .pv-showcase-byline a {
+  color: var(--pir-showcase-forest);
+  font-weight: 850;
+  letter-spacing: 0;
+}
+
+#main-content .pv-showcase-cta {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  margin-top: 20px;
+  padding: 13px 17px;
+  border-radius: 3px;
+  background: var(--pir-showcase-forest);
+  color: #f1f7ed !important;
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: .02em;
+  box-shadow: 5px 5px 0 rgba(199,218,175,.72);
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+#main-content .pv-showcase-cta:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 rgba(199,218,175,.9);
+  background: #345b41;
+}
+
+html body #main-content .pv-home .pv-showcase-art {
+  grid-area: art;
+  position: relative;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  padding: clamp(18px, 2.4vw, 30px);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 72% 24%, rgba(199,218,175,.18), transparent 28%),
+    linear-gradient(145deg, #1b3123 0%, #20372a 58%, #2d4d37 100%);
+  border-left: 1px solid rgba(32,55,42,.28);
+}
+
+html body #main-content .pv-home .pv-showcase-art::before {
+  content: "PIR VISUALS / COMMUNITY";
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  z-index: 4;
+  padding: 7px 9px;
+  border: 1px solid rgba(241,247,237,.32);
+  background: rgba(20,41,29,.66);
+  color: #eef5ea;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: .15em;
+  backdrop-filter: blur(8px);
+}
+
+html body #main-content .pv-home .pv-showcase-art::after {
+  content: "VIEW WORK ↗";
+  position: absolute;
+  left: 22px;
+  bottom: 18px;
+  z-index: 4;
+  color: rgba(238,245,234,.8);
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: .14em;
+}
+
+html body #main-content .pv-home .pv-showcase-art > img,
+html body #main-content .pv-home .pv-showcase-art > video {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 94%;
+  max-height: 94%;
+  object-fit: contain;
+  object-position: center;
+  background: #f7f8f2;
+  border: 1px solid rgba(241,247,237,.2);
+  box-shadow: 0 24px 55px rgba(0,0,0,.26);
+  transition: transform .5s cubic-bezier(.2,.7,.2,1), filter .3s ease;
+}
+
+html body #main-content .pv-home .pv-showcase-slide:hover .pv-showcase-art > img,
+html body #main-content .pv-home .pv-showcase-slide:hover .pv-showcase-art > video {
+  transform: scale(1.012);
+  filter: saturate(1.03) contrast(1.01);
+}
+
+html body #main-content .pv-home .pv-showcase-art.is-portrait > img,
+html body #main-content .pv-home .pv-showcase-art.is-portrait > video {
+  width: auto;
+  height: min(94%, 540px);
+  max-width: 78%;
+  max-height: 94%;
+}
+
+html body #main-content .pv-home .pv-showcase-art.is-landscape > img,
+html body #main-content .pv-home .pv-showcase-art.is-landscape > video {
+  width: 94%;
+  height: auto;
+  max-height: 94%;
+}
+
+html body #main-content .pv-home .pv-showcase-art.is-square > img,
+html body #main-content .pv-home .pv-showcase-art.is-square > video {
+  width: min(94%, 620px);
+  height: auto;
+  max-height: 94%;
+}
+
+#main-content .pv-showcase-art-placeholder {
+  width: 94%;
+  height: 94%;
+  min-height: 320px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(241,247,237,.2);
+  background:
+    radial-gradient(circle at 30% 20%, rgba(199,218,175,.16), transparent 28%),
+    linear-gradient(135deg, #315b3d, #18291f);
+  color: #eef5ea;
+  font-size: clamp(28px, 4vw, 54px);
+  font-weight: 900;
+  letter-spacing: .16em;
+}
+
+#main-content .pv-showcase-controls {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 15px clamp(18px, 4.5vw, 72px) 0;
+  display: grid;
+  grid-template-columns: 90px 1fr 90px;
+  align-items: center;
+  gap: 16px;
+  border-top: 0;
+}
+
+#main-content .pv-showcase-counter {
+  color: #607664;
+  font-size: 10px;
+  letter-spacing: .1em;
+}
+
+#main-content .pv-showcase-counter b {
+  color: var(--pir-showcase-forest);
+}
+
+#main-content .pv-showcase-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+#main-content .pv-showcase-dots button {
+  width: 7px;
+  height: 7px;
+  border: 0;
+  border-radius: 999px;
+  padding: 0;
+  background: #a6b9a3;
+  opacity: .55;
+  transition: width .2s ease, opacity .2s ease, background .2s ease;
+}
+
+#main-content .pv-showcase-dots button[aria-current="true"] {
+  width: 30px;
+  background: var(--pir-showcase-forest);
+  opacity: 1;
+}
+
+#main-content .pv-showcase-arrows {
+  display: flex;
+  justify-content: flex-end;
+  gap: 7px;
+}
+
+#main-content .pv-showcase-arrows button {
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(32,55,42,.26);
+  border-radius: 50%;
+  background: var(--pir-showcase-paper);
+  color: var(--pir-showcase-forest);
+  font-size: 17px;
+  cursor: pointer;
+  transition: transform .2s ease, background .2s ease, color .2s ease;
+}
+
+#main-content .pv-showcase-arrows button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  background: var(--pir-showcase-forest);
+  color: #f1f7ed;
+}
+
+#main-content .pv-showcase-empty {
+  min-height: 440px;
+  padding: clamp(26px, 5vw, 70px);
+  border: 1px solid rgba(32,55,42,.18);
+  background: #dce8d4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: var(--pir-showcase-forest);
+}
+
+#main-content .pv-showcase-empty span {
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .14em;
+}
+
+#main-content .pv-showcase-empty h3 {
+  max-width: 12ch;
+  margin: 18px 0 10px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(34px, 4.5vw, 64px);
+  line-height: .95;
+  letter-spacing: -.055em;
+}
+
+#main-content .pv-showcase-empty p {
+  max-width: 44ch;
+  color: #49634e;
+  line-height: 1.65;
+}
+
+@media (max-width: 900px) {
+  #main-content .pv-showcase-heading {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  #main-content .pv-showcase-heading h2 {
+    max-width: 12ch;
+  }
+
+  #main-content .pv-showcase-slide {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "copy"
+      "art";
+    min-height: 0;
+  }
+
+  #main-content .pv-showcase-copy {
+    min-height: 420px;
+  }
+
+  #main-content .pv-showcase-copy h3 {
+    margin-top: 42px;
+  }
+
+  #main-content .pv-showcase-art {
+    min-height: clamp(360px, 72vw, 520px);
+    border-left: 0;
+    border-top: 1px solid rgba(32,55,42,.2);
+  }
+
+  html body #main-content .pv-home .pv-showcase-art.is-portrait > img,
+  html body #main-content .pv-home .pv-showcase-art.is-portrait > video {
+    height: min(94%, 520px);
+    max-width: 88%;
+  }
+
+  html body #main-content .pv-home .pv-showcase-art.is-landscape > img,
+  html body #main-content .pv-home .pv-showcase-art.is-landscape > video {
+    width: 94%;
+  }
+
+  #main-content .pv-showcase-controls {
+    grid-template-columns: 70px 1fr 80px;
+  }
+}
+
+@media (max-width: 560px) {
+  #main-content .pv-home-showcase {
+    margin-top: 44px;
+    margin-bottom: 64px;
+  }
+
+  #main-content .pv-showcase-heading {
+    padding-inline: 14px;
+  }
+
+  #main-content .pv-showcase-heading h2 {
+    font-size: clamp(43px, 14vw, 64px);
+  }
+
+  #main-content .pv-showcase-tabs {
+    padding-inline: 14px;
+  }
+
+  #main-content .pv-showcase-panel {
+    padding-inline: 14px;
+  }
+
+  #main-content .pv-showcase-copy {
+    min-height: 390px;
+    padding: 24px 22px 28px;
+  }
+
+  #main-content .pv-showcase-copy h3 {
+    max-width: 9ch;
+    font-size: clamp(38px, 12vw, 56px);
+  }
+
+  #main-content .pv-showcase-copy > p {
+    font-size: 12px;
+  }
+
+  #main-content .pv-showcase-art {
+    min-height: min(110vw, 460px);
+    padding: 14px;
+  }
+
+  html body #main-content .pv-home .pv-showcase-art::before {
+    top: 12px;
+    right: 12px;
+    font-size: 7px;
+  }
+
+  html body #main-content .pv-home .pv-showcase-art::after {
+    left: 14px;
+    bottom: 12px;
+  }
+
+  html body #main-content .pv-home .pv-showcase-art.is-portrait > img,
+  html body #main-content .pv-home .pv-showcase-art.is-portrait > video {
+    max-width: 88%;
+  }
+
+  #main-content .pv-showcase-controls {
+    grid-template-columns: 52px 1fr 76px;
+    padding-inline: 14px;
+  }
+
+  #main-content .pv-showcase-arrows button {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #main-content .pv-showcase-slide {
+    animation: none !important;
+  }
+
+  html body #main-content .pv-home .pv-showcase-slide:hover .pv-showcase-art > img,
+  html body #main-content .pv-home .pv-showcase-slide:hover .pv-showcase-art > video,
+  #main-content .pv-showcase-tabs button,
+  #main-content .pv-showcase-cta,
+  #main-content .pv-showcase-arrows button {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* =========================================================
+   PIR Visuals — Community Showcase final composition
+   Full-bleed carousel / media-first treatment
+   ========================================================= */
+
+#main-content .pv-home-showcase .pv-showcase-panel {
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#main-content .pv-home-showcase .pv-showcase-track {
+  width: 100%;
+}
+
+#main-content .pv-home-showcase .pv-showcase-slide {
+  width: 100%;
+  grid-template-columns: minmax(300px, .36fr) minmax(0, 1.64fr);
+  min-height: clamp(520px, 48vw, 680px);
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+#main-content .pv-home-showcase .pv-showcase-copy {
+  padding: clamp(34px, 4vw, 68px) clamp(28px, 4vw, 64px);
+}
+
+#main-content .pv-home-showcase .pv-showcase-copy::before {
+  display: none;
+}
+
+#main-content .pv-home-showcase .pv-showcase-art {
+  padding: 0;
+  border-left: 1px solid rgba(241,247,237,.22);
+  background:
+    radial-gradient(circle at 76% 20%, rgba(199,218,175,.12), transparent 26%),
+    linear-gradient(145deg, #172c20 0%, #20372a 58%, #2b4934 100%);
+}
+
+#main-content .pv-home-showcase .pv-showcase-art::before,
+#main-content .pv-home-showcase .pv-showcase-art::after {
+  display: none;
+}
+
+html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > img,
+html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > video {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+#main-content .pv-home-showcase .pv-showcase-art.is-portrait > img,
+#main-content .pv-home-showcase .pv-showcase-art.is-portrait > video {
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+#main-content .pv-home-showcase .pv-showcase-art.is-landscape > img,
+#main-content .pv-home-showcase .pv-showcase-art.is-landscape > video {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+#main-content .pv-home-showcase .pv-showcase-art.is-square > img,
+#main-content .pv-home-showcase .pv-showcase-art.is-square > video {
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+#main-content .pv-home-showcase .pv-showcase-controls {
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 15px clamp(18px, 4vw, 64px) 0;
+}
+
+@media (max-width: 900px) {
+  #main-content .pv-home-showcase .pv-showcase-slide {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "copy"
+      "art";
+    min-height: 0;
+  }
+
+  #main-content .pv-home-showcase .pv-showcase-copy {
+    min-height: 360px;
+  }
+
+  #main-content .pv-home-showcase .pv-showcase-art {
+    min-height: clamp(390px, 78vw, 620px);
+    border-left: 0;
+    border-top: 1px solid rgba(241,247,237,.22);
+  }
+
+  #main-content .pv-home-showcase .pv-showcase-art.is-portrait > img,
+  #main-content .pv-home-showcase .pv-showcase-art.is-portrait > video,
+  #main-content .pv-home-showcase .pv-showcase-art.is-square > img,
+  #main-content .pv-home-showcase .pv-showcase-art.is-square > video {
+    width: auto;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  #main-content .pv-home-showcase .pv-showcase-art.is-landscape > img,
+  #main-content .pv-home-showcase .pv-showcase-art.is-landscape > video {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  #main-content .pv-home-showcase .pv-showcase-copy {
+    min-height: 330px;
+    padding: 28px 22px 30px;
+  }
+
+  #main-content .pv-home-showcase .pv-showcase-art {
+    min-height: min(112vw, 500px);
+  }
+
+  #main-content .pv-home-showcase .pv-showcase-controls {
+    padding-inline: 14px;
+  }
+}
+
+
+/* =========================================================
+   2026-11-18 — Balanced split layout revision
+   Goal: enlarge copy zone so the editorial text block feels
+   balanced with media, inspired by the reference proportion,
+   while preserving PIR Visuals identity.
+   ========================================================= */
+
+#main-content .pv-home-showcase .pv-showcase-slide {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  min-height: clamp(560px, 46vw, 700px);
+}
+
+#main-content .pv-home-showcase .pv-showcase-copy {
+  padding: clamp(40px, 4.2vw, 74px) clamp(28px, 4.6vw, 74px);
+}
+
+#main-content .pv-home-showcase .pv-showcase-meta {
+  font-size: 10px;
+}
+
+#main-content .pv-home-showcase .pv-showcase-meta strong {
+  font-size: 12px;
+}
+
+#main-content .pv-home-showcase .pv-showcase-copy h3 {
+  max-width: 8.2ch;
+  margin: clamp(42px, 4.6vw, 68px) 0 16px;
+  font-size: clamp(52px, 5.5vw, 88px);
+  line-height: .9;
+}
+
+#main-content .pv-home-showcase .pv-showcase-copy > p {
+  max-width: 44ch;
+  font-size: 14px;
+}
+
+#main-content .pv-home-showcase .pv-showcase-byline {
+  margin-top: 28px;
+}
+
+#main-content .pv-home-showcase .pv-showcase-cta {
+  margin-top: 24px;
+}
+
+#main-content .pv-home-showcase .pv-showcase-art.is-portrait > img,
+#main-content .pv-home-showcase .pv-showcase-art.is-portrait > video {
+  width: auto;
+  height: min(100%, 640px);
+  max-width: 94%;
+  max-height: 100%;
+}
+
+#main-content .pv-home-showcase .pv-showcase-art.is-square > img,
+#main-content .pv-home-showcase .pv-showcase-art.is-square > video {
+  width: auto;
+  height: min(100%, 640px);
+  max-width: 96%;
+  max-height: 100%;
+}
+
+@media (max-width: 1180px) {
+  #main-content .pv-home-showcase .pv-showcase-slide {
+    grid-template-columns: minmax(0, .96fr) minmax(0, 1.04fr);
+  }
+}
+
+@media (max-width: 900px) {
+  #main-content .pv-home-showcase .pv-showcase-slide {
+    grid-template-columns: 1fr;
+  }
+
+  #main-content .pv-home-showcase .pv-showcase-copy {
+    min-height: 390px;
+    padding: 32px 24px 34px;
+  }
+
+  #main-content .pv-home-showcase .pv-showcase-copy h3 {
+    max-width: 9ch;
+    margin-top: 34px;
+    font-size: clamp(44px, 8vw, 66px);
+  }
+}
+
+/* =========================================================
+   2026-11-18 — Zoom-safe artwork frame
+   The artwork frame shrink-wraps the media's intrinsic ratio.
+   The media side remains forest green at every browser zoom;
+   no white CSS canvas or fixed empty media box is introduced.
+   ========================================================= */
+
+html body #main-content .pv-home .pv-home-showcase .pv-showcase-slide {
+  background: linear-gradient(
+    90deg,
+    #e4ecdb 0%,
+    #e4ecdb 50%,
+    #20372a 50%,
+    #20372a 100%
+  ) !important;
+  align-items: stretch;
+}
+
+html body #main-content .pv-home .pv-home-showcase .pv-showcase-art {
+  display: grid;
+  place-items: center;
+  justify-self: center;
+  align-self: center;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  block-size: fit-content;
+  max-block-size: 100%;
+  min-inline-size: 0;
+  min-block-size: 0;
+  padding: 0 !important;
+  overflow: hidden;
+  border: 0 !important;
+  border-radius: 0;
+  background: #20372a !important;
+  box-shadow: none !important;
+}
+
+html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > img,
+html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > video {
+  display: block;
+  inline-size: auto !important;
+  block-size: auto !important;
+  max-inline-size: 100% !important;
+  max-block-size: min(76svh, 680px) !important;
+  min-inline-size: 0;
+  min-block-size: 0;
+  aspect-ratio: auto;
+  object-fit: contain;
+  object-position: center;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+html body #main-content .pv-home .pv-home-showcase .pv-showcase-slide:hover .pv-showcase-art > img,
+html body #main-content .pv-home .pv-home-showcase .pv-showcase-slide:hover .pv-showcase-art > video {
+  transform: none;
+}
+
+@media (max-width: 900px) {
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-slide {
+    background: #20372a !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-copy {
+    background: #e4ecdb;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art {
+    inline-size: fit-content;
+    max-inline-size: 100%;
+    block-size: fit-content;
+    max-block-size: none;
+    min-block-size: 0;
+    justify-self: center;
+    margin: 0 auto;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > img,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > video {
+    max-inline-size: min(100%, 680px) !important;
+    max-block-size: min(72svh, 620px) !important;
+  }
+}
+
+@media (max-width: 560px) {
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > img,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > video {
+    max-block-size: min(68svh, 500px) !important;
+  }
+}
+
+/* =========================================================
+   2026-11-18 — Reference detail polish (PIR Visuals)
+   Give the artwork side a deliberate right breathing edge,
+   strengthen the dashed rule below the description, and use
+   a crisp outlined CTA inspired by the reference composition.
+   ========================================================= */
+
+@media (min-width: 901px) {
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art {
+    justify-self: start;
+    inline-size: calc(100% - clamp(22px, 2.6vw, 38px));
+    max-inline-size: calc(100% - clamp(22px, 2.6vw, 38px));
+    margin-inline: 0 clamp(22px, 2.6vw, 38px);
+    box-sizing: border-box;
+  }
+}
+
+/* On smaller screens, keep the media centered with an even inset. */
+@media (max-width: 900px) {
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art {
+    justify-self: center;
+    inline-size: calc(100% - 32px);
+    max-inline-size: calc(100% - 32px);
+    margin-inline: auto;
+    box-sizing: border-box;
+  }
+}
+
+#main-content .pv-home-showcase .pv-showcase-byline {
+  position: relative;
+  border-top: 0 !important;
+  padding-top: 19px;
+  margin-top: 27px;
+}
+
+#main-content .pv-home-showcase .pv-showcase-byline::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(32, 55, 42, .72) 0 11px,
+    transparent 11px 18px
+  );
+  pointer-events: none;
+}
+
+#main-content .pv-home-showcase .pv-showcase-cta {
+  min-height: 48px;
+  margin-top: 22px;
+  padding: 13px 20px;
+  border: 1.5px solid var(--pir-showcase-forest) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: var(--pir-showcase-forest) !important;
+  box-shadow: none !important;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  transition: color .2s ease, background .2s ease, transform .2s ease;
+}
+
+#main-content .pv-home-showcase .pv-showcase-cta:hover {
+  transform: translateY(-2px);
+  border-color: var(--pir-showcase-forest) !important;
+  background: var(--pir-showcase-forest) !important;
+  color: #f1f7ed !important;
+  box-shadow: 4px 4px 0 rgba(32, 55, 42, .16) !important;
+}
+
+#main-content .pv-home-showcase .pv-showcase-cta span {
+  display: inline-block;
+  transition: transform .2s ease;
+}
+
+#main-content .pv-home-showcase .pv-showcase-cta:hover span {
+  transform: translate(2px, -2px);
+}
+
+#main-content .pv-home-showcase .pv-showcase-cta:focus-visible {
+  outline: 3px solid #8da889;
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #main-content .pv-home-showcase .pv-showcase-cta,
+  #main-content .pv-home-showcase .pv-showcase-cta span {
+    transition: none !important;
+  }
+}
+
+/* =========================================================
+   2026-11-18 — Center the artwork on the media side
+   Keep the right panel balanced so the artwork sits in the
+   middle instead of reading as visually pushed to the right.
+   ========================================================= */
+
+@media (min-width: 901px) {
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art {
+    justify-self: center !important;
+    align-self: center;
+    inline-size: calc(100% - clamp(44px, 5vw, 88px));
+    max-inline-size: calc(100% - clamp(44px, 5vw, 88px));
+    margin-inline: auto !important;
+    box-sizing: border-box;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > img,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > video {
+    margin-inline: auto !important;
+  }
+}
+
+
+/* =========================================================
+   2026-11-18 — Exact media-column centering
+   Use the complete right grid column as the centering reference.
+   This removes the small optical offset caused by sizing the
+   artwork wrapper narrower than its column.
+   ========================================================= */
+
+@media (min-width: 901px) {
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art {
+    display: grid !important;
+    place-items: center !important;
+    justify-self: stretch !important;
+    align-self: stretch !important;
+    inline-size: 100% !important;
+    max-inline-size: 100% !important;
+    block-size: 100% !important;
+    max-block-size: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    transform: none !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > img,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > video {
+    justify-self: center !important;
+    align-self: center !important;
+    margin: 0 auto !important;
+    transform: none !important;
+  }
+}
+
+/* =========================================================
+   2026-11-18 — Full-bleed media panel like the reference
+   Remove the dark-green framing around the artwork and let the
+   media fill the whole right panel on desktop.
+   ========================================================= */
+
+@media (min-width: 901px) {
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-slide {
+    background: #e4ecdb !important;
+    overflow: hidden;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art {
+    display: block !important;
+    justify-self: stretch !important;
+    align-self: stretch !important;
+    inline-size: 100% !important;
+    max-inline-size: 100% !important;
+    block-size: 100% !important;
+    max-block-size: none !important;
+    min-block-size: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    background: transparent !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > img,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > video {
+    display: block;
+    inline-size: 100% !important;
+    block-size: 100% !important;
+    max-inline-size: none !important;
+    max-block-size: none !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    background: transparent !important;
+  }
+}
+
+/* =========================================================
+   2026-11-18 — Uncropped showcase artwork (desktop + mobile)
+   Always show the complete uploaded artwork. The media canvas
+   uses PIR's pale green surface so contain-letterboxing never
+   introduces white or dark-green bars. Keep this responsive
+   rule shared across desktop, tablet and mobile breakpoints.
+   ========================================================= */
+
+html body #main-content .pv-home .pv-home-showcase .pv-showcase-slide {
+  background: #e4ecdb !important;
+}
+
+html body #main-content .pv-home .pv-home-showcase .pv-showcase-art {
+  display: grid !important;
+  place-items: center !important;
+  inline-size: 100% !important;
+  max-inline-size: 100% !important;
+  min-inline-size: 0 !important;
+  min-block-size: 0 !important;
+  block-size: 100% !important;
+  max-block-size: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: #e4ecdb !important;
+  box-shadow: none !important;
+}
+
+html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > img,
+html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > video {
+  display: block !important;
+  inline-size: 100% !important;
+  block-size: 100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-inline-size: 100% !important;
+  max-block-size: 100% !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* Tablet and mobile: let the artwork determine its own height,
+   preserving its intrinsic aspect ratio without clipping. */
+@media (max-width: 900px) {
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-slide {
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-areas: "copy" "art" !important;
+    background: #e4ecdb !important;
+    min-height: 0 !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art {
+    grid-area: art !important;
+    display: grid !important;
+    place-items: center !important;
+    inline-size: 100% !important;
+    block-size: auto !important;
+    min-block-size: 0 !important;
+    max-block-size: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    background: #e4ecdb !important;
+    border: 0 !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > img,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > video {
+    inline-size: 100% !important;
+    block-size: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    max-inline-size: 100% !important;
+    max-block-size: min(78svh, 680px) !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+  }
+}
+
+@media (max-width: 560px) {
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > img,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > video {
+    max-block-size: min(72svh, 560px) !important;
+  }
+}
+
+/* =========================================================
+   2026-11-18 — Desktop artwork ratio-led layout
+   Desktop media height now follows the uploaded artwork's
+   intrinsic ratio. This removes top/bottom letterbox space
+   without cropping or stretching the artwork. The mobile
+   layout above 900px breakpoint remains unchanged.
+   ========================================================= */
+
+@media (min-width: 901px) {
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-slide {
+    min-block-size: 0 !important;
+    block-size: auto !important;
+    align-items: center !important;
+    grid-template-columns: minmax(0, .48fr) minmax(0, .52fr) !important;
+    overflow: visible !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-copy {
+    min-block-size: 0 !important;
+    block-size: auto !important;
+    padding-block: clamp(18px, 1.8vw, 26px) !important;
+    padding-inline: clamp(26px, 3.5vw, 56px) !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-copy h3 {
+    max-inline-size: 12ch !important;
+    margin-block: clamp(16px, 1.6vw, 24px) 8px !important;
+    font-size: clamp(32px, 3.5vw, 50px) !important;
+    line-height: .92 !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-copy > p {
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: 3 !important;
+    overflow: hidden !important;
+    margin-block: 6px 0 !important;
+    font-size: 13px !important;
+    line-height: 1.4 !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-byline {
+    margin-block-start: 12px !important;
+    padding-block-start: 10px !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-cta {
+    min-block-size: 38px !important;
+    margin-block-start: 12px !important;
+    padding: 9px 14px !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art {
+    display: block !important;
+    justify-self: stretch !important;
+    align-self: center !important;
+    inline-size: 100% !important;
+    max-inline-size: 100% !important;
+    block-size: auto !important;
+    max-block-size: none !important;
+    min-block-size: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    background: transparent !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > img,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > video {
+    display: block !important;
+    inline-size: 100% !important;
+    block-size: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    max-inline-size: 100% !important;
+    max-block-size: none !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    margin: 0 !important;
+  }
+
+  @media (max-width: 1100px) {
+    html body #main-content .pv-home .pv-home-showcase .pv-showcase-slide {
+      grid-template-columns: minmax(0, .44fr) minmax(0, .56fr) !important;
+    }
+
+    html body #main-content .pv-home .pv-home-showcase .pv-showcase-copy {
+      padding-inline: 24px !important;
+    }
+
+    html body #main-content .pv-home .pv-home-showcase .pv-showcase-copy h3 {
+      font-size: clamp(30px, 3.3vw, 40px) !important;
+    }
+
+    html body #main-content .pv-home .pv-home-showcase .pv-showcase-copy > p {
+      -webkit-line-clamp: 2 !important;
+    }
+  }
+}
+
+
+/* =========================================================
+   2026-11-18 — Restore consistent desktop editorial typography
+   The media ratio may determine the carousel height, but it
+   must never scale down the title or copy. Keep the original
+   PIR editorial type hierarchy across every desktop slide.
+   Mobile typography remains governed by its own breakpoints.
+   ========================================================= */
+
+@media (min-width: 901px) {
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-copy {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    min-block-size: 100% !important;
+    padding-block: clamp(32px, 4vw, 64px) !important;
+    padding-inline: clamp(28px, 4.6vw, 74px) !important;
+    box-sizing: border-box !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-meta {
+    font-size: 10px !important;
+    line-height: 1.4 !important;
+    letter-spacing: .13em !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-meta strong {
+    font-size: 12px !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-copy h3 {
+    max-inline-size: 8.2ch !important;
+    margin-block: clamp(34px, 4.2vw, 62px) 16px !important;
+    font-size: clamp(48px, 5.4vw, 84px) !important;
+    line-height: .9 !important;
+    letter-spacing: -.065em !important;
+    text-wrap: balance !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-copy > p {
+    display: block !important;
+    max-inline-size: 44ch !important;
+    margin: auto 0 0 !important;
+    font-size: 14px !important;
+    line-height: 1.65 !important;
+    -webkit-line-clamp: unset !important;
+    overflow: visible !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-byline {
+    margin-block-start: 28px !important;
+    padding-block-start: 19px !important;
+    font-size: 9px !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-cta {
+    min-block-size: 48px !important;
+    margin-block-start: 22px !important;
+    padding: 13px 20px !important;
+    font-size: 10px !important;
+  }
+}
+
+/* =========================================================
+   2026-11-18 — Stable media-ratio forest frame (final)
+   Keep the editorial 50/50 carousel composition. The dark
+   forest panel wraps the artwork's intrinsic aspect ratio with
+   a small, even inset; it never fills the whole media column.
+   Artwork remains fully visible and is never cropped/stretched.
+   ========================================================= */
+
+/* The slide itself stays in the PIR sage palette. */
+#main-content [data-showcase-panel="latest"] .pv-showcase-slide { background: #e4ecdb !important; }
+#main-content [data-showcase-panel="featured"] .pv-showcase-slide { background: #d5e2c8 !important; }
+#main-content [data-showcase-panel="expensive"] .pv-showcase-slide { background: #e7d6c7 !important; }
+#main-content [data-showcase-panel="affordable"] .pv-showcase-slide { background: #f0f3eb !important; }
+#main-content [data-showcase-panel="events"] .pv-showcase-slide { background: #c7daaf !important; }
+
+html body #main-content .pv-home .pv-home-showcase .pv-showcase-slide {
+  display: none;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  grid-template-areas: "copy art" !important;
+  align-items: stretch !important;
+  min-height: clamp(500px, 43vw, 620px) !important;
+  height: auto !important;
+  overflow: hidden !important;
+  background-color: #e4ecdb !important;
+}
+
+html body #main-content .pv-home .pv-home-showcase .pv-showcase-slide.is-active {
+  display: grid !important;
+}
+
+/* Right column is only a centering area; it is not painted forest green. */
+html body #main-content .pv-home .pv-home-showcase .pv-showcase-art {
+  grid-area: art !important;
+  display: grid !important;
+  place-items: center !important;
+  justify-self: stretch !important;
+  align-self: stretch !important;
+  inline-size: 100% !important;
+  block-size: 100% !important;
+  min-inline-size: 0 !important;
+  min-block-size: 0 !important;
+  max-inline-size: none !important;
+  max-block-size: none !important;
+  margin: 0 !important;
+  padding: 20px !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* The anchor itself shrink-wraps the image; green follows its ratio. */
+html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > img,
+html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > video {
+  display: block !important;
+  inline-size: auto !important;
+  block-size: auto !important;
+  width: auto !important;
+  height: auto !important;
+  max-inline-size: min(100%, 560px) !important;
+  max-block-size: min(66svh, 560px) !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* Recreate a tight forest frame around the intrinsic media box.
+   The frame uses :has() so its dimensions follow the actual media. */
+html body #main-content .pv-home .pv-home-showcase .pv-showcase-art:has(> img),
+html body #main-content .pv-home .pv-home-showcase .pv-showcase-art:has(> video) {
+  display: inline-grid !important;
+  place-items: center !important;
+  justify-self: center !important;
+  align-self: center !important;
+  inline-size: fit-content !important;
+  block-size: fit-content !important;
+  max-inline-size: calc(100% - 40px) !important;
+  max-block-size: calc(100% - 40px) !important;
+  padding: clamp(10px, 1.35vw, 18px) !important;
+  overflow: hidden !important;
+  background: linear-gradient(145deg, #172c20 0%, #20372a 58%, #2b4934 100%) !important;
+  border: 1px solid rgba(32,55,42,.18) !important;
+  box-sizing: border-box !important;
+}
+
+/* No old rings, oversized PIR watermark, labels or pseudo overlays. */
+html body #main-content .pv-home .pv-home-showcase .pv-showcase-slide::after,
+html body #main-content .pv-home .pv-home-showcase .pv-showcase-copy::before,
+html body #main-content .pv-home .pv-home-showcase .pv-showcase-copy::after,
+html body #main-content .pv-home .pv-home-showcase .pv-showcase-art::before,
+html body #main-content .pv-home .pv-home-showcase .pv-showcase-art::after {
+  content: none !important;
+  display: none !important;
+  box-shadow: none !important;
+}
+
+@media (max-width: 900px) {
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-slide {
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-areas: "copy" "art" !important;
+    min-height: 0 !important;
+    height: auto !important;
+    background: #e4ecdb !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-copy {
+    grid-area: copy !important;
+    min-height: 330px !important;
+    background: #e4ecdb !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art {
+    grid-area: art !important;
+    display: grid !important;
+    place-items: center !important;
+    inline-size: 100% !important;
+    block-size: auto !important;
+    min-height: 0 !important;
+    max-inline-size: 100% !important;
+    margin: 0 !important;
+    padding: 18px !important;
+    background: transparent !important;
+    overflow: hidden !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art:has(> img),
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art:has(> video) {
+    inline-size: fit-content !important;
+    block-size: fit-content !important;
+    max-inline-size: calc(100% - 36px) !important;
+    max-block-size: none !important;
+    justify-self: center !important;
+    align-self: center !important;
+    padding: 12px !important;
+    background: linear-gradient(145deg, #172c20 0%, #20372a 58%, #2b4934 100%) !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > img,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > video {
+    max-inline-size: 100% !important;
+    max-block-size: min(68svh, 520px) !important;
+  }
+}
+
+@media (max-width: 560px) {
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-copy {
+    min-height: 300px !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art {
+    padding: 12px !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > img,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > video {
+    max-block-size: min(64svh, 440px) !important;
+  }
+}
+
+/* =========================================================
+   2026-11-18 — Balanced forest-backed showcase
+   Keep the original 50/50 editorial split and original media
+   scale, while filling the complete right column with forest
+   green. The artwork remains uncropped and centered.
+   ========================================================= */
+
+@media (min-width: 901px) {
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-slide {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    grid-template-areas: "copy art" !important;
+    align-items: stretch !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art {
+    grid-area: art !important;
+    display: grid !important;
+    place-items: center !important;
+    justify-self: stretch !important;
+    align-self: stretch !important;
+    inline-size: 100% !important;
+    block-size: 100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-inline-size: 0 !important;
+    min-block-size: 100% !important;
+    min-width: 0 !important;
+    min-height: 100% !important;
+    max-inline-size: none !important;
+    max-block-size: none !important;
+    max-width: none !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 20px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: linear-gradient(145deg, #172c20 0%, #20372a 58%, #2b4934 100%) !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > img,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > video {
+    display: block !important;
+    inline-size: auto !important;
+    block-size: auto !important;
+    width: auto !important;
+    height: auto !important;
+    min-inline-size: 0 !important;
+    min-block-size: 0 !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    max-inline-size: min(100%, 560px) !important;
+    max-block-size: min(66svh, 560px) !important;
+    max-width: min(100%, 560px) !important;
+    max-height: min(66svh, 560px) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+}
+
+
+/* =========================================================
+   2026-11-18 — Balanced forest panel / artwork fills available area
+   Keep the desktop editorial split exactly 50:50. Forest green
+   covers the complete media column, while each uploaded image
+   scales to the largest possible size inside it with contain:
+   no crop, no stretch, no artificial white canvas. On mobile,
+   the same green backing spans the media row and the artwork
+   keeps its natural ratio.
+   ========================================================= */
+
+html body #main-content .pv-home .pv-home-showcase .pv-showcase-slide {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  grid-template-areas: "copy art" !important;
+  align-items: stretch !important;
+  overflow: hidden !important;
+}
+
+html body #main-content .pv-home .pv-home-showcase .pv-showcase-art {
+  grid-area: art !important;
+  display: grid !important;
+  place-items: center !important;
+  justify-self: stretch !important;
+  align-self: stretch !important;
+  inline-size: 100% !important;
+  block-size: 100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-inline-size: 0 !important;
+  min-block-size: 0 !important;
+  max-inline-size: none !important;
+  max-block-size: none !important;
+  margin: 0 !important;
+  padding: clamp(12px, 1.6vw, 22px) !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: linear-gradient(145deg, #172c20 0%, #20372a 58%, #2b4934 100%) !important;
+  box-shadow: none !important;
+}
+
+html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > img,
+html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > video {
+  display: block !important;
+  inline-size: 100% !important;
+  block-size: 100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-inline-size: 0 !important;
+  min-block-size: 0 !important;
+  max-inline-size: 100% !important;
+  max-block-size: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* Keep the text column's established spacing and typography. */
+@media (min-width: 901px) {
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-slide {
+    min-height: clamp(500px, 43vw, 620px) !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-copy {
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* Mobile/tablet: stack copy above a full-width forest media row.
+   The image uses natural height so portrait and landscape artwork
+   remain fully visible and are never cropped. */
+@media (max-width: 900px) {
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-slide {
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-areas: "copy" "art" !important;
+    min-height: 0 !important;
+    height: auto !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art {
+    grid-area: art !important;
+    display: grid !important;
+    place-items: center !important;
+    inline-size: 100% !important;
+    block-size: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-inline-size: 100% !important;
+    margin: 0 !important;
+    padding: clamp(12px, 3vw, 18px) !important;
+    overflow: hidden !important;
+    background: linear-gradient(145deg, #172c20 0%, #20372a 58%, #2b4934 100%) !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > img,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > video {
+    inline-size: 100% !important;
+    block-size: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    max-inline-size: 100% !important;
+    max-block-size: min(68svh, 520px) !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+  }
+}
+
+@media (max-width: 560px) {
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art {
+    padding: 12px !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > img,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > video {
+    max-block-size: min(64svh, 460px) !important;
+  }
+}
+
+/* =========================================================
+   2026-11-18 — Full desktop forest backdrop to marked bounds
+   Extend the forest color across the complete right half of
+   the carousel, including the controls rail below the slide.
+   Keep the uploaded artwork at its intrinsic aspect ratio and
+   its existing capped size: no crop, stretch, filter or edit.
+   Mobile layout remains unchanged.
+   ========================================================= */
+@media (min-width: 901px) {
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-panel {
+    background: linear-gradient(
+      145deg,
+      transparent 0%,
+      transparent 50%,
+      #172c20 50%,
+      #20372a 78%,
+      #2b4934 100%
+    ) !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art:has(> img),
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art:has(> video) {
+    display: grid !important;
+    place-items: center !important;
+    justify-self: stretch !important;
+    align-self: stretch !important;
+    inline-size: 100% !important;
+    block-size: 100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-inline-size: 0 !important;
+    min-block-size: 0 !important;
+    max-inline-size: none !important;
+    max-block-size: none !important;
+    margin: 0 !important;
+    padding: 20px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: linear-gradient(145deg, #172c20 0%, #20372a 58%, #2b4934 100%) !important;
+    box-shadow: none !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > img,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > video {
+    display: block !important;
+    inline-size: auto !important;
+    block-size: auto !important;
+    width: auto !important;
+    height: auto !important;
+    min-inline-size: 0 !important;
+    min-block-size: 0 !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    max-inline-size: min(100%, 560px) !important;
+    max-block-size: min(66svh, 560px) !important;
+    max-width: min(100%, 560px) !important;
+    max-height: min(66svh, 560px) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    justify-self: center !important;
+    align-self: center !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+}
+
+/* =========================================================
+   2026-11-18 — Compact forest media panel (final correction)
+   Keep forest green confined to the actual artwork column;
+   never extend it behind the carousel controls below the slide.
+   Scale each uploaded image to the largest possible size inside
+   that green panel with object-fit: contain, preserving its full
+   original ratio without cropping or stretching.
+   ========================================================= */
+
+@media (min-width: 901px) {
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-panel {
+    background: transparent !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-slide {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    grid-template-areas: "copy art" !important;
+    align-items: stretch !important;
+    min-height: clamp(500px, 43vw, 620px) !important;
+    height: auto !important;
+    overflow: hidden !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art:has(> img),
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art:has(> video) {
+    grid-area: art !important;
+    display: grid !important;
+    place-items: center !important;
+    justify-self: stretch !important;
+    align-self: stretch !important;
+    inline-size: 100% !important;
+    block-size: 100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-inline-size: 0 !important;
+    min-block-size: 0 !important;
+    max-inline-size: none !important;
+    max-block-size: none !important;
+    margin: 0 !important;
+    padding: clamp(12px, 1.25vw, 18px) !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: linear-gradient(145deg, #172c20 0%, #20372a 58%, #2b4934 100%) !important;
+    box-shadow: none !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > img,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > video {
+    display: block !important;
+    inline-size: 100% !important;
+    block-size: 100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-inline-size: 0 !important;
+    min-block-size: 0 !important;
+    max-inline-size: 100% !important;
+    max-block-size: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+}
+
+/* Tablet/mobile: keep the established stacked layout and let the
+   artwork row size to the original media ratio. Controls stay on
+   the page background, not on a long forest-green extension. */
+@media (max-width: 900px) {
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-panel {
+    background: transparent !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-slide {
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-areas: "copy" "art" !important;
+    min-height: 0 !important;
+    height: auto !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art:has(> img),
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art:has(> video) {
+    grid-area: art !important;
+    display: grid !important;
+    place-items: center !important;
+    inline-size: 100% !important;
+    block-size: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-inline-size: 100% !important;
+    max-block-size: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+    background: transparent !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > img,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > video {
+    inline-size: 100% !important;
+    block-size: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    max-inline-size: 100% !important;
+    max-block-size: min(68svh, 520px) !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+  }
+}
+
+@media (max-width: 560px) {
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > img,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > video {
+    max-block-size: min(64svh, 460px) !important;
+  }
+}
+
+/* =========================================================
+   2026-11-18 — Mobile artwork full-width correction
+   Fill the complete mobile media column with the uploaded image.
+   Remove portrait/square width caps and viewport-height caps that
+   were shrinking the artwork. Keep intrinsic ratio: no crop,
+   no stretch, no green backing, and no mobile side padding.
+   Desktop rules remain untouched.
+   ========================================================= */
+@media (max-width: 900px) {
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art:has(> img),
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art:has(> video) {
+    display: block !important;
+    justify-self: stretch !important;
+    align-self: stretch !important;
+    inline-size: 100% !important;
+    width: 100% !important;
+    max-inline-size: 100% !important;
+    max-width: 100% !important;
+    block-size: auto !important;
+    height: auto !important;
+    min-block-size: 0 !important;
+    max-block-size: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > img,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > video,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art.is-portrait > img,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art.is-portrait > video,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art.is-landscape > img,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art.is-landscape > video,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art.is-square > img,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art.is-square > video {
+    display: block !important;
+    inline-size: 100% !important;
+    width: 100% !important;
+    block-size: auto !important;
+    height: auto !important;
+    min-inline-size: 0 !important;
+    min-block-size: 0 !important;
+    max-inline-size: 100% !important;
+    max-width: 100% !important;
+    max-block-size: none !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+}
+
+
+/* =========================================================
+   2026-11-18 — Full-bleed showcase split (corrected)
+   Keep the existing title masthead and category tabs untouched.
+   Only the actual text/image carousel and its control rail break
+   out of the centered content wrapper to span the viewport.
+   No new card, border, or decorative rule is added to the heading
+   or copy column. Artwork styling and media fitting are untouched.
+   ========================================================= */
+
+/* Break out only the carousel area, not the heading or category tabs. */
+html body #main-content .pv-home .pv-home-showcase .pv-showcase-panels {
+  display: block !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+}
+
+html body #main-content .pv-home .pv-home-showcase .pv-showcase-panel {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+html body #main-content .pv-home .pv-home-showcase .pv-showcase-track {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Desktop: equal left/right columns, with copy vertically centered. */
+@media (min-width: 901px) {
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-slide {
+    width: 100% !important;
+    max-width: none !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    grid-template-areas: "copy art" !important;
+    align-items: stretch !important;
+    min-height: clamp(500px, 43vw, 620px) !important;
+    margin: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-copy {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 100% !important;
+    box-sizing: border-box !important;
+    padding: clamp(34px, 4vw, 64px) clamp(28px, 6vw, 96px) !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+}
+
+/* The controls rail follows the same viewport-wide carousel width. */
+html body #main-content .pv-home .pv-home-showcase .pv-showcase-controls {
+  display: grid !important;
+  grid-template-columns: 90px minmax(0, 1fr) 90px !important;
+  align-items: center !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 15px clamp(18px, 4.5vw, 72px) 0 !important;
+  box-sizing: border-box !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+html body #main-content .pv-home .pv-home-showcase .pv-showcase-counter {
+  justify-self: start !important;
+}
+
+html body #main-content .pv-home .pv-home-showcase .pv-showcase-dots {
+  justify-self: center !important;
+}
+
+html body #main-content .pv-home .pv-home-showcase .pv-showcase-arrows {
+  justify-self: end !important;
+}
+
+/* Mobile/tablet: preserve the existing stacked copy-then-art layout. */
+@media (max-width: 900px) {
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-slide {
+    width: 100% !important;
+    max-width: none !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-areas: "copy" "art" !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-copy {
+    width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-controls {
+    grid-template-columns: 60px minmax(0, 1fr) 76px !important;
+    padding: 12px 14px 0 !important;
+    gap: 8px !important;
+  }
+}
+
+
+/* =========================================================
+   2026-11-18 — Carousel copy hierarchy and spacing
+   Keep the existing top masthead untouched. Inside each slide,
+   retain the category/price row at the top, place the title and
+   description together in the upper-left, then keep creator info
+   and the CTA toward the lower-left. Preserve the 50/50 split,
+   all existing typography/colors, and the original artwork.
+   ========================================================= */
+
+@media (min-width: 901px) {
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-copy {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-meta {
+    flex: 0 0 auto !important;
+    width: 100% !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-copy h3 {
+    margin-block: clamp(38px, 4vw, 58px) 14px !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-copy > p {
+    display: block !important;
+    margin: 0 !important;
+    max-inline-size: 44ch !important;
+    overflow: visible !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-byline {
+    margin-block-start: auto !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-cta {
+    align-self: flex-start !important;
+    margin-block-start: 22px !important;
+  }
+}
+
+@media (max-width: 900px) {
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-copy {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-meta {
+    flex: 0 0 auto !important;
+    width: 100% !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-copy h3 {
+    margin-block: 30px 12px !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-copy > p {
+    display: block !important;
+    margin: 0 !important;
+    max-inline-size: 44ch !important;
+    overflow: visible !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-byline {
+    margin-block-start: 26px !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-cta {
+    align-self: flex-start !important;
+    margin-block-start: 20px !important;
+  }
+}
+
+
+/* =========================================================
+   2026-11-18 — Desktop carousel copy inset (runtime-backed)
+   Keep the left inset generous while bringing right-aligned text closer to the panel edge.
+   Mobile layout and the right artwork column remain untouched.
+   ========================================================= */
+@media (min-width: 901px) {
+  html body #main-content .pv-home-showcase [data-pv-showcase-copy] {
+    box-sizing: border-box !important;
+    padding-block: 46px 42px !important;
+    padding-left: clamp(76px, 6.8vw, 104px) !important;
+    padding-right: clamp(16px, 1.8vw, 24px) !important;
+  }
+}
+
+
+/* 2026-11-18 — Align right-side carousel details to the copy panel's real edge.
+   Do not translate the price or creator link beyond the panel. The dashed rule
+   ends at the same content edge; title, description, artwork and mobile stay put. */
+@media (min-width: 901px) {
+  html body #main-content .pv-home-showcase [data-pv-showcase-copy] .pv-showcase-meta strong,
+  html body #main-content .pv-home-showcase [data-pv-showcase-copy] .pv-showcase-byline a {
+    position: static !important;
+    left: auto !important;
+    transform: none !important;
+  }
+
+  html body #main-content .pv-home-showcase [data-pv-showcase-copy] .pv-showcase-byline::before {
+    right: 0 !important;
+  }
+}
+
+/* =========================================================
+   2026-11-18 — Center artwork without shrinking its natural size
+   Keep the green panel stretched across the complete right column.
+   Center the actual image/video on both axes, preserve its intrinsic
+   ratio, and remove the accidental fixed-size cap. The media can render at
+   its natural size when it fits, shrinking only when the column itself
+   is narrower. Desktop only; mobile rules remain untouched.
+   ========================================================= */
+@media (min-width: 901px) {
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art:has(> img),
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art:has(> video) {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    justify-self: stretch !important;
+    align-self: stretch !important;
+    inline-size: 100% !important;
+    block-size: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    min-inline-size: 0 !important;
+    min-block-size: 0 !important;
+    margin: 0 !important;
+    padding: clamp(10px, .75vw, 12px) !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: linear-gradient(145deg, #172c20 0%, #20372a 58%, #2b4934 100%) !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art:has(> img) > img,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art:has(> video) > video {
+    position: static !important;
+    inset: auto !important;
+    display: block !important;
+    flex: 0 1 auto !important;
+    align-self: center !important;
+    inline-size: auto !important;
+    block-size: auto !important;
+    width: auto !important;
+    height: auto !important;
+    min-inline-size: 0 !important;
+    min-block-size: 0 !important;
+    max-inline-size: 100% !important;
+    max-block-size: min(78svh, 680px) !important;
+    max-width: 100% !important;
+    max-height: min(78svh, 680px) !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    object-fit: contain !important;
+    object-position: 50% 50% !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+}
+
+
+/* =========================================================
+   2026-11-18 — Maximize desktop artwork inside the forest frame
+   Scale every uploaded image/video to the largest possible size
+   inside the full green column. The element fills the available
+   frame, while object-fit: contain preserves the complete source
+   aspect ratio: no crop, no stretching, and no intrinsic-size cap.
+   Keep the centered position and leave the copy/mobile layout alone.
+   ========================================================= */
+@media (min-width: 901px) {
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art:has(> img),
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art:has(> video) {
+    position: relative !important;
+    display: grid !important;
+    place-items: center !important;
+    justify-self: stretch !important;
+    align-self: stretch !important;
+    inline-size: 100% !important;
+    block-size: 100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-inline-size: 0 !important;
+    min-block-size: 0 !important;
+    max-inline-size: none !important;
+    max-block-size: none !important;
+    margin: 0 !important;
+    padding: clamp(6px, .65vw, 9px) !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: linear-gradient(145deg, #172c20 0%, #20372a 58%, #2b4934 100%) !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art:has(> img) > img,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art:has(> video) > video {
+    position: static !important;
+    inset: auto !important;
+    display: block !important;
+    inline-size: 100% !important;
+    block-size: 100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-inline-size: 0 !important;
+    min-block-size: 0 !important;
+    max-inline-size: 100% !important;
+    max-block-size: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+}
+
+
+/* =========================================================
+   2026-11-18 — Recenter full-width artwork inside the green panel
+   Keep the right column full-width and the artwork large, but make
+   the visible green gutter balanced on the left and right. The media
+   is centered by the frame itself instead of visually drifting toward
+   the scrollbar side. No crop, no stretch, desktop only.
+   ========================================================= */
+@media (min-width: 901px) {
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art:has(> img),
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art:has(> video) {
+    position: relative !important;
+    display: grid !important;
+    place-items: center !important;
+    justify-items: center !important;
+    align-items: center !important;
+    justify-self: stretch !important;
+    align-self: stretch !important;
+    inline-size: 100% !important;
+    block-size: 100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-inline-size: 0 !important;
+    min-block-size: 0 !important;
+    margin: 0 !important;
+    padding: clamp(10px, .95vw, 14px) !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: linear-gradient(145deg, #172c20 0%, #20372a 58%, #2b4934 100%) !important;
+    box-shadow: none !important;
+  }
+
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > img,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art > video,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art.is-portrait > img,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art.is-portrait > video,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art.is-landscape > img,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art.is-landscape > video,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art.is-square > img,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art.is-square > video,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art:has(> img) > img,
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-art:has(> video) > video {
+    position: static !important;
+    inset: auto !important;
+    justify-self: center !important;
+    align-self: center !important;
+    display: block !important;
+    inline-size: auto !important;
+    block-size: auto !important;
+    width: auto !important;
+    height: auto !important;
+    min-inline-size: 0 !important;
+    min-block-size: 0 !important;
+    max-inline-size: 100% !important;
+    max-block-size: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    margin-inline: auto !important;
+    margin-block: auto !important;
+    margin: auto !important;
+    padding: 0 !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+}
+
+
+/* =========================================================
+   2026-11-19 — Subtle tree-branch ornament on the LEFT copy panel only
+   The upright bough enters from the lower-right edge and branches
+   inward across the copy panel, matching the supplied reference.
+   It stays behind content, translucent, and pointer-inert.
+   ========================================================= */
+html body #main-content .pv-home .pv-home-showcase .pv-showcase-copy::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  left: auto !important;
+  right: -18px !important;
+  top: auto !important;
+  bottom: -20px !important;
+  width: clamp(220px, 46%, 430px) !important;
+  height: 92% !important;
+  background-image: url('/pir-carousel-branches-left.svg?v=20261119b') !important;
+  background-repeat: no-repeat !important;
+  background-position: right bottom !important;
+  background-size: contain !important;
+  opacity: .34 !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  mix-blend-mode: multiply !important;
+}
+
+html body #main-content .pv-home .pv-home-showcase .pv-showcase-meta {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+@media (max-width: 900px) {
+  html body #main-content .pv-home .pv-home-showcase .pv-showcase-copy::before {
+    right: -14px !important;
+    bottom: -14px !important;
+    width: min(62%, 320px) !important;
+    height: 76% !important;
+    opacity: .27 !important;
+  }
+}
+
+
+/* =========================================================
+   2026-11-19 — Zoom-safe showcase heading
+   When browser zoom narrows the CSS viewport, stop desktop positional
+   alignment and return the title to normal responsive flow. This prevents
+   the heading from being shifted outside the visible page.
+   ========================================================= */
+@media (max-width: 900px) {
+  html body #main-content .pv-home-showcase .pv-showcase-heading {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    margin-inline: auto !important;
+    padding-inline: clamp(16px, 4.5vw, 28px) !important;
+    gap: 16px !important;
+  }
+
+  html body #main-content .pv-home-showcase .pv-showcase-heading > div:first-child {
+    position: static !important;
+    left: auto !important;
+    transform: none !important;
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  html body #main-content .pv-home-showcase .pv-showcase-heading h2 {
+    display: block !important;
+    width: 100% !important;
+    max-width: min(12ch, 100%) !important;
+    font-size: clamp(34px, 7.2vw, 58px) !important;
+    line-height: .96 !important;
+    overflow-wrap: break-word !important;
+    text-wrap: balance !important;
+  }
+
+  html body #main-content .pv-home-showcase .pv-showcase-heading > p {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 44ch !important;
+    margin: 0 !important;
+  }
+}
+
+@media (max-width: 560px) {
+  html body #main-content .pv-home-showcase .pv-showcase-heading {
+    padding-inline: 16px !important;
+    gap: 12px !important;
+  }
+
+  html body #main-content .pv-home-showcase .pv-showcase-heading h2 {
+    max-width: min(11ch, 100%) !important;
+    font-size: clamp(32px, 10vw, 46px) !important;
+    line-height: .98 !important;
+  }
+
+  html body #main-content .pv-home-showcase .pv-showcase-heading > p {
+    font-size: 12px !important;
+    line-height: 1.65 !important;
+  }
+}

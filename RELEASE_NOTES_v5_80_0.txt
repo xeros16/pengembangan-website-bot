@@ -1,0 +1,32 @@
+PIR Visuals v5.80.0 — Hero Layout & Stable Category Hover
+
+Tujuan update
+Memperbaiki dua regresi visual yang terlihat pada screenshot pengguna, sambil mempertahankan seluruh sistem animasi GSAP/ScrollTrigger.
+
+Perbaikan homepage hero
+- Mengembalikan responsive one-column hero pada viewport <= 1180px. Patch sebelumnya memaksa dua kolom pada lebar tablet/split-screen dan membuat kolom headline terlalu sempit.
+- Mengatur ulang batas lebar, line-height, ukuran, dan margin headline agar wrapping lebih seimbang.
+- Mempertahankan ruang vertikal antara headline, supporting copy, dan CTA.
+- Mengubah jarak gerak entrance kata dari 112% tinggi elemen menjadi 14px. GSAP tetap menjalankan stagger, opacity, dan rotation ringan tanpa mendorong kata ke area paragraf/tombol.
+- CSS fallback motion juga memakai jarak 14px.
+
+Perbaikan kategori
+- Mengunci warna background, foreground, border, heading, supporting copy, dan chip untuk hover/active/focus/visited.
+- Menghapus filter saturate pada hover yang menggeser warna kartu.
+- Mempertahankan hover lift 3px, shadow halus, dan gerak glyph. Warna palette tidak berubah.
+
+Kompatibilitas
+- Light Mode dan Dark Mode.
+- Responsive 320, 390, 600, 760, 960, 1180, dan 1440px.
+- GSAP, ScrollTrigger, count-up, scroll reveal, ribbon motion, dan reduced-motion tetap tersedia.
+- Tidak ada dependency baru.
+
+Versi
+- Platform 5.80.0
+- Website package 3.34.0
+- Public service worker cache pir-visuals-public-v26
+- Asset cache suffix v=5800
+
+Penting
+- ZIP update TIDAK menyertakan portfolio-website/models.js. Pertahankan models.js asli dari project kamu; jangan menggantinya dengan file stub.
+- Tidak menyertakan .env, database, uploads, node_modules, atau sesi WhatsApp.

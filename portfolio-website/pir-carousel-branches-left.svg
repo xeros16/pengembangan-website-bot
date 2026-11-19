@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 700" fill="none">
+  <!-- Main upright branch: it grows upward from the lower-right edge. -->
+  <g stroke="#405D45" stroke-linecap="round" stroke-linejoin="round">
+    <g opacity=".34">
+      <path d="M535 728 C500 664 468 624 454 566 C439 506 452 459 476 414 C501 366 494 322 463 278 C431 232 425 184 447 137 C463 103 476 66 467 20" stroke-width="14"/>
+      <!-- Strong side boughs all grow out from the main limb. -->
+      <path d="M462 585 C410 575 371 554 339 519 C307 483 268 468 222 468 C183 468 151 449 126 418" stroke-width="9"/>
+      <path d="M449 484 C402 468 372 437 344 402 C314 365 277 348 234 347 C197 346 169 325 147 295" stroke-width="8"/>
+      <path d="M479 380 C432 370 401 345 376 310 C350 273 318 252 280 243 C244 234 218 210 202 178" stroke-width="8"/>
+      <path d="M468 265 C429 244 407 215 395 179 C383 143 357 119 323 105" stroke-width="7"/>
+      <path d="M451 151 C423 128 412 99 414 69 C416 42 405 19 385 1" stroke-width="6"/>
+      <!-- Secondary twigs on the upper edges of the boughs. -->
+      <path d="M339 519 C336 485 321 462 294 443 C275 430 266 410 268 388" stroke-width="4"/>
+      <path d="M222 468 C220 438 205 418 179 402 C160 390 151 370 154 349" stroke-width="4"/>
+      <path d="M344 402 C346 372 333 349 309 330 C289 314 281 293 287 271" stroke-width="4"/>
+      <path d="M234 347 C235 319 222 296 200 280 C182 267 174 248 179 227" stroke-width="4"/>
+      <path d="M376 310 C380 282 371 260 350 241 C333 225 326 207 332 188" stroke-width="4"/>
+      <path d="M280 243 C285 217 278 196 260 177 C246 163 241 146 248 128" stroke-width="4"/>
+      <path d="M395 179 C405 155 400 134 385 117 C373 103 370 86 378 69" stroke-width="3.5"/>
+      <path d="M323 105 C326 82 318 64 301 50 C288 39 283 24 288 8" stroke-width="3.5"/>
+      <!-- Fine terminal twigs. -->
+      <path d="M126 418 C105 410 88 394 77 373" stroke-width="3"/>
+      <path d="M147 295 C124 287 108 270 100 247" stroke-width="3"/>
+      <path d="M202 178 C180 170 166 153 159 132" stroke-width="3"/>
+      <path d="M385 1 C366 -8 355 -24 350 -42" stroke-width="3"/>
+    </g>
+    <g opacity=".22" stroke="#6F896B">
+      <path d="M454 566 C427 545 400 536 371 538" stroke-width="3"/>
+      <path d="M344 402 C318 393 295 395 274 408" stroke-width="3"/>
+      <path d="M376 310 C351 298 330 299 310 312" stroke-width="3"/>
+      <path d="M395 179 C374 166 354 166 336 177" stroke-width="3"/>
+    </g>
+  </g>
+</svg>

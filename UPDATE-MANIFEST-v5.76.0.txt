@@ -1,0 +1,39 @@
+PIR VISUALS v5.76.0 UPDATE MANIFEST
+Platform version: 5.76.0
+Website version: 3.30.0
+Scope: Light Mode contrast and surface refinement
+Service worker cache: pir-visuals-public-v22
+Asset cache-busting token: v=5760
+Database schema changes: none
+WhatsApp bot behavior changes: none
+Authentication/session changes: none
+Dependency graph changes: none
+
+Files in the overlay:
+- portfolio-website/server.js
+- portfolio-website/package.json
+- portfolio-website/package-lock.json
+- portfolio-website/README.md
+- portfolio-website/tests/light-mode-contrast-v5.76.test.js
+- portfolio-website/tests/motion-refinement-v5.68.1.test.js
+- portfolio-website/tests/navigation-restoration-v5.72.test.js
+- portfolio-website/tests/mobile-button-alignment-v5.67.test.js
+- portfolio-website/tests/website-security.test.js
+- portfolio-website/tests/immersive-experience-v5.69.test.js
+- portfolio-website/tests/motion-restoration-v5.72.test.js
+- portfolio-website/tests/storytelling-workspace-v5.70.test.js
+- portfolio-website/tests/motion-design-system-v5.68.test.js
+- portfolio-website/tests/mobile-navigation-layout.test.js
+- portfolio-website/tests/premium-visual-system-v5.74.test.js
+- portfolio-website/tests/immersive-discovery-v5.71.test.js
+- portfolio-website/tests/discovery-navigation-v5.75.test.js
+- portfolio-website/tests/navigation-restoration-v5.73.test.js
+- portfolio-website/tests/theme-contrast-v5.65.test.js
+- package.json
+- package-lock.json
+- README.md
+- docs/CHANGELOG.md
+- RELEASE-NOTES-v5.76.0.md
+- INSTALL-UPDATE-v5.76.0.md
+- TEST-REPORT-v5.76.0.md
+- UPDATE-MANIFEST-v5.76.0.txt

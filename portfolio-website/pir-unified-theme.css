@@ -1,0 +1,308 @@
+/* PIR VISUALS — Unified editorial theme · 2026-11-14f
+   One final, maintainable layer for shared navigation and genuine light/dark modes.
+   Visual rhythm takes cues from editorial academy websites; all colors and identity
+   remain PIR Visuals' original forest / sage / warm ivory palette. */
+
+html[data-theme="light"] {
+  --pv-page:#F0F3EB;
+  --pv-page-alt:#E2EBDD;
+  --pv-paper:#FCFDF8;
+  --pv-ink:#20372A;
+  --pv-copy:#405A48;
+  --pv-border:#B5C7B3;
+  --pv-heading:#20372A;
+  --pv-card:#F6F8F1;
+  --pv-card-muted:#E0E9DA;
+  --pv-accent:#315A3D;
+  --pv-ribbon:#C7DAAF;
+}
+html[data-theme="dark"] {
+  --pv-page:#14231A;
+  --pv-page-alt:#1D3325;
+  --pv-paper:#263E2E;
+  --pv-ink:#F1F6EC;
+  --pv-copy:#D0E0D0;
+  --pv-border:#58765C;
+  --pv-heading:#F1F6EC;
+  --pv-card:#23392A;
+  --pv-card-muted:#294632;
+  --pv-accent:#D6E8C4;
+  --pv-ribbon:#9EBD91;
+}
+
+/* NAV: same footprint, corners, alignment and behaviour across every route. */
+html body #main-content > header.site-nav,
+html[data-theme="light"] body #main-content > header.site-nav,
+html[data-theme="dark"] body #main-content > header.site-nav {
+  display:flex;
+  align-items:center;
+  top:0 !important;
+  position:sticky !important;
+  z-index:300;
+  width:100vw !important;
+  max-width:none !important;
+  min-height:76px !important;
+  margin-top:0 !important;
+  margin-bottom:0 !important;
+  padding:12px clamp(18px,3.2vw,54px) !important;
+  gap:clamp(16px,2vw,28px) !important;
+  border:1px solid #486851 !important;
+  border-top:0 !important;
+  border-radius:0 0 16px 16px !important;
+  background:#20372A !important;
+  color:#F2F7ED !important;
+  box-shadow:0 9px 26px rgba(13,34,20,.14) !important;
+  backdrop-filter:blur(18px);
+}
+/* Internal pages have container gutters; homepage is already edge-to-edge. */
+html[data-theme="light"] body:not(:has(.pv-home)) #main-content > header.site-nav,
+html[data-theme="dark"] body:not(:has(.pv-home)) #main-content > header.site-nav {
+  margin-left:calc(-1 * var(--pir-outer-gutter,clamp(18px,3.5vw,62px)) - max(0px, 50vw - 720px)) !important;
+  margin-right:0 !important;
+  border-radius:0 0 16px 16px !important;
+}
+html body:has(.pv-home) #main-content > header.site-nav {
+  margin-inline:0 !important;
+}
+html #main-content > header.site-nav .brand,
+html #main-content > header.site-nav .brand-copy strong,
+html #main-content > header.site-nav .brand-copy small,
+html #main-content > header.site-nav .nav-primary > a,
+html #main-content > header.site-nav .nav-more > summary {
+  color:#F2F7ED !important;
+}
+html #main-content > header.site-nav .brand-emblem {width:43px;height:43px;flex:0 0 auto}
+html #main-content > header.site-nav .brand-copy strong {font-size:17px !important;font-weight:900}
+html #main-content > header.site-nav .brand-copy small {font-size:8px !important}
+html #main-content > header.site-nav .nav-primary > a,
+html #main-content > header.site-nav .nav-more > summary {
+  font-size:12.5px !important;
+  min-height:41px;
+  padding:10px 12px;
+}
+html #main-content > header.site-nav .nav-actions {gap:8px !important;padding-left:12px}
+html #main-content > header.site-nav .nav-actions .nav-action-button {background:#315440 !important;border-color:#5B7A61 !important;color:#F2F7ED !important}
+html #main-content > header.site-nav .nav-actions .nav-cta {background:#D8E6C8 !important;border-color:#D8E6C8 !important;color:#1B3526 !important}
+/* A single high-contrast primary action in BOTH themes and on EVERY route. */
+html[data-theme="light"] body #main-content > header.site-nav .nav-actions > a.nav-cta,
+html[data-theme="dark"] body #main-content > header.site-nav .nav-actions > a.nav-cta {
+  background:#D8E6C8 !important;
+  color:#1B3526 !important;
+  -webkit-text-fill-color:#1B3526 !important;
+  border-color:#D8E6C8 !important;
+}
+html #main-content > header.site-nav .nav-more-menu {background:#24412E !important}
+html #main-content > header.site-nav .nav-more-menu a {color:#F2F7ED !important}
+html #main-content > header.site-nav .nav-primary a:hover,
+html #main-content > header.site-nav .nav-more summary:hover {background:#345B41 !important}
+
+/* SHARED EDITORIAL TYPOGRAPHY and internal page background. */
+html[data-theme="light"] body,
+html[data-theme="light"] #main-content.wrap {background-color:var(--pv-page) !important;color:var(--pv-ink)}
+html[data-theme="dark"] body,
+html[data-theme="dark"] #main-content.wrap {background-color:var(--pv-page) !important;color:var(--pv-ink)}
+html[data-theme] #main-content :is(.hero h1,.company-hero h1,.company-editorial h1,.company-editorial h2,.category-intro h1,.support-hero h1,.section-head h2,.section-space>h2) {
+  font-family:Georgia,"Times New Roman",serif;
+  letter-spacing:-.052em;
+  line-height:1.06;
+}
+html[data-theme] #main-content :is(.company-editorial .copy,.company-editorial-card,.support-info,.legal-copy) {
+  font-family:Inter,"Trebuchet MS",ui-sans-serif,system-ui,sans-serif;
+}
+html[data-theme="light"] #main-content :is(.company-editorial-card,.card,.feature-item,.support-channel,.support-form-card) {
+  background:var(--pv-paper);
+  border-color:var(--pv-border);
+}
+html[data-theme="dark"] #main-content :is(.company-editorial-card,.card,.feature-item,.support-channel,.support-form-card) {
+  background:var(--pv-card);
+  color:var(--pv-ink);
+  border-color:var(--pv-border);
+}
+html[data-theme="dark"] #main-content .company-editorial-card:nth-child(2) {background:#294632;color:var(--pv-ink)}
+html[data-theme="dark"] #main-content .company-editorial-card:nth-child(3) {background:#34513C;color:var(--pv-ink)}
+html[data-theme="dark"] #main-content .company-editorial-card :is(h2,p,span,a),
+html[data-theme="dark"] #main-content .company-editorial-copy :is(h2,h3,p,li) {color:var(--pv-ink) !important}
+html[data-theme="dark"] #main-content .company-editorial-hero {background:#294632;color:var(--pv-ink)}
+html[data-theme="dark"] #main-content .company-editorial-hero :is(h1,p,.eyebrow) {color:var(--pv-ink) !important}
+html[data-theme="dark"] #main-content .support-hero {background:#294632 !important;color:var(--pv-ink) !important}
+html[data-theme="dark"] #main-content .support-hero :is(h1,h1 em,p,.eyebrow) {color:var(--pv-ink) !important}
+html[data-theme="light"] #main-content .company-editorial-hero {background:#C7DAAF !important;color:#20372A}
+html[data-theme="light"] #main-content .support-hero {background:#C7DAAF !important;color:#20372A !important}
+
+/* HOME: same tokens and rhythm as subpages instead of forced light surfaces. */
+html[data-theme] body:has(.pv-home)::before,
+html[data-theme] body:has(.pv-home)::after {display:none !important}
+html[data-theme] body:has(.pv-home) #main-content.wrap,
+html[data-theme] #main-content .pv-home {
+  background:var(--pv-page) !important;
+  color:var(--pv-ink) !important;
+}
+html[data-theme] #main-content .pv-home {
+  --text:var(--pv-ink);
+  --muted:var(--pv-copy);
+  --line:var(--pv-border);
+  --surface:var(--pv-card);
+  --surface-raised:var(--pv-card-muted);
+  font-family:Inter,"Trebuchet MS",ui-sans-serif,system-ui,sans-serif;
+}
+html[data-theme="light"] #main-content .pv-home {--pv-ink:#20372A}
+html[data-theme="dark"] #main-content .pv-home {--pv-ink:#F1F6EC}
+html[data-theme] #main-content .pv-home h2.pv-managed-title {
+  font-family:Georgia,"Times New Roman",serif;
+  color:var(--pv-heading) !important;
+  text-wrap:balance;
+}
+html[data-theme] #main-content .pv-home .pv-label,
+html[data-theme] #main-content .pv-home .pv-section-top>p {
+  color:var(--pv-copy) !important;
+}
+html[data-theme] #main-content .pv-home .pv-category-section,
+html[data-theme] #main-content .pv-home .pv-work-section,
+html[data-theme] #main-content .pv-home .pv-faq {
+  background:var(--pv-page) !important;
+  color:var(--pv-ink) !important;
+}
+html[data-theme] #main-content .pv-home .pv-talent-section {
+  background:var(--pv-page-alt) !important;
+  color:var(--pv-ink) !important;
+}
+html[data-theme] #main-content .pv-home .pv-category-grid {gap:16px}
+html[data-theme] #main-content .pv-home .home-category {
+  border:1px solid var(--pv-border) !important;
+  background:var(--pv-card-muted) !important;
+  color:var(--pv-ink) !important;
+  border-radius:10px;
+}
+html[data-theme] #main-content .pv-home .home-category:nth-child(2) {background:var(--pv-card) !important}
+html[data-theme] #main-content .pv-home .home-category:nth-child(3) {background:var(--pv-page-alt) !important}
+html[data-theme] #main-content .pv-home .home-category:nth-child(4) {background:var(--pv-card-muted) !important}
+html[data-theme] #main-content .pv-home .home-category :is(strong,small,span,b) {
+  color:var(--pv-ink) !important;
+}
+html[data-theme] #main-content .pv-home .pv-talent-section .pv-outline-link {
+  color:var(--pv-accent) !important;
+  -webkit-text-fill-color:var(--pv-accent) !important;
+  border-bottom:2px solid var(--pv-accent) !important;
+}
+html[data-theme] #main-content .pv-home .pv-empty {
+  background:var(--pv-card) !important;
+  border-color:var(--pv-border) !important;
+  color:var(--pv-copy) !important;
+}
+html[data-theme] #main-content .pv-home .pv-empty a {color:var(--pv-accent) !important}
+html[data-theme] #main-content .pv-home .home-project,
+html[data-theme] #main-content .pv-home .home-project-caption :is(strong,small) {
+  color:var(--pv-ink) !important;
+}
+html[data-theme] #main-content .pv-home .home-project-image {
+  background:var(--pv-card-muted) !important;
+}
+
+/* Hero: shared editorial composition; light mode is genuinely light, dark is forest. */
+html[data-theme="light"] #main-content .pv-home .pv-hero {
+  background:linear-gradient(125deg,#D7E5D0 0%,#E5EEDF 64%,#F0F3EB 100%) !important;
+  color:#20372A !important;
+}
+html[data-theme="light"] #main-content .pv-home .pv-hero:before {
+  background:linear-gradient(90deg,rgba(230,241,225,.90),rgba(225,236,219,.55)) !important;
+}
+html[data-theme="light"] #main-content .pv-home .pv-hero .editorial-hero-image {opacity:.22;filter:saturate(.6)}
+html[data-theme="light"] #main-content .pv-home .pv-hero h1,
+html[data-theme="light"] #main-content .pv-home .pv-hero .pv-hero-title-visual,
+html[data-theme="light"] #main-content .pv-home .pv-hero .pv-hero-word {color:#20372A !important;-webkit-text-fill-color:#20372A !important}
+html[data-theme="light"] #main-content .pv-home .pv-hero :is(.pv-overline,.pv-hero-lede,.pv-hero-foot,.pv-text-link) {color:#304F39 !important;-webkit-text-fill-color:#304F39 !important}
+html[data-theme="light"] #main-content .pv-home .pv-hero .pv-hero-foot {border-color:#A7BDA5 !important}
+html[data-theme="light"] #main-content .pv-home .pv-hero .pv-button {background:#20372A !important;border-color:#20372A !important;color:#F2F7EE !important}
+html[data-theme="light"] #main-content .pv-home .pv-hero .pv-button:hover {background:#345B41 !important}
+html[data-theme="light"] #main-content .pv-home .pv-index {border-color:#A7BDA5 !important;color:#20372A !important}
+html[data-theme="light"] #main-content .pv-home .pv-index :is(b,strong,span,small) {color:#20372A !important}
+
+html[data-theme="dark"] #main-content .pv-home .pv-hero {
+  background:linear-gradient(125deg,#172D20 0%,#203D2B 60%,#1B3123 100%) !important;
+  color:#F1F7ED !important;
+}
+html[data-theme="dark"] #main-content .pv-home .pv-hero:before {
+  background:linear-gradient(180deg,rgba(11,32,21,.1),rgba(8,22,15,.7)) !important;
+}
+html[data-theme="dark"] #main-content .pv-home .pv-hero h1,
+html[data-theme="dark"] #main-content .pv-home .pv-hero .pv-hero-title-visual,
+html[data-theme="dark"] #main-content .pv-home .pv-hero .pv-hero-word {color:#F1F7ED !important;-webkit-text-fill-color:#F1F7ED !important}
+html[data-theme="dark"] #main-content .pv-home .pv-hero :is(.pv-overline,.pv-hero-lede,.pv-hero-foot,.pv-text-link) {color:#E1EBDE !important;-webkit-text-fill-color:#E1EBDE !important}
+html[data-theme="dark"] #main-content .pv-home .pv-index {color:#F1F7ED !important}
+html[data-theme="dark"] #main-content .pv-home .pv-index :is(b,strong,span,small) {color:#F1F7ED !important}
+html[data-theme="dark"] #main-content .pv-home .pv-index :is(.pv-index-total strong,.pv-index-metrics b) {color:#D7E9CA !important}
+
+/* Narrative manifesto and numbers — dark and light both have proper contrast. */
+html[data-theme="light"] #main-content .pv-home .pv-manifesto {
+  background:#C7DAAF !important;
+  color:#20372A !important;
+}
+html[data-theme="dark"] #main-content .pv-home .pv-manifesto {
+  background:#314C37 !important;
+  color:#F1F7ED !important;
+}
+html[data-theme] #main-content .pv-home .pv-manifesto :is(.pv-label,.pv-manifesto-index,.pv-managed-title,.pv-manifesto-copy>p,.pv-manifesto-points div,.pv-manifesto-points b,.pv-manifesto-points span) {
+  color:inherit !important;
+}
+html[data-theme="dark"] #main-content .pv-home .pv-manifesto :is(h2,p,span,div,b) {color:#F1F7ED !important}
+html[data-theme="light"] #main-content .pv-home .pv-manifesto :is(h2,p,span,div,b) {color:#20372A !important}
+html[data-theme="dark"] #main-content .pv-home .pv-manifesto-points,
+html[data-theme="dark"] #main-content .pv-home .pv-manifesto-points>div {border-color:#6F9170 !important}
+html[data-theme="light"] #main-content .pv-home .pv-manifesto-points,
+html[data-theme="light"] #main-content .pv-home .pv-manifesto-points>div {border-color:#8CA57F !important}
+html[data-theme] #main-content .pv-home .pv-manifesto-points b {
+  font:900 14px/1.4 Inter,ui-sans-serif,system-ui,sans-serif;
+  letter-spacing:.08em;
+}
+
+/* Join panel and FAQ mirror the same editorial components on internal pages. */
+html[data-theme="light"] #main-content .pv-home .pv-join {background:#20372A !important;color:#F1F7ED !important}
+html[data-theme="dark"] #main-content .pv-home .pv-join {background:#213B2A !important;color:#F1F7ED !important}
+html[data-theme] #main-content .pv-home .pv-join :is(h2,p,.pv-label) {color:#F1F7ED !important}
+html[data-theme] #main-content .pv-home .pv-faq-list details {
+  background:var(--pv-card) !important;
+  border:1px solid var(--pv-border) !important;
+  border-radius:12px !important;
+}
+html[data-theme] #main-content .pv-home .pv-faq-list summary {
+  color:var(--pv-ink) !important;
+  font-family:Georgia,"Times New Roman",serif;
+}
+html[data-theme] #main-content .pv-home .pv-faq-list details p {color:var(--pv-copy) !important}
+html[data-theme] #main-content .pv-home .pv-faq-list summary::after {color:var(--pv-accent) !important}
+html[data-theme] #main-content .pv-home .pv-motion-ribbon {background:var(--pv-ribbon) !important;color:#20372A !important}
+html[data-theme] #main-content .pv-home .pv-motion-ribbon-track,
+html[data-theme] #main-content .pv-home .pv-motion-ribbon i {color:#20372A !important}
+
+/* Footer is intentionally a signature forest-green block in both modes. */
+html[data-theme] #main-content .foot {background:#20372A !important;color:#F1F7ED !important}
+html[data-theme] #main-content .footer-cta {background:linear-gradient(135deg,#264531,#1D3929) !important}
+html[data-theme] #main-content .footer-cta :is(h2,em,.eyebrow) {color:#D9E8CE !important}
+html[data-theme] #main-content .footer-cta p {color:#E4EDE1 !important}
+
+@media(max-width:1180px) {
+  html #main-content > header.site-nav .nav-primary > a,
+  html #main-content > header.site-nav .nav-more > summary {font-size:11px !important;padding-inline:9px}
+  html #main-content > header.site-nav .brand-copy strong {font-size:16px !important}
+}
+@media(max-width:850px) {
+  html body #main-content > header.site-nav,
+  html[data-theme="light"] body #main-content > header.site-nav,
+  html[data-theme="dark"] body #main-content > header.site-nav {min-height:65px !important;padding:10px 16px !important;border-radius:0 0 14px 14px !important}
+  html[data-theme="light"] body:not(:has(.pv-home)) #main-content > header.site-nav,
+  html[data-theme="dark"] body:not(:has(.pv-home)) #main-content > header.site-nav {margin-left:-14px !important;border-radius:0 0 14px 14px !important}
+  html #main-content > header.site-nav .nav-links.open {background:#20372A !important;border-color:#5B7A61 !important;max-height:calc(100dvh - 78px);overflow:auto}
+  html #main-content > header.site-nav .nav-actions {padding-left:0;gap:8px}
+  html[data-theme] #main-content .pv-home .pv-category-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:600px) {
+  html body #main-content > header.site-nav,
+  html[data-theme="light"] body #main-content > header.site-nav,
+  html[data-theme="dark"] body #main-content > header.site-nav {padding-inline:13px !important}
+  html[data-theme] #main-content .pv-home .pv-category-grid {grid-template-columns:1fr}
+  html[data-theme] #main-content .pv-home .pv-faq-list summary {font-size:19px}
+  html[data-theme] #main-content .pv-home .pv-manifesto-points b {font-size:13px}
+}
+@media(prefers-reduced-motion:reduce) {
+  html[data-theme] #main-content .pv-home * {animation-duration:.01ms !important;transition-duration:.01ms !important}
+}

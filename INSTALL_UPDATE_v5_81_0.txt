@@ -1,0 +1,32 @@
+PIR Visuals v5.81.0 — Universal Navigation & Responsive Hardening
+
+INSTALLATION
+1. Make a backup of your current project folder.
+2. Extract PIR_Visuals_v5_81_0_Universal_Navigation_Responsive_Part1.zip into the project root.
+3. Extract Part2 into the same project root and choose Merge/Replace when prompted.
+4. Restart the standalone portfolio website process.
+5. Hard-refresh the browser with Ctrl + Shift + R.
+
+KEEP THESE FILES / FOLDERS
+- portfolio-website/models.js
+- .env and all environment-specific configuration
+- database files / MongoDB data
+- uploads and media storage
+- WhatsApp authentication/session folders
+- local logs and backups
+
+WHAT CHANGED
+- One responsive breakpoint source for the compact navigation (1180px).
+- Closed compact navigation is inert and aria-hidden; opening restores access.
+- Navigation state is reset on viewport changes and pageshow/BFCache restore.
+- Active route state is synchronized, including the home brand link and nested destinations.
+- Mobile/tablet menu uses a safe-area-aware, scrollable panel with touch-friendly controls.
+- 320px screens keep the brand and menu toggle on one row; short viewports scroll the menu internally.
+- A no-JavaScript fallback keeps navigation destinations visible.
+- GSAP and magnetic mouse-following button motion are preserved.
+
+VERSIONS
+Platform: 5.81.0
+Website package: 3.35.0
+Public service-worker cache: pir-visuals-public-v32
+Public asset suffix: 5810

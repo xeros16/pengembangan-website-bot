@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="id" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PIR Visuals — Redesign Preview</title>
+<link rel="stylesheet" href="portfolio-website/pir-agency-system.css">
+<style>
+  body{margin:0}
+  .preview-nav{position:relative!important;width:100%!important;margin:0!important}
+  .preview-wrap{max-width:none!important;padding:0!important}
+  .preview-home{margin:0;background:#f7f4eb;color:#20372a}
+  .preview-home .pv-hero{position:relative;min-height:720px;padding:96px 5% 42px;background:#20372a;color:#f7f4eb;overflow:hidden}
+  .preview-home .pv-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(22,44,30,.96),rgba(22,44,30,.18));z-index:0}
+  .preview-home .hero-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.32}
+  .preview-home .pv-hero-main{position:relative;z-index:1;max-width:1180px;margin:0 auto;padding-top:140px}
+  .preview-home .pv-hero h1{max-width:12ch;margin:22px 0;font:800 clamp(58px,8vw,118px)/.98 Georgia,serif;letter-spacing:-.065em;color:#d9e6d0}
+  .preview-home .pv-hero p{max-width:640px;font-size:18px;line-height:1.7}
+  .preview-home .pv-button{display:inline-flex;padding:15px 20px;border-radius:8px;background:#d9e6d0;color:#20372a;text-decoration:none;font-weight:800}
+  .preview-home .pv-motion-ribbon{padding:17px 0;background:#d9e6d0;overflow:hidden;white-space:nowrap;font-weight:850;letter-spacing:.08em}
+  .preview-home section{padding:72px 5%;box-sizing:border-box}
+  .preview-home .preview-inner{max-width:1280px;margin:0 auto}
+  .preview-home .pv-section-top{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:34px}
+  .preview-home h2{font:800 clamp(40px,5vw,72px)/.98 Georgia,serif;letter-spacing:-.05em;margin:10px 0}
+  .preview-home .pv-section-top p{max-width:430px;color:#5b6b60}
+  .preview-home .pv-category-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .preview-home .home-category{min-height:250px;padding:24px;display:flex;flex-direction:column;border-radius:12px;text-decoration:none;color:#20372a;background:#dfead8}
+  .preview-home .home-category:nth-child(2){background:#c6d8bd}.preview-home .home-category:nth-child(3){background:#f0e2d6}.preview-home .home-category:nth-child(4){background:#e7dfbd}
+  .preview-home .home-category strong{margin:40px 0 14px;font:800 30px/1.04 Georgia,serif}
+  .preview-home .home-category small{color:#5b6b60}
+  .preview-home .home-category b{margin-top:auto;text-align:right;font-size:24px}
+  .preview-home .pv-manifesto{background:#d9e6d0}
+  .preview-home .pv-manifesto .preview-inner{display:grid;grid-template-columns:1fr 2fr;gap:60px}
+  .preview-home .pv-manifesto-points{display:grid;gap:0}
+  .preview-home .pv-manifesto-points div{display:grid;grid-template-columns:36px 1fr;gap:14px;padding:15px 0;border-top:1px solid #9eb495}
+  .preview-home .pv-join{background:#20372a;color:#f7f4eb}.preview-home .pv-join h2{color:#d9e6d0}.preview-home .pv-join p{max-width:560px}
+  .preview-home .pv-faq{display:grid;grid-template-columns:1fr 1.4fr;gap:60px}
+  .preview-home .pv-faq details{padding:20px 0;border-bottom:1px solid #c9d3c4}
+  .preview-home .pv-journey-section{padding-block:80px}
+  .preview-home .pv-journey-wrap{max-width:1280px;margin:auto}
+  .preview-home .pv-journey-head{display:grid;grid-template-columns:1.15fr .85fr;gap:34px;align-items:end;margin-bottom:34px}
+  .preview-home .pv-journey-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .preview-home .pv-journey-card{min-height:300px;padding:26px;border:1px solid #c9d3c4;border-radius:18px;background:#fffdf8;color:#20372a;text-decoration:none;display:flex;flex-direction:column}
+  .preview-home .pv-journey-card:nth-child(2){background:#d9e6d0}.preview-home .pv-journey-card:nth-child(3){background:#f0e2d6}
+  .preview-home .pv-journey-card h3{margin:auto 0 12px;font:800 38px/1.02 Georgia,serif}
+  .preview-home .pv-journey-card p{color:#5b6b60}
+  .preview-home .pv-journey-card strong{margin-top:auto}
+  @media(max-width:900px){.preview-home .pv-category-grid{grid-template-columns:repeat(2,1fr)}.preview-home .pv-journey-grid,.preview-home .pv-manifesto .preview-inner,.preview-home .pv-faq{grid-template-columns:1fr}.preview-home .pv-section-top,.preview-home .pv-journey-head{display:grid;grid-template-columns:1fr}.preview-home .pv-hero{min-height:620px}.preview-home .pv-hero-main{padding-top:100px}}
+  @media(max-width:540px){.preview-home section{padding:54px 18px}.preview-home .pv-category-grid,.preview-home .pv-journey-grid{grid-template-columns:1fr}.preview-home .pv-hero{min-height:0;padding:60px 18px 40px}.preview-home .pv-hero h1{font-size:48px}.preview-home .pv-hero-main{padding-top:70px}}
+</style>
+</head>
+<body>
+<main id="main-content" class="wrap preview-wrap">
+<header class="site-nav preview-nav">
+  <a class="brand" href="#" aria-label="PIR Visuals">
+    <img class="brand-emblem" src="portfolio-website/brand-icon.svg" alt="" width="44" height="44">
+    <span class="brand-copy"><strong>PIR VISUALS</strong><small>CREATIVE TALENT NETWORK</small></span>
+  </a>
+  <nav class="nav-links" style="display:flex">
+    <div class="nav-primary"><a href="#">Beranda</a><a href="#">Jelajahi</a><a href="#">Untuk Bisnis</a></div>
+    <div class="nav-actions"><a class="nav-cta" href="#">Portal desainer ↗</a></div>
+  </nav>
+</header>
+<div class="preview-home">
+<section class="pv-hero">
+  <img class="hero-art" src="portfolio-website/editorial-art.svg" alt="">
+  <div class="pv-hero-main">
+    <div class="pv-overline">INDEPENDENT CREATIVE TALENT PLATFORM · INDONESIA</div>
+    <h1>Ide berani. Karya berarti.</h1>
+    <p>Ruang untuk menemukan desainer kreatif, menjelajahi karya terbaik, dan membangun kolaborasi secara langsung.</p>
+    <a class="pv-button" href="#">Temukan desainer ↗</a>
+  </div>
+</section>
+<div class="pv-motion-ribbon">DISCOVER TALENT　✳　MAKE GOOD WORK　✳　BUILD CONNECTIONS　✳　SHARE YOUR IDEAS　✳</div>
+<section class="pv-journey-section"><div class="pv-journey-wrap">
+  <div class="pv-journey-head"><div><span class="pv-label">PIR VISUALS / CHOOSE YOUR PATH</span><h2>Pilih jalur yang sesuai dengan tujuanmu.</h2></div><p>Mulai dari kebutuhanmu, bukan dari daftar menu. Setiap jalur membawa kamu ke ruang yang tepat.</p></div>
+  <div class="pv-journey-grid">
+    <a class="pv-journey-card" href="#"><span>01 / CLIENT</span><h3>Saya mencari desainer.</h3><p>Jelajahi karya, skill, lokasi, kisaran harga, dan ketersediaan.</p><strong>Temukan talenta ↗</strong></a>
+    <a class="pv-journey-card" href="#"><span>02 / CREATOR</span><h3>Saya ingin menampilkan karya.</h3><p>Bangun profil profesional dan biarkan karya terbaikmu ditemukan.</p><strong>Buka Designer Studio ↗</strong></a>
+    <a class="pv-journey-card" href="#"><span>03 / COLLABORATE</span><h3>Saya sedang menjalankan proyek.</h3><p>Jaga progres dan feedback tetap berada dalam satu ruang kolaborasi.</p><strong>Masuk ruang klien ↗</strong></a>
+  </div>
+</div></section>
+<section><div class="preview-inner"><div class="pv-section-top"><div><span class="pv-label">FIND YOUR CREATIVE MATCH</span><h2>What are you looking to create?</h2></div><p>Mulai dari kebutuhanmu. Temukan spesialis yang tepat melalui karya, skill, dan layanan yang mereka tampilkan.</p></div>
+<div class="pv-category-grid"><a class="home-category" href="#"><span>01 / EXPLORE</span><strong>Brand identity</strong><small>Logo, visual systems & art direction</small><b>↗</b></a><a class="home-category" href="#"><span>02 / EXPLORE</span><strong>Digital experiences</strong><small>UI/UX, product & web design</small><b>↗</b></a><a class="home-category" href="#"><span>03 / EXPLORE</span><strong>Visual storytelling</strong><small>Illustration, 3D & motion</small><b>↗</b></a><a class="home-category" href="#"><span>04 / EXPLORE</span><strong>Campaign & content</strong><small>Social, editorial & campaign assets</small><b>↗</b></a></div></div></section>
+<section class="pv-manifesto"><div class="preview-inner"><div><span class="pv-label">A BETTER WAY TO COLLABORATE</span><span>PV / 2026</span></div><div><h2>Less middlemen. More meaningful work.</h2><p>Portfolio tetap menjadi pusat. Kamu melihat karya, memahami spesialisasi dan kisaran harga, lalu berdiskusi langsung dengan kreatornya.</p><div class="pv-manifesto-points"><div><b>01</b><span>Jelajahi karya dan profil</span></div><div><b>02</b><span>Bandingkan layanan dan harga</span></div><div><b>03</b><span>Hubungi desainer secara langsung</span></div></div></div></div></section>
+<section class="pv-join"><div class="preview-inner"><span class="pv-label">YOUR WORK. YOUR SPACE.</span><h2>Make your work impossible to ignore.</h2><p>Bangun kehadiran profesional, tampilkan karya terbaik, dan biarkan klien menemukanmu.</p><a class="pv-button" href="#">Bangun portfolio kamu ↗</a></div></section>
+<section class="pv-faq"><div><span class="pv-label">GOOD TO KNOW</span><h2>Questions, answered.</h2></div><div><details open><summary>Apakah PIR Visuals menjadi perantara transaksi?</summary><p>PIR Visuals adalah platform portfolio dan discovery. Klien menghubungi desainer secara langsung dan mengatur kesepakatan di antara mereka.</p></details><details><summary>Bagaimana cara menemukan desainer yang tepat?</summary><p>Gunakan direktori untuk menyaring spesialisasi, lokasi, kisaran harga, verifikasi, dan ketersediaan.</p></details></div></section>
+</div>
+</main>
+</body></html>

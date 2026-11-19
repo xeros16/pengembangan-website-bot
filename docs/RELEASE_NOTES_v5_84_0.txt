@@ -1,0 +1,38 @@
+PIR Visuals v5.84.0
+Designer & Client Workspace Integration
+
+PROJECT LIFECYCLE
+- Adds one centralized project status transition map.
+- Supports Brief diterima → Discovery → Dikerjakan → Review → Selesai.
+- Supports returning from Review to Dikerjakan for revision rounds.
+- Allows cancellation from active stages.
+- Completed and cancelled projects are terminal/read-only states.
+- Server rejects invalid transitions and blocks attempts to reopen closed projects.
+- Adds optimistic concurrency protection for simultaneous designer status updates, including compatibility with older project records that do not contain a version key.
+
+CLIENT + DESIGNER EXPERIENCE
+- Client and designer timelines both show status milestones.
+- Active stage uses aria-current="step".
+- Closed client rooms show a clear read-only explanation and no longer show a message composer.
+- Closed designer rooms preserve the brief, activity history and invite controls while removing the update composer.
+- Designer Studio adds recent project summary cards, client/project search, status filtering and accessible no-results feedback.
+- Filter layout is responsive and uses existing theme tokens.
+
+LEAD PIPELINE INTEGRATION
+- Successfully delivered workspace invitations move a new lead to contacted.
+- Discovery/in-progress/review can qualify a new or contacted lead.
+- Completed projects can mark the lead won.
+- Cancelled projects can mark the lead closed.
+- Existing manually closed/won outcomes are protected from automatic overwrite.
+
+COMPATIBILITY
+- No database schema or collection migration.
+- No new npm dependency.
+- Existing invitation token hashing, expiration, sessions, CSRF and ownership checks remain.
+- Existing animation framework and theme system remain unchanged.
+
+RELEASE METADATA
+- Platform 5.84.0
+- Website 3.38.0
+- Public cache pir-visuals-public-v35
+- Public asset suffix 5840

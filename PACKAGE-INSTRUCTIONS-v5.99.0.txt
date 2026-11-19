@@ -1,0 +1,25 @@
+PIR Visuals v5.99.0 — Split Local Update Package
+
+Part 1 and Part 2 are complementary source archives, not separate installations.
+Download BOTH and extract them into the SAME destination folder.
+
+Before updating:
+1. Stop the bot and website.
+2. Back up your local MongoDB database and media folder.
+3. Preserve the existing .env, WhatsApp auth/session folder, allowlists, local settings,
+   portfolio_uploads, backups, and other runtime state.
+4. Extract both parts into the same project directory.
+5. Run npm ci and npm run website:install from the project root.
+6. Follow INSTALL_UPDATE_v5_99_0.md.
+
+v5.99.0 adds a guided designer finder and a private portfolio-readiness checklist.
+It does not add database migrations or new runtime dependencies.
+
+The marketplace boundary is unchanged:
+- WhatsApp bot = designer directory and direct contact only.
+- Website = portfolio/discovery and optional non-transactional project workspace.
+- No payment, checkout, commission, escrow, or PIR-mediated transaction.
+
+The ZIP archives intentionally exclude .env secrets, .git, node_modules, WhatsApp auth/session,
+backups, runtime uploads/media, local allowlists/settings, and temporary test artifacts.
+Never upload secrets, QR codes, WhatsApp session files, or database backups to chat.

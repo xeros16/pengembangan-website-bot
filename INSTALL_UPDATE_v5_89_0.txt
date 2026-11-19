@@ -1,0 +1,60 @@
+PIR Visuals v5.89.0 — Beginner Experience & Guided Onboarding
+
+UPDATE TYPE
+Bot feature release. Website source and website asset cache versions are unchanged.
+
+FILE CHANGES
+- package.json, package-lock.json
+- features/onboarding.js (new)
+- features/command-suggestions.js
+- features/commands/general-help.js
+- features/command-handler.js
+- features/command-catalog.js
+- features/group-greetings.js
+- content/texts.json, content/texts.example.json
+- tests/onboarding.test.js (new)
+- tests/command-search.test.js (new)
+- tests/general-help.test.js
+- tests/group-greetings.test.js
+- tests/operational-stability-v587.test.js
+- portfolio-website/tests/* (release metadata expectations and current clipboard implementation regression)
+- docs/START-HERE.md, docs/ROADMAP.md, docs/CHANGELOG.md, docs/commands.md
+- RELEASE-NOTES-v5.89.0.md, QA_REPORT_v5_89_0.md, OPERATIONS_RUNBOOK_v5_89_0.md
+- UPDATE_MANIFEST_v5_89_0.txt, INSTALL_UPDATE_v5_89_0.txt
+
+INSTALL STEPS
+1. Stop the bot and website process.
+2. Back up the existing project, database, WhatsApp auth folders, uploads/media, and current .env files.
+3. Extract the clean ZIP into the existing project root and choose Merge/Replace.
+4. Do NOT replace or delete:
+   - .env or portfolio-website/.env
+   - auth_info/ or auth_info_baileys/
+   - database contents
+   - uploads/media or backups
+   - portfolio-website/models.js
+   - local configuration files you intentionally maintain
+5. Install dependencies with `npm ci` if the lockfile is used, or `npm install`.
+6. Run:
+   npm run check
+   npm test
+   npm run website:check
+   npm run website:test
+   npm run audit:release
+7. Restart the bot and verify WhatsApp connection.
+8. In staging, test `.mulai`, `.mulai cepat`, `.mulai profil`, `.mulai ulang`, `.cari`, and all expanded `.alur` workflows.
+9. Verify MongoDB persistence and reload after a bot restart before promoting to production.
+
+IMPORTANT
+- No database schema migration is required.
+- No new runtime dependency was added.
+- Onboarding profile persistence requires MongoDB readiness. Without it, onboarding still works but saved preferences remain in memory only.
+- Existing command permissions and command behavior are retained.
+- Do not include local .env, auth, backups, database data, or node_modules in redistributed ZIP files.
+
+VALIDATION
+- Root tests: 442/442 passed.
+- Website tests: 384/384 passed.
+- Root syntax: 223 JavaScript files passed.
+- Website syntax: passed.
+- Release audit: passed.
+- Live WhatsApp/MongoDB/SMTP/staging integration still requires verification.

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Ritme kreatif PIR Visuals</title>
+  <desc id="desc">Ilustrasi abstrak hijau hutan dan sage dengan garis-garis organik yang terinspirasi identitas PIR Visuals.</desc>
+  <defs>
+    <linearGradient id="forest" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#14291E"/><stop offset=".63" stop-color="#2D4B35"/><stop offset="1" stop-color="#1A3927"/></linearGradient>
+    <linearGradient id="sage" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#8CA77C"/><stop offset="1" stop-color="#D6E5CA"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#C4D8AE" stop-opacity=".45"/><stop offset="1" stop-color="#C4D8AE" stop-opacity="0"/></radialGradient>
+    <pattern id="grain" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="3" r=".7" fill="#E4EEDD" opacity=".19"/><circle cx="12" cy="16" r=".6" fill="#E4EEDD" opacity=".11"/></pattern>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#forest)"/>
+  <circle cx="1245" cy="390" r="620" fill="url(#glow)"/>
+  <g opacity=".78">
+    <path d="M1158-160C1047-20 999 128 1061 256s197 136 254 266-13 295-144 443" fill="none" stroke="url(#sage)" stroke-width="165" stroke-linecap="round"/>
+    <path d="M1507-94C1386 75 1317 188 1384 320s159 176 99 328-166 207-190 405" fill="none" stroke="#C8DCC0" stroke-opacity=".35" stroke-width="56" stroke-linecap="round"/>
+    <circle cx="1270" cy="509" r="178" fill="#D3E0C9" fill-opacity=".16"/>
+    <circle cx="1270" cy="509" r="114" fill="none" stroke="#E1E9D4" stroke-width="2" stroke-opacity=".55"/>
+    <path d="M1190 510c27-73 58-109 83-108 30 3 58 41 85 108-21 68-54 114-89 113-34-1-59-41-79-113z" fill="#AABB91" opacity=".75"/>
+    <path d="M1216 510h112M1270 446v129" stroke="#244A32" stroke-opacity=".56" stroke-width="7" stroke-linecap="round"/>
+  </g>
+  <path d="M-180 990C220 783 451 1127 784 863S1312 630 1800 802" fill="none" stroke="#AEBF99" stroke-opacity=".19" stroke-width="10" stroke-linecap="round"/>
+  <path d="M-200 952C255 738 473 1037 776 788S1343 552 1785 730" fill="none" stroke="#E9C9AE" stroke-opacity=".24" stroke-width="3"/>
+  <rect width="1600" height="1000" fill="url(#grain)" opacity=".6"/>
+</svg>

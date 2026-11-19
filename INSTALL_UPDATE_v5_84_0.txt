@@ -1,0 +1,57 @@
+PIR Visuals v5.84.0 — Designer & Client Workspace Integration
+
+INSTALLATION
+1. Stop the running website and make a full backup of the project.
+2. Extract Part 1 into the project root and choose Replace/Overwrite.
+3. Extract Part 2 into the same project root and choose Merge/Replace.
+4. Do not replace local configuration, database files, uploads, or session folders.
+5. Start the website again.
+6. Hard-refresh the browser with Ctrl + Shift + R.
+
+PART 1 — CORE WEBSITE
+- package.json
+- package-lock.json
+- README.md
+- portfolio-website/server.js
+- portfolio-website/package.json
+- portfolio-website/package-lock.json
+
+PART 2 — TESTS & RELEASE DOCUMENTATION
+- portfolio-website/tests/*.test.js
+- INSTALL_UPDATE_v5_84_0.txt
+- RELEASE_NOTES_v5_84_0.txt
+- QA_REPORT_v5_84_0.md
+- UPDATE_MANIFEST_v5_84_0.txt
+
+WHAT CHANGED
+- Project status follows a clear workflow: Brief diterima → Discovery → Dikerjakan → Review → Selesai.
+- Review can return to Dikerjakan for revisions.
+- Active projects can be cancelled; completed/cancelled projects become read-only.
+- Server validates status transitions; a crafted POST cannot reopen a terminal project.
+- Concurrent status updates use an optimistic version check. Legacy records without __v remain supported.
+- Client and designer workspaces show consistent status history.
+- Closed client workspaces explain why messaging is unavailable; closed designer rooms keep the history and invitation tools visible but remove the update composer.
+- Lead pipeline is synchronized when a private invitation is successfully sent and when a project reaches qualified/completed/cancelled outcomes. Existing manual terminal lead outcomes are preserved.
+- Designer Studio adds recent-project summary counts, project/client search, status filters, and accessible no-results feedback.
+- Project filters work without a new dependency and adapt to the existing light/dark theme tokens and mobile layout.
+
+PRESERVED
+- Existing MongoDB collections and schemas. No model migration is required.
+- Existing one-time, hashed, 30-minute client invitation links and 30-day HttpOnly/SameSite Strict sessions.
+- Existing CSRF checks and project/designer ownership checks.
+- Existing GSAP and mouse-following animation system.
+- Existing public website layout and theme system.
+- WhatsApp bot, authentication, uploads, media, and local configuration.
+
+IMPORTANT
+- Do not overwrite portfolio-website/models.js.
+- Do not overwrite .env, database/MongoDB data, uploads, media, auth_info, auth_info_baileys, or local backup folders.
+- The project list shows a maximum of 30 most recent project rooms; summary counts and filters refer to that visible recent set.
+- The full root test suite still has 10 previously recorded baseline failures. See QA_REPORT_v5_84_0.md.
+- Database-connected smoke tests and real SMTP delivery were not run in this isolated QA environment. Verify MongoDB and SMTP configuration in your own environment before production deployment.
+
+VERSIONS
+Platform: 5.84.0
+Website package: 3.38.0
+Public service-worker cache: pir-visuals-public-v35
+Public asset suffix: 5840

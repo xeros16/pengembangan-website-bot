@@ -1,0 +1,26 @@
+PIR Visuals v5.79.0 — Motion-safe visual regression repair
+
+Perbaikan utama:
+- Mempertahankan sistem animasi GSAP + ScrollTrigger.
+- Memperbaiki hero homepage agar lebih stabil pada viewport split-screen / tablet landscape.
+- Menyeimbangkan wrapping headline, spacing CTA, dan card index pada hero.
+- Memperkuat contrast kategori agar label kecil, copy, dan metadata lebih terbaca di Light Mode.
+- Menambahkan chip treatment pada header tile kategori dan tuning tone tertentu agar lebih konsisten.
+- Menjaga keterbacaan kategori di Dark Mode.
+- Memperkuat keterbacaan halaman Contact / Support pada Light Mode, termasuk emphasis italic dan aside card.
+- Advance cache-busting ke v5.79.0 / public-v25 / asset suffix 5790.
+
+File inti yang berubah:
+- package.json
+- package-lock.json
+- portfolio-website/server.js
+- portfolio-website/package.json
+- portfolio-website/package-lock.json
+- portfolio-website/.env.example
+- portfolio-website/models.js
+- portfolio-website/tests/visual-regression-repair-v5.79.test.js
+- portfolio-website/tests/* (release version refresh ke 5.79.0/3.33.0)
+
+QA yang dijalankan:
+- node --check server.js
+- targeted regression tests untuk motion, light mode contrast, universal design system, dan v5.79 visual repair

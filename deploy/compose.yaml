@@ -1,0 +1,39 @@
+services:
+  website:
+    build: ..
+    init: true
+    restart: unless-stopped
+    env_file: production.env
+    environment:
+      NODE_ENV: production
+      PORTFOLIO_WEB_HOST: 0.0.0.0
+      PORTFOLIO_WEB_PORT: 3080
+      PORTFOLIO_UPLOAD_DIR: /app/uploads/portfolio
+    volumes:
+      - uploads:/app/uploads/portfolio
+    expose:
+      - '3080'
+    stop_grace_period: 30s
+    healthcheck:
+      test: ['CMD', 'node', '-e', "fetch('http://127.0.0.1:3080/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      start_period: 30s
+      retries: 3
+  proxy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    env_file: production.env
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - website
+volumes:
+  uploads:
+  caddy_data:
+  caddy_config:

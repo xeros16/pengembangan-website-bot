@@ -1,0 +1,16 @@
+PIR Visuals v5.80.4 — Button mouse-following motion repair
+
+Root cause addressed:
+- v5.80.3 relied on the primary pointer media query and initial motionReduced snapshot.
+- On hybrid devices or when motion was toggled after initial load, magnetic handlers could fail to initialize.
+- GSAP hover handlers were attached only to controls present at initial page load.
+
+Fix:
+- Registers delegated pointer listeners independently of the primary-pointer media query and filters for mouse/pen pointer events.
+- Delegated pointer events cover static and dynamically-rendered controls.
+- Handler remains registered while respecting the live motion toggle and OS reduced-motion preference.
+- Bounded magnetic movement: up to 10px horizontally and 8px vertically.
+- Adds a small GSAP lift on hover and returns to center on pointer leave.
+- Does not change category card hover palettes or page layout.
+
+Release: Platform 5.80.4 | Website 3.34.4 | Public cache v29 | Asset suffix 5804

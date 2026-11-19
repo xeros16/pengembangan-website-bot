@@ -1,0 +1,36 @@
+PIR VISUALS BOT v5.25.0 — INSTALLASI / UPDATE
+
+1. Ekstrak ZIP ke folder aplikasi baru atau backup folder lama terlebih dahulu.
+2. Gunakan Node.js 20 atau lebih baru.
+3. Jalankan: npm install
+4. Salin .env.example menjadi .env, lalu isi MONGO_URI, OWNER_JIDS, konfigurasi WhatsApp, dan DESIGN_COMMUNITY_GROUPS.
+5. Untuk website publik, atur:
+   PORTFOLIO_WEB_HOST=0.0.0.0
+   PORTFOLIO_WEB_PORT=3080
+   PORTFOLIO_PUBLIC_BASE_URL=https://domain-portfolio-anda.example
+   PORTFOLIO_WATERMARK=on
+6. Arahkan domain HTTPS melalui reverse proxy ke port 3080. Jangan publikasikan port database MongoDB.
+7. Jalankan: npm run check
+8. Jalankan: npm test
+9. Jalankan: npm run doctor
+10. Jalankan bot: npm start
+
+PERINTAH DESAINER
+- .portfolio website — tautan website publik
+- .portfolio qr — halaman QR portfolio
+- .portfolio analytics — statistik profil dan interaksi
+- .portfolio bahasa id|en — bahasa website
+- .portfolio watermark on|off — watermark untuk upload baru
+- .design populer|verified|unggulan — discovery
+
+PERINTAH OWNER
+- .marketadmin verify DSN-ID on|off
+- .marketadmin feature DSN-ID on|off
+
+CATATAN PENTING
+- Set PORTFOLIO_PUBLIC_BASE_URL ke URL HTTPS publik yang benar. Default localhost tidak dapat diakses client dari internet.
+- Halaman QR memakai QR Server pihak ketiga untuk merender gambar QR; URL portfolio dikirim ke layanan tersebut ketika QR page dibuka.
+- Watermark hanya diterapkan ke file yang diunggah setelah pengaturan aktif; file lama tidak diubah.
+- Field schema baru memiliki default agar dokumen profil lama tetap kompatibel. Backup MongoDB sebelum update tetap dianjurkan.
+- Client melakukan komunikasi, negosiasi, order, dan pembayaran langsung dengan desainer. Bot tidak menjadi perantara transaksi.
+- Jangan menyalin file .env, auth_info_baileys, atau data runtime ke ZIP publik.

@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import { buildHeroArt, getPetLabel, getPetAttack } from '../games/pixel-realm/services/character-display.js';
+const pets = { slime: { name: 'Slime', emoji: '🟢', atk: 4 } };
+assert.match(buildHeroArt('heroine'), /o\.o/);
+assert.match(buildHeroArt('hero'), /PIXEL|⚔/);
+assert.equal(getPetLabel({}, pets), 'Belum memiliki pet');
+assert.equal(getPetLabel({ pet: { species: 'slime', level: 3 } }, pets), '🟢 Slime Lv.3');
+assert.equal(getPetAttack({ pet: { species: 'slime', level: 3 } }, pets), 8);
+assert.equal(getPetAttack({ pet: { species: 'slime', level: 2, evolved: true } }, pets), 14);
+console.log('character-display tests passed');

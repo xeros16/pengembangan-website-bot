@@ -1,0 +1,401 @@
+/* PIR Visuals — paper-burst interaction · 2026-11-15x
+   Sage, ivory and warm-clay paper shapes sit behind the content, never above links. */
+html body #main-content .pv-home .pv-category-grid,
+html body #main-content .category-tile-grid,
+html body #main-content .company-editorial-grid {
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+}
+html body #main-content .pv-home .pv-category-grid > .home-category,
+html body #main-content .category-tile-grid > .category-tile,
+html body #main-content .company-editorial-grid > .company-editorial-card {
+  position: relative;
+  z-index: 2;
+  isolation: isolate;
+  overflow: visible;
+}
+html body #main-content .pv-home .pv-category-grid > .home-category:is(:hover,:focus-visible),
+html body #main-content .category-tile-grid > .category-tile:is(:hover,:focus-visible),
+html body #main-content .company-editorial-grid > .company-editorial-card:is(:hover,:focus-within) {
+  z-index: 3;
+}
+html body #main-content .pv-home .pv-category-grid > .pv-party-layer,
+html body #main-content .category-tile-grid > .pv-party-layer,
+html body #main-content .company-editorial-grid > .pv-party-layer {
+  z-index: 1;
+}
+html body #main-content > .pv-footer .pv-footer-feature.footer-cta {
+  isolation: isolate;
+}
+html body #main-content > .pv-footer .pv-footer-feature .pv-footer-feature-copy {
+  position: relative;
+  z-index: 4;
+}
+html body #main-content > .pv-footer .pv-footer-feature .pv-footer-feature-graphic {
+  position: relative;
+  z-index: 3;
+}
+html body #main-content > .pv-footer .pv-footer-feature > .pv-party-layer {
+  z-index: 2;
+}
+.pv-party-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none !important;
+  overflow: visible;
+  user-select: none;
+  contain: layout style;
+}
+/* Allow paper to rise above/below the grid, but do not create horizontal scrollbars. */
+.pv-party-layer--cards {
+  inset: -105px 0;
+  overflow: hidden;
+}
+.pv-party-piece {
+  position: absolute;
+  display: block;
+  left: var(--px);
+  top: var(--py);
+  width: var(--pw, 9px);
+  height: var(--ph, 14px);
+  border-radius: 1.5px;
+  background: var(--pc, #d0e5b7);
+  box-shadow: 0 1px 2px rgba(20,50,28,.12);
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: pv-paper-pop var(--dur, 960ms) cubic-bezier(.17,.65,.2,1) var(--delay, 0ms) both;
+}
+.pv-party-piece[data-shape="circle"] {border-radius: 50%;}
+.pv-party-piece[data-shape="ribbon"] {border-radius: 4px 0 4px 0;}
+@keyframes pv-paper-pop {
+  0% {opacity:0;transform:translate(-50%,-50%) scale(.3) rotate(0deg);}
+  13% {opacity:1;}
+  75% {opacity:.95;}
+  100% {opacity:0;transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(.9) rotate(var(--rot));}
+}
+/* The top border of 01 used to be doubled: one on the list, one on row 01. */
+html body #main-content .pv-home .pv-manifesto-points {
+  border: 0 !important;
+  border-top: 0 !important;
+  border-bottom: 0 !important;
+}
+html body #main-content .pv-home .pv-manifesto-points > div {
+  border: 0 !important;
+  border-top: 1px solid #8ca57f !important;
+  border-bottom: 0 !important;
+}
+html body #main-content .pv-home .pv-manifesto-points > div:last-child {
+  border-bottom: 1px solid #8ca57f !important;
+}
+@media (max-width: 900px) {
+  html body #main-content .pv-home .pv-category-grid,
+  html body #main-content .category-tile-grid,
+  html body #main-content .company-editorial-grid {overflow: visible;}
+}
+@media (prefers-reduced-motion: reduce) {
+  .pv-party-layer {display:none !important;}
+  .pv-party-piece {animation:none !important;}
+}
+html[data-pv-motion="off"] .pv-party-layer {display:none !important;}
+
+
+/* 2026-11-15w — manifesto balance + medium paper palette + themed footer heads */
+html body #main-content .pv-home .pv-manifesto-points > div {
+  display: grid !important;
+  grid-template-columns: 32px minmax(0,1fr) !important;
+  align-items: center !important;
+  column-gap: 14px !important;
+  min-height: 0;
+  padding: 13px 0 !important;
+}
+html body #main-content .pv-home .pv-manifesto-points > div > b,
+html body #main-content .pv-home .pv-manifesto-points > div > span {
+  margin: 0;
+}
+html body #main-content .pv-home .pv-manifesto-points > div > b {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  min-height: 1em;
+  justify-self: start;
+}
+html body #main-content .pv-home .pv-manifesto-points > div > span {
+  display: flex;
+  align-items: center;
+  min-height: 1.4em;
+  line-height: 1.34;
+}
+html body #main-content .pv-home .pv-faq-list details {
+  --pv-faq-gutter: 24px;
+}
+html body #main-content .pv-home .pv-faq-list summary {
+  padding: 22px var(--pv-faq-gutter) 14px;
+}
+html body #main-content .pv-home .pv-faq-list details:not([open]) summary {
+  padding-bottom: 22px;
+}
+html body #main-content .pv-home .pv-faq-list .pv-faq-panel {
+  padding: 0 var(--pv-faq-gutter) 22px;
+}
+html body #main-content .pv-home .pv-faq-list p {
+  padding: 0 !important;
+}
+html body #main-content > .pv-footer .pv-footer-column h3 {
+  margin: 0 0 15px;
+  font: 700 clamp(16px,1.25vw,18px)/1.08 Georgia,"Times New Roman",serif !important;
+  letter-spacing: .045em;
+  text-transform: uppercase;
+  color: #1D3728 !important;
+  -webkit-text-fill-color: #1D3728 !important;
+}
+html body #main-content > .pv-footer .pv-footer-column > a {
+  color: #264633 !important;
+  -webkit-text-fill-color: #264633 !important;
+}
+
+
+/* 2026-11-15x — one shared expressive hover for home, category and journey cards.
+   Existing transforms stay untouched for home + categories, avoiding competing animations. */
+html body #main-content :is(.home-category,.category-tile,.company-editorial-card).pv-party-animated {
+  isolation: isolate;
+  overflow: hidden;
+  transition: transform .48s cubic-bezier(.22,1,.36,1),
+              translate .48s cubic-bezier(.22,1,.36,1),
+              box-shadow .48s cubic-bezier(.22,1,.36,1),
+              border-color .35s ease,
+              background-color .35s ease;
+}
+html body #main-content :is(.home-category,.category-tile,.company-editorial-card).pv-party-animated::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  display: block;
+  border-radius: inherit;
+  background: linear-gradient(108deg,
+    transparent 28%,rgba(247,251,230,.07) 43%,
+    rgba(235,246,211,.26) 52%,rgba(255,255,255,.06) 61%,transparent 76%);
+  transform: translate3d(-125%,0,0);
+  opacity: 0;
+  transition: transform .82s cubic-bezier(.18,.65,.25,1), opacity .18s ease;
+  pointer-events: none !important;
+  z-index: 1;
+}
+html body #main-content :is(.home-category,.category-tile,.company-editorial-card).pv-party-animated:is(:hover,:focus-within)::after {
+  transform: translate3d(125%,0,0);
+  opacity: .8;
+}
+html body #main-content :is(.home-category,.category-tile,.company-editorial-card).pv-party-animated:is(:hover,:focus-within) {
+  box-shadow: 0 18px 36px rgba(27,54,38,.12);
+}
+/* Additional non-paper motion: subtle text lift and link slide. */
+html body #main-content .pv-party-animated :is(strong,h2) {
+  transition: transform .45s cubic-bezier(.22,1,.36,1);
+}
+html body #main-content .pv-party-animated:is(:hover,:focus-within) :is(strong,h2) {
+  transform: translate3d(0,-3px,0);
+}
+html body #main-content .company-editorial-card.pv-party-animated {
+  translate: 0 0;
+}
+html body #main-content .company-editorial-card.pv-party-animated:is(:hover,:focus-within) {
+  translate: 0 -6px;
+  border-color: #8da889;
+}
+html body #main-content .company-editorial-card.pv-party-animated a {
+  transition: transform .35s cubic-bezier(.22,1,.36,1), color .25s ease;
+}
+html body #main-content .company-editorial-card.pv-party-animated:is(:hover,:focus-within) a {
+  transform: translate3d(4px,-2px,0);
+}
+/* Confetti lives in the grid layer behind cards; the shine stays clipped inside each card. */
+@media (prefers-reduced-motion: reduce) {
+  html body #main-content .pv-party-animated,
+  html body #main-content .pv-party-animated::after,
+  html body #main-content .pv-party-animated :is(strong,h2,a),
+  html body #main-content .pv-party-animated:is(:hover,:focus-within) :is(strong,h2,a) {
+    transform: none !important;
+    translate: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+  html body #main-content .pv-party-animated::after {display: none !important;}
+}
+html[data-pv-motion="off"] body #main-content .pv-party-animated,
+html[data-pv-motion="off"] body #main-content .pv-party-animated::after,
+html[data-pv-motion="off"] body #main-content .pv-party-animated :is(strong,h2,a),
+html[data-pv-motion="off"] body #main-content .pv-party-animated:is(:hover,:focus-within) :is(strong,h2,a) {
+  transform: none !important;
+  translate: none !important;
+  transition: none !important;
+  animation: none !important;
+}
+html[data-pv-motion="off"] body #main-content .pv-party-animated::after {display:none !important;}
+
+
+/* 2026-11-15y: interaction refinement. Each card owns its sheen; confetti is separate. */
+html body #main-content :is(.home-category,.category-tile,.company-editorial-card).pv-party-animated {
+  overflow: clip !important;
+  contain: paint;
+}
+html body #main-content :is(.home-category,.category-tile,.company-editorial-card).pv-party-animated::after {
+  box-sizing: border-box;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  clip-path: inset(0 round 5px);
+  background: linear-gradient(102deg, transparent 27%, rgba(255,255,245,.045) 42%, rgba(255,255,235,.19) 50%, rgba(255,255,245,.045) 59%, transparent 74%);
+  transform: translateX(-102%);
+  opacity: 0;
+}
+html body #main-content :is(.home-category,.category-tile,.company-editorial-card).pv-party-animated:is(:hover,:focus-within)::after {
+  transform: translateX(102%);
+  opacity: .77;
+}
+/* 20261115z — Optical centering of the manifesto copy.
+   The first two rows looked too high due to their short text glyphs and line box.
+   Keep identical 54px row heights; shift their lettering 2px downward optically. */
+html body #main-content .pv-home .pv-manifesto-points > div {
+  box-sizing: border-box;
+  display: grid !important;
+  grid-template-columns: 34px minmax(0, 1fr) !important;
+  grid-template-rows: minmax(0, 1fr) !important;
+  column-gap: 12px !important;
+  align-items: center !important;
+  align-content: center !important;
+  min-height: 54px !important;
+  padding: 0 !important;
+}
+html body #main-content .pv-home .pv-manifesto-points > div > :is(b,span) {
+  display: block !important;
+  align-self: center !important;
+  justify-self: start !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  transform: none !important;
+  line-height: 1.35 !important;
+}
+html body #main-content .pv-home .pv-manifesto-points > div > b {
+  font-size: 13px !important;
+  letter-spacing: .1em !important;
+}
+html body #main-content .pv-home .pv-manifesto-points > div > span {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+}
+html body #main-content .pv-home .pv-manifesto-points > div:nth-child(-n+2) > :is(b,span) {
+  position: relative;
+  top: 2px !important;
+}
+/* Explore animates its own text and arrow, not the entire tile or adjacent cards. */
+html body #main-content .category-tile .category-tile-foot > b {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  position: relative;
+  padding-bottom: 3px;
+  background-image: linear-gradient(currentColor,currentColor);
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  background-size: 0 1px;
+  transition: background-size .38s cubic-bezier(.22,1,.36,1), letter-spacing .32s ease !important;
+}
+html body #main-content .category-tile:is(:hover,:focus-visible) .category-tile-foot > b {
+  background-size: calc(100% - 15px) 1px;
+  letter-spacing: .025em;
+}
+/* Hero search CTA shares the other buttons' lift and muted highlight. */
+html body #main-content .pv-home .pv-hero .pv-hero-actions > .pv-button.pv-button-dark {
+  position: relative;
+  overflow: clip;
+  transition: background-color .32s ease, box-shadow .36s ease,
+              transform .36s cubic-bezier(.22,1,.36,1) !important;
+}
+html body #main-content .pv-home .pv-hero .pv-hero-actions > .pv-button.pv-button-dark:is(:hover,:focus-visible) {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(12,28,18,.22);
+}
+/* On text links, only the arrow moves. The label and underline stay still. */
+html body #main-content a .pv-link-arrow,
+html body #main-content .category-tile .pv-link-arrow {
+  display: inline-block;
+  vertical-align: baseline;
+  transition: transform .34s cubic-bezier(.22,1,.36,1), opacity .25s ease !important;
+  will-change: auto;
+}
+html body #main-content a:is(:hover,:focus-visible) .pv-link-arrow {
+  transform: translate(4px,-3px);
+}
+html body #main-content .company-editorial-card.pv-party-animated a,
+html body #main-content .company-editorial-card.pv-party-animated:is(:hover,:focus-within) a {
+  transform: none !important;
+}
+/* Move arrow only when its link is hovered, not on hover of the surrounding card. */
+html body #main-content .company-editorial-card.pv-party-animated a:is(:hover,:focus-visible) .pv-link-arrow {
+  transform: translate(4px,-3px) !important;
+}
+@media (max-width:600px) {
+  html body #main-content .pv-home .pv-manifesto-points > div > span {
+    font-size: 11px !important;
+  }
+}
+@media (prefers-reduced-motion:reduce) {
+  html body #main-content .pv-home .pv-hero .pv-hero-actions > .pv-button.pv-button-dark,
+  html body #main-content a .pv-link-arrow,
+  html body #main-content .category-tile .category-tile-foot > b {
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
+html[data-pv-motion="off"] body #main-content .pv-home .pv-hero .pv-hero-actions > .pv-button.pv-button-dark,
+html[data-pv-motion="off"] body #main-content a .pv-link-arrow,
+html[data-pv-motion="off"] body #main-content .category-tile .category-tile-foot > b {
+  transform: none !important;
+  transition: none !important;
+  animation: none !important;
+}
+
+/* 20261115z — Single FAQ horizontal gutter for BOTH question and answer.
+   The former 22px padding on <p> stacked on the panel padding, producing
+   a visually indented answer despite previous attempted fixes. */
+html body #main-content .pv-home .pv-faq-list details {
+  --pv-faq-gutter: 24px;
+}
+html body #main-content .pv-home .pv-faq-list details > summary {
+  box-sizing: border-box;
+  padding-inline: var(--pv-faq-gutter) !important;
+}
+html body #main-content .pv-home .pv-faq-list details > .pv-faq-panel {
+  box-sizing: border-box;
+  padding: 0 var(--pv-faq-gutter) 22px !important;
+  margin: 0 !important;
+}
+html body #main-content .pv-home .pv-faq-list details > .pv-faq-panel > p {
+  box-sizing: border-box;
+  padding: 0 !important;
+  margin: 0 !important;
+  text-indent: 0 !important;
+}
+@media(max-width:600px){
+  html body #main-content .pv-home .pv-faq-list details {--pv-faq-gutter:18px;}
+}
+/* Footer's primary CTA now participates in the same magnetic pointer handler
+   as .pv-button; keep smooth translate even while other hover effects run. */
+html body #main-content > .pv-footer .pv-footer-feature-actions > .pv-footer-button {
+  transition: translate .18s cubic-bezier(.2,.75,.25,1),
+              background-color .3s ease, box-shadow .3s ease !important;
+}
+html body #main-content > .pv-footer .pv-footer-feature-actions > .pv-footer-button:is(:hover,:focus-visible){
+  box-shadow: 0 11px 25px rgba(8,30,17,.22);
+}
+@media(prefers-reduced-motion:reduce){
+  html body #main-content > .pv-footer .pv-footer-feature-actions > .pv-footer-button {
+    transition:none !important;translate:none !important;
+  }
+}
+html[data-pv-motion="off"] body #main-content > .pv-footer .pv-footer-feature-actions > .pv-footer-button {
+  transition:none !important;translate:none !important;
+}

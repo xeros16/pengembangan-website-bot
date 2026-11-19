@@ -1,0 +1,36 @@
+PIR Visuals v5.97.0 — Local Update Package
+
+Download BOTH Part 1 and Part 2. They are complementary archives, not two separate applications. Extract both into the SAME destination folder, preserving the common `PIR-Visuals-v5.97.0/` root.
+
+IMPORTANT — before replacing your current project:
+1. Stop the bot and website processes.
+2. Back up your local MongoDB database and portfolio media directory.
+3. Keep your existing `.env`, WhatsApp authentication/session directory, local allowlists/settings, uploads, and backups. These private runtime files are intentionally excluded from the clean release ZIP.
+4. Do not overwrite private configuration with sample `.example` files.
+
+Install/update from the project root:
+
+```bash
+npm ci
+npm run website:install
+npm run db:ensure-directory-indexes
+npm run verify:database
+npm run check
+npm run website:check
+npm run audit:release
+npm test
+npm run website:test
+```
+
+Then start locally with `npm run local:start`. Website default: `http://127.0.0.1:3010`. Bot readiness: `http://127.0.0.1:3091/ready`.
+
+The WhatsApp bot remains a portfolio directory and direct-contact channel. The website project workspace is optional. There is no PIR payment, checkout, commission, escrow, or transaction mediation.
+
+Release notes: `RELEASE-NOTES-v5.97.0.md`
+Update guide: `INSTALL_UPDATE_v5_97_0.md`
+QA report: `QA_REPORT_v5_97_0.md`
+Hybrid policy: `docs/HYBRID-WORKSPACE-POLICY-v5.97.0.md`
+Verification standard: `docs/VERIFICATION-STANDARD-v5.97.0.md`
+Feature audit: `docs/PRODUCT-FEATURE-AUDIT-v5.97.0.md`
+
+Stable Release is conditional until all dependency-backed tests, local MongoDB, browser, SMTP, fresh WhatsApp, and backup/restore acceptance checks pass.

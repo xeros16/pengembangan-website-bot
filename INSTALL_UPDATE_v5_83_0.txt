@@ -1,0 +1,36 @@
+PIR Visuals v5.83.0 — Keyboard-first Navigation & Accessible Overlays
+
+INSTALLATION
+1. Make a full backup of the current project.
+2. Extract Part 1 into the project root and choose Replace/Overwrite.
+3. Extract Part 2 into the same project root and choose Merge/Replace.
+4. Restart the website server.
+5. Hard-refresh the browser with Ctrl + Shift + R.
+
+KEEP THESE FILES / FOLDERS UNCHANGED
+- portfolio-website/models.js
+- .env and environment-specific configuration
+- database files / MongoDB data
+- uploads and media storage
+- WhatsApp authentication/session folders
+- local logs and backups
+
+WHAT CHANGED
+- Command palette search announces how many destinations match and gives a clear no-results message.
+- Arrow Up/Down moves between visible command destinations; Home/End jumps to the first/last destination.
+- Command palette triggers advertise Ctrl+K / Cmd+K / slash shortcuts to assistive technology.
+- Global command shortcuts do not interrupt a different modal dialog.
+- Portfolio lightbox announces the current image position and links the image to its caption for screen readers.
+- Visible focus treatment is clearer when navigating command destinations with a keyboard.
+
+PRESERVED
+- Existing native dialog behavior, Escape-to-close, modal focus containment, and return-to-opener behavior.
+- Existing quick-view and lightbox backdrop close behavior.
+- Existing clipboard, form submission feedback, password validation and GSAP mouse-following animation.
+- Existing database models, authentication, routes, uploads and WhatsApp bot logic.
+
+VERSIONS
+Platform: 5.83.0
+Website package: 3.37.0
+Public service-worker cache: pir-visuals-public-v34
+Public asset suffix: 5830

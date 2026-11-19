@@ -1,0 +1,130 @@
+{
+  "desktop": {
+    "nav_count": 1,
+    "theme": "dark",
+    "brand_icon_loaded": true
+  },
+  "broken_images": [],
+  "collection_preview": {
+    "title": "Visual identity explorations",
+    "description": "A warm and modern identity direction.",
+    "designers": "3",
+    "works": "4"
+  },
+  "collection_order_after_move": {
+    "ids": "ART-BBBB2222, ART-AAAA1111, ART-CCCC3333",
+    "cards": [
+      "ART-BBBB2222",
+      "ART-AAAA1111",
+      "ART-CCCC3333"
+    ],
+    "first_up_disabled": true,
+    "last_down_disabled": true
+  },
+  "remove_focus": {
+    "focused_control": "down",
+    "focused_row": "ART-AAAA1111"
+  },
+  "collection_order_after_remove": {
+    "ids": "ART-AAAA1111, ART-CCCC3333",
+    "count": 2,
+    "announcement": "Urutan diperbarui. 2 karya tersisa."
+  },
+  "collection_drag_order": {
+    "ids": "ART-CCCC3333, ART-AAAA1111",
+    "announcement": "Urutan diperbarui. 2 karya tersisa."
+  },
+  "share_link": {
+    "canonical_path": "/collections/brand-direction",
+    "status_region": "status"
+  },
+  "case_cover_active_href": "#case-cover",
+  "case_process_active_href": "#case-process",
+  "studio_analytics_active_href": "#analytics",
+  "theme_contrast": {
+    "light": {
+      "foreground": "rgb(255, 255, 255)",
+      "contrast_accent_strong": 9.52,
+      "contrast_accent": 5.87
+    },
+    "dark": {
+      "foreground": "rgb(32, 40, 32)",
+      "contrast_accent_strong": 10.39,
+      "contrast_accent": 7.3
+    }
+  },
+  "responsive": {
+    "320": {
+      "overflow": false,
+      "nav_count": 1,
+      "chapter_nav_width": 292,
+      "builder_columns": "292px"
+    },
+    "360": {
+      "overflow": false,
+      "nav_count": 1,
+      "chapter_nav_width": 332,
+      "builder_columns": "332px"
+    },
+    "390": {
+      "overflow": false,
+      "nav_count": 1,
+      "chapter_nav_width": 362,
+      "builder_columns": "362px"
+    },
+    "414": {
+      "overflow": false,
+      "nav_count": 1,
+      "chapter_nav_width": 386,
+      "builder_columns": "386px"
+    },
+    "430": {
+      "overflow": false,
+      "nav_count": 1,
+      "chapter_nav_width": 402,
+      "builder_columns": "402px"
+    },
+    "768": {
+      "overflow": false,
+      "nav_count": 1,
+      "chapter_nav_width": 722,
+      "builder_columns": "721.938px"
+    },
+    "1024": {
+      "overflow": false,
+      "nav_count": 1,
+      "chapter_nav_width": 963,
+      "builder_columns": "637.578px 306.984px"
+    },
+    "1280": {
+      "overflow": false,
+      "nav_count": 1,
+      "chapter_nav_width": 1192,
+      "builder_columns": "792.438px 381.562px"
+    },
+    "1440": {
+      "overflow": false,
+      "nav_count": 1,
+      "chapter_nav_width": 1192,
+      "builder_columns": "792.438px 381.562px"
+    }
+  },
+  "mobile_nav_open": true,
+  "mobile_order": "ART-AAAA1111, ART-CCCC3333",
+  "mobile_nav_closed_after_outside_click": true,
+  "motion_off": {
+    "state": "off",
+    "chapter_link_visible": true,
+    "chapter_transition": "0s"
+  },
+  "system_reduced_motion": {
+    "matches": true,
+    "setup_transition": "0s"
+  },
+  "no_js": {
+    "manual_input_visible": true,
+    "reorder_widget_display": "none",
+    "preview_title": "Untitled collection"
+  },
+  "errors": []
+}

@@ -1,0 +1,94 @@
+PIR Visuals v5.88.0 — Final Audit & Release Candidate
+
+RINGKASAN
+Update final audit website: CSP dibuat eksplisit dan konsisten, inline event handlers yang diblokir CSP diganti delegated handlers, secret collection edit links dilindungi dari cache/index/referrer, QR page memakai response security shell yang benar, dan health endpoint hanya menerima GET/HEAD.
+
+FILE PART 1 — APPLICATION
+- package.json
+- package-lock.json
+- README.md
+- docs/ROADMAP.md
+- portfolio-website/server.js
+- portfolio-website/package.json
+- portfolio-website/package-lock.json
+- portfolio-website/scripts/smoke-test.js
+
+FILE PART 2 — TESTS & DOCUMENTATION
+- seluruh tests/*.test.js
+- seluruh portfolio-website/tests/*.test.js
+- portfolio-website/tests/mock-sharp-loader.mjs (test-only; bukan dependency runtime)
+- docs/CHANGELOG.md
+- RELEASE_NOTES_v5_88_0.txt
+- QA_REPORT_v5_88_0.md
+- OPERATIONS_RUNBOOK_v5_88_0.md
+- INSTALL_UPDATE_v5_88_0.txt
+- UPDATE_MANIFEST_v5_88_0.txt
+
+LANGKAH UPDATE
+1. Hentikan proses bot dan website.
+2. Buat backup project, database, folder uploads/media, serta sesi WhatsApp.
+3. Extract Part 1 ke root project dan pilih Merge/Replace.
+4. Extract Part 2 ke root project dan pilih Merge/Replace.
+5. JANGAN replace file .env, portfolio-website/.env, portfolio-website/models.js, database, uploads/media, backups, atau folder autentikasi WhatsApp.
+6. Pastikan dependency website sudah terpasang. Jika belum, jalankan:
+   npm --prefix portfolio-website install
+   Perintah ini memasang dependency yang sudah tercantum di package.json; tidak ada dependency runtime baru pada rilis ini.
+7. Jalankan pemeriksaan:
+   npm run check
+   npm test
+   npm run website:check
+   npm run website:test
+8. Jalankan website sesuai prosedur server yang sudah dipakai.
+9. Jalankan smoke test dari server yang aktif:
+   PORTFOLIO_SMOKE_BASE_URL=https://domain-kamu.example npm --prefix portfolio-website run smoke
+10. Lakukan verifikasi staging sebelum mengalihkan trafik produksi. Pastikan halaman Designer Studio, QR, collection, dan semua halaman publik tampil normal.
+
+PERUBAHAN UTAMA
+1. CSP & INTERAKSI
+- Menambahkan explicit script-src 'self' dan connect-src 'self'.
+- Menjaga image-src self/data/https dan style-src self/unsafe-inline.
+- Menghapus inline onclick/onerror/onsubmit dari HTML templates.
+- Mengganti konfirmasi hapus, select link, dan fallback gambar dengan delegated event handlers first-party.
+- Menambahkan tes bahwa seluruh browser bundles dapat diparse sebagai JavaScript.
+
+2. PRIVATE COLLECTION LINKS
+- Halaman collection yang memuat edit key selalu Cache-Control: no-store.
+- Halaman edit key memakai Referrer-Policy: no-referrer dan X-Robots-Tag: noindex, nofollow.
+- Halaman pembuatan collection yang menampilkan one-time edit link juga no-store/no-referrer/noindex.
+- Response setelah update collection tetap no-store dan no-referrer.
+- Public collection tanpa edit key tetap boleh cache publik selama 60 detik.
+
+3. QR PAGE
+- QR page sekarang menggunakan sendHtml() agar response security headers dan CSP sama dengan halaman lain.
+- CSP mengizinkan logo lokal dan QR image HTTPS.
+- URL target di atribut href di-escape.
+
+4. HEALTH & SMOKE
+- /health hanya menerima GET dan HEAD; method lain menerima 405.
+- Smoke test sekarang memeriksa GSAP dan ScrollTrigger runtime agar dependency motion tidak diam-diam hilang setelah deploy.
+
+VERSI
+Platform: 5.88.0
+Website package: 3.42.0
+Public service-worker cache: pir-visuals-public-v39
+Public asset suffix: 5880
+
+VALIDASI OTOMATIS
+- Root tests: 416/416 lulus.
+- Website tests: 376/376 lulus.
+- Root syntax: 217 file JavaScript lulus.
+- Website syntax check: lulus.
+- HTTP integration tests: route publik, CSP, QR, cache edit-key, referrer policy, health method, serta asset bundle diuji melalui server lokal dan model mock.
+- Contrast token check: dark/light body text, muted text, dan primary action memenuhi rasio WCAG AA.
+
+BATAS VALIDASI
+- MongoDB live tidak tersedia pada lingkungan QA ini.
+- Native Sharp dan GSAP belum tersedia pada node_modules lingkungan QA; test route memakai mock Sharp hanya untuk menguji HTTP behavior. Image processing dan animasi harus diverifikasi setelah dependency website dipasang di staging.
+- Browser screenshot automation tidak berhasil dijalankan di container QA. Visual audit desktop/mobile harus dilanjutkan pada browser staging.
+- SMTP, WhatsApp pairing, reverse proxy/TLS, backup restore, dan email delivery tetap perlu uji staging.
+
+PRESERVED
+- Tidak ada perubahan pada schema MongoDB website atau bot.
+- Tidak ada database migration.
+- Tidak ada dependency runtime baru.
+- Semua alur bot, allowlist, WhatsApp, Designer Studio, Client Workspace, dan media storage dipertahankan.

@@ -1,0 +1,396 @@
+<!doctype html><html lang="id"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>PIR Visuals — Pratinjau Company Edition</title><style>body{margin:0}a{color:inherit} .site-nav{display:flex;justify-content:space-between;align-items:center;font:14px Arial} .brand{font-size:28px;text-decoration:none}.preview-links{display:flex;gap:24px} .preview-note{padding:12px;text-align:center;background:#ffcb32;font:12px Arial} @media(max-width:540px){.preview-links{gap:10px;font-size:11px}} /* PIR Visuals / Creative edition. Scoped to the public homepage. */
+body:has(.pv-home){background:#f6eedf;color:#302015}
+body:has(.pv-home)::before,body:has(.pv-home)::after{display:none}
+body:has(.pv-home) #main-content{max-width:none;padding:0;background:#f6eedf;color:#302015}
+body:has(.pv-home) .site-nav{margin:0;padding:20px 4%;border:0;border-radius:0;background:#291b12;color:#fff0d7;position:relative;z-index:30;box-shadow:none}
+body:has(.pv-home) .site-nav a,body:has(.pv-home) .site-nav button{color:#fff0d7}
+body:has(.pv-home) .site-nav .brand{color:#ffcb32;font-weight:900}
+body:has(.pv-home) .site-nav .nav-links.open{background:#291b12}
+#main-content .pv-home{--text:#302015;--muted:#675343;--line:#b8a792;--accent:#ffcb32;--bg:#f6eedf;--surface:#f6eedf;--surface-raised:#ece0ca;--pv-ink:#302015;--pv-paper:#f6eedf;margin:0;color:#302015;background:#f6eedf;font-family:Arial,Helvetica,sans-serif}
+#main-content .pv-home *{box-sizing:border-box}
+#main-content .pv-home a{color:inherit}
+#main-content .pv-home .pv-hero{position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(0,1fr);min-height:760px;padding:100px 5% 40px;gap:30px;overflow:hidden;background:#302015;border:0;border-radius:0;color:#fff0d7}
+#main-content .pv-home .editorial-hero-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-3;opacity:.52}
+#main-content .pv-home .pv-hero:before{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(34,22,14,.96),rgba(34,22,14,.1));z-index:-2;border:0;border-radius:0;transform:none;width:auto;height:auto}
+#main-content .pv-home .pv-hero:after{display:none}
+#main-content .pv-home .pv-hero-main{max-width:1200px;align-self:end;position:relative;padding:0;background:none;border:0}
+#main-content .pv-home .pv-overline{font-size:12px;letter-spacing:.16em;color:#fff0d7;line-height:1.6;flex-wrap:wrap}
+#main-content .pv-home .pv-overline i{background:#ffcb32}
+#main-content .pv-home .pv-hero h1{font-family:Georgia,'Times New Roman',serif;font-weight:900;font-size:clamp(56px,7.8vw,118px);letter-spacing:-.055em;line-height:1.02;max-width:1100px;margin:26px 0;color:#ffcb32;text-wrap:balance}
+#main-content .pv-home .pv-hero-title-visual{font:inherit;line-height:inherit;letter-spacing:inherit}
+#main-content .pv-home .pv-hero-word{display:inline;opacity:1;transform:none;filter:none;color:inherit}
+#main-content .pv-home .pv-hero-lede{font-size:18px;line-height:1.65;max-width:610px;color:#fff0d7;margin:20px 0 30px}
+#main-content .pv-home .pv-hero-actions{display:flex;gap:24px;flex-wrap:wrap;align-items:center}
+#main-content .pv-home .pv-button{display:inline-flex;justify-content:center;align-items:center;gap:24px;padding:18px 24px;border:1px solid #302015;border-radius:4px;font-size:14px;font-weight:700;text-decoration:none;background:#ffcb32;color:#291b12;min-height:52px;transition:transform .2s,background .2s}
+#main-content .pv-home .pv-button:hover{transform:translateY(-3px);background:#ffe18a}
+#main-content .pv-home .pv-text-link{color:#fff0d7;text-underline-offset:6px}
+#main-content .pv-home .pv-hero-foot{display:flex;gap:22px;flex-wrap:wrap;color:#dac6ad;font-size:10px;letter-spacing:.12em;margin-top:35px;padding-top:24px;border-top:1px solid #806b54}
+#main-content .pv-home .pv-index{position:relative;width:auto;max-width:none;display:flex;align-items:center;gap:36px;flex-wrap:wrap;background:none;color:#fff0d7;border:0;border-top:1px solid #806b54;padding:25px 0 0;box-shadow:none;border-radius:0}
+#main-content .pv-home .pv-index-heading,#main-content .pv-home .pv-index>p{display:none}
+#main-content .pv-home .pv-index-total{display:flex;align-items:center;gap:15px;padding:0;border:0}
+#main-content .pv-home .pv-index-total strong{font-size:44px;color:#ffcb32;line-height:1}
+#main-content .pv-home .pv-index-total span{font-size:10px;line-height:1.5;color:#fff0d7}
+#main-content .pv-home .pv-index-metrics{display:flex;gap:35px;border:0;padding:0}
+#main-content .pv-home .pv-index-metrics div{border:0;padding:0;background:none}
+#main-content .pv-home .pv-index-metrics b{display:block;font-size:24px;color:#ffcb32}
+#main-content .pv-home .pv-index-metrics small{font-size:9px;color:#fff0d7;letter-spacing:.08em}
+#main-content .pv-home .pv-hero-bottom{display:none}
+#main-content .pv-home .pv-motion-ribbon{background:#ffcb32;color:#302015;border:0;padding:20px 0;overflow:hidden;transform:none;margin:0}
+#main-content .pv-home .pv-motion-ribbon-track{display:flex;width:max-content;gap:40px;align-items:center;animation:editorial-marquee 45s linear infinite;font-size:19px;font-weight:900;letter-spacing:.05em}
+#main-content .pv-home .pv-motion-ribbon i{font-style:normal;font-size:28px}
+#main-content .pv-home>section:not(.pv-hero){padding:90px 5%;margin:0;border-radius:0;border:0}
+#main-content .pv-home .pv-section-top{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:40px}
+#main-content .pv-home .pv-label{display:block;font-size:11px;font-weight:700;letter-spacing:.14em;margin-bottom:20px;color:inherit}
+#main-content .pv-home h2.pv-managed-title{font-family:Georgia,'Times New Roman',serif;font-size:clamp(36px,4.7vw,68px);font-weight:800;line-height:1.06;letter-spacing:-.045em;margin:0;color:inherit}
+#main-content .pv-home .pv-section-top>p{max-width:370px;font-size:16px;line-height:1.7;color:#675343}
+#main-content .pv-home .pv-category-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+#main-content .pv-home .home-category{position:relative;display:flex;flex-direction:column;min-height:280px;padding:28px 24px;background:#ecdcbc;border:1px solid #b5a184;border-radius:3px;text-decoration:none;transition:transform .25s}
+#main-content .pv-home .home-category:nth-child(2){background:#d5ddc6}#main-content .pv-home .home-category:nth-child(3){background:#f0bb83}#main-content .pv-home .home-category:nth-child(4){background:#f6d763}
+#main-content .pv-home .home-category:hover{transform:translateY(-7px)}
+#main-content .pv-home .home-category>span{font-size:10px;letter-spacing:.14em;color:#302015}
+#main-content .pv-home .home-category strong{font-family:Georgia,serif;font-size:30px;line-height:1.05;margin:38px 0 16px;color:#302015}
+#main-content .pv-home .home-category small{font-size:13px;line-height:1.5;color:#51402c}
+#main-content .pv-home .home-category b{margin-top:auto;padding-top:20px;align-self:end;font-size:28px;color:#302015}
+#main-content .pv-home .pv-talent-section{background:#e9dec9}
+#main-content .pv-home .pv-talent-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+#main-content .pv-home .pv-empty{grid-column:1/-1;padding:35px;border:1px dashed #a89476;line-height:1.7;color:#51402c}
+#main-content .pv-home .pv-project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:35px}
+#main-content .pv-home .home-project{text-decoration:none;color:#302015}
+#main-content .pv-home .home-project-image{aspect-ratio:4/3;position:relative;overflow:hidden;background:#dfd2bd}
+#main-content .pv-home .home-project img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+#main-content .pv-home .home-project:hover img{transform:scale(1.035)}
+#main-content .pv-home .home-project-caption{display:flex;justify-content:space-between;padding:18px 0}
+#main-content .pv-home .home-project-caption small{display:block;margin-top:8px}
+#main-content .pv-home .pv-work-foot{display:flex;justify-content:space-between;gap:20px;padding-top:30px;font-size:12px}
+#main-content .pv-home .pv-manifesto{display:grid;grid-template-columns:1fr 2fr;gap:60px;background:#ffcb32;color:#302015}
+#main-content .pv-home .pv-manifesto-copy>p{font-size:18px;line-height:1.7;max-width:700px;color:#302015}
+#main-content .pv-home .pv-manifesto-index{font-family:Georgia,serif;font-size:24px}
+#main-content .pv-home .pv-manifesto-points{display:grid;gap:14px;margin-top:30px}
+#main-content .pv-home .pv-manifesto-points>div{display:flex;gap:20px;padding:16px 0;border-top:1px solid #a37c17;color:#302015}
+#main-content .pv-home .pv-join{display:flex;align-items:center;justify-content:space-between;gap:50px;background:#302015;color:#fff0d7}
+#main-content .pv-home .pv-join h2{color:#ffcb32}#main-content .pv-home .pv-join p{max-width:550px;line-height:1.7;color:#fff0d7}
+#main-content .pv-home .pv-join .pv-button{flex-shrink:0}
+#main-content .pv-home .pv-faq{display:grid;grid-template-columns:1fr 1.4fr;gap:70px}
+#main-content .pv-home .pv-faq details{border-bottom:1px solid #b8a792;padding:22px 0;background:none;color:#302015}
+#main-content .pv-home .pv-faq summary{font-size:18px;font-weight:700;cursor:pointer;line-height:1.5}
+#main-content .pv-home .pv-faq details p{line-height:1.7;color:#675343}
+#main-content .pv-home :is(a,button,summary):focus-visible{outline:3px solid #b64b16;outline-offset:5px}
+#main-content .pv-home .pv-hero :is(a,button):focus-visible{outline-color:#fff0d7}
+@keyframes editorial-marquee{to{transform:translateX(-50%)}}
+@media(max-width:900px){#main-content .pv-home .pv-category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#main-content .pv-home .pv-talent-grid{grid-template-columns:1fr}#main-content .pv-home .pv-hero{min-height:700px;padding-top:70px}#main-content .pv-home .pv-section-top{align-items:start;flex-direction:column}#main-content .pv-home .pv-manifesto,#main-content .pv-home .pv-faq{grid-template-columns:1fr;gap:30px}#main-content .pv-home .pv-join{align-items:start;flex-direction:column}}
+@media(max-width:540px){#main-content .pv-home>section:not(.pv-hero){padding:55px 6%}#main-content .pv-home .pv-hero{padding:55px 6% 30px;min-height:0}#main-content .pv-home .pv-hero h1{font-size:52px}#main-content .pv-home .pv-overline{font-size:9px}#main-content .pv-home .pv-hero-lede{font-size:16px}#main-content .pv-home .pv-category-grid,#main-content .pv-home .pv-project-grid{grid-template-columns:1fr}#main-content .pv-home .home-category{min-height:220px}#main-content .pv-home .pv-index{gap:25px}#main-content .pv-home .pv-index-metrics{gap:24px}#main-content .pv-home .pv-work-foot{flex-direction:column}}
+@media(prefers-reduced-motion:reduce){#main-content .pv-home *,#main-content .pv-home *::before,#main-content .pv-home *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+[data-motion="off"] .pv-home .pv-motion-ribbon-track{animation:none!important}
+
+/* PIR VISUALS / COMPANY EDITION 2026
+   An original warm editorial design system inspired by the visual rhythm
+   of contemporary creative education sites; no third-party design assets.
+   Loaded after the app's existing functional and component styles. */
+:root,
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #faf4e7;
+  --bg-soft: #f3e8d6;
+  --surface: #fffaf0;
+  --surface-raised: #eee0c8;
+  --panel: #fffaf0;
+  --panel2: #efe3cd;
+  --line: #d6c2a7;
+  --text: #2b1d15;
+  --muted: #675447;
+  --subtle: #806c5b;
+  --accent: #f7bc28;
+  --accent-strong: #e2a809;
+  --accent-ink: #2b1d15;
+  --mint: #61412d;
+  --mint2: #5a3925;
+  --gold: #9f5c1d;
+  --shadow: 0 16px 42px rgba(63,35,16,.065);
+  --company-ink: #2b1d15;
+  --company-yellow: #ffcf38;
+  --company-cream: #faf4e7;
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #241811;
+  --bg-soft: #34251c;
+  --surface: #35271d;
+  --surface-raised: #463328;
+  --panel: #35271d;
+  --panel2: #49362b;
+  --line: #735849;
+  --text: #fff0d8;
+  --muted: #dcc7b1;
+  --subtle: #c8ae99;
+  --accent: #ffcf38;
+  --accent-strong: #ffda6c;
+  --accent-ink: #2b1d15;
+  --mint: #ffcf38;
+  --mint2: #ffcf38;
+  --gold: #ffcf38;
+  --shadow: 0 18px 52px rgba(0,0,0,.22);
+}
+html { scroll-padding-top: 110px; }
+body,
+:root[data-theme="light"] body,
+:root[data-theme="dark"] body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Trebuchet MS", Inter, ui-sans-serif, system-ui, sans-serif;
+  font-size: 15px;
+}
+::selection { background: #ffcf38; color: #2b1d15; }
+#main-content.wrap { max-width: 1440px; padding: 0 clamp(18px,3.5vw,62px) 0; }
+#main-content > :not(.site-nav):not(.foot):not(.pv-command-dialog) { max-width: 100%; }
+#main-content > .site-nav,
+:root[data-theme="light"] #main-content > .site-nav,
+:root[data-theme="dark"] #main-content > .site-nav {
+  background: var(--company-ink);
+  border: 1px solid #5f4636;
+  color: #fff3df;
+  border-radius: 0 0 16px 16px;
+  top: 0;
+  padding: 13px clamp(14px,1.8vw,26px);
+  margin: 0 0 24px;
+  box-shadow: 0 11px 30px rgba(38,23,12,.12);
+}
+#main-content .site-nav .brand,
+#main-content .site-nav .brand-copy strong,
+#main-content .site-nav .brand-copy small { color: #fff1dc !important; }
+#main-content .site-nav .brand-copy strong {font-size: 18px;letter-spacing: -.045em;font-weight: 950;}
+#main-content .site-nav .brand-copy small {opacity:.75; font-size:8.5px; letter-spacing:.10em;}
+#main-content .site-nav .brand-emblem { border: 1px solid #8c6b47; background:#e8d8b8; }
+#main-content .site-nav .nav-links a,
+#main-content .site-nav .nav-more summary { color: #fff0d9; font-weight: 700; }
+#main-content .site-nav .nav-links a:hover,
+#main-content .site-nav .nav-links a[aria-current="page"],
+#main-content .site-nav .nav-more summary:hover { background: #513727; color: #fff0d9; }
+#main-content .site-nav .nav-cta,
+#main-content .site-nav .nav-links a.nav-cta { background: #ffcf38; color: #2b1d15 !important; border: 1px solid #ffcf38; border-radius: 4px; padding: 11px 18px; }
+#main-content .site-nav .nav-cta:hover { background: #ffe486; }
+#main-content .site-nav .nav-action-button,
+#main-content .site-nav .nav-toggle { background: #4d3528; color: #fff3e0; border-color: #785540; }
+#main-content .site-nav .nav-more-menu { background: #352419; border-color: #785540; }
+#main-content .site-nav .nav-more-menu a {color:#fff1df;}
+#main-content .site-nav .nav-more-menu a:hover {background:#5a3b29;}
+#main-content .site-nav .pill-count {background:#ffcf38;color:#2b1d15;}
+#main-content .hero h1, #main-content .company-hero h1,
+#main-content .section-head h2, #main-content .section-space > h2,
+#main-content .support-hero h1,
+#main-content .footer-cta h2,
+#main-content .category-intro h1,
+#main-content .legal-copy h1,
+#main-content .company-editorial h1,
+#main-content .company-editorial h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: -.048em;
+  line-height: 1.065;
+  font-weight: 800;
+}
+#main-content .hero:not(.pv-hero),
+#main-content .company-hero {border-bottom:1px solid var(--line);margin-bottom:32px;padding-top:clamp(38px,5vw,75px);}
+#main-content .hero:not(.pv-hero) h1 {font-size:clamp(44px,6.6vw,90px);max-width:970px;}
+#main-content .hero:not(.pv-hero) p,
+#main-content .company-hero p {color:var(--muted);font-size:clamp(16px,1.6vw,19px);line-height:1.7;}
+#main-content .eyebrow {color:var(--muted);font-weight:850;letter-spacing:.15em;font-size:11px;text-transform:uppercase;}
+#main-content .card,
+#main-content .designer-card,
+#main-content .work,
+#main-content .feature-item,
+#main-content .trust-item,
+#main-content .stat,
+#main-content .hero-panel,
+#main-content .search-panel,
+#main-content .support-form-card,
+#main-content .support-channel,
+#main-content .pv-collection-card {
+  background: var(--surface);
+  border:1px solid var(--line);
+  color:var(--text);
+  border-radius: 8px;
+  box-shadow:var(--shadow);
+}
+#main-content .card:hover,
+#main-content a.work:hover,
+#main-content a.designer-card:hover {border-color:#bd865b;}
+#main-content .stat strong,
+#main-content .trust-item strong {font-family:Georgia,serif;letter-spacing:-.055em;}
+#main-content :is(.btn,.button,.pv-button,.nav-cta),
+#main-content button[type="submit"] {
+  border-radius: 5px;
+  font-weight:800;
+  box-shadow:none;
+  transition:background .18s ease, transform .18s ease, border-color .18s ease;
+}
+#main-content :is(.btn:not(.btn-secondary):not(.btn-ghost),.button),
+#main-content button[type="submit"] {background:#ffcf38;color:#2b1d15;border:1px solid #dba522;}
+#main-content :is(.btn:not(.btn-secondary):not(.btn-ghost),.button):hover,
+#main-content button[type="submit"]:hover {background:#ffe28a;color:#2b1d15;transform:translateY(-2px);}
+#main-content .btn-secondary {background:var(--surface-raised);border:1px solid var(--line);color:var(--text);}
+#main-content .btn-ghost {color:var(--text);border:1px solid var(--line);}
+#main-content :is(input:not([type="checkbox"]):not([type="radio"]), select, textarea) {
+  background:var(--surface);color:var(--text);border:1px solid var(--line);border-radius:5px;
+}
+#main-content :is(input,textarea)::placeholder {color:var(--subtle);opacity:1;}
+#main-content label {color:var(--text);}
+#main-content :is(input,select,textarea):focus-visible {outline:3px solid #c77d35;outline-offset:2px;}
+#main-content :is(a,button,summary):focus-visible {outline:3px solid #cc792e;outline-offset:3px;}
+#main-content .muted, #main-content .status, #main-content .foot {color:var(--muted);}
+#main-content .tag {background:var(--surface-raised);border-color:var(--line);color:var(--text);}
+#main-content .feature-icon {background:#ffdc69;color:#2b1d15;}
+#main-content .cta-band {background:#f7d46b;border-color:#d0a846;color:#2b1d15;border-radius:8px;}
+#main-content .cta-band :is(h2,p,.muted) {color:#2b1d15;}
+#main-content .footer-cta,
+#main-content .foot {
+  background:#2b1d15;
+  color:#fff1db;
+}
+#main-content .foot {
+  border-top:0;
+  border-radius:14px 14px 0 0;
+  margin-top:clamp(64px,8vw,130px);
+  text-align:left;
+  padding:clamp(28px,5vw,68px);
+}
+#main-content .footer-cta {border:0;border-bottom:1px solid #765846;border-radius:0;padding:0 0 40px;margin:0 0 40px;}
+#main-content .footer-cta h2 {color:#ffcf38;line-height:1.05;font-size:clamp(36px,4.8vw,66px);}
+#main-content .footer-cta p,
+#main-content .foot p,
+#main-content .footer-grid p {color:#e2ceba;}
+#main-content .footer-grid strong {color:#fff0dc;}
+#main-content .foot a {color:#fff0dc;}
+#main-content .foot a:hover {color:#ffcf38;}
+#main-content .footer-grid {gap:clamp(20px,3vw,50px);}
+#main-content .footer-brand-lockup {color:#ffcf38;font-weight:950;font-size:clamp(25px,3vw,42px);letter-spacing:-.055em;}
+#main-content .footer-bottom {color:#d7bfa9;border-top:1px solid #765846;padding-top:25px;}
+#main-content .footer-cta-actions .btn:not(.btn-secondary) {background:#ffcf38;color:#2b1d15;}
+#main-content .footer-cta-actions .btn-secondary {background:transparent;border-color:#9d7961;color:#fff1df;}
+#main-content .pv-home {background:var(--company-cream);}
+#main-content .pv-home .pv-hero {min-height: min(820px,88vh);background:#2b1d15;}
+#main-content .pv-home .pv-hero h1 {font-size:clamp(59px,9vw,128px);max-width:1120px;}
+#main-content .pv-home .pv-hero .pv-button {color:#2b1d15;background:#ffcf38;border-color:#ffcf38;}
+#main-content .pv-home .pv-category-section {background:#faf4e7;}
+#main-content .pv-home .pv-category-grid {gap:18px;}
+#main-content .pv-home .home-category {min-height:300px;border:1px solid #9c8063;}
+#main-content .pv-home .home-category strong {font-size:clamp(26px,2.65vw,39px);}
+#main-content .pv-home .pv-talent-section {background:#f0e6d6;}
+#main-content .pv-home .pv-manifesto {background:#ffcf38;}
+#main-content .pv-home .pv-join {background:#2b1d15;}
+#main-content .pv-home .pv-join h2 {color:#ffcf38;}
+#main-content .pv-home .pv-work-section,#main-content .pv-home .pv-faq {background:#faf4e7;}
+#main-content .pv-home :is(.pv-talent-section,.pv-category-section,.pv-work-section,.pv-faq) h2 {color:#2b1d15;}
+#main-content .pv-home .pv-empty {color:#59412e;}
+#main-content .pv-home .home-project {color:#2b1d15;}
+#main-content .pv-home .pv-label {color:inherit;}
+#main-content .company-editorial {margin:30px auto 0;}
+#main-content .company-editorial-hero {background:#ffcf38;padding:clamp(34px,6vw,86px);display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:end;border-radius:8px;}
+#main-content .company-editorial-hero h1 {color:#2b1d15;margin:12px 0;font-size:clamp(46px,7vw,105px);}
+#main-content .company-editorial-hero p {color:#513c24;max-width:600px;font-size:18px;}
+#main-content .company-editorial-hero .eyebrow {color:#4a3018;}
+#main-content .company-editorial-hero-aside {background:#2b1d15;color:#fff3df;padding:28px;min-height:240px;display:flex;flex-direction:column;justify-content:space-between;}
+#main-content .company-editorial-hero-aside span {font-size:11px;letter-spacing:.14em;}
+#main-content .company-editorial-hero-aside strong {font:700 clamp(28px,3vw,48px)/1.1 Georgia,serif;letter-spacing:-.045em;}
+#main-content .company-editorial-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:26px 0 55px;}
+#main-content .company-editorial-card {padding:34px 30px;border:1px solid var(--line);background:var(--surface);border-radius:6px;}
+#main-content .company-editorial-card:nth-child(2) {background:#d5dcc5;color:#2b1d15;}
+#main-content .company-editorial-card:nth-child(3) {background:#edb387;color:#2b1d15;}
+#main-content .company-editorial-card span {display:block;font-size:11px;font-weight:850;letter-spacing:.16em;}
+#main-content .company-editorial-card h2 {font-size:clamp(26px,3vw,38px);margin:40px 0 14px;}
+#main-content .company-editorial-card p {line-height:1.7;}
+#main-content .company-editorial-card a {display:inline-flex;margin-top:15px;font-weight:800;text-underline-offset:4px;text-decoration:underline;}
+#main-content .company-editorial-copy {display:grid;grid-template-columns:.65fr 1.35fr;gap:clamp(28px,5vw,90px);padding:54px 5px;border-top:1px solid var(--line);}
+#main-content .company-editorial-copy h2 {font-size:clamp(32px,4vw,56px);margin:0;}
+#main-content .company-editorial-copy .copy {font-size:17px;line-height:1.85;}
+#main-content .company-editorial-copy .copy h3 {font-size:23px;margin-top:22px;}
+#main-content .company-editorial-copy .copy p {color:var(--muted);}
+#main-content .company-editorial-copy .copy ul {padding-left:20px;}
+#main-content .company-editorial-copy .copy li {margin-bottom:9px;}
+#main-content .company-editorial-cta {display:flex;gap:30px;justify-content:space-between;align-items:center;background:#2b1d15;color:#fff4df;padding:clamp(25px,4vw,54px);border-radius:5px;}
+#main-content .company-editorial-cta h2 {font-size:clamp(32px,4vw,52px);color:#ffcf38;margin:0 0 12px;}
+#main-content .company-editorial-cta p {color:#e9cdb3;margin:0;max-width:660px;}
+#main-content .company-editorial-cta .btn {flex-shrink:0;}
+#main-content .support-hero {background:#ffcf38;color:#2b1d15;}
+#main-content .support-hero h1, #main-content .support-hero p {color:#2b1d15;}
+#main-content .support-hero-aside {background:#2b1d15;color:#fff0da;}
+#main-content .support-hero-aside strong {color:#fff0da;}
+#main-content .support-hero-aside li {border-color:#735849;}
+#main-content .search-panel {padding:clamp(16px,2vw,30px);}
+#main-content .pv-directory-intro, #main-content .category-intro {color:var(--text);}
+#main-content .category-intro {background:var(--bg-soft);border-color:var(--line);}
+#main-content .pv-case-chapters {background:var(--surface);border-color:var(--line);}
+#main-content .legal-copy {max-width:960px;}
+#main-content .legal-copy .card {padding:clamp(25px,4vw,52px);line-height:1.85;}
+#main-content .legal-copy h2 {font-family:Georgia,serif;font-size:clamp(22px,2.5vw,34px);letter-spacing:-.03em;}
+@media (max-width:1100px) {
+ #main-content .site-nav .nav-primary {gap:1px;}
+ #main-content .site-nav .nav-links a {padding:9px;}
+ #main-content .company-editorial-grid {grid-template-columns:1fr 1fr;}
+ #main-content .company-editorial-card:last-child {grid-column:1/-1;}
+}
+@media (max-width:850px) {
+ #main-content.wrap {padding:0 14px 0;}
+ #main-content > .site-nav {border-radius:0 0 10px 10px;top:0;align-items:center;}
+ #main-content .site-nav .nav-links,
+ #main-content .site-nav .nav-links.open {width:100%;}
+ #main-content .site-nav .nav-links.open {background:#2b1d15;border:1px solid #75583e;border-radius:8px;padding:14px;max-height:calc(100vh - 85px);overflow:auto;}
+ #main-content .site-nav .nav-more-menu {position:static;max-width:100%;box-shadow:none;}
+ #main-content .site-nav .nav-primary {flex-direction:column;align-items:stretch;}
+ #main-content .site-nav .nav-actions {flex-wrap:wrap;}
+ #main-content .site-nav .nav-toggle {margin-left:auto;}
+ #main-content .company-editorial-hero {grid-template-columns:1fr;}
+ #main-content .company-editorial-copy {grid-template-columns:1fr;gap:20px;padding:35px 4px;}
+ #main-content .company-editorial-cta {align-items:start;flex-direction:column;}
+ #main-content .foot {border-radius:10px 10px 0 0;}
+}
+@media (max-width:600px) {
+ #main-content .site-nav .brand-copy small {font-size:7px;}
+ #main-content .site-nav .brand-emblem {width:36px;height:36px;}
+ #main-content .site-nav .brand-copy strong {font-size:16px;}
+ #main-content .company-editorial-hero {padding:32px 22px;gap:18px;}
+ #main-content .company-editorial-hero-aside {min-height:155px;padding:20px;}
+ #main-content .company-editorial-grid {grid-template-columns:1fr;}
+ #main-content .company-editorial-card:last-child {grid-column:auto;}
+ #main-content .company-editorial-card {padding:28px 23px;}
+ #main-content .company-editorial-card h2 {margin:28px 0 14px;}
+ #main-content .foot {padding:30px 23px;}
+ #main-content .footer-grid {grid-template-columns:1fr 1fr;}
+ #main-content .pv-home .pv-hero h1 {font-size:clamp(46px,13vw,75px);}
+ #main-content .pv-home .pv-hero {min-height:0;}
+}
+@media (max-width:420px) {
+ #main-content .footer-grid {grid-template-columns:1fr;}
+ #main-content .footer-cta-actions {flex-wrap:wrap;}
+ #main-content .site-nav .nav-actions {gap:5px;}
+}
+@media (prefers-reduced-motion: reduce) {
+ *,*::before,*::after {scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important;}
+}
+
+</style><body><div class="preview-note">PRATINJAU DESAIN · Data, tautan dan formulir interaktif berjalan pada website server perusahaan</div><div class="preview-note">PRATINJAU DESAIN · Data kosong · Fitur akun dan direktori tersedia setelah server dijalankan.</div><main id="main-content"><header class="site-nav"><a class="brand" href="#">PIR VISUALS<span style="color:#ffcb32">✳</span></a><nav class="preview-links"><a href="#categories">Eksplorasi</a><a href="#join">Untuk desainer</a><a href="#faq">FAQ</a></nav></header><div class="pv-home">
+    <section class="pv-hero">
+      <img class="editorial-hero-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNjAwIiBoZWlnaHQ9IjEwMDAiIHZpZXdCb3g9IjAgMCAxNjAwIDEwMDAiPjxyZWN0IHdpZHRoPSIxNjAwIiBoZWlnaHQ9IjEwMDAiIGZpbGw9IiM3MDRjMzEiLz48ZyB0cmFuc2Zvcm09InJvdGF0ZSgtMTIgODAwIDUwMCkiPjxyZWN0IHg9IjE2MCIgeT0iLTE4MCIgd2lkdGg9IjYzMCIgaGVpZ2h0PSI4NDAiIHJ4PSI4IiBmaWxsPSIjZTZkNWI0Ii8+PGNpcmNsZSBjeD0iNDc1IiBjeT0iMjAwIiByPSIyMDAiIGZpbGw9IiNlNDZlMzEiLz48cGF0aCBkPSJNMjc1IDIwMGg0MDBNNDc1IDB2NDAwIiBzdHJva2U9IiMzMDIwMTUiIHN0cm9rZS13aWR0aD0iNDUiLz48cmVjdCB4PSI4NTAiIHk9IjE4MCIgd2lkdGg9IjU2MCIgaGVpZ2h0PSI3NjAiIGZpbGw9IiNiOWMzYTQiLz48cGF0aCBkPSJNOTYwIDcwMFYzMzBoMzQwdjM3MHoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzMwNDIzNyIgc3Ryb2tlLXdpZHRoPSI0NSIvPjxjaXJjbGUgY3g9IjExMzAiIGN5PSI1MTUiIHI9IjEyMCIgZmlsbD0iI2Y4YzgzNyIvPjxwYXRoIGQ9Ik0tODAgODYwTDU5MCA0MzBsMzgwIDYwMCIgZmlsbD0iI2IzNGMyYiIvPjxnIGZpbGw9IiNmNmQ0NjkiPjxjaXJjbGUgY3g9IjQ1MCIgY3k9IjY4MCIgcj0iNDUiLz48Y2lyY2xlIGN4PSI1ODAiIGN5PSI2ODAiIHI9IjQ1Ii8+PGNpcmNsZSBjeD0iNzEwIiBjeT0iNjgwIiByPSI0NSIvPjwvZz48L2c+PC9zdmc+Cg==" alt="" fetchpriority="high" decoding="async">
+      <div class="pv-hero-main">
+        <div class="pv-overline"><i></i> INDEPENDENT CREATIVE TALENT PLATFORM <span>· INDONESIA</span></div>
+        
+        <h1 aria-label="Ide berani. Karya berarti."><span class="pv-hero-title-visual" aria-hidden="true"><span class="pv-hero-word" style="--pv-word-index:0">Ide</span> <span class="pv-hero-word" style="--pv-word-index:1">berani.</span> <span class="pv-hero-word" style="--pv-word-index:2">Karya</span> <span class="pv-hero-word" style="--pv-word-index:3">berarti.</span></span></h1>
+        <p class="pv-hero-lede">PIR Visuals adalah ruang untuk menemukan desainer kreatif, menjelajahi karya terbaik, dan membangun kolaborasi secara langsung.</p>
+        <div class="pv-hero-actions"><a class="pv-button pv-button-dark" href="#categories">Temukan desainer <span>↗</span></a><a class="pv-text-link" href="#join">Saya seorang desainer <span>↗</span></a></div>
+        <div class="pv-hero-foot"><span>PORTFOLIO FIRST</span><span>DIRECT CONNECTION</span><span>BUILT FOR CREATIVES</span></div>
+      </div>
+      <aside class="pv-index">
+        <div class="pv-index-heading"><span>THE CREATIVE INDEX</span><span><i></i> LIVE DIRECTORY</span></div>
+        <div class="pv-index-total"><strong data-pv-count="0">0</strong><span>DESIGNERS<br>IN THE NETWORK</span></div>
+        <div class="pv-index-metrics"><div><b data-pv-count="0">0</b><small>PIR REVIEWED</small></div><div><b data-pv-count="0">0</b><small>BRIEF WORKSPACE</small></div><div><b data-pv-count="0">0</b><small>FEATURED</small></div></div>
+        <p>Great work deserves to be discovered.</p>
+      </aside>
+      <div class="pv-hero-bottom"><span>SCROLL TO EXPLORE</span><span>01 — 05</span></div>
+    </section>
+    <div class="pv-motion-ribbon" role="img" aria-label="Discover, create, connect, and make meaningful work">
+      <div class="pv-motion-ribbon-track" aria-hidden="true"><span>DISCOVER TALENT</span><i>✳</i><span>MAKE GOOD WORK</span><i>✳</i><span>BUILD CONNECTIONS</span><i>✳</i><span>SHARE YOUR IDEAS</span><i>✳</i><span>DISCOVER TALENT</span><i>✳</i><span>MAKE GOOD WORK</span><i>✳</i><span>BUILD CONNECTIONS</span><i>✳</i><span>SHARE YOUR IDEAS</span><i>✳</i></div>
+    </div>
+    <section id="categories" class="pv-category-section"><div class="pv-section-top"><div><span class="pv-label">FIND YOUR CREATIVE MATCH</span><h2 class="pv-managed-title">What are you<br>looking to create?</h2></div><p>Mulai dari kebutuhanmu. Temukan spesialis yang tepat melalui karya, skill, dan layanan yang mereka tampilkan.</p></div><div class="pv-category-grid"><a class="home-category" href="#categories"><span>01 / EXPLORE</span><strong>Brand identity</strong><small>Logo, visual systems &amp; art direction</small><b aria-hidden="true">↗</b></a><a class="home-category" href="#categories"><span>02 / EXPLORE</span><strong>Digital experiences</strong><small>UI/UX, product &amp; web design</small><b aria-hidden="true">↗</b></a><a class="home-category" href="#categories"><span>03 / EXPLORE</span><strong>Visual storytelling</strong><small>Illustration, 3D &amp; motion</small><b aria-hidden="true">↗</b></a><a class="home-category" href="#categories"><span>04 / EXPLORE</span><strong>Campaign &amp; content</strong><small>Social, editorial &amp; campaign assets</small><b aria-hidden="true">↗</b></a></div></section>
+<section class="pv-talent-section"><div class="pv-section-top"><div><span class="pv-label">THE PEOPLE BEHIND THE WORK</span><h2 class="pv-managed-title">Meet the<br>independent talent.</h2></div><a class="pv-outline-link" href="#categories">Jelajahi semua desainer ↗</a></div><div class="pv-talent-grid"><div class="pv-empty">Talenta unggulan akan tampil di sini. <a href="#categories">Jelajahi direktori ↗</a></div></div></section>
+<section class="pv-manifesto"><div class="pv-manifesto-aside"><span class="pv-label">A BETTER WAY TO COLLABORATE</span><span class="pv-manifesto-index">PV / 2026</span></div><div class="pv-manifesto-copy"><h2 class="pv-managed-title">Less middlemen.<br>More meaningful work.</h2><p>PIR Visuals mempertemukan klien dengan desainer melalui portfolio yang transparan. Kamu melihat karya, memahami spesialisasi dan kisaran harga, lalu berdiskusi langsung dengan kreatornya.</p><div class="pv-manifesto-points"><div><b>01</b><span>Jelajahi karya dan profil</span></div><div><b>02</b><span>Bandingkan layanan dan harga</span></div><div><b>03</b><span>Hubungi desainer secara langsung</span></div></div></div></section>
+<section id="join" class="pv-join"><div><span class="pv-label">YOUR WORK. YOUR SPACE.</span><h2 class="pv-managed-title">Make your work<br>impossible to ignore.</h2><p>Bangun kehadiran profesional, tampilkan karya terbaik, dan biarkan klien menemukanmu.</p></div><a class="pv-button pv-button-light" href="#join">Bangun portfolio kamu ↗</a></section>
+<section id="faq" class="pv-faq"><div><span class="pv-label">GOOD TO KNOW</span><h2 class="pv-managed-title">Questions,<br>answered.</h2></div><div class="pv-faq-list"><details><summary>Apakah PIR Visuals menjadi perantara transaksi?</summary><p>Tidak. PIR Visuals adalah platform portfolio dan discovery. Klien menghubungi desainer secara langsung dan mengatur kesepakatan di antara mereka.</p></details><details><summary>Bagaimana cara menemukan desainer yang tepat?</summary><p>Gunakan direktori untuk menyaring spesialisasi, lokasi, kisaran harga, verifikasi, dan ketersediaan. Lalu periksa portfolio dan layanan mereka.</p></details><details><summary>Bagaimana desainer bergabung?</summary><p>Buka Designer Studio untuk membuat atau mengelola akun, profil, layanan, dan portfolio.</p></details></div></section>
+  </div></main><footer style="padding:40px 5%;background:#291b12;color:#fff0d7;font:13px Arial">PIR VISUALS / INDEPENDENT CREATIVE TALENT</footer></body></html>
